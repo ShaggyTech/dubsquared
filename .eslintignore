@@ -1,0 +1,5 @@
+dist
+public
+.nuxt
+components.d.ts
+workers-site
