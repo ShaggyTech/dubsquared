@@ -6,7 +6,19 @@ components:
     change_theme: change theme
 pages:
   index:
-    title: nuxt 3,awesome,starter
+    title: Dubsquared
+  about:
+    nav: about
+    title: about
+  services:
+    nav: services
+    title: services
+  gallery:
+    nav: gallery
+    title: gallery
+  contact:
+    nav: contact
+    title: contact
   blank:
     nav: blank
     title: blank page
@@ -20,9 +32,6 @@ pages:
     reset: reset
     identity: identity
     full_name: fullName
-  about:
-    nav: about
-    title: about
   dashboard:
     nav: dashboard
     title: dashboard
@@ -33,3 +42,4 @@ banners:
   welcome: hello, welcome to %{app_name}!
 others:
   learn_more: learn more
+  get_a_quote: get a quote

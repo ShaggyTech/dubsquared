@@ -6,7 +6,19 @@ components:
     change_theme: ganti tema
 pages:
   index:
-    title: nuxt 3,permulaan,luar biasa
+    title: Dubsquared - Volkswagen and Audi Specialists
+  about:
+    nav: about
+    title: about
+  services:
+    nav: services
+    title: services
+  gallery:
+    nav: gallery
+    title: gallery
+  contact:
+    nav: contact
+    title: contact
   blank:
     nav: kosong
     title: halaman kosong
@@ -20,16 +32,14 @@ pages:
     reset: reset ulang
     identity: identitas
     full_name: nama lengkap
-  about:
-    nav: tentang
-    title: tentang penulis
   dashboard:
     nav: dashboard
     title: dashboard
     index:
-      nav: beranda 
+      nav: beranda
       title: beranda
 banners:
   welcome: halo, selamat datang di %{app_name}!
 others:
   learn_more: lihat selengkapnya
+  get_a_quote: get a quote

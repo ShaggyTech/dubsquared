@@ -6,7 +6,19 @@ components:
     change_theme: テーマを変えてください
 pages:
   index:
-    title: nuxt 3,素晴らしい,スターター
+    title: Dubsquared - Volkswagen and Audi Specialists
+  about:
+    nav: about
+    title: about
+  services:
+    nav: services
+    title: services
+  gallery:
+    nav: gallery
+    title: gallery
+  contact:
+    nav: contact
+    title: contact
   blank:
     nav: 空白
     title: 空白ページ
@@ -20,9 +32,6 @@ pages:
     reset: リセット
     identity: 識別
     full_name: 全名
-  about:
-    nav: このサイトについて
-    title: このサイトについて
   dashboard:
     nav: ダッシュボード
     title: ダッシュボード
@@ -33,3 +42,4 @@ banners:
   welcome: こんにちは, %{app_name} へようこそ!
 others:
   learn_more: 続きを読む
+  get_a_quote: get a quote
