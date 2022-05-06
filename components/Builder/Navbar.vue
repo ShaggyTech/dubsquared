@@ -1,7 +1,11 @@
 <template>
   <div
     ref="navbar"
-    class="backdrop-filter backdrop-blur top-0 z-40 w-full flex-none ransition-colors duration-300 lg:z-50 border-b border-gray-900/10 dark:border-gray-50/[0.2] bg-white/[0.7] dark:bg-slate-900/[0.7]"
+    :class="`
+      top-0 z-40 w-full flex-none transition-colors duration-300 lg:z-50
+      border-b border-gray-900/10 dark:border-gray-50/[0.2]
+      bg-gray-200/[0.7] dark:bg-zinc-800/[0.7] backdrop-filter backdrop-blur
+    `"
   >
     <div id="navbar-banner" class="banner">
       <slot name="banner" />
@@ -32,15 +36,16 @@
           <slot name="title">
             <NuxtLink
               tag="a"
-              class="mr-3 flex-none overflow-hidden md:w-auto text-md font-bold text-gray-900 dark:text-gray-200"
+              class="mr-3 flex-none overflow-hidden md:w-auto"
               :to="{ name: 'index' }"
             >
               <span class="sr-only">home</span>
               <span class="flex items-center">
-                <IconSimpleIcons:nuxtdotjs
-                  class="inline-block mr-2 text-lg text-green-600"
+                <SVGDubsquaredTextLogo
+                  width="200"
+                  height="64"
+                  class="h-auto w-[200px]"
                 />
-                {{ app.name }}
               </span>
             </NuxtLink>
           </slot>
@@ -53,7 +58,7 @@
           >
             <button
               class="flex items-center focus:outline-none"
-              aria-label="Toggle Options Menu"
+              aria-label="Toggle Navigation Menu"
               @click="toggleOptions()"
             >
               <span
@@ -95,9 +100,9 @@
 </template>
 
 <script lang="ts" setup>
-import { IApp } from '~/utils/app'
+// import { IApp } from '~/utils/app'
 
-const app = useState<IApp>('app')
+// const app = useState<IApp>('app')
 const navbar = ref(null)
 const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
 const showOptions = useState<boolean>('navbar.showOptions', () => false)

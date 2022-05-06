@@ -17,7 +17,7 @@
     <template #menu>
       <div class="relative hidden lg:flex items-center ml-auto">
         <nav
-          class="text-sm leading-6 font-semibold text-gray-600 dark:text-gray-300"
+          class="text-lg leading-6 font-semibold text-zinc-800 dark:text-gray-200"
           role="navigation"
         >
           <ul class="flex items-center space-x-8">
@@ -26,7 +26,7 @@
                 v-if="item.type === 'link'"
                 :to="item.route ? item.route : undefined"
                 :href="item.href ? item.href : undefined"
-                class="hover:no-underline hover:text-slate-900 hover:dark:text-white capitalize"
+                class="hover:no-underline hover:text-zinc-900 hover:dark:text-white capitalize"
                 >{{ item.text }}</Anchor
               >
               <Button
@@ -132,13 +132,17 @@ export interface IMenuItem {
 const { t } = useLang()
 const app = useState<IApp>('app')
 const menus = computed((): IMenuItem[] => [
-  { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
-  { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
   { type: 'link', text: t('pages.about.nav'), route: { name: 'about' } },
+  { type: 'link', text: t('pages.services.nav'), route: { name: 'services' } },
+  { type: 'link', text: t('pages.gallery.nav'), route: { name: 'gallery' } },
+  { type: 'link', text: t('pages.contact.nav'), route: { name: 'contact' } },
+  // { type: 'link', text: t('pages.blank.nav'), route: { name: 'blank' } },
+  // { type: 'link', text: t('pages.test.nav'), route: { name: 'test' } },
+  // { type: 'link', text: t('pages.about.nav'), route: { name: 'about' } },
   {
     type: 'button',
-    text: t('pages.dashboard.nav'),
-    route: { name: 'dashboard' },
+    text: t('others.get_a_quote'),
+    route: { name: 'contact' },
   },
 ])
 </script>
