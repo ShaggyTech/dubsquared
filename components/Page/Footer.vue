@@ -9,10 +9,8 @@
         </div>
         <div class="text-xs text-gray-600 dark:text-gray-400">
           Copyright © 2022 <a :href="app.author.link">{{ app.author.name }}</a
-          >. All rights reserved. Made with <span class="text-red-500">❤</span>
-          <span class="md:float-right">
-            design by <a href="https://github.com/viandwi24">viandwi24</a>
-          </span>
+          >. All rights reserved. Original template design by
+          <a href="https://github.com/viandwi24">viandwi24</a>
         </div>
       </div>
     </section>

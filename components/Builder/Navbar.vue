@@ -134,16 +134,4 @@ const toggleOptions = (show?: boolean) => {
   transform: translateY(-20px);
   opacity: 0;
 }
-
-a.router-link-active {
-  font-weight: bold;
-}
-a.router-link-exact-active {
-  color: theme('colors.slate.900');
-}
-html.dark {
-  a.router-link-exact-active {
-    color: theme('colors.white');
-  }
-}
 </style>

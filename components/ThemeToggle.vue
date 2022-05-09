@@ -14,10 +14,10 @@
         :title="$t('components.theme_switcher.change_theme')"
       >
         <span class="flex justify-center items-center dark:hidden">
-          <IconUil:sun />
+          <IconUil:sun style="font-size: 1.2em" />
         </span>
         <span class="justify-center items-center hidden dark:flex">
-          <IconUil:moon />
+          <IconUil:moon style="font-size: 1.2em" />
         </span>
       </ListboxButton>
       <ListboxOptions

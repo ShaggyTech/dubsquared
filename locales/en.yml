@@ -19,6 +19,9 @@ pages:
   contact:
     nav: contact
     title: contact
+  get_a_quote:
+    nav: get a quote
+    title: get a quote
   blank:
     nav: blank
     title: blank page

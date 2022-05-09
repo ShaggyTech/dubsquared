@@ -1,5 +1,5 @@
 <template>
-  <BuilderNavbar>
+  <AppNavbarBuilder>
     <template #banner>
       <AppContactBar
         type="detached"
@@ -22,47 +22,13 @@
         icon-style="hidden sm:block mr-4 lg:mr-6 "
       />
     </template>
+
+    <!-- Desktop Menu -->
     <template #menu>
-      <div class="relative hidden lg:flex items-center ml-auto">
-        <nav
-          class="text-lg leading-6 font-semibold text-zinc-800 dark:text-gray-200"
-          role="navigation"
-        >
-          <ul class="flex items-center space-x-8">
-            <li v-for="(item, i) in menus" :key="i">
-              <Anchor
-                v-if="item.type === 'link'"
-                :to="item.route ? item.route : undefined"
-                :href="item.href ? item.href : undefined"
-                class="hover:no-underline hover:text-zinc-900 hover:dark:text-white capitalize"
-                >{{ item.text }}</Anchor
-              >
-              <Button
-                v-else-if="item.type === 'button'"
-                :text="item.text"
-                size="xs"
-                class="font-extrabold capitalize"
-                :to="item.route ? item.route : undefined"
-                :href="item.href ? item.href : undefined"
-              />
-            </li>
-          </ul>
-        </nav>
-        <div
-          class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
-        >
-          <LanguageSwitcher />
-          <ThemeToggle />
-          <Anchor
-            class="hover:no-underline hover:text-slate-900 hover:dark:text-white text-lg flex self-center items-center"
-            href="https://github.com/viandwi24/nuxt3-awesome-starter"
-            title="Github"
-          >
-            <IconMdi:github-face />
-          </Anchor>
-        </div>
-      </div>
+      <AppNavbarMenu :menu="menuItems" />
     </template>
+
+    <!-- Mobile Menu -->
     <template #options="{ toggleOptions }">
       <ActionSheet @onClose="toggleOptions(false)">
         <ActionSheetBody>
@@ -70,7 +36,7 @@
           <nav class="leading-6 font-semibold text-gray-600 dark:text-gray-300">
             <ul class="flex flex-col">
               <li
-                v-for="(item, i) in menus"
+                v-for="(item, i) in menuItems"
                 :key="i"
                 class="flex w-full"
                 :class="{
@@ -124,7 +90,7 @@
         />
       </ActionSheet>
     </template>
-  </BuilderNavbar>
+  </AppNavbarBuilder>
 </template>
 
 <script lang="ts" setup>
@@ -141,7 +107,7 @@ export interface IMenuItem {
 const { t } = useLang()
 // const app = useState<IApp>('app')
 
-const menus = computed((): IMenuItem[] => [
+const menuItems = computed((): IMenuItem[] => [
   { type: 'link', text: t('pages.about.nav'), route: { name: 'about' } },
   { type: 'link', text: t('pages.services.nav'), route: { name: 'services' } },
   { type: 'link', text: t('pages.gallery.nav'), route: { name: 'gallery' } },
@@ -151,8 +117,8 @@ const menus = computed((): IMenuItem[] => [
   // { type: 'link', text: t('pages.about.nav'), route: { name: 'about' } },
   {
     type: 'button',
-    text: t('others.get_a_quote'),
-    route: { name: 'contact' },
+    text: t('pages.get_a_quote.nav'),
+    route: { name: 'get-a-quote' },
   },
 ])
 

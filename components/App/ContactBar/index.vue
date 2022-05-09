@@ -58,7 +58,7 @@ const defaultStyle = `
 const styles = reactive({
   detached: 'relative',
   attachedTop: `
-    absolute -top-[48px] lg:-top-[56px] left-0 right-0 z-[200]
+    absolute top-0 left-0 right-0 z-[200]
     flex flex-row items-center justify-center gap-x-4
     w-full h-auto max-h-[46px] lg:max-h-[54px]
     px-6 lg:py-6
