@@ -35,7 +35,8 @@
 
         TODO: Make a new ActionSheet for sidebar
       -->
-      <ActionSheet @onClose="toggleOptions(false)">
+      <AppNavbarMenuMobile :menu="menuItems" @onClose="toggleOptions(false)" />
+      <!-- <ActionSheet @onClose="toggleOptions(false)">
         <ActionSheetBody>
           <ActionSheetHeader text="Menu" />
           <nav class="leading-6 font-semibold text-gray-600 dark:text-gray-300">
@@ -93,7 +94,7 @@
           type="secondary"
           @click.prevent="toggleOptions(false)"
         />
-      </ActionSheet>
+      </ActionSheet> -->
     </template>
   </AppNavbarBuilder>
 </template>
