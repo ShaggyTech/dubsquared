@@ -1,5 +1,6 @@
 <template>
   <div class="relative hidden lg:flex items-center ml-auto">
+    <!-- Desktop - Navigation -->
     <nav class="">
       <ul class="h-full flex flex-1 gap-x-5">
         <li
@@ -30,7 +31,7 @@
         </li>
       </ul>
     </nav>
-    <!-- Desktop Social Nav -->
+    <!-- Desktop - Social Nav -->
     <div
       class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
     >
@@ -59,7 +60,7 @@
         <IconLogos:googleIcon style="font-size: 1.2em" />
       </Anchor>
     </div>
-    <!-- Desktop App Options -->
+    <!-- Desktop - App Options -->
     <div
       class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
     >

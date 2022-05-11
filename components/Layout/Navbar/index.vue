@@ -1,6 +1,6 @@
 <template>
   <AppNavbarBuilder>
-    <template #banner>
+    <!-- <template #banner>
       <AppContactBar
         type="detached"
         :items="contactBarItems"
@@ -21,7 +21,7 @@
           `"
         icon-style="hidden sm:block mr-4 lg:mr-6 "
       />
-    </template>
+    </template> -->
 
     <!-- Desktop Menu -->
     <template #menu>
@@ -30,6 +30,11 @@
 
     <!-- Mobile Menu -->
     <template #options="{ toggleOptions }">
+      <!-- We want this:
+        <AppNavbarMenuMobile :menu="menuItems" />
+
+        TODO: Make a new ActionSheet for sidebar
+      -->
       <ActionSheet @onClose="toggleOptions(false)">
         <ActionSheetBody>
           <ActionSheetHeader text="Menu" />
@@ -95,7 +100,7 @@
 
 <script lang="ts" setup>
 // import { IApp } from '~/utils/app'
-import type { IContactBarItem } from '@/types'
+// import type { IContactBarItem } from '@/types'
 
 export interface IMenuItem {
   type: 'link' | 'button'
@@ -122,18 +127,18 @@ const menuItems = computed((): IMenuItem[] => [
   },
 ])
 
-const contactBarItems: IContactBarItem[] = [
-  {
-    text: '817-277-5593',
-    href: 'tel:817-277-5593',
-    icon: 'phone',
-    ariaLabel: 'Call Dubsquared',
-  },
-  {
-    text: 'info@dubsquared.com',
-    href: 'mailto:info@dubsquared.com',
-    icon: 'email',
-    ariaLabel: 'Email Dubsquared',
-  },
-]
+// const contactBarItems: IContactBarItem[] = [
+//   {
+//     text: '817-277-5593',
+//     href: 'tel:817-277-5593',
+//     icon: 'phone',
+//     ariaLabel: 'Call Dubsquared',
+//   },
+//   {
+//     text: 'info@dubsquared.com',
+//     href: 'mailto:info@dubsquared.com',
+//     icon: 'email',
+//     ariaLabel: 'Email Dubsquared',
+//   },
+// ]
 </script>

@@ -49,6 +49,10 @@ onMounted(() => {
 })
 </script>
 
+<script lang="ts">
+export default { name: 'ActionSheet' }
+</script>
+
 <style lang="scss">
 .slide-fade-from-bottom-enter-active {
   transition: all 0.3s ease-out;
