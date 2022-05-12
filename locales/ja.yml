@@ -6,6 +6,7 @@ components:
     change_theme: テーマを変えてください
 pages:
   index:
+    nav: home
     title: Dubsquared - Volkswagen and Audi Specialists
   about:
     nav: about

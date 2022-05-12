@@ -35,7 +35,10 @@
 
         TODO: Make a new ActionSheet for sidebar
       -->
-      <AppNavbarMenuMobile :menu="menuItems" @onClose="toggleOptions(false)" />
+      <AppNavbarMenuMobile
+        :menu="mobileMenuItems"
+        @onClose="toggleOptions(false)"
+      />
       <!-- <ActionSheet @onClose="toggleOptions(false)">
         <ActionSheetBody>
           <ActionSheetHeader text="Menu" />
@@ -126,6 +129,11 @@ const menuItems = computed((): IMenuItem[] => [
     text: t('pages.get_a_quote.nav'),
     route: { name: 'get-a-quote' },
   },
+])
+
+const mobileMenuItems = computed((): IMenuItem[] => [
+  { type: 'link', text: t('pages.index.nav'), route: { name: 'index' } },
+  ...menuItems.value,
 ])
 
 // const contactBarItems: IContactBarItem[] = [

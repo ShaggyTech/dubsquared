@@ -6,7 +6,8 @@ components:
     change_theme: change theme
 pages:
   index:
-    title: Dubsquared
+    nav: home
+    title: Dubsquared - Volkswagen and Audi Specialists
   about:
     nav: about
     title: about
