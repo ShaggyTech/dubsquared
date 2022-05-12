@@ -11,6 +11,9 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "cloudflare-build": "NITRO_PRESET=cloudflare yarn build",
+    "cloudflare-dev": "yarn cloudflare-build && wrangler dev",
+    "cloudflare-publish": "yarn cloudflare-build && wrangler publish",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "start": "node .output/server/index.mjs",
