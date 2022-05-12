@@ -1,82 +1,93 @@
 <template>
   <Teleport to="body">
     <TransitionRoot :show="show" appear>
-      <!-- <ActionSheetOverlay @click="close" />
-        -- Opaque Full Background Overlay
-        -- ActionSheetOverlay-->
+      <!-- Full Background Overlay - click to close menu -->
       <TransitionChild
-        class="fixed bg-black opacity-70 z-50 top-0 left-0 w-screen h-screen"
-        enter="transition-opacity ease-linear duration-300"
+        as="template"
+        enter="ease-out duration-300 delay-100"
         enter-from="opacity-0"
         enter-to="opacity-100"
-        leave="transition-opacity ease-linear duration-300"
+        leave="ease-in duration-300 delay-300"
         leave-from="opacity-100"
         leave-to="opacity-0"
         @click.prevent="close"
       >
+        <div
+          class="fixed inset-0 w-screen h-screen z-50 bg-white/30 dark:bg-zinc-900/80 backdrop-blur transition-opacity"
+        />
       </TransitionChild>
 
-      <!-- ActionSheet (original) -->
+      <!-- Menu Transition -->
       <TransitionChild
-        class="fixed right-0 top-0 bottom-0 h-screen w-[clamp(210px,66%,320px)] z-50 opacity-100"
-        enter="transition-all ease-in-out duration-300 transform"
+        as="template"
+        enter="ease-in-out duration-500 delay-300"
         enter-from="translate-x-full opacity-0"
-        enter-to="-translate-x-0 opacity-100"
-        leave="transition-all ease-in-out duration-300 transform"
-        leave-from="-translate-x-0 opacity-100"
+        enter-to="translate-x-0 opacity-100"
+        leave="ease-out duration-500 delay-100"
+        leave-from="translate-x-0 opacity-100"
         leave-to="translate-x-full opacity-0"
       >
-        <!-- Main Slot (original) -->
-        <!-- <slot /> -->
-        <!-- ActionSheetBody -->
-
-        <FocusTrap
-          class="relative max-w-8xl h-full mx-auto flex flex-col space-y-2 overflow-y-auto h-full bg-gray-100/[0.8] dark:bg-slate-800/[0.8] backdrop-blur supports-backdrop-blur:bg-white/60 p-4"
+        <div
+          class="fixed inset-y-0 right-0 h-screen w-[clamp(210px,66%,320px)] z-50 transform translate-x-full transition-all"
         >
-          <!-- ActionSheetHeader -->
-          <div class="text-xs font-bold text-center mb-2">
-            <!-- <slot>{{ text }}</slot> -->
-            Menu
-          </div>
-          <!-- Slot for ActionSheetBody -->
-          <!-- <slot /> -->
-          <nav class="leading-6 font-semibold text-gray-600 dark:text-gray-300">
-            <ul class="flex flex-col">
-              <li
-                v-for="(item, i) in menu"
-                :key="i"
-                class="flex w-full"
-                :class="{
-                  'pb-2 mb-2 border-b border-gray-900/10 dark:border-gray-50/[0.2]':
-                    item.type === 'link',
-                }"
-              >
-                <Anchor
-                  v-if="item.type === 'link'"
-                  :to="item.route ? item.route : undefined"
-                  :href="item.href ? item.href : undefined"
-                  class="flex-1 hover:no-underline capitalize"
-                  >{{ item.text }}</Anchor
+          <!-- Menu Body -->
+          <FocusTrap
+            class="relative max-w-8xl h-full flex flex-col space-y-4 p-4 overflow-y-auto bg-neutral-200 dark:bg-zinc-800 border-l-4 border-red-900/70"
+          >
+            <!-- Menu Header -->
+            <div class="text-xs font-bold text-center mb-2">
+              <!-- <slot>{{ text }}</slot> -->
+              {{ headerText }}
+            </div>
+            <!-- Slot for ActionSheetBody -->
+            <!-- <slot /> -->
+            <nav class="leading-6 font-bold text-gray-800 dark:text-gray-300">
+              <ul class="flex flex-col space-y-4">
+                <li
+                  v-for="(item, i) in menu"
+                  :key="i"
+                  class="flex w-full"
+                  :class="{
+                    'pb-2 mb-2 border-b border-gray-900/10 dark:border-gray-50/[0.2]':
+                      item.type === 'link',
+                  }"
                 >
-                <Button
-                  v-else-if="item.type === 'button'"
-                  :text="item.text"
-                  size="xs"
-                  class="flex-1 font-extrabold capitalize"
-                  :to="item.route ? item.route : undefined"
-                  :href="item.href ? item.href : undefined"
-                />
-              </li>
-            </ul>
-          </nav>
-          <div class="mt-6 text-sm font-bold capitalize">
-            {{ $t('components.theme_switcher.change_theme') }}
-          </div>
-          <div class="mt-2">
-            <ThemeToggle type="select-box" />
-          </div>
-          <Button text="Close" type="secondary" @click.prevent="close" />
-        </FocusTrap>
+                  <Anchor
+                    v-if="item.type === 'link'"
+                    :to="item.route ? item.route : undefined"
+                    :href="item.href ? item.href : undefined"
+                    class="flex-1 hover:no-underline capitalize"
+                    >{{ item.text }}</Anchor
+                  >
+                  <Button
+                    v-else-if="item.type === 'button'"
+                    :text="item.text"
+                    size="sm"
+                    class="flex-1 mt-4 font-extrabold capitalize"
+                    :to="item.route ? item.route : undefined"
+                    :href="item.href ? item.href : undefined"
+                  />
+                </li>
+              </ul>
+            </nav>
+            <!-- Theme Toggle -->
+            <div class="flex flex-col mt-4">
+              <div class="text-sm font-bold capitalize">
+                {{ $t('components.theme_switcher.change_theme') }}
+              </div>
+              <div class="mt-2">
+                <ThemeToggle type="select-box" />
+              </div>
+            </div>
+            <!-- Close Button -->
+            <Button
+              text="Close"
+              type="secondary"
+              class="mt-4"
+              @click.prevent="close"
+            />
+          </FocusTrap>
+        </div>
       </TransitionChild>
     </TransitionRoot>
   </Teleport>
@@ -89,10 +100,12 @@ import type { IMenuItem } from '@/types'
 
 interface Props {
   menu?: IMenuItem[]
+  headerText?: string
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   menu: () => [],
+  headerText: 'Menu',
 })
 
 // micro compiler
@@ -112,7 +125,7 @@ onMounted(() => {
 </script>
 
 <script lang="ts">
-export default { name: 'ActionSheet' }
+export default { name: 'AppNavbarMenuMobile' }
 </script>
 
 <style lang="scss" scoped>
