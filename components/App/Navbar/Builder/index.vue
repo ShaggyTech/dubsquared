@@ -106,12 +106,12 @@
 // import { IApp } from '~/utils/app'
 
 // const app = useState<IApp>('app')
-const navbar = ref<HTMLElement>(null)
+const navbar = ref<HTMLElement | null>(null)
 const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
 const showOptions = useState<boolean>('navbar.showOptions', () => false)
 
 onMounted(() => {
-  const { onScroll } = useSticky(navbar.value, 0)
+  const { onScroll } = useSticky(navbar.value as HTMLElement, 0)
   setTimeout(() => onScroll(), 50)
 })
 
@@ -123,6 +123,10 @@ const toggleOptions = (show?: boolean) => {
     showOptions.value = !showOptions.value
   }
 }
+</script>
+
+<script lang="ts">
+export default { name: 'AppNavbarBuilder' }
 </script>
 
 <style lang="scss">

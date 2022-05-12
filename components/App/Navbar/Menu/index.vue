@@ -81,6 +81,10 @@ const props = withDefaults(defineProps<Props>(), {
 })
 </script>
 
+<script lang="ts">
+export default { name: 'AppNavbarMenu' }
+</script>
+
 <style lang="scss" scoped>
 .nav-link.router-link-active {
   font-weight: bold;

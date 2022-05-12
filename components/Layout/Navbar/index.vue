@@ -151,3 +151,7 @@ const mobileMenuItems = computed((): IMenuItem[] => [
 //   },
 // ]
 </script>
+
+<script lang="ts">
+export default { name: 'LayoutNavbar' }
+</script>
