@@ -50,21 +50,23 @@
             </NuxtLink>
           </slot>
 
-          <!-- desktop menu -->
+          <!-- desktop nav -->
           <slot name="menu" />
 
-          <!-- options:toggle (mobile nav toggle) -->
+          <!-- mobile nav toggle (options:toggle) -->
           <div
             v-if="$slots['options']"
-            class="flex-1 flex justify-end lg:hidden"
+            class="flex flex-1 justify-end lg:hidden"
           >
             <button
               class="flex items-center focus:outline-none"
-              aria-label="Toggle Navigation Menu"
+              aria-label="Toggle Menu"
+              aria-haspopup="menu"
+              :aria-expanded="showOptions"
               @click="toggleOptions()"
             >
               <span
-                class="flex items-center text-gray-600 dark:text-gray-300 text-sm"
+                class="flex items-center p-2 text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
                 <icon-fa-solid:ellipsis-v />

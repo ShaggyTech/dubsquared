@@ -13,7 +13,10 @@
         @click.prevent="close"
       >
         <div
-          class="fixed inset-0 w-screen h-screen z-50 bg-white/30 dark:bg-zinc-900/80 backdrop-blur transition-opacity"
+          :class="`
+            fixed inset-0 w-screen h-screen z-50 transition-opacity
+            bg-warm-gray-800/30 dark:bg-zinc-900/80 backdrop-blur
+          `"
         />
       </TransitionChild>
 
@@ -28,42 +31,55 @@
         leave-to="translate-x-full opacity-0"
       >
         <div
-          class="fixed inset-y-0 right-0 h-screen w-[clamp(210px,66%,320px)] z-50 transform translate-x-full transition-all"
+          :class="`
+            fixed inset-y-0 right-0 h-screen w-[clamp(210px,66%,320px)] z-50
+            transform translate-x-full transition-all
+          `"
         >
           <!-- Menu Body -->
           <FocusTrap
-            class="relative max-w-8xl h-full flex flex-col space-y-4 p-4 overflow-y-auto bg-neutral-200 dark:bg-zinc-800 border-l-4 border-red-900/70"
+            :class="`
+              relative h-full flex flex-col p-6 pb-14 overflow-y-auto
+              bg-warm-gray-200 dark:bg-zinc-800 border-l-8 border-red-900
+            `"
           >
             <!-- Menu Header -->
-            <div class="text-xs font-bold text-center mb-2">
+            <div
+              class="pb-4 tracking-wider font-bold text-center border-b-2 border-red-800/90 dark:border-red-800/50"
+            >
               <!-- <slot>{{ text }}</slot> -->
               {{ headerText }}
             </div>
             <!-- Slot for ActionSheetBody -->
             <!-- <slot /> -->
-            <nav class="leading-6 font-bold text-gray-800 dark:text-gray-300">
-              <ul class="flex flex-col space-y-4">
+            <nav class="mt-6">
+              <ul class="grid gap-4">
                 <li
                   v-for="(item, i) in menu"
                   :key="i"
+                  role="none"
                   class="flex w-full"
-                  :class="{
-                    'pb-2 mb-2 border-b border-gray-900/10 dark:border-gray-50/[0.2]':
-                      item.type === 'link',
-                  }"
+                  :class="[
+                    item.type === 'link'
+                      ? `text-zinc-900 dark:text-neutral-100 tracking-wider leading-8
+                        border-b border-gray-900/50 dark:border-gray-500/50
+                        hover:bg-warm-gray-300/80 dark:hover:bg-red-800/40`
+                      : '',
+                  ]"
                 >
                   <Anchor
                     v-if="item.type === 'link'"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
-                    class="flex-1 hover:no-underline capitalize"
+                    role="menuitem"
+                    class="flex-1 px-2 font-bold capitalize hover:no-underline"
                     >{{ item.text }}</Anchor
                   >
                   <Button
                     v-else-if="item.type === 'button'"
                     :text="item.text"
-                    size="sm"
-                    class="flex-1 mt-4 font-extrabold capitalize"
+                    size="md"
+                    class="flex-1 mt-2 font-extrabold capitalize"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
                   />
@@ -71,8 +87,8 @@
               </ul>
             </nav>
             <!-- Theme Toggle -->
-            <div class="flex flex-col mt-4">
-              <div class="text-sm font-bold capitalize">
+            <div class="flex flex-col mt-8">
+              <div class="px-2 text-sm font-bold capitalize">
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
               <div class="mt-2">
@@ -82,8 +98,9 @@
             <!-- Close Button -->
             <Button
               text="Close"
+              size="md"
               type="secondary"
-              class="mt-4"
+              class="mt-8 font-bold"
               @click.prevent="close"
             />
           </FocusTrap>
