@@ -13,13 +13,13 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   // meta
   meta: {
-    title: 'Nuxt 3 Awesome Starter',
+    title: 'Dubsquared - VW & Audi Specialists - Arlington, TX',
     meta: [
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt 3 Awesome Starter',
+        content: 'Dubsquared - VW & Audi Specialists - Arlington, TX',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
@@ -52,6 +52,7 @@ export default defineNuxtConfig({
 
   // vite plugins
   vite: {
+    // @ts-ignore
     plugins: [
       UnpluginComponentsVite({
         dts: true,
