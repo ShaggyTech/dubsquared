@@ -47,11 +47,9 @@
             <div
               class="pb-4 tracking-wider font-bold text-center border-b-2 border-red-800/90 dark:border-red-800/50"
             >
-              <!-- <slot>{{ text }}</slot> -->
               {{ headerText }}
             </div>
-            <!-- Slot for ActionSheetBody -->
-            <!-- <slot /> -->
+            <!-- Menu -->
             <nav class="mt-6">
               <ul class="grid gap-4">
                 <li
@@ -61,12 +59,16 @@
                   class="flex w-full"
                   :class="[
                     item.type === 'link'
-                      ? `text-zinc-900 dark:text-neutral-100 tracking-wider leading-8
+                      ? `text-zinc-900 dark:text-neutral-100 tracking-wider leading-10
                         border-b border-gray-900/50 dark:border-gray-500/50
-                        hover:bg-warm-gray-300/80 dark:hover:bg-red-800/40`
+                        hover:bg-warm-gray-200/80 dark:hover:bg-red-800/40 transition-colors duration-300
+                        shadow-sm hover:shadow-red-600 rounded`
                       : '',
                   ]"
                 >
+                  <div v-if="item.type === 'link' && item.icon">
+                    <component :is="item.icon" />
+                  </div>
                   <Anchor
                     v-if="item.type === 'link'"
                     :to="item.route ? item.route : undefined"
@@ -86,6 +88,9 @@
                 </li>
               </ul>
             </nav>
+            <div
+              class="mt-4 pb-4 tracking-wider font-bold text-center border-b-2 border-red-800/90 dark:border-red-800/50"
+            ></div>
             <!-- Theme Toggle -->
             <div class="flex flex-col mt-8">
               <div class="px-2 text-sm font-bold capitalize">

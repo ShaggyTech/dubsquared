@@ -40,17 +40,18 @@
 </template>
 
 <script lang="ts" setup>
-export interface IMenuItem {
-  type: 'link' | 'button'
-  text: string
-  href?: any
-  route?: any
-}
+import MdiAlarm from '~icons/mdi/alarm'
+import type { IMenuItem } from '@/types'
 
 const { t } = useLang()
 
 const menuItems = computed((): IMenuItem[] => [
-  { type: 'link', text: t('pages.about.nav'), route: { name: 'about' } },
+  {
+    type: 'link',
+    text: t('pages.about.nav'),
+    route: { name: 'about' },
+    icon: MdiAlarm,
+  },
   { type: 'link', text: t('pages.services.nav'), route: { name: 'services' } },
   { type: 'link', text: t('pages.gallery.nav'), route: { name: 'gallery' } },
   { type: 'link', text: t('pages.contact.nav'), route: { name: 'contact' } },
