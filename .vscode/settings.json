@@ -10,4 +10,19 @@
     },
     "javascript.format.semicolons": "remove",
     "typescript.tsdk": "node_modules/typescript/lib",
+    "css.validate": false,
+    "editor.quickSuggestionsDelay": 30,
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": true
+    },
+    "windicss.sortOnSave": false,
+    "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        "ngClass",
+        ":class"
+    ],
+    "headwind.runOnSave": false,
 }
