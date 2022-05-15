@@ -3,37 +3,54 @@
     v-if="to"
     tag="a"
     :to="to"
-    :class="`transition-colors duration-300 dark:hover:text-white hover:text-gray-900 hover:underline`"
+    :class="`
+      flex w-full place-items-center
+      dark:hover:text-white hover:text-gray-900 hover:no-underline
+      transition-colors duration-300
+    `"
   >
-    <slot>{{ text }}</slot>
+    <div v-if="icon || $slots['icon']">
+      <slot name="icon">{{ icon }}</slot>
+    </div>
+    <div :class="{ 'ml-4': icon || $slots['icon'] }">
+      <slot>{{ text }}</slot>
+    </div>
   </NuxtLink>
   <a
     v-else
-    :class="`transition-colors duration-300 dark:hover:text-white hover:text-gray-900 hover:underline`"
     :href="href"
+    :class="`
+      dark:hover:text-white hover:text-gray-900 hover:no-underline
+      transition-colors duration-300   
+    `"
   >
-    <slot>{{ text }}</slot>
+    <div v-if="icon || $slots['icon']">
+      <slot name="icon">{{ icon }}</slot>
+    </div>
+    <div :class="{ 'ml-4': icon || $slots['icon'] }">
+      <slot>{{ text }}</slot>
+    </div>
   </a>
 </template>
 
 <script lang="ts" setup>
-// micro compiler
-const props = defineProps({
-  text: {
-    type: String,
-    default: '',
-  },
-  to: {
-    type: [String, Object],
-    default: undefined,
-  },
-  href: {
-    type: String,
-    default: '',
-  },
+import type { UnpluginIcon } from '~/types'
+
+interface Props {
+  href?: string
+  text?: string
+  to?: string | object
+  anchorStyle?: string
+  icon?: UnpluginIcon
+}
+const props = withDefaults(defineProps<Props>(), {
+  href: '',
+  text: '',
+  to: undefined,
+  anchorStyle: '',
+  icon: undefined,
 })
 
-// state
 const href = toRef(props, 'href')
 const to = toRef(props, 'to')
 </script>
