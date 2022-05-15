@@ -40,7 +40,11 @@
 </template>
 
 <script lang="ts" setup>
-import MdiAlarm from '~icons/mdi/alarm'
+import MdiGarage from '~icons/mdi/garage'
+import MdiInformation from '~icons/mdi/information'
+import MdiCarCog from '~icons/mdi/car-cog'
+import MakiArtGallery from '~icons/maki/art-gallery'
+import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
 import type { IMenuItem } from '@/types'
 
 const { t } = useLang()
@@ -50,11 +54,26 @@ const menuItems = computed((): IMenuItem[] => [
     type: 'link',
     text: t('pages.about.nav'),
     route: { name: 'about' },
-    icon: MdiAlarm,
+    icon: MdiInformation,
   },
-  { type: 'link', text: t('pages.services.nav'), route: { name: 'services' } },
-  { type: 'link', text: t('pages.gallery.nav'), route: { name: 'gallery' } },
-  { type: 'link', text: t('pages.contact.nav'), route: { name: 'contact' } },
+  {
+    type: 'link',
+    text: t('pages.services.nav'),
+    route: { name: 'services' },
+    icon: MdiCarCog,
+  },
+  {
+    type: 'link',
+    text: t('pages.gallery.nav'),
+    route: { name: 'gallery' },
+    icon: MakiArtGallery,
+  },
+  {
+    type: 'link',
+    text: t('pages.contact.nav'),
+    route: { name: 'contact' },
+    icon: FluentContactCard28Filled,
+  },
   {
     type: 'button',
     text: t('pages.get_a_quote.nav'),
@@ -63,7 +82,12 @@ const menuItems = computed((): IMenuItem[] => [
 ])
 
 const mobileMenuItems = computed((): IMenuItem[] => [
-  { type: 'link', text: t('pages.index.nav'), route: { name: 'index' } },
+  {
+    type: 'link',
+    text: t('pages.index.nav'),
+    route: { name: 'index' },
+    icon: MdiGarage,
+  },
   ...menuItems.value,
 ])
 

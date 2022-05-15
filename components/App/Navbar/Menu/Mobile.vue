@@ -30,86 +30,116 @@
         leave-from="translate-x-0 opacity-100"
         leave-to="translate-x-full opacity-0"
       >
-        <div
+        <aside
           :class="`
-            fixed inset-y-0 right-0 h-screen w-[clamp(210px,66%,320px)] z-50
+            fixed inset-y-0 right-0 min-h-screen w-[clamp(210px,66%,320px)] z-50
             transform translate-x-full transition-all
           `"
         >
           <!-- Menu Body -->
           <FocusTrap
             :class="`
-              relative h-full flex flex-col p-6 pb-14 overflow-y-auto
-              bg-warm-gray-200 dark:bg-zinc-800 border-l-8 border-red-900
+              relative flex flex-col h-full px-4 pb-36 overflow-y-auto
+              border-l-8 border-red-900
+              bg-warm-gray-300 dark:bg-zinc-800
             `"
           >
-            <!-- Menu Header -->
-            <div
-              class="pb-4 tracking-wider font-bold text-center border-b-2 border-red-800/90 dark:border-red-800/50"
-            >
-              {{ headerText }}
+            <!-- Menu Logo -->
+            <div class="grid place-items-center mt-6">
+              <SVGDubsquaredSquareLogo
+                alt="dubsquared logo"
+                height="64px"
+                width="64px"
+                src="~assets/icons/dubsquared-logo-white_optimized.svg"
+                class="bg-zinc-800 dark:bg-transparent"
+              />
             </div>
+            <!-- Divider -->
+            <div class="mt-6 border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->
-            <nav class="mt-6">
+            <nav class="mt-8 px-2">
               <ul class="grid gap-4">
+                <!-- Menu Item -->
                 <li
                   v-for="(item, i) in menu"
                   :key="i"
                   role="none"
-                  class="flex w-full"
                   :class="[
+                    'flex place-items-center w-full',
                     item.type === 'link'
-                      ? `text-zinc-900 dark:text-neutral-100 tracking-wider leading-10
-                        border-b border-gray-900/50 dark:border-gray-500/50
-                        hover:bg-warm-gray-200/80 dark:hover:bg-red-800/40 transition-colors duration-300
-                        shadow-sm hover:shadow-red-600 rounded`
+                      ? `rounded
+                        hover:bg-warm-gray-100/90 dark:hover:bg-red-800/40
+                        shadow shadow-warm-gray-300 hover:shadow-warm-gray-400
+                        dark:shadow-zinc-800 dark:hover:shadow-zinc-900
+                        transition-colors duration-300`
                       : '',
                   ]"
                 >
-                  <div v-if="item.type === 'link' && item.icon">
-                    <component :is="item.icon" />
-                  </div>
                   <Anchor
                     v-if="item.type === 'link'"
+                    role="menuitem"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
-                    role="menuitem"
-                    class="flex-1 px-2 font-bold capitalize hover:no-underline"
-                    >{{ item.text }}</Anchor
+                    :class="`
+                      nav-link flex-1 px-2 py-1
+                      rounded border-b-2 border-transparent hover:border-red-900/80
+                      font-bold capitalize tracking-wider leading-8
+                      text-warm-gray-700 hover:text-red-900
+                      dark:text-warm-gray-300 dark:hover:text-warm-gray-100
+                    `"
                   >
+                    <template #icon>
+                      <div v-if="item.icon" class="ml-2">
+                        <component :is="item.icon" class="h-7 w-7" />
+                      </div>
+                    </template>
+                    {{ item.text }}
+                  </Anchor>
                   <Button
                     v-else-if="item.type === 'button'"
+                    role="menuitem"
                     :text="item.text"
                     size="md"
-                    class="flex-1 mt-2 font-extrabold capitalize"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
+                    class="nav-btn flex-1"
                   />
                 </li>
               </ul>
             </nav>
-            <div
-              class="mt-4 pb-4 tracking-wider font-bold text-center border-b-2 border-red-800/90 dark:border-red-800/50"
-            ></div>
+            <!-- Divider -->
+            <div class="mt-8 border-b-2 border-warm-gray-500/50" />
             <!-- Theme Toggle -->
-            <div class="flex flex-col mt-8">
-              <div class="px-2 text-sm font-bold capitalize">
+            <div class="flex flex-col mt-8 px-2">
+              <div class="ml-2 text-sm capitalize">
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
               <div class="mt-2">
                 <ThemeToggle type="select-box" />
               </div>
             </div>
+            <!-- Divider -->
+            <div class="mt-8 border-b-2 border-warm-gray-500/50" />
             <!-- Close Button -->
-            <Button
+            <button
               text="Close"
-              size="md"
-              type="secondary"
-              class="mt-8 font-bold"
+              size="sm"
+              :class="`
+                mt-10 mx-2 p-2
+                rounded border-2
+                border-transparent hover:border-red-800/70
+                dark:border-transparent dark:hover:border-red-800/50
+                font-bold hover:text-red-800 dark:hover:text-white
+                bg-warm-gray-200/90 hover:bg-warm-gray-100/90
+                dark:bg-warm-gray-600/60 dark:hover:bg-warm-gray-500/30
+                transition-colors duration-300
+              `"
               @click.prevent="close"
-            />
+            >
+              Close
+            </button>
           </FocusTrap>
-        </div>
+        </aside>
       </TransitionChild>
     </TransitionRoot>
   </Teleport>
@@ -126,8 +156,8 @@ interface Props {
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
-  menu: () => [],
   headerText: 'Menu',
+  menu: () => [],
 })
 
 // micro compiler
@@ -151,15 +181,21 @@ export default { name: 'AppNavbarMenuMobile' }
 </script>
 
 <style lang="scss" scoped>
-// .slide-fade-from-bottom-enter-active {
-//   transition: all 0.3s ease-out;
-// }
-// .slide-fade-from-bottom-leave-active {
-//   transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-// }
-// .slide-fade-from-bottom-enter-from,
-// .slide-fade-from-bottom-leave-to {
-//   transform: translateY(20px);
-//   opacity: 0;
-// }
+.nav-link.router-link-active {
+  font-weight: bold;
+}
+.nav-link.router-link-exact-active {
+  @apply border-b border-b-warm-gray-400/20;
+  color: theme('colors.warm-gray.600');
+  border-left: 3px solid theme('colors.red.900');
+  border-right: 3px solid theme('colors.red.900');
+}
+html.dark {
+  .nav-link.router-link-exact-active {
+    @apply border-b border-b-warm-gray-700/20;
+    color: theme('colors.warm-gray.400');
+    border-left: 3px solid theme('colors.red.900');
+    border-right: 3px solid theme('colors.red.900');
+  }
+}
 </style>

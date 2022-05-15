@@ -14,8 +14,8 @@
             :href="item.href ? item.href : undefined"
             :class="`
               nav-link flex items-center p-2
-              border-b-4 border-transparent
-              text-lg text-zinc-800 dark:text-gray-200 font-bold tracking-wide
+              border-b-2 border-transparent
+              text-lg text-center text-zinc-800 dark:text-gray-200 font-bold tracking-wide
               hover:text-zinc-900 hover:dark:text-white hover:border-red-600 hover:no-underline
             `"
             >{{ item.text }}</Anchor
@@ -26,17 +26,17 @@
             :href="item.href ? item.href : undefined"
             :text="item.text"
             size="md"
-            class="nav-btn flex items-center font-extrabold text-md text-center"
+            class="nav-btn"
           />
         </li>
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
     <div
-      class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
+      class="flex space-x-4 ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2]"
     >
       <Anchor
-        class="hover:no-underline flex self-center items-center"
+        class="flex self-center items-center"
         href="https://www.instagram.com/dubsquared.llc"
         title="Instagram"
         target="_blank"
@@ -44,7 +44,7 @@
         <IconCib:instagram style="color: #df3ae8; font-size: 1.2em" />
       </Anchor>
       <Anchor
-        class="hover:no-underline flex self-center items-center"
+        class="flex self-center items-center"
         href="https://www.facebook.com/vwaudirepair/"
         title="Facebook"
         target="_blank"
@@ -52,7 +52,7 @@
         <IconLogos:facebook style="font-size: 1.2em" />
       </Anchor>
       <Anchor
-        class="hover:no-underline flex self-center items-center"
+        class="flex self-center items-center"
         href="https://goo.gl/maps/PGKJBqnGrKajR7En7"
         title="Google"
         target="_blank"
@@ -62,7 +62,7 @@
     </div>
     <!-- Desktop - App Options -->
     <div
-      class="flex space-x-4 border-l ml-6 pl-6 border-gray-900/10 dark:border-gray-50/[0.2]"
+      class="flex space-x-4 ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2]"
     >
       <ThemeToggle />
     </div>
@@ -94,12 +94,9 @@ export default { name: 'AppNavbarMenu' }
   border-bottom: 3px solid theme('colors.red.800');
   max-width: fit-content;
 }
-.nav-btn.nav-link.router-link-exact-active {
-  color: theme('colors.white');
-}
 html.dark {
   .nav-link.router-link-exact-active {
-    color: theme('colors.white');
+    color: theme('colors.warm-gray.300');
   }
 }
 </style>

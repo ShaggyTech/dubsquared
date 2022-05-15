@@ -1,11 +1,13 @@
 import type { FunctionalComponent } from 'vue'
 
+export type UnpluginIcon = FunctionalComponent
+
 export interface IMenuItem {
   type: 'link' | 'button'
   text: string
   href?: any
   route?: any
-  icon?: FunctionalComponent
+  icon?: UnpluginIcon
 }
 
 interface IContactBarItem {
