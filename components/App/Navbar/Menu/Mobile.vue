@@ -31,6 +31,7 @@
         leave-to="translate-x-full opacity-0"
       >
         <aside
+          id="mobile-nav-menu"
           :class="`
             fixed inset-y-0 right-0 min-h-screen w-[clamp(210px,66%,320px)] z-50
             transform translate-x-full transition-all
@@ -58,7 +59,11 @@
             <div class="mt-6 border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->
             <nav class="mt-8 px-2">
-              <ul class="grid gap-4">
+              <ul
+                role="menu"
+                aria-labelledby="mobile-nav-button"
+                class="grid gap-4"
+              >
                 <!-- Menu Item -->
                 <li
                   v-for="(item, i) in menu"
@@ -68,9 +73,9 @@
                     'flex place-items-center w-full',
                     item.type === 'link'
                       ? `rounded
-                        hover:bg-warm-gray-100/90 dark:hover:bg-red-800/40
-                        shadow shadow-warm-gray-300 hover:shadow-warm-gray-400
-                        dark:shadow-zinc-800 dark:hover:shadow-zinc-900
+                        hover:bg-warm-gray-100/90 hover:dark:bg-red-800/40
+                        shadow shadow-warm-gray-300 dark:shadow-zinc-800 
+                        hover:shadow-warm-gray-400 hover:dark:shadow-zinc-900
                         transition-colors duration-300`
                       : '',
                   ]"
@@ -80,16 +85,17 @@
                     role="menuitem"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
+                    class="nav-link"
                     :class="`
-                      nav-link flex-1 px-2 py-1
+                      flex-1 px-2 py-1
                       rounded border-b-2 border-transparent hover:border-red-900/80
                       font-bold capitalize tracking-wider leading-8
-                      text-warm-gray-700 hover:text-red-900
-                      dark:text-warm-gray-300 dark:hover:text-warm-gray-100
+                      text-warm-gray-700 dark:text-warm-gray-300
+                      hover:text-red-900 hover:dark:text-warm-gray-100
                     `"
                   >
                     <template #icon>
-                      <div v-if="item.icon" class="ml-2">
+                      <div v-if="item.icon" class="px-2">
                         <component :is="item.icon" class="h-7 w-7" />
                       </div>
                     </template>
@@ -122,16 +128,19 @@
             <div class="mt-8 border-b-2 border-warm-gray-500/50" />
             <!-- Close Button -->
             <button
+              id="mobile-nav-button"
+              aria-controls="mobile-nav-menu"
+              type="button"
               text="Close"
               size="sm"
               :class="`
                 mt-10 mx-2 p-2
                 rounded border-2
-                border-transparent hover:border-red-800/70
-                dark:border-transparent dark:hover:border-red-800/50
+                border-transparent dark:border-transparent
+                hover:border-red-800/70 hover:dark:border-red-800/50
                 font-bold hover:text-red-800 dark:hover:text-white
-                bg-warm-gray-200/90 hover:bg-warm-gray-100/90
-                dark:bg-warm-gray-600/60 dark:hover:bg-warm-gray-500/30
+                bg-warm-gray-200/90 dark:bg-warm-gray-600/60
+                hover:bg-warm-gray-100/90 hover:dark:bg-warm-gray-500/30
                 transition-colors duration-300
               `"
               @click.prevent="close"
