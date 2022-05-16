@@ -8,7 +8,7 @@
   >
     <slot name="icon"></slot>
     <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" class="h-7 w-7" />
+      <component :is="icon" />
     </div>
     <div :class="{ 'ml-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
@@ -23,7 +23,7 @@
   >
     <slot name="icon"></slot>
     <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" class="h-7 w-7" />
+      <component :is="icon" />
     </div>
     <div :class="{ 'ml-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
@@ -42,21 +42,21 @@ type Styles = Record<Style, string>
 
 interface Props {
   href?: string
+  role?: string
   size?: Size
   text?: string
   to?: string | object
   type?: Style
-  role?: string
   icon?: UnpluginIcon
 }
 
 const props = withDefaults(defineProps<Props>(), {
   href: '',
+  role: 'button',
   size: 'md',
   text: '',
   to: undefined,
   type: 'primary',
-  role: 'button',
   icon: undefined,
 })
 

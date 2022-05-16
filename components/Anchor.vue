@@ -2,7 +2,7 @@
   <NuxtLink v-if="to" tag="a" :to="to" :role="role" class="anchor__default">
     <slot name="icon"></slot>
     <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" class="h-7 w-7" />
+      <component :is="icon" />
     </div>
     <div :class="{ 'pl-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
@@ -11,7 +11,7 @@
   <a v-else :href="href" :role="role" target="_blank" class="anchor__default">
     <slot name="icon"></slot>
     <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" class="h-7 w-7" />
+      <component :is="icon" />
     </div>
     <div :class="{ 'pl-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<Props>(), {
   href: '',
   to: undefined,
   text: '',
-  role: '',
+  role: 'link',
   icon: undefined,
 })
 
