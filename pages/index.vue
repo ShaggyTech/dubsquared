@@ -22,7 +22,7 @@
           {{ item }}
         </span>
       </h1>
-      <div class="flex space-x-4 justify-center mt-10">
+      <div class="grid gap-y-4 justify-center mt-10">
         <Button
           size="lg"
           text="Nuxt 3"
@@ -31,10 +31,33 @@
         />
         <Button
           size="lg"
-          text="Github"
           type="secondary"
           class="font-extrabold"
           href="https://github.com/viandwi24/nuxt3-awesome-starter"
+        >
+          <template #icon>
+            <component :is="MdiInformation" class="h-7 w-7" />
+          </template>
+          Github
+        </Button>
+        <Anchor
+          to="services"
+          :icon="MdiInformation"
+          :class="`
+            border-b-2 border-transparent hover:border-red-900/80
+            text-warm-gray-800 dark:text-warm-gray-300
+            hover:text-gray-900 hover:dark:text-white
+            px-2 py-1
+          `"
+        >
+          Test Icon Anchor
+        </Anchor>
+        <Button
+          to="/"
+          size="lg"
+          type="primary"
+          text="Test Button Icon"
+          :icon="MdiInformation"
         />
       </div>
     </div>
@@ -42,6 +65,8 @@
 </template>
 
 <script lang="ts" setup>
+import MdiInformation from '~icons/mdi/information'
+
 definePageMeta({
   layout: 'page',
 })
