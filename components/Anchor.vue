@@ -1,33 +1,19 @@
 <template>
-  <NuxtLink
-    v-if="to"
-    tag="a"
-    :to="to"
-    :class="`
-      flex w-full place-items-center
-      dark:hover:text-white hover:text-gray-900 hover:no-underline
-      transition-colors duration-300
-    `"
-  >
-    <div v-if="icon || $slots['icon']">
-      <slot name="icon">{{ icon }}</slot>
+  <NuxtLink v-if="to" tag="a" :to="to" :role="role" class="anchor__default">
+    <slot name="icon"></slot>
+    <div v-if="!$slots['icon'] && icon">
+      <component :is="icon" class="h-7 w-7" />
     </div>
-    <div :class="{ 'ml-4': icon || $slots['icon'] }">
+    <div :class="{ 'pl-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
     </div>
   </NuxtLink>
-  <a
-    v-else
-    :href="href"
-    :class="`
-      dark:hover:text-white hover:text-gray-900 hover:no-underline
-      transition-colors duration-300   
-    `"
-  >
-    <div v-if="icon || $slots['icon']">
-      <slot name="icon">{{ icon }}</slot>
+  <a v-else :href="href" :role="role" target="_blank" class="anchor__default">
+    <slot name="icon"></slot>
+    <div v-if="!$slots['icon'] && icon">
+      <component :is="icon" class="h-7 w-7" />
     </div>
-    <div :class="{ 'ml-4': icon || $slots['icon'] }">
+    <div :class="{ 'pl-2': icon || $slots['icon'] }">
       <slot>{{ text }}</slot>
     </div>
   </a>
@@ -38,19 +24,28 @@ import type { UnpluginIcon } from '~/types'
 
 interface Props {
   href?: string
-  text?: string
   to?: string | object
-  anchorStyle?: string
+  text?: string
+  role?: string
   icon?: UnpluginIcon
 }
 const props = withDefaults(defineProps<Props>(), {
   href: '',
-  text: '',
   to: undefined,
-  anchorStyle: '',
+  text: '',
+  role: '',
   icon: undefined,
 })
 
 const href = toRef(props, 'href')
 const to = toRef(props, 'to')
 </script>
+
+<style lang="scss" scoped>
+.anchor {
+  &__default {
+    @apply flex self-center place-items-center font-bold tracking-wide
+    hover:no-underline transition-colors duration-300;
+  }
+}
+</style>
