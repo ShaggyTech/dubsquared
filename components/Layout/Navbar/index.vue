@@ -1,5 +1,5 @@
 <template>
-  <AppNavbarBuilder>
+  <AppNavbarBuilder class="h-20">
     <!-- <template #banner>
       <AppContactBar
         type="detached"
@@ -22,6 +22,24 @@
         icon-style="hidden sm:block mr-4 lg:mr-6 "
       />
     </template> -->
+    <template #title>
+      <!-- <NuxtLink
+        tag="a"
+        class="mr-3 flex-shrink-[2] overflow-hidden w-auto"
+        :to="{ name: 'index' }"
+      >
+        <span class="sr-only">home</span>
+        <span class="flex items-center">
+          <SVGDubsquaredTextLogo class="h-full w-[200px]" />
+        </span>
+      </NuxtLink> -->
+      <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
+        <span class="sr-only">home</span>
+        <div class="flex items-center h-full">
+          <SVGDubsquaredTextLogo width="180px" />
+        </div>
+      </NuxtLink>
+    </template>
 
     <!-- Desktop Menu -->
     <template #menu>

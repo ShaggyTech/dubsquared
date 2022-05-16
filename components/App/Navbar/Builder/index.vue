@@ -10,8 +10,8 @@
     <!-- <div id="navbar-banner" class="banner">
       <slot name="banner" />
     </div> -->
-    <div class="max-w-8xl w-full mx-auto">
-      <div class="py-3 lg:px-8 mx-4 lg:mx-0">
+    <div class="h-full w-full max-w-8xl mx-auto">
+      <div class="h-full py-3 lg:px-8 mx-4 lg:mx-0">
         <div class="relative flex items-center">
           <!-- drawer:toggle -->
           <div
@@ -33,22 +33,7 @@
             </button>
           </div>
           <!-- title -->
-          <slot name="title">
-            <NuxtLink
-              tag="a"
-              class="mr-3 flex-none overflow-hidden md:w-auto"
-              :to="{ name: 'index' }"
-            >
-              <span class="sr-only">home</span>
-              <span class="flex items-center">
-                <SVGDubsquaredTextLogo
-                  width="200"
-                  height="64"
-                  class="h-auto w-[200px]"
-                />
-              </span>
-            </NuxtLink>
-          </slot>
+          <slot name="title" />
 
           <!-- desktop nav -->
           <slot name="menu" />
@@ -59,14 +44,14 @@
             class="flex flex-1 justify-end lg:hidden"
           >
             <button
-              class="flex items-center focus:outline-none"
-              aria-label="Toggle Menu"
+              class="flex items-center"
+              aria-label="Navigation Menu"
               aria-haspopup="menu"
               :aria-expanded="showOptions"
               @click="toggleOptions()"
             >
               <span
-                class="flex items-center p-2 text-gray-600 dark:text-gray-300 text-lg"
+                class="flex items-center p-3 text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
                 <icon-fa-solid:ellipsis-v />
