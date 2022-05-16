@@ -7,6 +7,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'IconCib:instagram': typeof import('~icons/cib/instagram')['default']
     'IconFaSolid:ellipsisV': typeof import('~icons/fa-solid/ellipsis-v')['default']
+    'IconIon:closeRound': typeof import('~icons/ion/close-round')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']
     'IconLogos:facebook': typeof import('~icons/logos/facebook')['default']
     'IconLogos:googleIcon': typeof import('~icons/logos/google-icon')['default']

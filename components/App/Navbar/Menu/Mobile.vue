@@ -41,10 +41,30 @@
           <FocusTrap
             :class="`
               relative flex flex-col h-full px-4 pb-36 overflow-y-auto
-              border-l-8 border-red-900
+              border-l-8 border-red-900/80 dark:border-red-900/70
               bg-warm-gray-300 dark:bg-zinc-800
             `"
           >
+            <div
+              :class="`
+                fixed left-0 top-0 flex-1 justify-end lg:hidden
+                text-warm-gray-600 dark:text-gray-300
+                hover:text-warm-gray-100
+                bg-transparent hover:bg-red-900/90
+                rounded-r border-l-8 border-red-900/30
+                shadow transition-colors duration-300
+              `"
+            >
+              <button
+                class="flex items-center round"
+                aria-label="Close Menu"
+                @click.prevent="close"
+              >
+                <span class="flex items-center px-4 py-3" aria-hidden="true">
+                  <IconIon:close-round class="h-5 w-5" />
+                </span>
+              </button>
+            </div>
             <!-- Menu Logo -->
             <div class="grid place-items-center mt-6">
               <SVGDubsquaredSquareLogo
