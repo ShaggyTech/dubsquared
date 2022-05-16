@@ -1,27 +1,33 @@
 <template>
   <div class="relative hidden lg:flex items-center ml-auto">
     <!-- Desktop - Navigation -->
-    <nav class="">
-      <ul class="h-full flex flex-1 gap-x-5">
+    <nav class="h-full">
+      <ul role="menu" class="h-full flex flex-1 gap-x-5">
         <li
           v-for="(item, i) in menu"
           :key="i"
-          class="menu-list-item flex items-center capitalize leading-6"
+          role="none"
+          class="flex items-center capitalize"
         >
           <Anchor
             v-if="item.type === 'link'"
+            role="menuitem"
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"
+            class="nav-link"
             :class="`
-              nav-link flex items-center p-2
-              border-b-2 border-transparent
-              text-lg text-center text-zinc-800 dark:text-gray-200 font-bold tracking-wide
-              hover:text-zinc-900 hover:dark:text-white hover:border-red-600 hover:no-underline
+              flex items-center p-2
+              border-b-2 border-transparent hover:border-red-600
+              text-lg font-bold text-center tracking-wide
+              text-zinc-800 dark:text-gray-300
+              hover:text-zinc-900 hover:dark:text-white
+              hover:no-underline
             `"
             >{{ item.text }}</Anchor
           >
           <Button
             v-else-if="item.type === 'button'"
+            role="menuitem"
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"
             :text="item.text"
@@ -32,38 +38,19 @@
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <div
-      class="flex space-x-4 ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2]"
-    >
-      <Anchor
-        class="flex self-center items-center"
-        href="https://www.instagram.com/dubsquared.llc"
-        title="Instagram"
-        target="_blank"
-      >
+    <div class="menu-icon-section">
+      <Anchor href="https://www.instagram.com/dubsquared.llc" title="Instagram">
         <IconCib:instagram style="color: #df3ae8; font-size: 1.2em" />
       </Anchor>
-      <Anchor
-        class="flex self-center items-center"
-        href="https://www.facebook.com/vwaudirepair/"
-        title="Facebook"
-        target="_blank"
-      >
+      <Anchor href="https://www.facebook.com/vwaudirepair/" title="Facebook">
         <IconLogos:facebook style="font-size: 1.2em" />
       </Anchor>
-      <Anchor
-        class="flex self-center items-center"
-        href="https://goo.gl/maps/PGKJBqnGrKajR7En7"
-        title="Google"
-        target="_blank"
-      >
+      <Anchor href="https://goo.gl/maps/PGKJBqnGrKajR7En7" title="Google">
         <IconLogos:googleIcon style="font-size: 1.2em" />
       </Anchor>
     </div>
     <!-- Desktop - App Options -->
-    <div
-      class="flex space-x-4 ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2]"
-    >
+    <div class="menu-icon-section">
       <ThemeToggle />
     </div>
   </div>
@@ -86,6 +73,14 @@ export default { name: 'AppNavbarMenu' }
 </script>
 
 <style lang="scss" scoped>
+.menu-icon-section {
+  @apply flex flex-1 space-x-5 ml-6 pl-6
+    border-l border-gray-900/10 dark:border-gray-50/[0.2];
+}
+
+.nav-btn {
+  white-space: nowrap;
+}
 .nav-link.router-link-active {
   font-weight: bold;
 }
