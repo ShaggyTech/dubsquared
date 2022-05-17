@@ -23,22 +23,22 @@
 import type { UnpluginIcon } from '~/types'
 
 interface Props {
-  href?: string
   to?: string | object
-  text?: string
+  href?: string
   role?: string
+  text?: string
   icon?: UnpluginIcon
 }
 const props = withDefaults(defineProps<Props>(), {
-  href: '',
   to: undefined,
-  text: '',
+  href: '',
   role: 'link',
+  text: '',
   icon: undefined,
 })
 
-const href = toRef(props, 'href')
 const to = toRef(props, 'to')
+const href = toRef(props, 'href')
 </script>
 
 <style lang="scss" scoped>

@@ -16,9 +16,9 @@
   </NuxtLink>
   <a
     v-else
-    target="_blank"
     :href="href"
     :role="role"
+    target="_blank"
     :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
   >
     <slot name="icon"></slot>
@@ -41,22 +41,22 @@ type Style = 'primary' | 'secondary'
 type Styles = Record<Style, string>
 
 interface Props {
+  to?: string | object
   href?: string
   role?: string
-  size?: Size
   text?: string
-  to?: string | object
   type?: Style
+  size?: Size
   icon?: UnpluginIcon
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  to: undefined,
   href: '',
   role: 'button',
-  size: 'md',
   text: '',
-  to: undefined,
   type: 'primary',
+  size: 'md',
   icon: undefined,
 })
 
