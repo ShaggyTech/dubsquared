@@ -31,8 +31,8 @@
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"
             :text="item.text"
-            size="md"
-            class="nav-btn"
+            size="sm"
+            class="nav-btn whitespace-nowrap"
           />
         </li>
       </ul>
@@ -78,9 +78,6 @@ export default { name: 'AppNavbarMenu' }
     border-l border-gray-900/10 dark:border-gray-50/[0.2];
 }
 
-.nav-btn {
-  white-space: nowrap;
-}
 .nav-link.router-link-active {
   font-weight: bold;
 }
