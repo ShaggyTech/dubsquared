@@ -11,18 +11,20 @@ declare module '@nuxt/schema' {
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  // meta
-  meta: {
-    title: 'Dubsquared - VW & Audi Specialists - Arlington, TX',
-    meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: 'Dubsquared - VW & Audi Specialists - Arlington, TX',
-      },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  app: {
+    head: {
+      title: 'Dubsquared - VW & Audi Specialists - Arlington, TX',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Dubsquared - Volkswagen & Audi Shop located in Arlington, TX',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
   },
 
   // css
