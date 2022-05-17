@@ -23,7 +23,7 @@ export default defineNuxtConfig({
             'Dubsquared - Volkswagen & Audi Shop located in Arlington, TX',
         },
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     },
   },
 
