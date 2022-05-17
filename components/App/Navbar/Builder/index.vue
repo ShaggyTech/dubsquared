@@ -51,10 +51,10 @@
               @click="toggleOptions()"
             >
               <span
-                class="flex items-center p-3 text-gray-600 dark:text-gray-300 text-lg"
+                class="flex items-center p-2 text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
-                <icon-fa-solid:ellipsis-v />
+                <IconMdi:menu style="font-size: 1.4em" />
               </span>
             </button>
           </div>
