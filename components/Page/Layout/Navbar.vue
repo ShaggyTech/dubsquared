@@ -1,38 +1,16 @@
 <template>
-  <AppNavbarBuilder class="h-20">
-    <!-- <template #banner>
-      <AppContactBar
-        type="detached"
-        :items="contactBarItems"
-        :class="`
-            bg-red-700 dark:bg-red-900 py-2
-            border-y-2 border-yellow-400/80 dark:border-yellow-400/90
-            font-alatsi text-base sm:text-lg lg:text-2xl text-gray-200 dark:text-gray-200 hover:text-white
-            tracking-wide sm:tracking-wider lg:tracking-widest
-            flex flex-row items-center justify-center gap-x-4
-            w-full h-auto max-h-[46px] lg:max-h-[54px]
-            px-6 lg:py-6
-          `"
-        :anchor-style="`
-            text-gray-100 font-semibold tracking-wide sm:tracking-wider lg:tracking-widest
-            hover:text-white hover:bg-red-500/40 rounded
-            py-1 border-x-2 border-transparent hover:border-red-700/50
-            shadow-none hover:shadow-inner hover:shadow-red-500 dark:hover:shadow-red-400
-          `"
-        icon-style="hidden sm:block mr-4 lg:mr-6 "
-      />
-    </template> -->
-    <template #title>
-      <!-- <NuxtLink
-        tag="a"
-        class="mr-3 flex-shrink-[2] overflow-hidden w-auto"
-        :to="{ name: 'index' }"
+  <AppNavbarBuilder class="h-auto">
+    <!-- Banner -->
+    <template #banner>
+      <div
+        class="tracking-wider text-warm-gray-100 text-sm text-center py-2 px-4 lg:py-3 lg:px-8 bg-red-900"
       >
-        <span class="sr-only">home</span>
-        <span class="flex items-center">
-          <SVGDubsquaredTextLogo class="h-full w-[200px]" />
-        </span>
-      </NuxtLink> -->
+        <AppContactBar :items="contactBarItems" />
+      </div>
+    </template>
+
+    <!-- Title -->
+    <template #title>
       <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
         <span class="sr-only">home</span>
         <div class="flex items-center h-full">
@@ -63,7 +41,7 @@ import MdiInformation from '~icons/mdi/information'
 import MdiCarCog from '~icons/mdi/car-cog'
 import MakiArtGallery from '~icons/maki/art-gallery'
 import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
-import type { IMenuItem } from '@/types'
+import type { IMenuItem, IContactBarItem } from '@/types'
 
 const { t } = useLang()
 
@@ -109,20 +87,20 @@ const mobileMenuItems = computed((): IMenuItem[] => [
   ...menuItems.value,
 ])
 
-// const contactBarItems: IContactBarItem[] = [
-//   {
-//     text: '817-277-5593',
-//     href: 'tel:817-277-5593',
-//     icon: 'phone',
-//     ariaLabel: 'Call Dubsquared',
-//   },
-//   {
-//     text: 'info@dubsquared.com',
-//     href: 'mailto:info@dubsquared.com',
-//     icon: 'email',
-//     ariaLabel: 'Email Dubsquared',
-//   },
-// ]
+const contactBarItems: IContactBarItem[] = [
+  {
+    text: '817-277-5593',
+    href: 'tel:817-277-5593',
+    icon: 'phone',
+    ariaLabel: 'Call Dubsquared',
+  },
+  {
+    text: 'info@dubsquared.com',
+    href: 'mailto:info@dubsquared.com',
+    icon: 'email',
+    ariaLabel: 'Email Dubsquared',
+  },
+]
 </script>
 
 <script lang="ts">

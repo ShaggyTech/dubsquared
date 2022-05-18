@@ -1,5 +1,5 @@
 <template>
-  <div v-if="items.length" :class="`${defaultStyle} ${selectedStyle}`">
+  <div v-if="items.length" :class="`${defaultStyles} ${selectedVariant}`">
     <div
       v-for="(item, i) in items"
       :key="i"
@@ -37,34 +37,38 @@
 
 <script setup lang="ts">
 import type { IContactBarItem } from '@/types'
+type Variant = 'detached' | 'attachedTop'
+type Variants = Record<Variant, string>
 
 interface Props {
-  type?: 'detached' | 'attachedTop'
+  items?: IContactBarItem[]
+  variant?: Variant
   anchorStyle?: string
   iconStyle?: string | string[]
-  items?: IContactBarItem[]
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
-  type: 'detached',
+  items: (): IContactBarItem[] => [],
+  variant: 'detached',
   anchorStyle: '',
   iconStyle: '',
-  items: (): IContactBarItem[] => [],
 })
 
-const defaultStyle = `
+const defaultStyles = `
   transition-colors duration-300
 `
-const styles = reactive({
-  detached: 'relative',
+const variants = reactive<Variants>({
+  detached: `
+    relative grid grid-flow-col place-items-center gap-x-4
+  `,
   attachedTop: `
-    absolute top-0 left-0 right-0 z-[200]
-    flex flex-row items-center justify-center gap-x-4
-    w-full h-auto max-h-[46px] lg:max-h-[54px]
-    px-6 lg:py-6
+    fixed top-0 left-0 right-0 z-50
+    grid grid-flow-col place-items-center gap-x-4
   `,
 })
 
 // selected
-const selectedStyle = computed(() => styles[props.type] || styles.detached)
+const selectedVariant = computed(
+  () => variants[props.variant] || variants.detached
+)
 </script>

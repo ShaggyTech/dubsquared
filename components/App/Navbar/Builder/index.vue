@@ -7,9 +7,9 @@
       bg-gray-200/[0.7] dark:bg-zinc-800/[0.7] backdrop-filter backdrop-blur
     `"
   >
-    <!-- <div id="navbar-banner" class="banner">
-      <slot name="banner" />
-    </div> -->
+    <!-- Banner -->
+    <slot name="banner" />
+    <!-- Nav Bar Container-->
     <div class="h-full w-full max-w-8xl mx-auto">
       <div class="h-full py-3 lg:px-8 mx-4 lg:mx-0">
         <div class="relative flex items-center apple-safe-area">
