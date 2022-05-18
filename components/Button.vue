@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import type { UnpluginIcon } from '~/types'
 
-type ButtonType = 'button' | 'submit' | 'reset'
+type ButtonType = 'button' | 'submit' | 'reset' | undefined
 
 type Size = 'xs' | 'sm' | 'md' | 'lg'
 type Sizes = Record<Size, string>
@@ -104,10 +104,10 @@ const styles = reactive<Variants>({
   `,
 })
 const sizes = reactive<Sizes>({
-  xs: 'h-8 px-3 rounded text-xs',
-  sm: 'h-10 px-4 rounded text-sm',
-  md: 'h-12 px-6 rounded text-base',
-  lg: 'h-14 px-8 rounded-lg text-lg',
+  xs: 'h-6 px-3 rounded text-xs',
+  sm: 'h-8 px-4 rounded text-sm',
+  md: 'h-10 px-6 rounded text-base',
+  lg: 'h-12 px-8 rounded-lg text-lg',
 })
 
 // state
