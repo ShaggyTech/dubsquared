@@ -1,8 +1,5 @@
 <template>
-  <Html
-    :class="`${theme === 'dark' ? 'dark' : ''} ${'apple-safe-area'}`"
-    :lang="locale"
-  >
+  <Html :class="`${theme === 'dark' ? 'dark' : ''}`" :lang="locale">
     <Head>
       <Title>Dubsquared - VW & Audi Specialists - Arlington, TX</Title>
       <Meta
@@ -34,10 +31,26 @@ const locale = useState<string>('locale.setting')
 </script>
 
 <style lang="scss">
+// padding for phone screen 'notches'
 .apple-safe-area {
   @supports (padding: max(0px)) {
     padding-left: max(0vmin, env(safe-area-inset-left));
     padding-right: max(0vmin, env(safe-area-inset-right));
+  }
+  &--left {
+    @supports (padding: max(0px)) {
+      padding-left: max(0vmin, env(safe-area-inset-left));
+    }
+  }
+  &--right {
+    @supports (padding: max(0px)) {
+      padding-right: max(0vmin, env(safe-area-inset-right));
+    }
+  }
+  &--fixed-right {
+    @supports (right: max(0px)) {
+      right: max(1rem, env(safe-area-inset-right) - 8px);
+    }
   }
 }
 </style>

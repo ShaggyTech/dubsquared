@@ -49,10 +49,10 @@
             <!-- Close Button -->
             <div
               :class="`
-                fixed right-4 top-2
-                text-warm-gray-600 dark:text-gray-300 hover:text-warm-gray-100
-                bg-transparent hover:bg-red-900/90
-                rounded-sm shadow transition-colors duration-300
+                fixed top-4 apple-safe-area--fixed-right
+                text-warm-gray-600 dark:text-warm-gray-300 hover:text-warm-gray-100
+                bg-red-900/40 hover:bg-red-900/90
+                rounded shadow transition-colors duration-300
               `"
             >
               <button
@@ -79,11 +79,11 @@
             <!-- Divider -->
             <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->
-            <nav class="px-2">
+            <nav class="apple-safe-area--right">
               <ul
                 role="menu"
                 aria-labelledby="mobile-nav-button"
-                class="grid gap-4"
+                class="grid gap-4 px-2"
               >
                 <!-- Menu Item -->
                 <li
@@ -137,7 +137,7 @@
             <!-- Divider -->
             <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Theme Toggle -->
-            <div class="flex flex-col px-2">
+            <div class="flex flex-col px-2 apple-safe-area--right">
               <div class="ml-2 text-sm capitalize">
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
@@ -148,15 +148,17 @@
             <!-- Divider -->
             <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Close Button -->
-            <Button
-              id="mobile-nav-button"
-              aria-controls="mobile-nav-menu"
-              variant="close"
-              text="Close"
-              size="md"
-              class="mx-2"
-              @click.prevent="close"
-            />
+            <div class="apple-safe-area--right">
+              <Button
+                id="mobile-nav-button"
+                aria-controls="mobile-nav-menu"
+                variant="close"
+                text="Close"
+                size="md"
+                class="mx-auto"
+                @click.prevent="close"
+              />
+            </div>
           </FocusTrap>
         </aside>
       </TransitionChild>
