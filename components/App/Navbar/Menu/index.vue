@@ -38,19 +38,9 @@
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <div class="menu-icon-section">
-      <Anchor href="https://www.instagram.com/dubsquared.llc" title="Instagram">
-        <IconCib:instagram style="color: #df3ae8; font-size: 1.2em" />
-      </Anchor>
-      <Anchor href="https://www.facebook.com/vwaudirepair/" title="Facebook">
-        <IconLogos:facebook style="font-size: 1.2em" />
-      </Anchor>
-      <Anchor href="https://goo.gl/maps/PGKJBqnGrKajR7En7" title="Google">
-        <IconLogos:googleIcon style="font-size: 1.2em" />
-      </Anchor>
-    </div>
+    <AppContactBarSocialMedia class="icon-section gap-6 text-xl" />
     <!-- Desktop - App Options -->
-    <div class="menu-icon-section">
+    <div class="icon-section">
       <ThemeToggle />
     </div>
   </div>
@@ -73,9 +63,8 @@ export default { name: 'AppNavbarMenu' }
 </script>
 
 <style lang="scss" scoped>
-.menu-icon-section {
-  @apply flex flex-1 space-x-5 ml-6 pl-6
-    border-l border-gray-900/10 dark:border-gray-50/[0.2];
+.icon-section {
+  @apply ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2];
 }
 
 .nav-link.router-link-active {

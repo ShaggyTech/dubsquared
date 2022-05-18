@@ -76,6 +76,8 @@
                 class="bg-zinc-800 dark:bg-transparent"
               />
             </div>
+            <!-- Mobile Social Media Icons -->
+            <AppContactBarSocialMedia class="text-2xl" />
             <!-- Divider -->
             <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->
