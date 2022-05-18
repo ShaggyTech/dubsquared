@@ -11,7 +11,6 @@
     "javascript.format.semicolons": "remove",
     "typescript.tsdk": "node_modules/typescript/lib",
     "css.validate": false,
-    "editor.quickSuggestionsDelay": 30,
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
@@ -22,7 +21,7 @@
         "class",
         "className",
         "ngClass",
-        ":class"
+        "\/:class"
     ],
     "headwind.runOnSave": false,
 }
