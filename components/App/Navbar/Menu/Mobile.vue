@@ -126,7 +126,7 @@
                     v-else-if="item.variant === 'button'"
                     role="menuitem"
                     :text="item.text"
-                    size="md"
+                    size="sm"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
                     class="nav-btn flex-1"
