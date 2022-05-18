@@ -77,7 +77,7 @@
               />
             </div>
             <!-- Mobile Social Media Icons -->
-            <AppContactBarSocialMedia class="text-2xl" />
+            <AppNavbarMenuSocialMedia class="text-2xl" />
             <!-- Divider -->
             <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->

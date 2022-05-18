@@ -38,7 +38,7 @@
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <AppContactBarSocialMedia class="icon-section gap-6 text-xl" />
+    <AppNavbarMenuSocialMedia class="icon-section gap-6 text-xl" />
     <!-- Desktop - App Options -->
     <div class="icon-section">
       <ThemeToggle />
