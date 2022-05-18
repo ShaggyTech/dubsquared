@@ -69,31 +69,31 @@ const { t } = useLang()
 
 const menuItems = computed((): IMenuItem[] => [
   {
-    type: 'link',
+    variant: 'link',
     text: t('pages.about.nav'),
     route: { name: 'about' },
     icon: MdiInformation,
   },
   {
-    type: 'link',
+    variant: 'link',
     text: t('pages.services.nav'),
     route: { name: 'services' },
     icon: MdiCarCog,
   },
   {
-    type: 'link',
+    variant: 'link',
     text: t('pages.gallery.nav'),
     route: { name: 'gallery' },
     icon: MakiArtGallery,
   },
   {
-    type: 'link',
+    variant: 'link',
     text: t('pages.contact.nav'),
     route: { name: 'contact' },
     icon: FluentContactCard28Filled,
   },
   {
-    type: 'button',
+    variant: 'button',
     text: t('pages.get_a_quote.nav'),
     route: { name: 'get-a-quote' },
   },
@@ -101,7 +101,7 @@ const menuItems = computed((): IMenuItem[] => [
 
 const mobileMenuItems = computed((): IMenuItem[] => [
   {
-    type: 'link',
+    variant: 'link',
     text: t('pages.index.nav'),
     route: { name: 'index' },
     icon: MdiGarage,

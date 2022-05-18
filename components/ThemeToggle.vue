@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <Listbox
-      v-if="currentStyle === 'dropdown-right-top'"
+      v-if="currentVariant === 'dropdown-right-top'"
       v-model="themeSetting"
       as="div"
       class="relative flex items-center"
@@ -62,7 +62,7 @@
       </transition>
     </Listbox>
     <select
-      v-if="currentStyle === 'select-box'"
+      v-if="currentVariant === 'select-box'"
       v-model="themeSetting"
       class="select-box w-full px-2 pr-3 py-1 rounded dark:bg-zinc-700"
     >
@@ -87,15 +87,16 @@ import {
 } from '@headlessui/vue'
 import { IThemeSettingOptions, availableThemes } from '~/utils/theme'
 
-// micro compiler
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'dropdown-right-top',
-  },
+type Variants = 'dropdown-right-top' | 'select-box'
+
+interface Props {
+  variant?: Variants
+}
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'dropdown-right-top',
 })
 
 // state
 const themeSetting = useState<IThemeSettingOptions>('theme.setting')
-const currentStyle = toRef(props, 'type')
+const currentVariant = toRef(props, 'variant')
 </script>

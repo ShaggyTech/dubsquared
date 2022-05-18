@@ -34,8 +34,8 @@ const props = withDefaults(defineProps<Props>(), {
   paragraphStyle: '',
   iconStyle: '',
   buttonText: '+ Learn More',
-  buttonTo: null,
-  buttonHref: null,
+  buttonTo: undefined,
+  buttonHref: undefined,
 })
 
 const defaultStyle = `

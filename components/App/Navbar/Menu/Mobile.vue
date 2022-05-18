@@ -58,6 +58,7 @@
               <button
                 class="flex items-center round"
                 aria-label="Close Menu"
+                aria-controls="mobile-nav-menu"
                 @click.prevent="close"
               >
                 <span class="flex items-center px-4 py-3" aria-hidden="true">
@@ -91,7 +92,7 @@
                   role="none"
                   :class="[
                     'flex place-items-center w-full',
-                    item.type === 'link'
+                    item.variant === 'link'
                       ? `rounded
                         hover:bg-warm-gray-100/90 hover:dark:bg-red-800/40
                         shadow shadow-warm-gray-300 dark:shadow-zinc-800 
@@ -101,7 +102,7 @@
                   ]"
                 >
                   <Anchor
-                    v-if="item.type === 'link'"
+                    v-if="item.variant === 'link'"
                     role="menuitem"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
@@ -122,7 +123,7 @@
                     {{ item.text }}
                   </Anchor>
                   <Button
-                    v-else-if="item.type === 'button'"
+                    v-else-if="item.variant === 'button'"
                     role="menuitem"
                     :text="item.text"
                     size="md"
@@ -141,32 +142,21 @@
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
               <div class="mt-2">
-                <ThemeToggle type="select-box" />
+                <ThemeToggle variant="select-box" />
               </div>
             </div>
             <!-- Divider -->
             <div class="mt-8 border-b-2 border-warm-gray-500/50" />
             <!-- Close Button -->
-            <button
+            <Button
               id="mobile-nav-button"
               aria-controls="mobile-nav-menu"
-              type="button"
+              variant="close"
               text="Close"
               size="sm"
-              :class="`
-                mt-10 mx-2 p-2
-                rounded border-2
-                border-transparent dark:border-transparent
-                hover:border-red-800/70 hover:dark:border-red-800/50
-                font-bold hover:text-red-800 dark:hover:text-white
-                bg-warm-gray-200/90 dark:bg-warm-gray-600/60
-                hover:bg-warm-gray-100/90 hover:dark:bg-warm-gray-500/30
-                transition-colors duration-300
-              `"
+              class="mt-10 mx-2"
               @click.prevent="close"
-            >
-              Close
-            </button>
+            />
           </FocusTrap>
         </aside>
       </TransitionChild>

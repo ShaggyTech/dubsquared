@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <Listbox
-      v-if="currentStyle === 'dropdown-right-top'"
+      v-if="currentVariant === 'dropdown-right-top'"
       v-model="localeSetting"
       as="div"
       class="relative flex items-center"
@@ -38,7 +38,7 @@
       </ListboxOptions>
     </Listbox>
     <select
-      v-if="currentStyle === 'select-box'"
+      v-if="currentVariant === 'select-box'"
       v-model="localeSetting"
       class="w-full px-2 pr-3 py-1 outline-none rounded border bg-transparent text-gray-700 dark:text-gray-300 border-gray-900/10 dark:border-gray-50/[0.2]"
     >
@@ -64,15 +64,16 @@ import {
 } from '@headlessui/vue'
 import { availableLocales } from '~/utils/lang'
 
-// micro compiler
-const props = defineProps({
-  type: {
-    type: String,
-    default: 'dropdown-right-top',
-  },
+type Variants = 'dropdown-right-top' | 'select-box'
+
+interface Props {
+  variant?: Variants
+}
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'dropdown-right-top',
 })
 
 // state
-const currentStyle = toRef(props, 'type')
+const currentVariant = toRef(props, 'variant')
 const localeSetting = useState<string>('locale.setting')
 </script>

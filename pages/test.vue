@@ -12,28 +12,28 @@
           <div>Counter : {{ counter.count }}</div>
           <Button
             class="w-full lg:w-auto capitalize"
-            type="secondary"
+            variant="secondary"
             size="sm"
             :text="$t('pages.test.increment')"
             @click.prevent="counter.increment"
           />
           <Button
             class="w-full lg:w-auto"
-            type="secondary"
+            variant="secondary"
             size="sm"
             :text="`${$t('pages.test.increment')} 2x`"
             @click.prevent="counter.increment2x"
           />
           <Button
             class="w-full lg:w-auto capitalize"
-            type="secondary"
+            variant="secondary"
             size="sm"
             :text="$t('pages.test.decrement')"
             @click.prevent="counter.decrement"
           />
           <Button
             class="w-full lg:w-auto capitalize"
-            type="secondary"
+            variant="secondary"
             size="sm"
             :text="$t('pages.test.reset')"
             @click.prevent="counter.reset"
@@ -58,7 +58,7 @@
             <Button
               class="w-full capitalize"
               :text="$t('pages.test.reset')"
-              type="secondary"
+              variant="secondary"
               size="sm"
               @click.prevent="identity.reset"
             />

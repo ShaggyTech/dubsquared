@@ -10,7 +10,7 @@
           class="flex items-center capitalize"
         >
           <Anchor
-            v-if="item.type === 'link'"
+            v-if="item.variant === 'link'"
             role="menuitem"
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"
@@ -26,7 +26,7 @@
             >{{ item.text }}</Anchor
           >
           <Button
-            v-else-if="item.type === 'button'"
+            v-else-if="item.variant === 'button'"
             role="menuitem"
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"

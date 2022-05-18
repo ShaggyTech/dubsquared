@@ -31,7 +31,7 @@
         />
         <Button
           size="lg"
-          type="secondary"
+          variant="secondary"
           class="font-extrabold"
           href="https://github.com/viandwi24/nuxt3-awesome-starter"
         >
@@ -55,7 +55,7 @@
         <Button
           to="/"
           size="lg"
-          type="primary"
+          variant="primary"
           text="Test Button Icon"
           :icon="MdiInformation"
         />

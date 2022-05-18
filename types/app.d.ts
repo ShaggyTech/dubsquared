@@ -3,7 +3,7 @@ import type { FunctionalComponent } from 'vue'
 export type UnpluginIcon = FunctionalComponent
 
 export interface IMenuItem {
-  type: 'link' | 'button'
+  variant: 'link' | 'button'
   text: string
   href?: any
   route?: any
