@@ -40,34 +40,34 @@
           <!-- Menu Body -->
           <FocusTrap
             :class="`
-              relative flex flex-col h-full px-4 pb-36 overflow-y-auto
+              relative grid grid-cols-1 gap-y-8 h-full w-full px-2 sm:px-4 pt-8 pb-32
               border-l-8 border-red-900/80 dark:border-red-900/70
               bg-warm-gray-300 dark:bg-zinc-800
+              overflow-x-hidden overflow-y-auto
             `"
           >
+            <!-- Close Button -->
             <div
               :class="`
-                fixed left-0 top-0 flex-1 justify-end lg:hidden
-                text-warm-gray-600 dark:text-gray-300
-                hover:text-warm-gray-100
+                fixed right-4 top-2
+                text-warm-gray-600 dark:text-gray-300 hover:text-warm-gray-100
                 bg-transparent hover:bg-red-900/90
-                rounded-r border-l-8 border-red-900/30
-                shadow transition-colors duration-300
+                rounded-sm shadow transition-colors duration-300
               `"
             >
               <button
-                class="flex items-center round"
+                class="flex items-center"
                 aria-label="Close Menu"
                 aria-controls="mobile-nav-menu"
                 @click.prevent="close"
               >
-                <span class="flex items-center px-4 py-3" aria-hidden="true">
-                  <IconIon:close-round class="h-5 w-5" />
+                <span class="flex items-center p-2" aria-hidden="true">
+                  <IconIon:close-round class="h-4 w-4" />
                 </span>
               </button>
             </div>
             <!-- Menu Logo -->
-            <div class="grid place-items-center mt-6">
+            <div class="grid place-items-center">
               <SVGDubsquaredSquareLogo
                 alt="dubsquared logo"
                 height="64px"
@@ -77,9 +77,9 @@
               />
             </div>
             <!-- Divider -->
-            <div class="mt-6 border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Menu -->
-            <nav class="mt-8 px-2">
+            <nav class="px-2">
               <ul
                 role="menu"
                 aria-labelledby="mobile-nav-button"
@@ -135,9 +135,9 @@
               </ul>
             </nav>
             <!-- Divider -->
-            <div class="mt-8 border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Theme Toggle -->
-            <div class="flex flex-col mt-8 px-2">
+            <div class="flex flex-col px-2">
               <div class="ml-2 text-sm capitalize">
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
@@ -146,15 +146,15 @@
               </div>
             </div>
             <!-- Divider -->
-            <div class="mt-8 border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-warm-gray-500/50" />
             <!-- Close Button -->
             <Button
               id="mobile-nav-button"
               aria-controls="mobile-nav-menu"
               variant="close"
               text="Close"
-              size="sm"
-              class="mt-10 mx-2"
+              size="md"
+              class="mx-2"
               @click.prevent="close"
             />
           </FocusTrap>
