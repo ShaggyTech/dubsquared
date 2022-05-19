@@ -1,11 +1,7 @@
 <template>
   <div
     ref="navbar"
-    :class="`
-      top-0 z-40 w-full flex-none transition-colors duration-300 lg:z-50
-      border-b-2 md:border-b-4 border-red-800/[0.8]
-      bg-gray-200/[0.7] dark:bg-zinc-800/[0.7] backdrop-filter backdrop-blur
-    `"
+    class="top-0 z-40 h-auto w-full flex-none transition-colors duration-300 lg:z-50"
   >
     <!-- Banner -->
     <slot name="banner" />

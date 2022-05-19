@@ -12,7 +12,8 @@ export interface IMenuItem {
 
 interface IContactBarItem {
   text: string
-  href?: string
-  icon: 'phone' | 'email'
+  href: string
   ariaLabel: string
+  title: string
+  icon?: UnpluginIcon
 }
