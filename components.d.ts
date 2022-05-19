@@ -5,9 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    'IconCarbon:phoneOutgoingFilled': typeof import('~icons/carbon/phone-outgoing-filled')['default']
     'IconCib:instagram': typeof import('~icons/cib/instagram')['default']
-    'IconDashicons:emailAlt': typeof import('~icons/dashicons/email-alt')['default']
     'IconIon:closeRound': typeof import('~icons/ion/close-round')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']
     'IconLogos:facebook': typeof import('~icons/logos/facebook')['default']
