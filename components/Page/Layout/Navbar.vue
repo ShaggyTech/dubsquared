@@ -3,6 +3,7 @@
     :class="`
       border-b-2 border-red-800/80 dark:border-red-900/80 shadow-md
       bg-warm-gray-300/70 dark:bg-zinc-800/70 backdrop-filter backdrop-blur
+      transition-colors duration-300
     `"
   >
     <!-- Banner -->

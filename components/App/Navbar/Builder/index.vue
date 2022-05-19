@@ -1,8 +1,5 @@
 <template>
-  <div
-    ref="navbar"
-    class="top-0 z-40 h-auto w-full flex-none transition-colors duration-300 lg:z-50"
-  >
+  <div ref="navbar" class="top-0 z-40 h-auto w-full flex-none lg:z-50">
     <!-- Banner -->
     <slot name="banner" />
     <!-- Nav Bar Container-->
