@@ -51,7 +51,7 @@
               :class="`
                 fixed top-4 apple-safe-area--fixed-right
                 text-warm-gray-600 dark:text-warm-gray-300 hover:text-warm-gray-100
-                bg-red-900/40 hover:bg-red-900/90
+                bg-warm-gray-300/90 dark:bg-warm-gray-700/40 hover:bg-red-900/80 hover:dark:bg-red-900/70
                 rounded shadow transition-colors duration-300
               `"
             >
