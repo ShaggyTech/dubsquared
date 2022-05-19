@@ -47,6 +47,11 @@ const locale = useState<string>('locale.setting')
       padding-right: max(0vmin, env(safe-area-inset-right));
     }
   }
+  &--bottom {
+    @supports (padding: max(0px)) {
+      padding-bottom: max(0vmin, env(safe-area-inset-bottom));
+    }
+  }
   &--fixed-right {
     @supports (right: max(0px)) {
       right: max(1rem, env(safe-area-inset-right) - 8px);
