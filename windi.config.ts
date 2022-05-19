@@ -51,6 +51,16 @@ export default defineConfig({
         slate: colors.slate,
       },
     },
+    backgroundImage: {
+      'map-dark': "url('/images/map-background-dark.webp')",
+      'service-card-oil-changes':
+        "url('/images/service-oil-changes-1080x810.webp')",
+      'service-card-maintenance': 'url(/images/service-tune-ups-1080x810.webp)',
+      'service-card-diagnostic':
+        'url(/images/service-diagnostic-1080x810.webp)',
+      'service-card-performance-upgrades':
+        'url(/images/service-performance-upgrades-1080x810.webp)',
+    },
   },
   shortcuts: {
     'light-img': 'block dark:hidden',

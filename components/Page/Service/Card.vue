@@ -35,7 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   iconStyle: '',
   buttonText: '+ Learn More',
   buttonTo: undefined,
-  buttonHref: undefined,
+  buttonHref: '',
 })
 
 const defaultStyle = `
