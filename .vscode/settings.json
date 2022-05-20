@@ -21,7 +21,9 @@
         "class",
         "className",
         "ngClass",
-        "\/:class"
+        ":class"
     ],
     "headwind.runOnSave": false,
+    "windicss.enableEmmetCompletion": true,
+    "windicss.colorDecoratorsType": "picker",
 }
