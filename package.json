@@ -32,6 +32,8 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/svg": "^0.4.0",
     "@pinia/nuxt": "^0.1.8",
+    "@vueuse/components": "^8.5.0",
+    "@vueuse/core": "^8.5.0",
     "@vueuse/nuxt": "^8.3.0",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
