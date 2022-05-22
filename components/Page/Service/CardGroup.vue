@@ -1,8 +1,8 @@
 <template>
   <section class="flex flex-col items-center justify-center">
     <!-- Oil Changes -->
-    <LazyPageServiceCard
-      class="service-card service-card__oil-changes bg-placeholder"
+    <PageServiceCard
+      class="service-card service-card__oil-changes"
       heading-style="bg-zinc-900/80 border-8 border-red-700/60"
       paragraph-style="bg-red-900"
       button-to="services"
@@ -29,10 +29,10 @@
           optimal performance for years to come.
         </div>
       </template>
-    </LazyPageServiceCard>
+    </PageServiceCard>
     <!-- Maintenance / Tune-ups -->
-    <LazyPageServiceCard
-      class="service-card service-card__maintenance bg-placeholder text-zinc-900"
+    <PageServiceCard
+      class="service-card service-card__maintenance text-zinc-900"
       heading-style="bg-zinc-900/80 text-neutral-100 border-8 border-neutral-200/90"
       paragraph-style="bg-neutral-200"
       button-to="services"
@@ -61,10 +61,10 @@
           and we'll happily assist.
         </div>
       </template>
-    </LazyPageServiceCard>
+    </PageServiceCard>
     <!-- Diagnostics -->
-    <LazyPageServiceCard
-      class="service-card service-card__diagnostic bg-placeholder"
+    <PageServiceCard
+      class="service-card service-card__diagnostic"
       heading-style="bg-zinc-900/80 border-8 border-slate-600/90"
       paragraph-style="bg-slate-900"
       button-to="services"
@@ -104,10 +104,10 @@
           to learn more about our credentials.
         </div>
       </template>
-    </LazyPageServiceCard>
+    </PageServiceCard>
     <!-- Performance Upgrades -->
-    <LazyPageServiceCard
-      class="service-card service-card__performance-upgrades bg-placeholder"
+    <PageServiceCard
+      class="service-card service-card__performance-upgrades"
       heading-style="bg-neutral-200/80 text-zinc-800 border-8 border-zinc-900/90 mx-8"
       paragraph-style="bg-zinc-900"
       button-to="services"
@@ -154,10 +154,10 @@
           and we'll help you unlock some hidden fun in your vehicle.
         </div>
       </template>
-    </LazyPageServiceCard>
+    </PageServiceCard>
     <!-- Pre-purchase Inspections-->
-    <LazyPageServiceCard
-      class="service-card service-card__pre-purchase-inspections bg-placeholder"
+    <PageServiceCard
+      class="service-card service-card__pre-purchase-inspections"
       heading-style="bg-zinc-900/80 border-8 border-red-700/60"
       paragraph-style="bg-red-900"
       button-to="services"
@@ -190,50 +190,50 @@
           with Dubsquared so you don't get stuck with a 🍋.
         </div>
       </template>
-    </LazyPageServiceCard>
+    </PageServiceCard>
   </section>
 </template>
 
 <script lang="ts" setup>
-// const onObserve = ([{ isIntersecting }]) => {
-//   console.log('isIntersecting:', isIntersecting)
-// }
+const cardObserver = useState<IntersectionObserver>('service-card.observer')
+const cards = ref<NodeListOf<Element>>()
+
+onMounted(async () => {
+  await nextTick(() => {
+    cards.value = document.querySelectorAll('.service-card')
+    cards.value.forEach((card) => {
+      cardObserver.value.observe(card)
+    })
+  })
+})
 </script>
 
 <script lang="ts">
 export default { name: 'PageServiceCardGroup' }
-// if (entry.isIntersecting) {
-//   entry.target.classList.add("visible");
-//   lazyBackgroundObserver.unobserve(entry.target);
-// }
 </script>
 
 <style lang="scss" scoped>
 .service-card {
+  background-image: url('/images/placeholder-1080x810.webp');
   background-repeat: no-repeat;
   background-size: contain;
 
-  // has higher specificity, later .lazy will be removed via intersection observer so real image will load
-  &.bg-placeholder {
-    background-image: url('/images/placeholder-1080x810.webp');
+  // different card background images only loaded once .seen is added via intersection observer
+  &__oil-changes.seen {
+    background-image: url('/images/service-oil-changes-1080x810.webp');
   }
-
-  // different card background images only loaded once .bg-placeholder is removed
-  &__oil-changes {
-    background-image: url('service-oil-changes-1080x810.webp');
-  }
-  &__maintenance {
+  &__maintenance.seen {
     background-image: url('/images/service-tune-ups-1080x810.webp');
   }
-  &__diagnostic {
+  &__diagnostic.seen {
     background-image: url('/images/service-diagnostic-1080x810.webp');
   }
-  &__performance-upgrades {
+  &__performance-upgrades.seen {
     background-image: url('/images/service-performance-upgrades-1080x810.webp');
   }
   // TODO: Find suitable image for this card
-  &__pre-purchase-inspections {
-    background-image: url('/images/placeholder-1080x810.webp');
+  &__pre-purchase-inspections.seen {
+    background-image: url('/images/service-diagnostic-1080x810.webp');
   }
 }
 </style>

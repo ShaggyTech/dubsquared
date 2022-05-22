@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper>
+  <PageWrapper ref="rootRef">
     <div
       class="flex flex-col place-items-center place-content-center w-full min-h-100vh"
     >
@@ -257,34 +257,40 @@
 </template>
 
 <script setup lang="ts">
-// import MdiCellphone from '~icons/mdi/cellphone'
-// import MdiEmailFast from '~icons/mdi/email-fast'
-// import type { IContactBarItem } from '@/types'
+import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
 
 definePageMeta({
   layout: 'page',
+  // required to keep intersection observer active after page navigation
+  keepalive: true,
 })
 
-// const contactBarItems: IContactBarItem[] = [
-//   {
-//     text: '817-277-5593',
-//     href: 'tel:817-277-5593',
-//     ariaLabel: 'Call Dubsquared',
-//     title: 'Call Dubsquared',
-//     icon: MdiCellphone,
-//   },
-//   {
-//     text: 'info@dubsquared.com',
-//     href: 'mailto:info@dubsquared.com',
-//     ariaLabel: 'Email Dubsquared',
-//     title: 'Email Dubsquared',
-//     icon: MdiEmailFast,
-//   },
-// ]
-
+const rootRef = ref(null)
 const isBusinessOpen = ref<boolean>(true)
 
+const cardObserver = useState<IntersectionObserver>('service-card.observer')
+const cardSeen = useState<boolean>('service-card.seen', () => false)
+
+const observerOptions: IntersectionObserverInit = {
+  root: rootRef.value,
+  rootMargin: '150px 0px 0px 0px',
+}
+
+const observerCallback: IntersectionObserverCallback = (elements) => {
+  elements.forEach(({ target, isIntersecting }) => {
+    if (!target || !isIntersecting) {
+      return
+    }
+    cardSeen.value = true
+    cardObserver.value.unobserve(target)
+  })
+}
+
+const { Observer } = useIntersectionObserver(observerCallback, observerOptions)
+
 onMounted(() => {
+  cardObserver.value = Observer
+
   const date = new Date()
   // Set business timezone
   const timezone = -6
@@ -298,4 +304,6 @@ onMounted(() => {
   if (day < 1 || day > 5 || hour < 9 || hour > 18) isBusinessOpen.value = false
   else isBusinessOpen.value = true
 })
+
+onBeforeUnmount(() => cardObserver.value.disconnect())
 </script>
