@@ -18,7 +18,7 @@
             href="https://www.motul.com/us/en-us"
             text="MOTUL"
             target="_blank"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
+            class="link"
             >MOTUL</a
           >.
         </div>
@@ -52,10 +52,7 @@
           guidelines. We're here to help keep your vehicle up to date with these
           factory recommended maintenance intervals. Not sure what the intervals
           are for your vehicle?
-          <NuxtLink
-            to="contact"
-            class="px-1 font-bold text-red-700 dark:text-red-700 tracking-wider underline underline-offset-2"
-          >
+          <NuxtLink to="contact" class="text-red-700 dark:text-red-700">
             Get in touch
           </NuxtLink>
           and we'll happily assist.
@@ -79,28 +76,20 @@
           experience, our management and professional technicians are well
           qualified to diagnose and solve any problem you might have. If you're
           looking to dive in on your own, we use and can recommend the
-          <a
-            href="https://www.ross-tech.com/vag-com/"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
+          <a href="https://www.ross-tech.com/vag-com/" class="link">
             VCDS Scan Tool and Software
           </a>
           by Ross-Tech for all Volkswagen and Audi diagnostic needs.
         </div>
         <div>
           Our current diagnostic fee is
-          <span class="font-teko font-bold text-green-400">$130/hr</span>
+          <span class="font-bold text-green-400">$130/hr</span>
           with a minimum of
-          <span class="font-teko font-bold">1</span> hour required. If repairs
-          based on the diagnosis are authorized and performed within 30 days,
-          then the diagnostic fee will be credited towards the price of
-          recommended repairs.
-          <NuxtLink
-            to="meet-the-team"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
-            Meet the team
-          </NuxtLink>
+          <span class="font-bold">1</span> hour required. If repairs based on
+          the diagnosis are authorized and performed within 30 days, then the
+          diagnostic fee will be credited towards the price of recommended
+          repairs.
+          <NuxtLink to="meet-the-team" class="link"> Meet the team </NuxtLink>
           to learn more about our credentials.
         </div>
       </template>
@@ -122,17 +111,9 @@
           from industry-leading brands. We have the skill and experience
           necessary to assist you in finding the right part you need at the
           right price. We're an authorized dealer for
-          <a
-            href="https://www.goapr.com/"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
-            APR
-          </a>
+          <a href="https://www.goapr.com/" class="link"> APR </a>
           and
-          <a
-            href="https://store.034motorsport.com/"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
+          <a href="https://store.034motorsport.com/" class="link">
             034 Motorsport
           </a>
           . We offer their hardware and ECU / TCU flashes to unlock hidden
@@ -145,12 +126,7 @@
           about performance, quality parts, and attention to detail. Customer
           satisfaction is our top priority and we will work hard to get you
           exactly what you want.
-          <NuxtLink
-            to="contact"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
-            Get in touch
-          </NuxtLink>
+          <NuxtLink to="contact" class="link"> Get in touch </NuxtLink>
           and we'll help you unlock some hidden fun in your vehicle.
         </div>
       </template>
@@ -172,7 +148,7 @@
           provide you with a full and unbiased overview of the vehicle's
           condition + any needed repairs. Dubsquared offers this service for a
           flat fee of
-          <span class="font-teko font-bold text-green-400">$130</span>.
+          <span class="font-bold text-green-400">$130</span>.
         </div>
         <div>
           You'll receive a full report with pictures, notes on what was found,
@@ -181,10 +157,7 @@
           You'll need to bring the vehicle to our shop but most reputable used
           car dealers and individual sellers will allow third party inspections
           before purchase.
-          <NuxtLink
-            to="contact"
-            class="px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2"
-          >
+          <NuxtLink to="contact" class="link">
             Schedule a pre-purchase inspection
           </NuxtLink>
           with Dubsquared so you don't get stuck with a 🍋.
@@ -195,7 +168,14 @@
 </template>
 
 <script lang="ts" setup>
-const cardObserver = useState<IntersectionObserver>('service-card.observer')
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = defineProps({
+  observerKey: {
+    type: String,
+    default: '',
+  },
+})
+const cardObserver = useState<IntersectionObserver>(props.observerKey)
 const cards = ref<NodeListOf<Element>>()
 
 onMounted(async () => {
@@ -213,10 +193,11 @@ export default { name: 'PageServiceCardGroup' }
 </script>
 
 <style lang="scss" scoped>
+.link {
+  @apply px-1 font-bold text-gray-200 hover:text-white tracking-wider underline underline-offset-2;
+}
 .service-card {
   background-image: url('/images/placeholder-1080x810.webp');
-  background-repeat: no-repeat;
-  background-size: contain;
 
   // different card background images only loaded once .seen is added via intersection observer
   &__oil-changes.seen {

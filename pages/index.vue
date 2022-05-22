@@ -1,5 +1,5 @@
 <template>
-  <PageWrapper ref="rootRef">
+  <PageWrapper>
     <div
       class="flex flex-col place-items-center place-content-center w-full min-h-100vh"
     >
@@ -222,7 +222,7 @@
 
       <!-- Services-->
       <section class="mt-[4em]">
-        <LazyPageServiceCardGroup />
+        <LazyPageServiceCardGroup :observer-key="cardObserverName" />
       </section>
 
       <!-- Authorized Dealer for -->
@@ -265,31 +265,29 @@ definePageMeta({
   keepalive: true,
 })
 
-const rootRef = ref(null)
-const isBusinessOpen = ref<boolean>(true)
+const cardObserverName = 'service-card.observer'
 
-const cardObserver = useState<IntersectionObserver>('service-card.observer')
-const cardSeen = useState<boolean>('service-card.seen', () => false)
-
-const observerOptions: IntersectionObserverInit = {
-  root: rootRef.value,
-  rootMargin: '150px 0px 0px 0px',
-}
-
-const observerCallback: IntersectionObserverCallback = (elements) => {
-  elements.forEach(({ target, isIntersecting }) => {
+const observerCallback: IntersectionObserverCallback = (cards, observer) => {
+  cards.forEach(({ target, isIntersecting }) => {
     if (!target || !isIntersecting) {
       return
     }
-    cardSeen.value = true
-    cardObserver.value.unobserve(target)
+    target.classList.add('seen')
+    observer.unobserve(target)
   })
 }
 
-const { Observer } = useIntersectionObserver(observerCallback, observerOptions)
+const { observer: cardObserver, observerRef: cardObserverRef } =
+  useIntersectionObserver({
+    callback: observerCallback,
+    options: { rootMargin: '250px' },
+    useStateKey: cardObserverName,
+  })
+
+const isBusinessOpen = ref<boolean>(true)
 
 onMounted(() => {
-  cardObserver.value = Observer
+  cardObserverRef.value = cardObserver
 
   const date = new Date()
   // Set business timezone
@@ -305,5 +303,5 @@ onMounted(() => {
   else isBusinessOpen.value = true
 })
 
-onBeforeUnmount(() => cardObserver.value.disconnect())
+onBeforeUnmount(() => cardObserverRef.value.disconnect())
 </script>

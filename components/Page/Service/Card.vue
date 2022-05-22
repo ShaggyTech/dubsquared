@@ -2,7 +2,6 @@
   <div
     :class="{
       [`${defaultStyle}`]: true,
-      seen,
     }"
   >
     <div :class="`${defaultHeadingStyle} ${headingStyle}`">
@@ -42,8 +41,6 @@ const props = withDefaults(defineProps<Props>(), {
   buttonTo: undefined,
   buttonHref: '',
 })
-
-const seen = useState<boolean>('service-card.seen')
 
 const defaultStyle = `
   flex flex-col items-center h-full w-full text-gray-200
