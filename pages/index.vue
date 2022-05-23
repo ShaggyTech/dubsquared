@@ -133,7 +133,7 @@
               :class="`
                 flex flex-col items-center gap-y md:gap-y-2 h-full w-full px-8 py-[max(calc(1.5em_+_5vh),_2em)]
                 font-teko font-semibold text-white text-xl sm:text-2xl lg:text-4xl tracking-wider lg:tracking-widest
-              bg-zinc-900/30 hover:bg-zinc-900/60 hover:backdrop-blur-[2px]
+                bg-zinc-900/30 hover:bg-zinc-900/60 hover:backdrop-blur-[2px]
                 rounded transition-colors duration-500 shadow-md shadow-gray-500 dark:shadow-zinc-800/90
               `"
             >

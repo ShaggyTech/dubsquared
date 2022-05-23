@@ -3,7 +3,7 @@
     <!-- Oil Changes -->
     <PageServiceCard
       class="service-card service-card__oil-changes"
-      heading-style="bg-zinc-900/80 border-8 border-red-700/60"
+      heading-style="bg-zinc-900/60 border-red-800/70"
       paragraph-style="bg-red-900"
       button-to="services"
     >
@@ -32,9 +32,9 @@
     </PageServiceCard>
     <!-- Maintenance / Tune-ups -->
     <PageServiceCard
-      class="service-card service-card__maintenance text-zinc-900"
-      heading-style="bg-zinc-900/80 text-neutral-100 border-8 border-neutral-200/90"
-      paragraph-style="bg-neutral-200"
+      class="service-card service-card__maintenance"
+      heading-style="bg-warm-gray-900/60 border-warm-gray-100/70"
+      paragraph-style="bg-warm-gray-200 text-zinc-900"
       button-to="services"
     >
       <template #heading-icon><IconMdi:carClock /></template>
@@ -43,9 +43,12 @@
         <div>
           Dubsquared provides comprehensive automotive maintenance and tune-ups
           to keep your Volkswagen or Audi running smoothly and efficiently and
-          increase longevity. Typical maintenance items include engine air
-          filter, cabin/pollen filter, spark plugs, fuel filter, DSG service,
-          differential service, brake fluid flush, and more.
+          increase longevity.
+        </div>
+        <div>
+          Typical maintenance items include engine air filter, cabin/pollen
+          filter, spark plugs, fuel filter, DSG service, differential service,
+          brake fluid flush, and more.
         </div>
         <div>
           Each vehicle has specific maintenance needs according to manufacturer
@@ -62,8 +65,8 @@
     <!-- Diagnostics -->
     <PageServiceCard
       class="service-card service-card__diagnostic"
-      heading-style="bg-zinc-900/80 border-8 border-slate-600/90"
-      paragraph-style="bg-slate-900"
+      heading-style="bg-neutral-200/60 text-zinc-900 border-zinc-800/90"
+      paragraph-style="bg-zinc-900"
       button-to="services"
     >
       <template #heading-icon><IconMdi:engineOffOutline /></template>
@@ -74,12 +77,7 @@
           root of the problem so we can perform your VW or Audi repair quickly,
           efficiently, and right the first time. With over 50 years of combined
           experience, our management and professional technicians are well
-          qualified to diagnose and solve any problem you might have. If you're
-          looking to dive in on your own, we use and can recommend the
-          <a href="https://www.ross-tech.com/vag-com/" class="link">
-            VCDS Scan Tool and Software
-          </a>
-          by Ross-Tech for all Volkswagen and Audi diagnostic needs.
+          qualified to diagnose and solve any problem you might have.
         </div>
         <div>
           Our current diagnostic fee is
@@ -92,13 +90,20 @@
           <NuxtLink to="meet-the-team" class="link"> Meet the team </NuxtLink>
           to learn more about our credentials.
         </div>
+        <div>
+          If you're looking to dive in on your own, we use and can recommend the
+          <a href="https://www.ross-tech.com/vag-com/" class="link">
+            VCDS Scan Tool and Software
+          </a>
+          by Ross-Tech for all Volkswagen and Audi diagnostic needs.
+        </div>
       </template>
     </PageServiceCard>
     <!-- Performance Upgrades -->
     <PageServiceCard
       class="service-card service-card__performance-upgrades"
-      heading-style="bg-neutral-200/80 text-zinc-800 border-8 border-zinc-900/90 mx-8"
-      paragraph-style="bg-zinc-900"
+      heading-style="bg-sky-900/60 border-sky-800/90 mx-8"
+      paragraph-style="bg-sky-900"
       button-to="services"
     >
       <template #heading-icon
@@ -114,9 +119,8 @@
           <a href="https://www.goapr.com/" class="link"> APR </a>
           and
           <a href="https://store.034motorsport.com/" class="link">
-            034 Motorsport
-          </a>
-          . We offer their hardware and ECU / TCU flashes to unlock hidden
+            034 Motorsport</a
+          >. We offer their hardware and ECU / TCU flashes to unlock hidden
           performance in your vehicle. We also offer installation of lowering
           springs, coilovers, upgraded turbos, and many other performance
           hardware.
@@ -134,8 +138,8 @@
     <!-- Pre-purchase Inspections-->
     <PageServiceCard
       class="service-card service-card__pre-purchase-inspections"
-      heading-style="bg-zinc-900/80 border-8 border-red-700/60"
-      paragraph-style="bg-red-900"
+      heading-style="bg-blue-gray-900/70 border-blue-gray-800/60"
+      paragraph-style="bg-blue-gray-900"
       button-to="services"
     >
       <template #heading-icon><IconMdi:carInfo /></template>
@@ -144,19 +148,23 @@
         <div>
           Considering purchasing a used Volkswagen or Audi? We recommend a full
           inspection be performed by a party independent of the seller before
-          any used vehicle purchase. We offer pre-purchase inspections that
-          provide you with a full and unbiased overview of the vehicle's
-          condition + any needed repairs. Dubsquared offers this service for a
-          flat fee of
+          any used vehicle purchase.
+        </div>
+        <div>
+          We offer pre-purchase inspections that provide you with a full and
+          unbiased overview of the vehicle's condition + any needed repairs.
+          Dubsquared offers this service for a flat fee of
           <span class="font-bold text-green-400">$130</span>.
         </div>
         <div>
           You'll receive a full report with pictures, notes on what was found,
           and a full vehicle fault scan. Clients typically use this report as
-          leverage in purchase negotiations or to plan for future repairs.
-          You'll need to bring the vehicle to our shop but most reputable used
+          leverage in purchase negotiations or to plan for future repairs. The
+          vehicle will need to be brought to our shop but most reputable used
           car dealers and individual sellers will allow third party inspections
           before purchase.
+        </div>
+        <div>
           <NuxtLink to="contact" class="link">
             Schedule a pre-purchase inspection
           </NuxtLink>
@@ -202,15 +210,27 @@ export default { name: 'PageServiceCardGroup' }
   // different card background images only loaded once .seen is added via intersection observer
   &__oil-changes.seen {
     background-image: url('/images/service-oil-changes-1080x810.webp');
+    @screen lg {
+      background-image: url('/images/service-oil-changes-2400x1800.webp');
+    }
   }
   &__maintenance.seen {
     background-image: url('/images/service-tune-ups-1080x810.webp');
+    @screen lg {
+      background-image: url('/images/service-tune-ups-2400x1800.webp');
+    }
   }
   &__diagnostic.seen {
     background-image: url('/images/service-diagnostic-1080x810.webp');
+    @screen lg {
+      background-image: url('/images/service-diagnostic-2400x1800.webp');
+    }
   }
   &__performance-upgrades.seen {
     background-image: url('/images/service-performance-upgrades-1080x810.webp');
+    @screen lg {
+      background-image: url('/images/service-performance-upgrades-2400x1800.webp');
+    }
   }
   // TODO: Find suitable image for this card
   &__pre-purchase-inspections.seen {
