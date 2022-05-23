@@ -47,14 +47,14 @@ const defaultStyle = `
   not-prose bg-no-repeat bg-contain z-[50]
 `
 const defaultHeadingStyle = `
-  flex flex-col items-center gap-y-[0.8em] min-w-[50%]
+  flex flex-col items-center gap-y-[0.7em] min-w-[50%]
   -mb-24 md:-mb-28 lg:-mb-52 mt-36 sm:mt-[19rem] md:mt-[22rem] lg:mt-[37rem] xl:mt-[49rem]
-  border-8 p-8 sm:p-[2em]
-  font-bold text-2xl sm:text-3xl lg:text-5xl sm:tracking-wider text-center
+  border-8 p-6 sm:p-[1.5em]
+  font-bold text-2xl sm:text-3xl lg:text-4xl sm:tracking-wider text-center
   backdrop-blur rounded-md shadow-xl z-[52]
 `
 const defaultParagraphStyle = `
-  flex flex-col items-center gap-y-[2em] backdrop-blur-md
+  flex flex-col items-center gap-y-[1.5em] backdrop-blur-md
   h-full w-full pt-38 md:pt-46 lg:pt-72 pb-30
   font-semibold text-xl md:text-2xl leading-8 lg:leading-10 z-[51]
 `

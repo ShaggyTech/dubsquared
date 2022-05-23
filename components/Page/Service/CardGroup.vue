@@ -16,9 +16,9 @@
           changes using only the highest quality oil from
           <a
             href="https://www.motul.com/us/en-us"
-            text="MOTUL"
             target="_blank"
             class="link"
+            title="Motul"
             >MOTUL</a
           >.
         </div>
@@ -55,7 +55,11 @@
           guidelines. We're here to help keep your vehicle up to date with these
           factory recommended maintenance intervals. Not sure what the intervals
           are for your vehicle?
-          <NuxtLink to="contact" class="text-red-700 dark:text-red-700">
+          <NuxtLink
+            to="contact"
+            class="text-red-700 dark:text-red-700"
+            title="Contact"
+          >
             Get in touch
           </NuxtLink>
           and we'll happily assist.
@@ -74,10 +78,10 @@
       <template #paragraph>
         <div>
           Dubsquared offers state-of-the-art diagnostics services to get to the
-          root of the problem so we can perform your VW or Audi repair quickly,
-          efficiently, and right the first time. With over 50 years of combined
-          experience, our management and professional technicians are well
-          qualified to diagnose and solve any problem you might have.
+          root of the problem so we can perform your Volkswagen or Audi repair
+          quickly, efficiently, and right the first time. With over 50 years of
+          combined experience, our management and professional technicians are
+          well qualified to diagnose and solve any problem you might have.
         </div>
         <div>
           Our current diagnostic fee is
@@ -87,12 +91,19 @@
           the diagnosis are authorized and performed within 30 days, then the
           diagnostic fee will be credited towards the price of recommended
           repairs.
-          <NuxtLink to="meet-the-team" class="link"> Meet the team </NuxtLink>
+          <NuxtLink to="meet-the-team" class="link" title="Meet the Team">
+            Meet the team
+          </NuxtLink>
           to learn more about our credentials.
         </div>
         <div>
           If you're looking to dive in on your own, we use and can recommend the
-          <a href="https://www.ross-tech.com/vag-com/" class="link">
+          <a
+            href="https://www.ross-tech.com/vag-com/"
+            class="link"
+            title="Ross-tech VAG-COM"
+            target="_blank"
+          >
             VCDS Scan Tool and Software
           </a>
           by Ross-Tech for all Volkswagen and Audi diagnostic needs.
@@ -112,25 +123,40 @@
       <template #heading-text>Performance Upgrades</template>
       <template #paragraph>
         <div>
-          Dubsquared carries a wide variety of VW and Audi performance parts
-          from industry-leading brands. We have the skill and experience
+          Dubsquared carries a wide variety of Volkswagen and Audi performance
+          parts from industry-leading brands. We have the skill and experience
           necessary to assist you in finding the right part you need at the
           right price. We're an authorized dealer for
-          <a href="https://www.goapr.com/" class="link"> APR </a>
+          <a
+            href="https://www.goapr.com/"
+            class="link"
+            title="APR"
+            target="_blank"
+          >
+            APR
+          </a>
           and
-          <a href="https://store.034motorsport.com/" class="link">
+          <a
+            href="https://store.034motorsport.com/"
+            class="link"
+            title="034 Motorsport"
+            target="_blank"
+          >
             034 Motorsport</a
-          >. We offer their hardware and ECU / TCU flashes to unlock hidden
+          >
+          and offer their hardware + ECU / TCU flashes to unlock hidden
           performance in your vehicle. We also offer installation of lowering
           springs, coilovers, upgraded turbos, and many other performance
           hardware.
         </div>
         <div>
-          We're staffed by lifelong VW and Audi enthusiasts who are passionate
-          about performance, quality parts, and attention to detail. Customer
-          satisfaction is our top priority and we will work hard to get you
-          exactly what you want.
-          <NuxtLink to="contact" class="link"> Get in touch </NuxtLink>
+          Dubsquared is staffed by lifelong Volkswagen and Audi enthusiasts who
+          are passionate about performance, quality parts, and attention to
+          detail. Customer satisfaction is our top priority and we will work
+          hard to get you exactly what you want.
+          <NuxtLink to="contact" class="link" title="Contact">
+            Get in touch
+          </NuxtLink>
           and we'll help you unlock some hidden fun in your vehicle.
         </div>
       </template>
@@ -138,11 +164,13 @@
     <!-- Pre-purchase Inspections-->
     <PageServiceCard
       class="service-card service-card__pre-purchase-inspections"
-      heading-style="bg-blue-gray-900/70 border-blue-gray-800/60"
+      heading-style="bg-warm-gray-100/60 text-zinc-900 border-blue-gray-800/90"
       paragraph-style="bg-blue-gray-900"
       button-to="services"
     >
-      <template #heading-icon><IconMdi:carInfo /></template>
+      <template #heading-icon
+        ><IconMdi:carInfo class="text-sky-600"
+      /></template>
       <template #heading-text>Pre-purchase Inspections</template>
       <template #paragraph>
         <div>
@@ -165,7 +193,7 @@
           before purchase.
         </div>
         <div>
-          <NuxtLink to="contact" class="link">
+          <NuxtLink to="contact" class="link" title="Pre Purchase Inspections">
             Schedule a pre-purchase inspection
           </NuxtLink>
           with Dubsquared so you don't get stuck with a 🍋.
@@ -234,7 +262,7 @@ export default { name: 'PageServiceCardGroup' }
   }
   // TODO: Find suitable image for this card
   &__pre-purchase-inspections.seen {
-    background-image: url('/images/service-diagnostic-1080x810.webp');
+    background-image: url('/images/service-audi-dashboard-1080x810.webp');
   }
 }
 </style>
