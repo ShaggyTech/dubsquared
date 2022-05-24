@@ -1,146 +1,103 @@
 <template>
   <PageWrapper>
-    <div
-      class="flex flex-col place-items-center place-content-center w-full min-h-100vh"
-    >
-      <!-- intro container-->
-      <section
-        :class="`
-          flex flex-col items-center max-w-8xl py-16 lg:py-20
-          prose prose-zinc dark:prose-light prose-lg sm:prose-xl lg:prose-2xl prose-a:text-red-700
-          dark:text-warm-gray-100
+    <!-- intro container-->
+    <section
+      id="introduction"
+      :class="`
+          flex flex-col items-center max-w-8xl py-16 lg:py-20 mobile-safe-area
+          prose prose-light dark:prose-invert prose-lg md:prose-xl lg:prose-xl prose-a:text-red-700
+          text-zinc-900 dark:text-warm-gray-100
         `"
+    >
+      <!-- intro heading -->
+      <h1 class="text-center sm:tracking-wider dark:text-warm-gray-100">
+        Welcome to Dubsquared
+      </h1>
+      <!-- intro text container -->
+      <div class="grid gap-y-8 lg:gap-y-12">
+        <div>
+          Dubsquared is an established, full service Volkswagen and Audi repair
+          shop located in the heart of the DFW metroplex (Arlington, Texas). We
+          strive to provide complete customer satisfaction, service and
+          reliability through the highest quality workmanship and through the
+          most superior products possible. We offer competitive quotes and carry
+          only OEM, OES or custom-built parts.
+          <NuxtLink to="about" class="intro-link">
+            Learn more about Dubsquared's history.
+          </NuxtLink>
+        </div>
+        <div>
+          Our dedicated technicians are factory trained and have a combined 50+
+          years of experience in VW/Audi maintenance and repair. They have the
+          knowledge, expertise, and enthusiasm to provide the highest quality
+          repair and maintenance services available in the area.
+          <NuxtLink to="meet-the-team" class="intro-link"
+            >Meet the Team</NuxtLink
+          >
+          who'll be responsible for your vehicle.
+        </div>
+        <div>
+          We provide a variety of services, including Volkswagen repair,
+          Volkswagen maintenance, Audi Repair, Audi Maintenance, oil changes,
+          tire rotations, timing belt services, timing chain services, brake
+          services, chip tuning, ECU tuning, and many more.
+        </div>
+        <div>
+          We have the skill and experience necessary to serve as your
+          full-service auto shop offering Audi and Volkswagen owners the highest
+          quality services and customer care in the area.
+          <NuxtLink to="services" class="intro-link">
+            Learn more about the services we offer.
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+    <!-- section business hours and location -->
+    <section
+      id="shop-hours-and-location"
+      class="grid max-w-8xl mt-10 h-full w-full text-center"
+    >
+      <!-- container business hours and location -->
+      <div
+        class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full w-full text-white text-xl lg:text-2xl tracking-wide"
       >
-        <!-- intro heading -->
-        <h1
-          class="px-6 sm:mx-[2em] font-playfair text-center tracking-wider dark:text-warm-gray-100"
-        >
-          Welcome to Dubsquared
-        </h1>
-        <!-- intro title -->
+        <!-- business hours -->
         <div
-          class="flex flex-col mx-6 sm:mx-[2em] lg:mx-[4em] space-y-8 lg:space-y-12"
+          class="grid gap-[1em] place-items-center h-full w-full py-[2em] bg-zinc-900"
         >
-          <div>
-            Dubsquared is an established, full service Volkswagen and Audi
-            repair shop located in the heart of the DFW metroplex (Arlington,
-            Texas). We strive to provide complete customer satisfaction, service
-            and reliability through the highest quality workmanship and through
-            the most superior products possible. We offer competitive quotes and
-            carry only OEM, OES or custom-built parts.
-            <NuxtLink to="about" class="px-1">
-              Learn more about Dubsquared's history.
-            </NuxtLink>
+          <IconIon:clock
+            :class="[
+              'h-[3em] w-[3em] animate-spin animate-duration-60s',
+              isBusinessOpen ? 'text-green-500' : 'text-red-500',
+            ]"
+          />
+          <h3 class="text-3xl">Shop Hours</h3>
+          <hr class="hr w-[40%] mx-auto" />
+          <div class="grid gap-[0.5em]">
+            <span class="italic">Monday - Friday</span>
+            <span class="font-semibold text-green-500"> 9am - 6pm </span>
           </div>
-          <div>
-            Our dedicated technicians are factory trained and have a combined
-            50+ years of experience in VW/Audi maintenance and repair. They have
-            the knowledge, expertise, and enthusiasm to provide the highest
-            quality repair and maintenance services available in the area.
-            <NuxtLink to="meet-the-team" class="px-1">Meet the Team</NuxtLink>
-            who'll be responsible for your vehicle.
-          </div>
-          <div>
-            We provide a variety of services, including Volkswagen repair,
-            Volkswagen maintenance, Audi Repair, Audi Maintenance, oil changes,
-            tire rotations, timing belt services, timing chain services, brake
-            services, chip tuning, ECU tuning, and many more. We have the skill
-            and experience necessary to serve as your full-service auto shop
-            offering Audi and Volkswagen owners the highest quality services and
-            customer care in the area.
-            <NuxtLink to="services" class="px-1">
-              Learn more about the services we offer.
-            </NuxtLink>
+          <hr class="hr w-[25%] mx-auto" />
+          <div class="grid gap-[0.5em]">
+            <span class="italic">Saturday & Sunday</span>
+            <span class="font-semibold text-red-500/90">CLOSED</span>
           </div>
         </div>
-      </section>
-      <!-- business info container -->
-      <section
-        :class="`
-          grid gap-y-10 lg:gap-y-16 h-full w-full max-w-8xl dark:bg-zinc-700
-          px-4 sm:px-0 md:px-10 lg:px-[15vw] xl:px-[5vw] py-16 lg:py-20 text-center`"
-      >
-        <!-- business phone & email-->
-        <!-- <AppContactBar
-          :items="contactBarItems"
-          :class="`
-            flex flex-col sm:flex-row justify-around gap-x-10 lg:gap-x-16 gap-y-10
-            h-full w-full px-8 lg:px-0 transition-colors
-          `"
-          :anchor-style="`
-            flex-col gap-y-2 md:gap-y-4 px-6 py-4 md:py-6 lg:py-8
-            text-xl lg:text-2xl tracking-wide
-            shadow-sm hover:shadow-md shadow-neutral-200/90 dark:shadow-zinc-800/90
-            border-2 border-neutral-100 hover:border-neutral-300/30 dark:hover:border-zinc-700/50
-            dark:border-zinc-900/50 dark:hover:border-zinc-700/30
-            bg-gradient-to-br from-neutral-100/30 via-neutral-200/40 to-neutral-100/90
-            dark:from-zinc-900 dark:via-zinc-900/80 dark:to-zinc-900
-            transition-[color,background-color,border-color,text-decoration-color,fill,stroke,box-shadow] duration-300 rounded
-          `"
-          :icon-style="
-            [
-              'text-2xl lg:text-3xl',
-              isBusinessOpen ? 'text-green-500' : 'text-red-500',
-            ].join(' ')
-          "
-        /> -->
-        <!-- business hours and address -->
+        <!-- business address -->
         <div
-          :class="`flex flex-col xl:flex-row gap-x-10 lg:gap-x-16 gap-y-10 lg:gap-y-16 h-full w-full px-8 lg:px-0`"
+          class="grid content-center w-full h-full bg-map-dark bg-no-repeat bg-cover"
         >
-          <!-- business hours -->
-          <div
-            :class="`
-              flex flex-col gap-y-[1em] items-center
-              h-full w-full py-[1.6em] tracking-wide md:tracking-wider
-              text-xl lg:text-3xl shadow-md shadow-neutral-200/90 rounded dark:shadow-zinc-800/90
-              bg-gradient-to-br from-neutral-100/30 via-neutral-200/40 to-neutral-100/90
-              dark:from-zinc-900 dark:via-zinc-900/80 dark:to-zinc-900
-            `"
-          >
-            <IconIon:clock
-              :class="[isBusinessOpen ? 'text-green-500' : 'text-red-500']"
-              height="2.2em"
-              width="2.2em"
-            />
-            <span class="[font-size:1.3em]">Hours</span>
-            <hr class="hr w-[40%] mx-auto" />
-            <div class="flex flex-col gap-y-[0.5em]">
-              <span class="italic">Monday - Friday</span>
-              <span class="font-teko font-semibold text-green-600">
-                9am - 6pm
-              </span>
-            </div>
-            <hr class="hr w-[40%] mx-auto" />
-            <div class="flex flex-col gap-y-[0.5em]">
-              <span class="italic">Saturday & Sunday</span>
-              <span class="font-alatsi font-semibold text-red-500/90"
-                >CLOSED</span
-              >
-            </div>
-            <hr class="hr w-[40%] mx-auto" />
-          </div>
-          <!-- business address -->
           <a
             href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
+            title="Google Maps"
             target="_blank"
-            :class="`
-              w-full h-full rounded no-underline not-prose
-              bg-map-dark bg-no-repeat bg-cover
-            `"
+            class="w-full h-full py-[8em] bg-zinc-900/50 hover:bg-zinc-900/80 hover:backdrop-blur-xl transition-colors duration-500"
           >
             <address
-              :class="`
-                flex flex-col items-center gap-y md:gap-y-2 h-full w-full px-8 py-[max(calc(1.5em_+_5vh),_2em)]
-                font-teko font-semibold text-white text-xl sm:text-2xl lg:text-4xl tracking-wider lg:tracking-widest
-                bg-zinc-900/30 hover:bg-zinc-900/60 hover:backdrop-blur-[2px]
-                rounded transition-colors duration-500 shadow-md shadow-gray-500 dark:shadow-zinc-800/90
-              `"
+              class="flex flex-col items-center h-full w-full tracking-wider lg:tracking-widest font-bold"
             >
               <IconMdi:mapMarkerRadius
-                class="text-yellow-500 mb-[1em] animate-[bounce_3s_ease-in-out_infinite]"
-                height="2em"
-                width="2em"
+                class="h-[3em] w-[3em] mb-[1em] text-yellow-500 animate-bounce animate-duration-1500"
               />
               <span>1223 Colorado Ln</span>
               <span>Suite 105</span>
@@ -148,109 +105,109 @@
             </address>
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- intro container-->
-      <section
+    <!-- CTA container-->
+    <section
+      id="get-in-touch"
+      :class="`
+        flex flex-col items-center max-w-8xl mobile-safe-area py-24
+        bg-warm-gray-400 dark:bg-warm-gray-800 transition-colors duration-300
+      `"
+    >
+      <!-- CTA: get a quote or schedule appointment -->
+      <div
         :class="`
-          flex flex-col items-center max-w-8xl py-16 lg:py-20
-          bg-zinc-300/20 dark:bg-zinc-800
+          grid justify-center gap-10 sm:gap-12 md:gap-14 lg:gap-16
+          w-auto h-full px-[1.5em] sm:px-[3em] py-[4em]
+          bg-warm-gray-700 text-gray-100 text-center
+          rounded-md shadow-lg border-3 border-yellow-500/90
         `"
       >
-        <!-- get a quote or schedule appointment -->
-        <div
+        <h2
           :class="`
-            flex flex-col justify-center gap-6
-            w-auto h-full mt-[4em] mx-8 sm:mx-[2em] px-8 sm:px-20 lg:px-32 py-[3em]
-            bg-zinc-700 text-gray-100 border-4 border-yellow-500/90 shadow-lg
-            not-prose rounded-md text-center
+            text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide
+             px-4 lg:px-6 py-[1em] shadow-xl rounded-md border-2 border-yellow-500/80
           `"
         >
-          <h2
-            :class="`
-              text-xl sm:text-2xl md:text-3xl lg:text-4xl
-              font-cabin font-semibold tracking-wide sm:tracking-wider
-              border-2 px-4 py-[1em] rounded-md border-yellow-500/80
-            `"
-          >
-            Get a Quote
-            <span class="text-yellow-500/80 mx-1 md:mx-2">or</span> Schedule an
-            Appointment
-          </h2>
-          <h3 class="px-6 md:mt-4 text-lg sm:text-xl md:text-2xl">
-            We're here to help get you back on the road and dedicated to keeping
-            you there.
-          </h3>
-          <div
-            :class="`
-              flex flex-col md:flex-row justify-center gap-6 md:gap-10 lg:gap-14 xl:gap-20
-              w-full h-full max-w-[100%] sm:max-w-[66%] md:max-w-[100%] xl:max-w-[80%] mx-auto mt-6 md:mt-8
-              rounded-md
-            `"
-          >
-            <Button
-              size="lg"
-              text="Get a Quote"
-              :to="{ name: 'contact' }"
-              class=""
-            />
-            <Button
-              size="lg"
-              text="Book Appointment"
-              variant="secondary"
-              :to="{ name: 'contact' }"
-            />
-          </div>
+          Get a Quote
+          <span class="text-yellow-500/80 mx-1 md:mx-2">or</span> Schedule an
+          Appointment
+        </h2>
+        <h3 class="px-6 text-lg sm:text-xl md:text-2xl">
+          We're here to help get you back on the road and dedicated to keeping
+          you there.
+        </h3>
+        <div
+          :class="`
+            grid place-self-center grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-12
+            w-full max-w-10/12 sm:max-w-max md:max-w-3/4 transition-colors duration-300
+          `"
+        >
+          <Button
+            size="none"
+            text="Get a Quote"
+            :to="{ name: 'contact' }"
+            title="Get a Quote"
+            class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
+          />
+          <Button
+            size="none"
+            text="Book Appointment"
+            variant="secondary"
+            :to="{ name: 'contact' }"
+            title="Book Appointment"
+            class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
+          />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- brands we use -->
-      <section
+    <!-- brands we use -->
+    <section
+      id="brands-we-use"
+      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full pt-36 pb-48 bg-warm-gray-100 dark:bg-zinc-900"
+    >
+      <div class="font-bold text-center text-2xl md:text-3xl lg:text-4xl">
+        Brands We Use
+        <span class="mx-1 md:mx-2 text-yellow-500/80">&</span> Endorse
+      </div>
+      <Marquee :duration="40" gradient />
+    </section>
+
+    <!-- Services-->
+    <section id="services">
+      <LazyPageServiceCardGroup :observer-key="cardObserverName" />
+    </section>
+
+    <!-- Authorized Dealer for -->
+    <div class="w-full h-full flex space-around items-center my-16">
+      <div
         :class="`
-          flex flex-col justify-center gap-8 lg:gap-12 mt-[2em]
-          w-full h-full py-8 not-prose dark:bg-zinc-900
+          flex flex-col lg:flex-row gap-8 items-center flex-around
+           max-h-[clamp(10em,50vh,400px)] w-[80%] rounded-md px-5 py-5 mb-4 mx-auto
+          bg-gray-300 dark:bg-zinc-800 rounded-md
         `"
       >
-        <h3
-          class="font-playfair font-bold text-center text-2xl md:text-3xl lg:text-4xl"
-        >
-          Brands We Use
-          <span class="mx-1 md:mx-2 text-yellow-500/80">&</span> Endorse
-        </h3>
-        <Marquee :duration="40" gradient />
-      </section>
-
-      <!-- Services-->
-      <section class="mt-[4em]">
-        <LazyPageServiceCardGroup :observer-key="cardObserverName" />
-      </section>
-
-      <!-- Authorized Dealer for -->
-      <div
-        class="authorized-dealer-for w-full h-full flex space-around items-center my-16"
-      >
-        <div
-          class="authorized-logos flex flex-col lg:flex-row items-center flex-around rounded-md px-5 py-5 mb-4 gap-4 bg-gray-300 dark:bg-zinc-800 mx-auto max-h-[clamp(10em,50vh,400px)] w-[80%]"
-        >
-          <SVGAuthorizedAPR
-            alt="Authorized APR Dealer"
-            class="authorized-logs__apr w-full h-full"
-            height="100px"
-            width="100px"
-          />
-          <SVGAuthorized034
-            alt="Authorized 034-Motorsport Dealer"
-            class="authorized-logs__034 w-full h-full"
-            height="100px"
-            width="100px"
-          />
-          <SVGAuthorizedMotul
-            alt="Authorized Motul Distributor"
-            class="authorized-logs__motul w-full h-full"
-            height="100px"
-            width="100px"
-          />
-        </div>
+        <SVGAuthorizedAPR
+          alt="Authorized APR Dealer"
+          class="authorized-logs__apr w-full h-full"
+          height="100px"
+          width="100px"
+        />
+        <SVGAuthorized034
+          alt="Authorized 034-Motorsport Dealer"
+          class="authorized-logs__034 w-full h-full"
+          height="100px"
+          width="100px"
+        />
+        <SVGAuthorizedMotul
+          alt="Authorized Motul Distributor"
+          class="authorized-logs__motul w-full h-full"
+          height="100px"
+          width="100px"
+        />
       </div>
     </div>
   </PageWrapper>
@@ -305,3 +262,25 @@ onMounted(() => {
 
 onBeforeUnmount(() => cardObserverRef.value.disconnect())
 </script>
+
+<style lang="scss" scoped>
+.mobile-safe-area {
+  @supports (padding: max(0px)) {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+  @screen md {
+    @supports (padding: max(0px)) {
+      padding-left: max(2rem, env(safe-area-inset-left));
+      padding-right: max(2rem, env(safe-area-inset-right));
+    }
+  }
+  @screen lg {
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}
+.intro-link {
+  @apply pl-1 text-red-900 dark:text-yellow-400;
+}
+</style>
