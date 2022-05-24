@@ -53,8 +53,10 @@
         <div>
           Each vehicle has specific maintenance needs according to manufacturer
           guidelines. We're here to help keep your vehicle up to date with these
-          factory recommended maintenance intervals. Not sure what the intervals
-          are for your vehicle?
+          factory recommended maintenance intervals.
+        </div>
+        <div>
+          Not sure what the intervals are for your vehicle?
           <NuxtLink
             to="contact"
             class="text-red-700 dark:text-red-700"
@@ -126,7 +128,10 @@
           Dubsquared carries a wide variety of Volkswagen and Audi performance
           parts from industry-leading brands. We have the skill and experience
           necessary to assist you in finding the right part you need at the
-          right price. We're an authorized dealer for
+          right price.
+        </div>
+        <div>
+          We're an authorized dealer for
           <a
             href="https://www.goapr.com/"
             class="link"
@@ -187,10 +192,12 @@
         <div>
           You'll receive a full report with pictures, notes on what was found,
           and a full vehicle fault scan. Clients typically use this report as
-          leverage in purchase negotiations or to plan for future repairs. The
-          vehicle will need to be brought to our shop but most reputable used
-          car dealers and individual sellers will allow third party inspections
-          before purchase.
+          leverage in purchase negotiations or to plan for future repairs.
+        </div>
+        <div>
+          The vehicle will need to be brought to our shop but most reputable
+          used car dealers and individual sellers will allow third party
+          inspections before purchase.
         </div>
         <div>
           <NuxtLink to="contact" class="link" title="Pre Purchase Inspections">
