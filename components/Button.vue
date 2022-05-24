@@ -43,7 +43,7 @@ import type { UnpluginIcon } from '~/types'
 
 type ButtonType = 'button' | 'submit' | 'reset' | undefined
 
-type Size = 'xs' | 'sm' | 'md' | 'lg'
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'none'
 type Sizes = Record<Size, string>
 
 type Variant = 'primary' | 'secondary' | 'close'
@@ -100,7 +100,6 @@ const styles = reactive<Variants>({
     hover:text-red-800 dark:hover:text-white
     bg-warm-gray-200 dark:bg-warm-gray-800/80
     hover:bg-warm-gray-100 hover:dark:bg-warm-gray-700
-    transition-colors duration-300
   `,
 })
 const sizes = reactive<Sizes>({
@@ -108,6 +107,7 @@ const sizes = reactive<Sizes>({
   sm: 'h-8 px-4 rounded text-sm',
   md: 'h-10 px-6 rounded text-base',
   lg: 'h-12 px-8 rounded-lg text-lg',
+  none: '',
 })
 
 // state
