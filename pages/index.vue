@@ -1,7 +1,8 @@
 <template>
   <PageWrapper>
     <!-- Hero Banner -->
-    <PageHomeHero />
+    <!-- <PageHomeHero /> -->
+
     <!-- <div
       class="relative z-30 h-full w-full min-h-720px grid content-start bg-black"
     >
@@ -14,6 +15,7 @@
         class="relative place-self-center z-31 mt-12 w-48 h-48"
       />
     </div> -->
+
     <!-- intro container-->
     <section
       id="introduction"

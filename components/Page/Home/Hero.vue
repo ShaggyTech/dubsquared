@@ -1,11 +1,8 @@
 <template>
-  <div class="relative h-full w-full">
+  <div class="relative h-full w-full z-29">
     <!-- banner background container -->
     <div
-      :class="`
-        absolute inset-0 overflow-hidden w-auto z-[97]
-        brightness-[0.4] dark:brightness-[0.35] blur-[0.5px]
-      `"
+      class="absolute inset-0 w-auto h-auto z-30 bg-zinc-900 brightness-[0.4] dark:brightness-[0.35] blur-[0.5px]"
     >
       <!-- banner background image -->
       <img
@@ -23,26 +20,16 @@
     <!-- banner main container-->
     <div
       ref="headerBanner"
-      :class="`
-        relative flex flex-col justify-around place-items-center
-        gap-2 lg:gap-8 h-full max-h-[100%]
-        mx-auto pb-[min(60vh,_164px)] lg:pb-48
-        overlflow-hidden z-[99]
-      `"
+      class="relative w-full h-full grid place-items-center gap-10 z-30"
     >
       <!-- banner logo -->
       <div
-        :class="`
-          relative min-h-[0] h-[max-content] max-h-[24vh] w-[max-content] max-w-[40%]
-          mt-6 lg:mt-10
-        bg-red-800/20 dark:bg-red-400/10
-          backdrop-blur-sm backdrop-brightness-[0.5] dark:backdrop-brightness-[0.6]
-        `"
+        class="relative bg-red-800/20 dark:bg-red-400/30 backdrop-blur-sm backdrop-brightness-[0.5] dark:backdrop-brightness-[0.6]"
       >
-        <div class="absolute inset-0 z-[100] max-h-[100%] max-w-[100%]">
-          <SVGAnimatedGears />
-        </div>
-        <SVGDubsquaredSquareLogo class="relative h-full w-full z-[101]" />
+        <!-- <div class="absolute inset-0 z-100 max-h-[100%] max-w-[100%]">
+          <SVGAnimatedGears height="12rem" />
+        </div> -->
+        <SVGDubsquaredSquareLogo class="relative h-40 w-40 z-31" />
       </div>
       <!-- banner headline container -->
       <div
@@ -59,22 +46,19 @@
         <!-- headline logos -->
         <SVGLogoVolkswagen
           alt="volkswagen logo"
-          class="[grid-area:logo-vw] h-[calc((8vh_+_6vw)_/_2)] w-auto"
+          class="[grid-area:logo-vw] h-5em w-auto"
           height="20"
           width="20"
         />
         <SVGLogoAudi
           alt="audi logo"
-          class="[grid-area:logo-audi] h-[calc((8vh_+_4vw)_/_2)] w-auto"
+          class="[grid-area:logo-audi] h-4em w-auto"
           height="20"
           width="57"
         />
         <!-- headline text -->
         <div
-          :class="`
-            [grid-area:headline-text]
-            flex flex-col gap-y-6 lg:gap-y-14 text-center
-          `"
+          class="[grid-area:headline-text] flex flex-col gap-y-6 lg:gap-y-14 text-center"
         >
           <h1
             :class="`
