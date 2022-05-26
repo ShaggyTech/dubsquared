@@ -67,8 +67,8 @@ interface Props {
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
-  height: '350px',
-  width: '350px',
+  height: 'auto',
+  width: 'auto',
   viewbox: '0 0 350 350',
 })
 </script>
