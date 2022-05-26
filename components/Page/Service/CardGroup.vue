@@ -3,7 +3,7 @@
     <!-- Oil Changes -->
     <PageServiceCard
       class="service-card service-card__oil-changes"
-      heading-style="bg-zinc-900/60 border-red-800/70"
+      heading-style="bg-zinc-900/70 border-red-800/70"
       paragraph-style="bg-red-900"
       button-to="services"
     >
@@ -33,7 +33,7 @@
     <!-- Maintenance / Tune-ups -->
     <PageServiceCard
       class="service-card service-card__maintenance"
-      heading-style="bg-warm-gray-900/60 border-warm-gray-100/70"
+      heading-style="bg-warm-gray-900/70 border-warm-gray-100/70"
       paragraph-style="bg-warm-gray-200 text-zinc-900"
       button-to="services"
     >
@@ -71,7 +71,7 @@
     <!-- Diagnostics -->
     <PageServiceCard
       class="service-card service-card__diagnostic"
-      heading-style="bg-neutral-200/60 text-zinc-900 border-zinc-800/90"
+      heading-style="bg-neutral-200/70 text-zinc-900 border-zinc-800/90"
       paragraph-style="bg-zinc-900"
       button-to="services"
     >
@@ -115,7 +115,7 @@
     <!-- Performance Upgrades -->
     <PageServiceCard
       class="service-card service-card__performance-upgrades"
-      heading-style="bg-sky-900/60 border-sky-800/90 mx-8"
+      heading-style="bg-sky-900/70 border-sky-800/90 mx-8"
       paragraph-style="bg-sky-900"
       button-to="services"
     >
@@ -169,7 +169,7 @@
     <!-- Pre-purchase Inspections-->
     <PageServiceCard
       class="service-card service-card__pre-purchase-inspections"
-      heading-style="bg-warm-gray-100/60 text-zinc-900 border-blue-gray-800/90"
+      heading-style="bg-warm-gray-100/70 text-zinc-900 border-blue-gray-800/90"
       paragraph-style="bg-blue-gray-900"
       button-to="services"
     >
