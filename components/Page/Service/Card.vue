@@ -56,7 +56,7 @@ const defaultHeadingStyle = `
 const defaultParagraphStyle = `
   flex flex-col items-center gap-y-[1.5em] backdrop-blur-md
   h-full w-full pt-38 md:pt-46 lg:pt-72 pb-30
-  font-semibold text-lg lg:text-2xl leading-8 lg:leading-10 z-[51]
+  font-semibold text-lg lg:text-xl leading-8 lg:leading-9 z-[51]
 `
 
 const defaultIconStyle = `text-5xl lg:text-6xl text-yellow-500`
