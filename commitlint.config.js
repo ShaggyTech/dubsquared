@@ -17,6 +17,8 @@ module.exports = {
         'perf',
         'build',
         'vercel',
+        'app',
+        'assets',
       ],
     ],
   },
