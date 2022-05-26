@@ -1,5 +1,19 @@
 <template>
   <PageWrapper>
+    <!-- Hero Banner -->
+    <PageHomeHero />
+    <!-- <div
+      class="relative z-30 h-full w-full min-h-720px grid content-start bg-black"
+    >
+      <img
+        src="/images/audi-headlights-dark-1080x720.webp"
+        alt="Audi Headlights"
+        class="absolute inset-0 z-30 h-full w-full"
+      />
+      <SVGDubsquaredSquareLogo
+        class="relative place-self-center z-31 mt-12 w-48 h-48"
+      />
+    </div> -->
     <!-- intro container-->
     <section
       id="introduction"
