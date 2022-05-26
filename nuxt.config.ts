@@ -12,7 +12,7 @@ declare module '@nuxt/schema' {
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   // css
-  css: ['~/assets/sass/vendor.scss', '~/assets/sass/app.scss'],
+  css: ['~/assets/sass/vendor.scss', '~/assets/sass/index.scss'],
 
   // plugins
   plugins: ['~/plugins/navbar.ts'],

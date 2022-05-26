@@ -42,7 +42,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^12.3.3",
     "nuxt": "3.0.0-rc.3",
-    "nuxt-windicss": "2.2.8",
+    "nuxt-windicss": "2.3.2",
     "pinia": "^2.0.9",
     "postcss": "8.4.13",
     "postcss-loader": "^6.2.1",
