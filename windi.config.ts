@@ -50,6 +50,12 @@ export default defineConfig({
         green: MyTheme.colors.green,
         slate: colors.slate,
       },
+      fontFamily: {
+        nunito: ['nunito', 'sans-serif'],
+        'nunito-sans': ['nunito-sans', 'sans-serif'],
+        lora: ['lora', 'serif'],
+        teko: ['teko', 'sans-serif'],
+      },
       // backgroundSize: {
       //   'service-card': 'contain',
       // },
