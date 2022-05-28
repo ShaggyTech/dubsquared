@@ -1,7 +1,7 @@
 <template>
   <PageWrapper>
     <!-- Hero Banner -->
-    <!-- <PageHomeHero /> -->
+    <PageHomeHero />
 
     <!-- <div
       class="relative z-30 h-full w-full min-h-720px grid content-start bg-black"
