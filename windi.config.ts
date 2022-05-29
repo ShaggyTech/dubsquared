@@ -1,3 +1,4 @@
+import defaultTheme from 'windicss/defaultTheme'
 import { defineConfig } from 'windicss/helpers'
 import type { Plugin } from 'windicss/types/interfaces'
 
@@ -51,10 +52,13 @@ export default defineConfig({
         slate: colors.slate,
       },
       fontFamily: {
-        nunito: ['nunito', 'sans-serif'],
-        'nunito-sans': ['nunito-sans', 'sans-serif'],
-        lora: ['lora', 'serif'],
-        teko: ['teko', 'sans-serif'],
+        nunito: ['Nunito', ...defaultTheme.fontFamily.sans].join(','),
+        'nunito-sans': ['"Nunito Sans"', ...defaultTheme.fontFamily.sans].join(
+          ','
+        ),
+        lora: ['Lora', ...defaultTheme.fontFamily.serif].join(','),
+        teko: ['Teko', ...defaultTheme.fontFamily.sans].join(','),
+        kanit: ['Kanit', ...defaultTheme.fontFamily.sans].join(','),
       },
       // backgroundSize: {
       //   'service-card': 'contain',
