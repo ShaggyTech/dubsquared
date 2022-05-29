@@ -1,7 +1,7 @@
 <template>
   <PageWrapper>
     <!-- Hero Banner -->
-    <PageHomeHero />
+    <PageHomeHero :observer-key="heroObserverName" />
 
     <!-- <div
       class="relative z-30 h-full w-full min-h-720px grid content-start bg-black"
@@ -238,9 +238,34 @@ definePageMeta({
   keepalive: true,
 })
 
-const cardObserverName = 'service-card.observer'
+// hero section obvserver
+const heroObserverName = 'hero-section.observer'
+const heroObserverCallback: IntersectionObserverCallback = (
+  element,
+  observer
+) => {
+  element.forEach(({ target, isIntersecting }) => {
+    if (!target || !isIntersecting) {
+      return
+    }
+    setTimeout(() => {
+      target.classList.add('seen')
+      observer.unobserve(target)
+    }, 500)
+  })
+}
+const { observer: heroObserver, observerRef: heroObserverRef } =
+  useIntersectionObserver({
+    callback: heroObserverCallback,
+    useStateKey: heroObserverName,
+  })
 
-const observerCallback: IntersectionObserverCallback = (cards, observer) => {
+// service card observer
+const cardObserverName = 'service-card.observer'
+const cardObserverCallback: IntersectionObserverCallback = (
+  cards,
+  observer
+) => {
   cards.forEach(({ target, isIntersecting }) => {
     if (!target || !isIntersecting) {
       return
@@ -249,10 +274,9 @@ const observerCallback: IntersectionObserverCallback = (cards, observer) => {
     observer.unobserve(target)
   })
 }
-
 const { observer: cardObserver, observerRef: cardObserverRef } =
   useIntersectionObserver({
-    callback: observerCallback,
+    callback: cardObserverCallback,
     options: { rootMargin: '250px' },
     useStateKey: cardObserverName,
   })
@@ -261,6 +285,7 @@ const isBusinessOpen = ref<boolean>(true)
 
 onMounted(() => {
   cardObserverRef.value = cardObserver
+  heroObserverRef.value = heroObserver
 
   const date = new Date()
   // Set business timezone
