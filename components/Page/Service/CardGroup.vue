@@ -211,11 +211,10 @@
 </template>
 
 <script lang="ts" setup>
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   observerKey: {
     type: String,
-    default: '',
+    required: true,
   },
 })
 const cardObserver = useState<IntersectionObserver>(props.observerKey)
