@@ -4,8 +4,8 @@ export interface IntersectionObserverOptions extends IntersectionObserverInit {
 }
 export type UseIntersectionObserver = (params: {
   callback: IntersectionObserverCallback
-  options: IntersectionObserverOptions
   useStateKey: string
+  options?: IntersectionObserverOptions
 }) => {
   isSupported: boolean
   observer: IntersectionObserver
@@ -17,7 +17,7 @@ const defaultWindow = isClient ? window : undefined
 
 export const useIntersectionObserver: UseIntersectionObserver = ({
   callback,
-  options,
+  options = {},
   useStateKey,
 }) => {
   const {
