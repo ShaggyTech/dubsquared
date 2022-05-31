@@ -1,7 +1,7 @@
 <template>
   <AppNavbarBuilder
     :class="`
-      border-b-2 border-red-800/80 dark:border-red-900/80 shadow-md
+      border-b-2 border-red-600/80 dark:border-red-600/80 shadow-md
       bg-warm-gray-300/70 dark:bg-zinc-800/70 backdrop-filter backdrop-blur
       transition-colors duration-300
     `"
@@ -11,9 +11,7 @@
       <AppContactBar
         :items="contactBarItems"
         :class="`
-            grid-flow-col py-1
-            border-t border-b border-warm-gray-500/70
-            bg-red-900 dark:bg-red-800/50
+            grid-flow-col py-1 bg-red-800 border-t border-b border-warm-gray-500/70
             transition-colors duration-300
           `"
         :anchor-class="`
