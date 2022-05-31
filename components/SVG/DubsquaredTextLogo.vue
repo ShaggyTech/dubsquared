@@ -82,7 +82,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   height: '50px',
   width: '264px',
-  fillTextDub: '#c9373c',
+  fillTextDub: '#c81c14',
   fillTextSquared: '#cecece',
   viewbox: '0 0 264 50',
 })
