@@ -1,73 +1,49 @@
 <template>
-  <PageWrapper>
+  <PageWrapper class="pt-0">
     <!-- Hero Banner -->
-    <PageHomeHero :observer-key="heroObserverName" />
-
-    <!-- <div
-      class="relative z-30 h-full w-full min-h-720px grid content-start bg-black"
-    >
-      <img
-        src="/images/audi-headlights-dark-1080x720.webp"
-        alt="Audi Headlights"
-        class="absolute inset-0 z-30 h-full w-full"
-      />
-      <SVGDubsquaredSquareLogo
-        class="relative place-self-center z-31 mt-12 w-48 h-48"
-      />
-    </div> -->
-
+    <PageHomeHero
+      :adjectives="heroAdjectives"
+      :observer-key="heroObserverName"
+    />
     <!-- intro container-->
-    <section
-      id="introduction"
-      :class="`
-          flex flex-col items-center max-w-8xl py-16 lg:py-20 mobile-safe-area
-          prose prose-light dark:prose-invert prose-lg md:prose-xl lg:prose-xl prose-a:text-red-700
-          text-zinc-900 dark:text-warm-gray-100
-        `"
-    >
-      <!-- intro heading -->
-      <h1 class="text-center sm:tracking-wider dark:text-warm-gray-100">
-        Welcome to Dubsquared
-      </h1>
-      <!-- intro text container -->
-      <div class="grid gap-y-8 lg:gap-y-12">
-        <div>
+    <PageSectionIntroduction id="introduction">
+      <template #heading>Welcome to Dubsquared</template>
+      <template #content>
+        <p>
           Dubsquared is an established, full service Volkswagen and Audi repair
           shop located in the heart of the DFW metroplex (Arlington, Texas). We
           strive to provide complete customer satisfaction, service and
           reliability through the highest quality workmanship and through the
           most superior products possible. We offer competitive quotes and carry
           only OEM, OES or custom-built parts.
-          <NuxtLink to="about" class="intro-link">
+          <NuxtLink to="about">
             Learn more about Dubsquared's history.
           </NuxtLink>
-        </div>
-        <div>
+        </p>
+        <p>
           Our dedicated technicians are factory trained and have a combined 50+
-          years of experience in VW/Audi maintenance and repair. They have the
-          knowledge, expertise, and enthusiasm to provide the highest quality
-          repair and maintenance services available in the area.
-          <NuxtLink to="meet-the-team" class="intro-link"
-            >Meet the Team</NuxtLink
-          >
+          years of experience in VW & Audi repair, maintenance, and performance.
+          They have the knowledge, expertise, and enthusiasm to provide the
+          highest quality repair and maintenance services available in the area.
+          <NuxtLink to="meet-the-team">Meet the Team</NuxtLink>
           who'll be responsible for your vehicle.
-        </div>
-        <div>
+        </p>
+        <p>
           We provide a variety of services, including Volkswagen repair,
           Volkswagen maintenance, Audi Repair, Audi Maintenance, oil changes,
           tire rotations, timing belt services, timing chain services, brake
           services, chip tuning, ECU tuning, and many more.
-        </div>
-        <div>
-          We have the skill and experience necessary to serve as your
+        </p>
+        <p>
+          We possess the skill and experience necessary to serve as your
           full-service auto shop offering Audi and Volkswagen owners the highest
           quality services and customer care in the area.
-          <NuxtLink to="services" class="intro-link">
+          <NuxtLink to="services">
             Learn more about the services we offer.
           </NuxtLink>
-        </div>
-      </div>
-    </section>
+        </p>
+      </template>
+    </PageSectionIntroduction>
     <!-- section business hours and location -->
     <section
       id="shop-hours-and-location"
@@ -238,6 +214,17 @@ definePageMeta({
   keepalive: true,
 })
 
+const heroAdjectives = ref([
+  'Garage',
+  'Specialists',
+  'Experts',
+  'Shop',
+  'Connoisseurs',
+  'Proffessionals',
+  'Gurus',
+  'Fanatics',
+])
+
 // hero section obvserver
 const heroObserverName = 'hero-section.observer'
 const heroObserverCallback: IntersectionObserverCallback = (
@@ -301,7 +288,10 @@ onMounted(() => {
   else isBusinessOpen.value = true
 })
 
-onBeforeUnmount(() => cardObserverRef.value.disconnect())
+onBeforeUnmount(() => {
+  cardObserverRef.value.disconnect()
+  heroObserverRef.value.disconnect()
+})
 </script>
 
 <style lang="scss" scoped>
@@ -320,8 +310,5 @@ onBeforeUnmount(() => cardObserverRef.value.disconnect())
     padding-left: 5em;
     padding-right: 5em;
   }
-}
-.intro-link {
-  @apply pl-1 text-red-900 dark:text-yellow-400;
 }
 </style>
