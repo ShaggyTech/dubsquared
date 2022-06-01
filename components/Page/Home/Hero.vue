@@ -31,11 +31,11 @@ export default { name: 'PageHomeHero' }
 
 <template>
   <div
-    class="hero__container relative h-full w-full backdrop-filter backdrop-brightness-60"
+    class="hero__container relative h-full w-full backdrop-filter backdrop-brightness-80 transition-all duration-600"
   >
     <!-- hero content wrapper -->
     <div
-      class="min-h-800px lg:min-h-[max(100vh,1278px)] grid place-items-center gap-10 py-18 px-4 text-4xl md:text-5xl lg:text-6xl text-warm-gray-200 bg-warm-gray-900/85"
+      class="min-h-[min(100vh,1000px)] grid place-items-center content-center gap-8 py-10 lg:py-16 px-4 bg-warm-gray-900/95 text-4xl md:text-5xl lg:text-6xl text-warm-gray-200"
     >
       <!-- hero logo -->
       <SVGDubsquaredSquareLogo
@@ -58,7 +58,7 @@ export default { name: 'PageHomeHero' }
         </div>
         <!-- hero headings -->
         <h1
-          class="relative font-kanit font-bold tracking-wide leading-14 md:leading-18 lg:leading-24"
+          class="animated animate-light-speed-in-right hero__heading relative font-kanit font-bold tracking-wide leading-14 md:leading-16 lg:leading-24"
         >
           Volkswagen <span class="text-yellow-400/80">&</span> Audi
           <br />
@@ -74,7 +74,9 @@ export default { name: 'PageHomeHero' }
           </span>
         </h1>
         <hr class="hr" />
-        <h2 class="font-teko text-warm-gray-200 text-xl md:text-3xl">
+        <h2
+          class="animated animate-light-speed-in-left hero__subheading font-teko text-warm-gray-200 text-xl md:text-3xl"
+        >
           Serving Arlington, TX and the DFW Metroplex since 2009
         </h2>
       </div>
@@ -83,17 +85,26 @@ export default { name: 'PageHomeHero' }
 </template>
 
 <style lang="scss" scoped>
+.animate-swivel-in {
+  opacity: 0;
+  animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+}
+
 .hero__container {
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% center;
+  filter: blur(100px);
+  background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+
   @supports (-webkit-touch-callout: none) {
     background-attachment: scroll;
   }
   @supports not (-webkit-touch-callout: none) {
     background-attachment: fixed;
   }
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 40% center;
-  background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+
   @screen sm {
     background-position: center center;
   }
@@ -103,6 +114,7 @@ export default { name: 'PageHomeHero' }
 
   // different background images only fetched once .seen class is added via intersection observer
   &.seen {
+    filter: blur(0px);
     background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp');
     @screen lg {
       background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp');
@@ -110,24 +122,25 @@ export default { name: 'PageHomeHero' }
   }
 }
 
-.animate-float {
-  animation: float 6s cubic-bezier(0.36, 0.07, 0.19, 0.97);
-}
-.animate-swivel-in {
-  opacity: 0;
-  animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
-}
-
 .logo__dubsquared {
-  animation-delay: 500ms;
+  animation-delay: 1500ms;
 }
 .logo__volkswagen {
-  animation-delay: 2000ms;
-  animation-duration: 1s;
+  animation-delay: 2500ms;
+  animation-duration: 0.8s;
 }
 .logo__audi {
-  animation-delay: 2500ms;
-  animation-duration: 1s;
+  animation-delay: 3000ms;
+  animation-duration: 0.8s;
+}
+
+.hero__heading {
+  animation-delay: 3800ms;
+  animation-duration: 0.5s;
+}
+.hero__subheading {
+  animation-delay: 3800ms;
+  animation-duration: 0.6s;
 }
 
 .adjective-container {
@@ -163,21 +176,6 @@ export default { name: 'PageHomeHero' }
       transform: translateX(50%) translateY(-60%) scaleY(0) scaleX(0);
       text-decoration-color: rgba(0, 0, 0, 0);
     }
-  }
-}
-
-@keyframes float {
-  0% {
-    box-shadow: 0 5px 15px 0px rgba(30, 30, 30, 0.6);
-    transform: translatey(-5px);
-  }
-  50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
-    transform: translatey(-10px);
-  }
-  100% {
-    box-shadow: 0 5px 15px 0px rgba(30, 30, 30, 0.6);
-    transform: translatey(-5px);
   }
 }
 
