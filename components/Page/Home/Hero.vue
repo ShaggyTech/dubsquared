@@ -8,13 +8,14 @@ const props = withDefaults(defineProps<Props>(), {
   adjectives: () => ['Default Adjective'],
 })
 
-const observer = useState<IntersectionObserver>(props.observerKey)
-const container = ref<Element | null>(null)
-
 const adjectivesRef = ref(props.adjectives)
 const { currentAdjective, showAdjective } = useAdjectives({
   adjectives: adjectivesRef.value,
 })
+
+// used for lazy loading real hero background image
+const observer = useState<IntersectionObserver>(props.observerKey)
+const container = ref<Element | null>(null)
 
 onActivated(async () => {
   await nextTick(() => {
@@ -31,34 +32,34 @@ export default { name: 'PageHomeHero' }
 
 <template>
   <div
-    class="hero__container relative h-full w-full backdrop-filter backdrop-brightness-80 transition-all duration-600"
+    class="hero__container relative h-full w-full backdrop-filter backdrop-brightness-80"
   >
     <!-- hero content wrapper -->
     <div
-      class="min-h-[min(100vh,1000px)] grid place-items-center content-center gap-8 py-10 lg:py-16 px-4 bg-warm-gray-900/95 text-4xl md:text-5xl lg:text-6xl text-warm-gray-200"
+      class="grid place-items-center content-center gap-8 pt-10 pb-20 px-4 bg-stone-900/95 text-stone-200 text-4xl md:(text-5xl) lg:(min-h-[min(100vh,1000px)] pt-18 pb-24 text-6xl)"
     >
       <!-- hero logo -->
       <SVGDubsquaredSquareLogo
-        class="animate-swivel-in logo__dubsquared h-36 w-36 md:(h-40 w-40) rounded backdrop-filter backdrop-blur-sm bg-zinc-800/50"
+        class="logo__dubsquared animate-swivel-in h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
       <!-- hero text -->
       <div
-        class="grid gap-y-8 md:gap-y-10 lg:gap-y-14 text-warm-gray-200 text-center text-shadow-xl tracking-wide"
+        class="grid gap-y-8 md:gap-y-10 lg:gap-y-14 text-stone-200 text-center text-shadow-xl tracking-wide"
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
           <SVGLogoVolkswagen
             alt="Volkswagen logo"
-            class="h-1.5em w-auto sm:pl-8 animate-swivel-in logo__volkswagen"
+            class="logo__volkswagen animate-swivel-in h-1.5em w-auto sm:pl-8"
           />
           <SVGLogoAudi
             alt="Audi logo"
-            class="h-1em w-auto animate-swivel-in logo__audi"
+            class="logo__audi animate-swivel-in h-1em w-auto"
           />
         </div>
         <!-- hero headings -->
         <h1
-          class="animated animate-light-speed-in-right hero__heading relative font-kanit font-bold tracking-wide leading-14 md:leading-16 lg:leading-24"
+          class="hero__heading font-kanit font-bold tracking-wide leading-14 md:leading-16 lg:leading-24 animated animate-light-speed-in-right"
         >
           Volkswagen <span class="text-yellow-400/80">&</span> Audi
           <br />
@@ -66,16 +67,16 @@ export default { name: 'PageHomeHero' }
             <transition name="adjective">
               <div
                 v-if="showAdjective"
-                class="adjective font-lora text-warm-gray-200 underline underline-offset-4 tracking-wider"
+                class="adjective font-lora text-stone-200 underline underline-offset-4 tracking-wider"
               >
                 {{ currentAdjective }}
               </div>
             </transition>
           </span>
         </h1>
-        <hr class="hr" />
+        <hr class="hr hero__spacer animated animate-light-speed-in-right" />
         <h2
-          class="animated animate-light-speed-in-left hero__subheading font-teko text-warm-gray-200 text-xl md:text-3xl"
+          class="hero__subheading font-teko text-stone-200 text-xl md:text-3xl animated animate-light-speed-in-left"
         >
           Serving Arlington, TX and the DFW Metroplex since 2009
         </h2>
@@ -95,8 +96,12 @@ export default { name: 'PageHomeHero' }
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 40% center;
-  filter: blur(100px);
   background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+
+  filter: blur(100px);
+  transition-property: filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 
   @supports (-webkit-touch-callout: none) {
     background-attachment: scroll;
@@ -116,6 +121,7 @@ export default { name: 'PageHomeHero' }
   &.seen {
     filter: blur(0px);
     background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp');
+
     @screen lg {
       background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp');
     }
@@ -123,23 +129,27 @@ export default { name: 'PageHomeHero' }
 }
 
 .logo__dubsquared {
-  animation-delay: 1500ms;
+  animation-delay: 2000ms;
 }
 .logo__volkswagen {
-  animation-delay: 2500ms;
+  animation-delay: 3000ms;
   animation-duration: 0.8s;
 }
 .logo__audi {
-  animation-delay: 3000ms;
+  animation-delay: 3600ms;
   animation-duration: 0.8s;
 }
 
 .hero__heading {
-  animation-delay: 3800ms;
+  animation-delay: 4200ms;
+  animation-duration: 0.5s;
+}
+.hero__spacer {
+  animation-delay: 4700ms;
   animation-duration: 0.5s;
 }
 .hero__subheading {
-  animation-delay: 3800ms;
+  animation-delay: 5200ms;
   animation-duration: 0.6s;
 }
 
