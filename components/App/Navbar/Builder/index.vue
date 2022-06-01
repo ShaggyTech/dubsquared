@@ -4,7 +4,7 @@
     <slot name="banner" />
     <!-- Nav Bar Container-->
     <div class="h-full w-full max-w-8xl mx-auto">
-      <div class="h-full py-3 lg:px-8 mx-4 lg:mx-0">
+      <div class="h-full py-0.1rem lg:py-1 lg:px-8 mx-4 lg:mx-0">
         <div class="relative flex items-center apple-safe-area">
           <!-- drawer:toggle -->
           <div

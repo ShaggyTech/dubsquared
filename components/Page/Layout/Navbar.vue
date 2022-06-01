@@ -15,7 +15,7 @@
             transition-colors duration-300
           `"
         :anchor-class="`
-            col-span-1 px-1 md:px-8 py-1
+            col-span-1 px-1 md:px-8
             text-xs sm:text-sm xl:text-base text-center tracking-widest
             text-warm-gray-200 hover:text-white
           `"
@@ -28,7 +28,7 @@
       <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
         <span class="sr-only">home</span>
         <div class="flex items-center h-full">
-          <SVGDubsquaredTextLogo width="180px" />
+          <SVGDubsquaredTextLogo width="150px" />
         </div>
       </NuxtLink>
     </template>
