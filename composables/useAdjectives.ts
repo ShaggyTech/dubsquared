@@ -32,7 +32,7 @@ export const useAdjectives = (
         delayFirstChangeTimeout: null,
         delayAsEmpty: 500,
         delayAsEmptyTimeout: null,
-        timeBetween: 5000,
+        timeBetween: 7000,
         timeBetweenInterval: null,
       })
   )
