@@ -33,7 +33,7 @@
           absolute top-full right-0 outline-none overflow-hidden z-50
           w-36 p-1 py-1 rounded-lg shadow-lg
           text-sm font-semibold text-gray-700 dark:text-gray-300 dark:highlight-white/5
-          bg-warm-gray-100 dark:bg-warm-gray-800
+          bg-stone-100 dark:bg-stone-800
           ring-1 ring-gray-900/10 dark:ring-0
         `"
         >
@@ -43,9 +43,9 @@
             :value="theme.key"
             :class="{
               'py-2 px-2 flex items-center cursor-pointer': true,
-              'text-warm-gray-400 bg-warm-gray-100 dark:bg-warm-gray-600/30':
+              'text-stone-400 bg-stone-100 dark:bg-stone-600/30':
                 themeSetting === theme.key,
-              'hover:bg-gray-50 dark:hover:bg-warm-gray-700/30':
+              'hover:bg-gray-50 dark:hover:bg-stone-700/30':
                 themeSetting !== theme.key,
             }"
           >

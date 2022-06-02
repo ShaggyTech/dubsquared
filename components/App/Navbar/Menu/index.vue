@@ -77,7 +77,7 @@ export default { name: 'AppNavbarMenu' }
 }
 html.dark {
   .nav-link.router-link-exact-active {
-    color: theme('colors.warm-gray.300');
+    color: theme('colors.stone.300');
   }
 }
 </style>

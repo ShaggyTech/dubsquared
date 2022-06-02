@@ -43,7 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const defaultStyle = `
-  flex flex-col items-center h-full w-full text-warm-gray-100
+  flex flex-col items-center h-full w-full text-stone-100
   not-prose bg-no-repeat bg-contain z-[50]
 `
 const defaultHeadingStyle = `

@@ -15,7 +15,7 @@
         <div
           :class="`
             fixed inset-0 w-screen h-screen z-50 transition-opacity
-            bg-warm-gray-800/30 dark:bg-zinc-900/80 backdrop-blur
+            bg-stone-800/30 dark:bg-zinc-900/80 backdrop-blur
           `"
         />
       </TransitionChild>
@@ -42,7 +42,7 @@
             :class="`
               relative grid grid-cols-1 gap-y-8 h-full w-full px-2 sm:px-4 pt-8 pb-32
               border-l-8 border-red-900/80 dark:border-red-900/70
-              bg-warm-gray-300 dark:bg-zinc-800
+              bg-stone-300 dark:bg-zinc-800
               overflow-x-hidden overflow-y-auto
             `"
           >
@@ -50,8 +50,8 @@
             <div
               :class="`
                 fixed top-4 apple-safe-area--fixed-right
-                text-warm-gray-600 dark:text-warm-gray-300 hover:text-warm-gray-100
-                bg-warm-gray-300/90 dark:bg-warm-gray-700/40 hover:bg-red-900/80 hover:dark:bg-red-900/70
+                text-stone-600 dark:text-stone-300 hover:text-stone-100
+                bg-stone-300/90 dark:bg-stone-700/40 hover:bg-red-900/80 hover:dark:bg-red-900/70
                 rounded shadow transition-colors duration-300
               `"
             >
@@ -79,7 +79,7 @@
             <!-- Mobile Social Media Icons -->
             <AppNavbarMenuSocialMedia class="text-2xl" />
             <!-- Divider -->
-            <div class="border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-stone-500/50" />
             <!-- Menu -->
             <nav class="apple-safe-area--right">
               <ul
@@ -96,9 +96,9 @@
                     'flex place-items-center w-full',
                     item.variant === 'link'
                       ? `rounded
-                        hover:bg-warm-gray-100/90 hover:dark:bg-red-800/40
-                        shadow shadow-warm-gray-300 dark:shadow-zinc-800 
-                        hover:shadow-warm-gray-400 hover:dark:shadow-zinc-900
+                        hover:bg-stone-100/90 hover:dark:bg-red-800/40
+                        shadow shadow-stone-300 dark:shadow-zinc-800 
+                        hover:shadow-stone-400 hover:dark:shadow-zinc-900
                         transition-colors duration-300`
                       : '',
                   ]"
@@ -113,8 +113,8 @@
                       flex-1 px-2 py-1
                       rounded border-b-2 border-transparent hover:border-red-900/80
                       font-bold capitalize tracking-wider leading-8
-                      text-warm-gray-700 dark:text-warm-gray-300
-                      hover:text-red-900 hover:dark:text-warm-gray-100
+                      text-stone-700 dark:text-stone-300
+                      hover:text-red-900 hover:dark:text-stone-100
                     `"
                   >
                     <template #icon>
@@ -137,7 +137,7 @@
               </ul>
             </nav>
             <!-- Divider -->
-            <div class="border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-stone-500/50" />
             <!-- Theme Toggle -->
             <div class="flex flex-col px-2 apple-safe-area--right">
               <div class="ml-2 text-sm capitalize">
@@ -148,7 +148,7 @@
               </div>
             </div>
             <!-- Divider -->
-            <div class="border-b-2 border-warm-gray-500/50" />
+            <div class="border-b-2 border-stone-500/50" />
             <!-- Close Button -->
             <div class="apple-safe-area--right">
               <Button
@@ -208,15 +208,15 @@ export default { name: 'AppNavbarMenuMobile' }
   font-weight: bold;
 }
 .nav-link.router-link-exact-active {
-  @apply border-b border-b-warm-gray-400/20;
-  color: theme('colors.warm-gray.600');
+  @apply border-b border-b-stone-400/20;
+  color: theme('colors.stone.600');
   border-left: 3px solid theme('colors.red.900');
   border-right: 3px solid theme('colors.red.900');
 }
 html.dark {
   .nav-link.router-link-exact-active {
-    @apply border-b border-b-warm-gray-700/20;
-    color: theme('colors.warm-gray.400');
+    @apply border-b border-b-stone-700/20;
+    color: theme('colors.stone.400');
     border-left: 3px solid theme('colors.red.900');
     border-right: 3px solid theme('colors.red.900');
   }

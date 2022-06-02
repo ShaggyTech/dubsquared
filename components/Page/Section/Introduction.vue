@@ -8,7 +8,7 @@ export default { name: 'PageSectionIntroduction' }
   >
     <!-- intro heading -->
     <h1
-      class="text-center sm:tracking-wider dark:text-warm-gray-100 font-kanit text-shadow-md"
+      class="text-center sm:tracking-wider dark:text-stone-100 font-kanit text-shadow-md"
     >
       <slot name="heading" />
     </h1>

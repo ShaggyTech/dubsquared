@@ -33,8 +33,8 @@
     <!-- Maintenance / Tune-ups -->
     <PageServiceCard
       class="service-card service-card__maintenance"
-      heading-style="bg-warm-gray-900/70 border-warm-gray-100/70"
-      paragraph-style="bg-warm-gray-200 text-zinc-900"
+      heading-style="bg-stone-900/70 border-stone-100/70"
+      paragraph-style="bg-stone-200 text-zinc-900"
       button-to="services"
     >
       <template #heading-icon><IconMdi:carClock /></template>
@@ -169,7 +169,7 @@
     <!-- Pre-purchase Inspections-->
     <PageServiceCard
       class="service-card service-card__pre-purchase-inspections"
-      heading-style="bg-warm-gray-100/70 text-zinc-900 border-blue-gray-800/90"
+      heading-style="bg-stone-100/70 text-zinc-900 border-blue-gray-800/90"
       paragraph-style="bg-blue-gray-900"
       button-to="services"
     >

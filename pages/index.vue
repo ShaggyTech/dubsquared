@@ -105,7 +105,7 @@
       id="get-in-touch"
       :class="`
         flex flex-col items-center max-w-8xl mobile-safe-area py-24
-        bg-warm-gray-400 dark:bg-warm-gray-800 transition-colors duration-300
+        bg-stone-400 dark:bg-stone-800 transition-colors duration-300
       `"
     >
       <!-- CTA: get a quote or schedule appointment -->
@@ -113,7 +113,7 @@
         :class="`
           grid justify-center gap-10 sm:gap-12 md:gap-14 lg:gap-16
           w-auto h-full px-[1.5em] sm:px-[3em] py-[4em]
-          bg-warm-gray-700 text-gray-100 text-center
+          bg-stone-700 text-gray-100 text-center
           rounded-md shadow-lg border-3 border-yellow-500/90
         `"
       >
@@ -159,7 +159,7 @@
     <!-- brands we use -->
     <section
       id="brands-we-use"
-      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full pt-36 pb-48 bg-warm-gray-100 dark:bg-zinc-900"
+      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full pt-36 pb-48 bg-stone-100 dark:bg-zinc-900"
     >
       <div class="font-bold text-center text-2xl md:text-3xl lg:text-4xl">
         Brands We Use
