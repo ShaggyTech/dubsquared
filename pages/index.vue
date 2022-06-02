@@ -77,7 +77,21 @@
         </div>
         <!-- business address -->
         <div
-          class="grid content-center w-full h-full bg-map-dark bg-no-repeat bg-cover"
+          v-motion
+          :initial="{
+            y: 20,
+            opacity: 0,
+          }"
+          :visible="{
+            y: 0,
+            opacity: 1,
+            backgroundImage: `url('/images/map-background-dark.webp')`,
+            transition: {
+              duration: 1000,
+              delay: 900,
+            },
+          }"
+          class="grid content-center w-full h-full bg-no-repeat bg-cover"
         >
           <a
             href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
@@ -103,6 +117,19 @@
     <!-- CTA container-->
     <section
       id="get-in-touch"
+      v-motion
+      :initial="{
+        opacity: 0,
+        y: 20,
+      }"
+      :visible="{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 500,
+          delay: 300,
+        },
+      }"
       :class="`
         flex flex-col items-center max-w-8xl mobile-safe-area py-24
         bg-stone-400 dark:bg-stone-800 transition-colors duration-300

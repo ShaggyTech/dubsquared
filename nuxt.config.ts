@@ -22,6 +22,8 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
 
+  // modules
+  modules: ['@vueuse/motion/nuxt'],
   // build modules
   buildModules: [
     'nuxt-windicss',
