@@ -1,27 +1,15 @@
-export interface UseAdjectivesState {
-  adjectives: string[]
-  currentAdjective: string
-  currentAdjectiveIndex: number
-  showAdjective: boolean
-  delayFirstChange: number | undefined
-  delayFirstChangeTimeout: NodeJS.Timeout | null
-  delayAsEmpty: number | undefined
-  delayAsEmptyTimeout: NodeJS.Timeout | null
-  timeBetween: number | undefined
-  timeBetweenInterval: NodeJS.Timer | null
-}
+import type {
+  UseHeroAdjectivesState,
+  UseHeroAdjectivesOptions,
+} from './index.d'
 
-export interface UseAdjectiveOptions {
-  adjectives: string[]
-}
-
-export const useAdjectives = (
-  options: UseAdjectiveOptions = {
+export const useHeroAdjectives = (
+  options: UseHeroAdjectivesOptions = {
     adjectives: [''],
   }
 ) => {
-  const adjectivesState = useState<UseAdjectivesState>(
-    'useAdjectivesState',
+  const adjectivesState = useState<UseHeroAdjectivesState>(
+    'useHeroAdjectivesState',
     () =>
       reactive({
         adjectives: options.adjectives,
@@ -29,10 +17,10 @@ export const useAdjectives = (
         currentAdjectiveIndex: 0,
         showAdjective: false,
         delayFirstChange: 7000,
-        delayFirstChangeTimeout: null,
-        delayAsEmpty: 800,
-        delayAsEmptyTimeout: null,
+        delayBetween: 800,
         timeBetween: 7000,
+        delayFirstChangeTimeout: null,
+        delayBetweenTimeout: null,
         timeBetweenInterval: null,
       })
   )
@@ -44,8 +32,8 @@ export const useAdjectives = (
     showAdjective,
     delayFirstChange,
     delayFirstChangeTimeout,
-    delayAsEmpty,
-    delayAsEmptyTimeout,
+    delayBetween,
+    delayBetweenTimeout,
     timeBetween,
     timeBetweenInterval,
   } = toRefs(adjectivesState.value)
@@ -59,9 +47,9 @@ export const useAdjectives = (
 
     currentAdjective.value = adjectives.value[++currentAdjectiveIndex.value]
 
-    delayAsEmptyTimeout.value = setTimeout(
+    delayBetweenTimeout.value = setTimeout(
       () => (showAdjective.value = true),
-      delayAsEmpty.value
+      delayBetween.value
     )
   }
 
@@ -83,7 +71,7 @@ export const useAdjectives = (
   })
 
   onDeactivated(() => {
-    clearTimeout(delayAsEmptyTimeout.value as NodeJS.Timeout)
+    clearTimeout(delayBetweenTimeout.value as NodeJS.Timeout)
     clearTimeout(delayFirstChangeTimeout.value as NodeJS.Timeout)
     clearInterval(timeBetweenInterval.value as NodeJS.Timer)
   })
@@ -95,8 +83,8 @@ export const useAdjectives = (
     showAdjective,
     delayFirstChange,
     delayFirstChangeTimeout,
-    delayAsEmpty,
-    delayAsEmptyTimeout,
+    delayBetween,
+    delayBetweenTimeout,
     timeBetween,
     timeBetweenInterval,
     updateAdjective,

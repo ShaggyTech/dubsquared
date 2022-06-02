@@ -1,0 +1,1 @@
+export { useHeroAdjectives } from './useHeroAdjectives'

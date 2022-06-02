@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const adjectivesRef = ref(props.adjectives)
-const { currentAdjective, showAdjective } = useAdjectives({
+const { currentAdjective, showAdjective } = useHeroAdjectives({
   adjectives: adjectivesRef.value,
 })
 
@@ -31,12 +31,14 @@ export default { name: 'PageHomeHero' }
 </script>
 
 <template>
-  <div
-    class="hero__container relative h-full w-full backdrop-filter backdrop-brightness-80"
-  >
+  <div class="hero__container backdrop-filter backdrop-brightness-80">
     <!-- hero content wrapper -->
     <div
-      class="grid place-items-center content-center gap-8 pt-10 pb-20 px-4 bg-stone-900/95 text-stone-200 text-4xl md:(text-5xl) lg:(min-h-[min(100vh,1000px)] pt-18 pb-24 text-6xl)"
+      :class="`
+        grid place-items-center content-center gap-8 pt-10 pb-20 px-4
+        bg-stone-900/95 text-stone-200 text-4xl
+        md:(text-5xl) lg:(gap-20 pt-20 text-6xl min-h-[min(100vh,1000px)])
+      `"
     >
       <!-- hero logo -->
       <SVGDubsquaredSquareLogo
@@ -74,7 +76,7 @@ export default { name: 'PageHomeHero' }
             </transition>
           </span>
         </h1>
-        <hr class="hr hero__spacer animated animate-light-speed-in-right" />
+        <hr class="hero__spacer animated animate-light-speed-in-right" />
         <h2
           class="hero__subheading font-teko text-stone-200 text-xl md:text-3xl animated animate-light-speed-in-left"
         >
@@ -112,9 +114,6 @@ export default { name: 'PageHomeHero' }
 
   @screen sm {
     background-position: center center;
-  }
-  @screen lg {
-    background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278-loading.webp');
   }
 
   // different background images only fetched once .seen class is added via intersection observer
