@@ -15,11 +15,10 @@ export default defineNuxtConfig({
   css: ['~/assets/sass/vendor.scss', '~/assets/sass/index.scss'],
 
   // plugins
-  plugins: ['~/plugins/navbar.ts'],
 
   // build
   build: {
-    transpile: ['@headlessui/vue'],
+    transpile: ['@headlessui/vue', 'gsap'],
   },
 
   // modules

@@ -6,7 +6,7 @@
       :observer-key="heroObserverName"
     />
     <!-- intro container-->
-    <PageSectionIntroduction id="introduction">
+    <PageSectionIntroduction id="introduction" ref="introductionRef">
       <template #heading>Welcome to Dubsquared</template>
       <template #content>
         <p>
@@ -85,29 +85,31 @@
           :visible="{
             y: 0,
             opacity: 1,
-            backgroundImage: `url('/images/map-background-dark.webp')`,
+            backgroundImage: `url('/images/shop-frontage-SQ5.webp')`,
             transition: {
-              duration: 1000,
-              delay: 900,
+              duration: 800,
+              delay: 300,
             },
           }"
-          class="grid content-center w-full h-full bg-no-repeat bg-cover"
+          class="grid content-center w-full h-full bg-no-repeat bg-cover bg-center"
         >
           <a
             href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
             title="Google Maps"
             target="_blank"
-            class="w-full h-full py-[8em] bg-zinc-900/50 hover:bg-zinc-900/80 hover:backdrop-blur-xl transition-colors duration-500"
+            class="w-full h-full py-[8em] bg-zinc-900/80 hover:bg-zinc-900/90 backdrop-blur-xl transition-colors duration-500"
           >
-            <address
-              class="flex flex-col items-center h-full w-full tracking-wider lg:tracking-widest font-bold"
-            >
+            <address class="flex flex-col items-center h-full w-full">
               <IconMdi:mapMarkerRadius
                 class="h-[3em] w-[3em] mb-[1em] text-yellow-500 animate-bounce animate-duration-1500"
               />
-              <span>1223 Colorado Ln</span>
-              <span>Suite 105</span>
-              <span>Arlington, TX 76015</span>
+              <span
+                class="flex flex-col items-center tracking-wider lg:tracking-widest font-bold text-white text-shadow-xl"
+              >
+                <span>1223 Colorado Ln</span>
+                <span>Suite 105</span>
+                <span>Arlington, TX 76015</span>
+              </span>
             </address>
           </a>
         </div>
@@ -241,6 +243,9 @@ definePageMeta({
   keepalive: true,
 })
 
+const introductionRef = ref()
+const { $elasticAnimation } = useNuxtApp()
+
 const heroAdjectives = ref([
   'Garage',
   'Specialists',
@@ -300,6 +305,8 @@ const isBusinessOpen = ref<boolean>(true)
 onMounted(() => {
   cardObserverRef.value = cardObserver
   heroObserverRef.value = heroObserver
+
+  $elasticAnimation(introductionRef.value, -7, -7, 1, 0.45, 0)
 
   const date = new Date()
   // Set business timezone

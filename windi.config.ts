@@ -46,7 +46,7 @@ export default defineConfig({
       typography: {
         DEFAULT: {
           css: {
-            color: colors.warmGray[800],
+            color: colors.stone[800],
             a: {
               color: colors.red[900],
               '&:hover': {
@@ -57,7 +57,7 @@ export default defineConfig({
         },
         DARK: {
           css: {
-            color: colors.warmGray[200],
+            color: colors.stone[200],
             a: {
               color: colors.yellow[400],
               '&:hover': {
