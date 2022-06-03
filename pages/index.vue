@@ -53,8 +53,59 @@
       <div
         class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full w-full text-white text-xl lg:text-2xl tracking-wide"
       >
+        <!-- business address -->
+        <div
+          v-motion
+          :initial="{
+            y: 20,
+            opacity: 0,
+          }"
+          :visible="{
+            y: 0,
+            opacity: 1,
+            backgroundImage: `url('/images/shop-frontage-SQ5.webp')`,
+            transition: {
+              duration: 800,
+              delay: 400,
+            },
+          }"
+          class="grid content-center bg-no-repeat bg-cover bg-center"
+        >
+          <a
+            href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
+            title="Google Maps"
+            target="_blank"
+            class="w-full h-full py-[8em] bg-zinc-900/90 backdrop-filter backdrop-blur-sm hover:(backdrop-blur-0px bg-zinc-900/10) transition duration-500"
+          >
+            <address class="flex flex-col items-center">
+              <IconMdi:mapMarkerRadius
+                class="h-[3em] w-[3em] mb-[1em] text-yellow-500 animate-bounce animate-duration-1500"
+              />
+              <span
+                class="flex flex-col items-center tracking-wider lg:tracking-widest font-bold text-white text-shadow-xl"
+              >
+                <span>1223 Colorado Ln</span>
+                <span>Suite 105</span>
+                <span>Arlington, TX 76015</span>
+              </span>
+            </address>
+          </a>
+        </div>
         <!-- business hours -->
         <div
+          v-motion
+          :initial="{
+            y: 20,
+            opacity: 0,
+          }"
+          :visible="{
+            y: 0,
+            opacity: 1,
+            transition: {
+              duration: 800,
+              delay: 400,
+            },
+          }"
           class="grid gap-[1em] place-items-center h-full w-full py-[2em] bg-zinc-900"
         >
           <IconIon:clock
@@ -75,34 +126,25 @@
             <span class="font-semibold text-red-500/90">CLOSED</span>
           </div>
         </div>
-        <!-- business address -->
-        <div
-          class="grid content-center w-full h-full bg-map-dark bg-no-repeat bg-cover"
-        >
-          <a
-            href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
-            title="Google Maps"
-            target="_blank"
-            class="w-full h-full py-[8em] bg-zinc-900/50 hover:bg-zinc-900/80 hover:backdrop-blur-xl transition-colors duration-500"
-          >
-            <address
-              class="flex flex-col items-center h-full w-full tracking-wider lg:tracking-widest font-bold"
-            >
-              <IconMdi:mapMarkerRadius
-                class="h-[3em] w-[3em] mb-[1em] text-yellow-500 animate-bounce animate-duration-1500"
-              />
-              <span>1223 Colorado Ln</span>
-              <span>Suite 105</span>
-              <span>Arlington, TX 76015</span>
-            </address>
-          </a>
-        </div>
       </div>
     </section>
 
     <!-- CTA container-->
     <section
       id="get-in-touch"
+      v-motion
+      :initial="{
+        opacity: 0,
+        y: 20,
+      }"
+      :visible="{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 500,
+          delay: 300,
+        },
+      }"
       :class="`
         flex flex-col items-center max-w-8xl mobile-safe-area py-24
         bg-stone-400 dark:bg-stone-800 transition-colors duration-300
