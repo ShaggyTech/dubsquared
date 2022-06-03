@@ -14,8 +14,7 @@ export default defineNuxtConfig({
   // css
   css: ['~/assets/sass/vendor.scss', '~/assets/sass/index.scss'],
 
-  // plugins
-  plugins: ['~/plugins/navbar.ts'],
+  modules: ['@vueuse/motion/nuxt'],
 
   // build
   build: {
