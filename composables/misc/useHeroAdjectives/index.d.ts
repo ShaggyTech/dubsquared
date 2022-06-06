@@ -13,4 +13,7 @@ export interface UseHeroAdjectivesState {
 
 export interface UseHeroAdjectivesOptions {
   adjectives: string[]
+  delayFirstChange?: number
+  delayBetween?: number
+  timeBetween?: number
 }

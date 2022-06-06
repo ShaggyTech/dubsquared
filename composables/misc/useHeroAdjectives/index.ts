@@ -3,11 +3,7 @@ import type {
   UseHeroAdjectivesOptions,
 } from './index.d'
 
-export const useHeroAdjectives = (
-  options: UseHeroAdjectivesOptions = {
-    adjectives: [''],
-  }
-) => {
+export const useHeroAdjectives = (options: UseHeroAdjectivesOptions) => {
   const adjectivesState = useState<UseHeroAdjectivesState>(
     'useHeroAdjectivesState',
     () =>
@@ -16,9 +12,9 @@ export const useHeroAdjectives = (
         currentAdjective: '',
         currentAdjectiveIndex: 0,
         showAdjective: false,
-        delayFirstChange: 7000,
-        delayBetween: 800,
-        timeBetween: 7000,
+        delayFirstChange: options.delayFirstChange || 1000,
+        delayBetween: options.delayBetween || 500,
+        timeBetween: options.timeBetween || 7000,
         delayFirstChangeTimeout: null,
         delayBetweenTimeout: null,
         timeBetweenInterval: null,
@@ -58,15 +54,12 @@ export const useHeroAdjectives = (
       currentAdjective.value = adjectives.value[0]
       showAdjective.value = true
 
-      timeBetweenInterval.value = setInterval(
-        updateAdjective,
-        timeBetween.value
-      )
-
-      delayFirstChangeTimeout.value = setTimeout(
-        () => timeBetweenInterval.value,
-        delayFirstChange.value
-      )
+      delayFirstChangeTimeout.value = setTimeout(() => {
+        timeBetweenInterval.value = setInterval(
+          updateAdjective,
+          timeBetween.value
+        )
+      }, delayFirstChange.value)
     })
   })
 
