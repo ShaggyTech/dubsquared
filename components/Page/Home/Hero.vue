@@ -46,7 +46,7 @@ export default { name: 'PageHomeHero' }
       />
       <!-- hero text -->
       <div
-        class="grid gap-y-8 md:gap-y-10 lg:gap-y-14 text-stone-200 text-center text-shadow-xl tracking-wide"
+        class="grid gap-y-8 md:gap-y-10 text-stone-200 text-center text-shadow-xl tracking-wide"
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
@@ -128,27 +128,27 @@ export default { name: 'PageHomeHero' }
 }
 
 .logo__dubsquared {
-  animation-delay: 2000ms;
+  animation-delay: 1500ms;
 }
 .logo__volkswagen {
-  animation-delay: 3000ms;
+  animation-delay: 2500ms;
   animation-duration: 0.8s;
 }
 .logo__audi {
-  animation-delay: 3600ms;
+  animation-delay: 3100ms;
   animation-duration: 0.8s;
 }
 
 .hero__heading {
-  animation-delay: 4200ms;
+  animation-delay: 3700ms;
   animation-duration: 0.5s;
 }
 .hero__spacer {
-  animation-delay: 4700ms;
+  animation-delay: 4000ms;
   animation-duration: 0.5s;
 }
 .hero__subheading {
-  animation-delay: 5200ms;
+  animation-delay: 4300ms;
   animation-duration: 0.6s;
 }
 
@@ -158,7 +158,7 @@ export default { name: 'PageHomeHero' }
   }
   .adjective {
     text-decoration-color: theme('colors.yellow.500');
-    animation-delay: 1500ms;
+    overflow: hidden;
 
     &-enter-active,
     &-leave-active {

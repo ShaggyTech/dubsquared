@@ -5,6 +5,8 @@
       :adjectives="heroAdjectives"
       :observer-key="heroObserverName"
     />
+    <!-- CTA container-->
+    <PageSectionCallToAction id="get-in-touch" class="mobile-safe-area" />
     <!-- intro container-->
     <PageSectionIntroduction id="introduction">
       <template #heading>Welcome to Dubsquared</template>
@@ -57,36 +59,105 @@
         <div
           v-motion
           :initial="{
-            y: 20,
             opacity: 0,
           }"
           :visible="{
-            y: 0,
             opacity: 1,
             backgroundImage: `url('/images/shop-frontage-SQ5.webp')`,
             transition: {
-              duration: 800,
-              delay: 400,
+              duration: 500,
+              delay: 200,
             },
           }"
           class="grid content-center bg-no-repeat bg-cover bg-center"
         >
           <a
+            v-motion
+            :initial="{
+              y: 20,
+              opacity: 0,
+            }"
+            :visible="{
+              y: 0,
+              opacity: 1,
+              transition: {
+                duration: 500,
+                delay: 500,
+              },
+            }"
             href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
             title="Google Maps"
             target="_blank"
-            class="w-full h-full py-[8em] bg-zinc-900/90 backdrop-filter backdrop-blur-sm hover:(backdrop-blur-0px bg-zinc-900/10) transition duration-500"
+            class="p-8 mx-auto bg-zinc-900/90 backdrop-filter backdrop-blur-sm rounded-3xl"
           >
-            <address class="flex flex-col items-center">
+            <address class="flex flex-col place-items-center">
               <IconMdi:mapMarkerRadius
                 class="h-[3em] w-[3em] mb-[1em] text-yellow-500 animate-bounce animate-duration-1500"
               />
               <span
+                v-motion
+                :initial="{
+                  y: 20,
+                  opacity: 0,
+                }"
+                :visible="{
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    duration: 500,
+                    delay: 600,
+                  },
+                }"
                 class="flex flex-col items-center tracking-wider lg:tracking-widest font-bold text-white text-shadow-xl"
               >
-                <span>1223 Colorado Ln</span>
-                <span>Suite 105</span>
-                <span>Arlington, TX 76015</span>
+                <span
+                  v-motion
+                  :initial="{
+                    x: -50,
+                    opacity: 0,
+                  }"
+                  :visible="{
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 500,
+                      delay: 600,
+                    },
+                  }"
+                  >1223 Colorado Ln</span
+                >
+                <span
+                  v-motion
+                  :initial="{
+                    x: -50,
+                    opacity: 0,
+                  }"
+                  :visible="{
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 500,
+                      delay: 600,
+                    },
+                  }"
+                  >Suite 105</span
+                >
+                <span
+                  v-motion
+                  :initial="{
+                    x: -50,
+                    opacity: 0,
+                  }"
+                  :visible="{
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                      duration: 600,
+                      delay: 600,
+                    },
+                  }"
+                  >Arlington, TX 76015</span
+                >
               </span>
             </address>
           </a>
@@ -95,15 +166,15 @@
         <div
           v-motion
           :initial="{
-            y: 20,
+            y: 50,
             opacity: 0,
           }"
           :visible="{
             y: 0,
             opacity: 1,
             transition: {
-              duration: 800,
-              delay: 400,
+              duration: 500,
+              delay: 500,
             },
           }"
           class="grid gap-[1em] place-items-center h-full w-full py-[2em] bg-zinc-900"
@@ -114,86 +185,79 @@
               isBusinessOpen ? 'text-green-500' : 'text-red-500',
             ]"
           />
-          <h3 class="text-3xl">Shop Hours</h3>
-          <hr class="hr w-[40%] mx-auto" />
-          <div class="grid gap-[0.5em]">
+          <h3
+            v-motion
+            :initial="{
+              x: 50,
+              opacity: 0,
+            }"
+            :visible="{
+              x: 0,
+              opacity: 1,
+              transition: {
+                duration: 500,
+                delay: 500,
+              },
+            }"
+            class="text-3xl"
+          >
+            Shop Hours
+          </h3>
+          <hr
+            v-motion
+            :initial="{
+              x: 50,
+              opacity: 0,
+            }"
+            :visible="{
+              x: 0,
+              opacity: 1,
+              transition: {
+                duration: 500,
+                delay: 500,
+              },
+            }"
+            class="hr w-[40%] mx-auto"
+          />
+          <div
+            v-motion
+            :initial="{
+              x: 50,
+              opacity: 0,
+            }"
+            :visible="{
+              x: 0,
+              opacity: 1,
+              transition: {
+                duration: 500,
+                delay: 500,
+              },
+            }"
+            class="grid gap-[0.5em]"
+          >
             <span class="italic">Monday - Friday</span>
             <span class="font-semibold text-green-500"> 9am - 6pm </span>
           </div>
           <hr class="hr w-[25%] mx-auto" />
-          <div class="grid gap-[0.5em]">
+          <div
+            v-motion
+            :initial="{
+              x: 50,
+              opacity: 0,
+            }"
+            :visible="{
+              x: 0,
+              opacity: 1,
+              transition: {
+                duration: 500,
+                delay: 500,
+              },
+            }"
+            class="grid gap-[0.5em]"
+          >
             <span class="italic">Saturday & Sunday</span>
             <span class="font-semibold text-red-500/90">CLOSED</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA container-->
-    <section
-      id="get-in-touch"
-      v-motion
-      :initial="{
-        opacity: 0,
-        y: 20,
-      }"
-      :visible="{
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: 500,
-          delay: 300,
-        },
-      }"
-      :class="`
-        flex flex-col items-center max-w-8xl mobile-safe-area py-24
-        bg-stone-400 dark:bg-stone-800 transition-colors duration-300
-      `"
-    >
-      <!-- CTA: get a quote or schedule appointment -->
-      <div
-        :class="`
-          grid justify-center gap-10 sm:gap-12 md:gap-14 lg:gap-16
-          w-auto h-full px-[1.5em] sm:px-[3em] py-[4em]
-          bg-stone-700 text-gray-100 text-center
-          rounded-md shadow-lg border-3 border-yellow-500/90
-        `"
-      >
-        <h2
-          :class="`
-            text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-wide
-             px-4 lg:px-6 py-[1em] shadow-xl rounded-md border-2 border-yellow-500/80
-          `"
-        >
-          Get a Quote
-          <span class="text-yellow-500/80 mx-1 md:mx-2">or</span> Schedule an
-          Appointment
-        </h2>
-        <h3 class="px-6 text-lg sm:text-xl md:text-2xl">
-          We're here to help get you back on the road and dedicated to keeping
-          you there.
-        </h3>
-        <div
-          :class="`
-            grid place-self-center grid-rows-2 sm:grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-12
-            w-full max-w-10/12 sm:max-w-max md:max-w-3/4 transition-colors duration-300
-          `"
-        >
-          <Button
-            size="none"
-            text="Get a Quote"
-            :to="{ name: 'contact' }"
-            title="Get a Quote"
-            class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
-          />
-          <Button
-            size="none"
-            text="Book Appointment"
-            variant="secondary"
-            :to="{ name: 'contact' }"
-            title="Book Appointment"
-            class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
-          />
         </div>
       </div>
     </section>
@@ -212,7 +276,7 @@
 
     <!-- Services-->
     <section id="services">
-      <LazyPageServiceCardGroup :observer-key="cardObserverName" />
+      <LazyPageServiceCardGroup />
     </section>
 
     <!-- Authorized Dealer for -->
@@ -289,31 +353,9 @@ const { observer: heroObserver, observerRef: heroObserverRef } =
     useStateKey: heroObserverName,
   })
 
-// service card observer
-const cardObserverName = 'service-card.observer'
-const cardObserverCallback: IntersectionObserverCallback = (
-  cards,
-  observer
-) => {
-  cards.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
-    target.classList.add('seen')
-    observer.unobserve(target)
-  })
-}
-const { observer: cardObserver, observerRef: cardObserverRef } =
-  useIntersectionObserver({
-    callback: cardObserverCallback,
-    options: { rootMargin: '250px' },
-    useStateKey: cardObserverName,
-  })
-
 const isBusinessOpen = ref<boolean>(true)
 
 onMounted(() => {
-  cardObserverRef.value = cardObserver
   heroObserverRef.value = heroObserver
 
   const date = new Date()
@@ -331,7 +373,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  cardObserverRef.value.disconnect()
   heroObserverRef.value.disconnect()
 })
 </script>
