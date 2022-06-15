@@ -1,13 +1,12 @@
 <template>
   <PageWrapper>
     <PageHeader>
-      <PageTitle :text="$t('pages.blank.title')" class="capitalize" />
+      <PageTitle :text="'Get in Touch'" class="capitalize text-center" />
     </PageHeader>
     <PageBody>
       <PageSection>
-        <div v-for="i in 30" :key="i" class="text-6xl uppercase">
-          {{ $t('pages.blank.just_blank_page_with_title') }}
-        </div>
+        <PageContactCardAddress />
+        <PageContactCardHours />
       </PageSection>
     </PageBody>
   </PageWrapper>
