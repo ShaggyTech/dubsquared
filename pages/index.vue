@@ -52,7 +52,7 @@
       class="grid max-w-8xl mt-10 h-full w-full text-center"
     >
       <!-- container business hours and location -->
-      <div class="grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full w-full">
+      <div class="grid grid-rows-2 lg:(grid-rows-1 grid-cols-2 h-full w-full)">
         <PageContactCardHours />
         <PageContactCardAddress />
       </div>
@@ -143,29 +143,15 @@ const heroObserverCallback: IntersectionObserverCallback = (
     }, 500)
   })
 }
+
 const { observer: heroObserver, observerRef: heroObserverRef } =
   useIntersectionObserver({
     callback: heroObserverCallback,
     useStateKey: heroObserverName,
   })
 
-const isBusinessOpen = ref<boolean>(true)
-
 onMounted(() => {
   heroObserverRef.value = heroObserver
-
-  const date = new Date()
-  // Set business timezone
-  const timezone = -6
-  const timezoneOffset = (date.getTimezoneOffset() + timezone * 60) * 60 * 1000
-  // set date to account for actual business timezone
-  date.setTime(date.getTime() + timezoneOffset)
-  const day = date.getDay()
-  const hour = date.getHours()
-
-  // open M-F 9am-6pm, closed saturday and sunday
-  if (day < 1 || day > 5 || hour < 9 || hour > 18) isBusinessOpen.value = false
-  else isBusinessOpen.value = true
 })
 
 onBeforeUnmount(() => {

@@ -1,6 +1,24 @@
 <template>
   <PageWrapper>
     <PageHeader>
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcset="/images/shop-frontage--meetup-multicar-1280x780.webp"
+        />
+        <source
+          media="(min-width: 769px)"
+          srcset="/images/shop-frontage--meetup-multicar-2400x1460.webp"
+        />
+        <source
+          media="(min-width: 1280px)"
+          srcset="/images/shop-frontage--meetup-multicar-4000x2430.webp"
+        />
+        <img
+          src="/images/shop-frontage--meetup-multicar-1280x780.webp"
+          alt="Car meetup at Dubsquared shop"
+        />
+      </picture>
       <PageTitle :text="$t('pages.test.title')" class="capitalize" />
     </PageHeader>
     <PageBody>
