@@ -8,8 +8,8 @@
       opacity: 1,
       backgroundImage: `url('/images/shop-frontage-SQ5.webp')`,
       transition: {
-        duration: 500,
-        delay: 200,
+        duration: 300,
+        delay: 100,
       },
     }"
     :class="`
@@ -20,7 +20,6 @@
     <a
       v-motion
       :initial="{
-        y: 20,
         opacity: 0,
       }"
       :visible="{
@@ -28,7 +27,7 @@
         opacity: 1,
         transition: {
           duration: 500,
-          delay: 500,
+          delay: 300,
         },
       }"
       href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"

@@ -21,15 +21,13 @@ onMounted(() => {
   <div
     v-motion
     :initial="{
-      y: 50,
       opacity: 0,
     }"
     :visible="{
-      y: 0,
       opacity: 1,
       transition: {
-        duration: 500,
-        delay: 500,
+        duration: 300,
+        delay: 100,
       },
     }"
     :class="`
@@ -55,7 +53,7 @@ onMounted(() => {
         opacity: 1,
         transition: {
           duration: 500,
-          delay: 500,
+          delay: 300,
         },
       }"
       class="text-1.5em"
@@ -64,7 +62,7 @@ onMounted(() => {
       <hr
         v-motion
         :initial="{
-          x: 50,
+          x: -50,
           opacity: 0,
         }"
         :visible="{
@@ -72,7 +70,7 @@ onMounted(() => {
           opacity: 1,
           transition: {
             duration: 500,
-            delay: 500,
+            delay: 300,
           },
         }"
         class="hr w-10ch mx-auto mt-3"
@@ -82,7 +80,7 @@ onMounted(() => {
     <div
       v-motion
       :initial="{
-        x: 50,
+        x: -50,
         opacity: 0,
       }"
       :visible="{
@@ -90,7 +88,7 @@ onMounted(() => {
         opacity: 1,
         transition: {
           duration: 500,
-          delay: 500,
+          delay: 300,
         },
       }"
       class="grid gap-[0.5em]"
@@ -110,7 +108,7 @@ onMounted(() => {
         opacity: 1,
         transition: {
           duration: 500,
-          delay: 500,
+          delay: 300,
         },
       }"
       class="grid gap-[0.5em]"
