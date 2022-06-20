@@ -8,8 +8,8 @@ export type UseIntersectionObserver = (params: {
   options?: IntersectionObserverOptions
 }) => {
   isSupported: boolean
-  observer: IntersectionObserver
-  observerRef: Ref<IntersectionObserver>
+  observer: IntersectionObserver | undefined
+  observerRef: Ref<IntersectionObserver | undefined>
 }
 
 const isClient = typeof window !== 'undefined'
@@ -30,7 +30,7 @@ export const useIntersectionObserver: UseIntersectionObserver = ({
   const isSupported: boolean =
     (window && 'IntersectionObserver' in window) || false
 
-  let observer: IntersectionObserver
+  let observer: IntersectionObserver | undefined
 
   if (isSupported) {
     observer = new IntersectionObserver(callback, {
@@ -38,9 +38,9 @@ export const useIntersectionObserver: UseIntersectionObserver = ({
       rootMargin,
       threshold,
     })
-  } else observer = undefined as unknown as IntersectionObserver
+  } else observer = undefined
 
-  const observerRef = useState<IntersectionObserver>(useStateKey)
+  const observerRef = useState<IntersectionObserver | undefined>(useStateKey)
 
   return {
     isSupported,
