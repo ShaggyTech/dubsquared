@@ -1,3 +1,46 @@
+<script setup lang="ts">
+import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
+
+definePageMeta({
+  layout: 'page',
+  // required to keep intersection observer active after page navigation
+  keepalive: true,
+})
+
+const heroAdjectives = ref([
+  'Garage',
+  'Specialists',
+  'Experts',
+  'Shop',
+  'Connoisseurs',
+  'Proffessionals',
+  'Gurus',
+  'Fanatics',
+])
+
+// hero section obvserver
+const heroObserverName = 'hero-section.observer'
+const heroObserverCallback: IntersectionObserverCallback = (element) => {
+  element.forEach(({ target, isIntersecting }) => {
+    if (!target || !isIntersecting) {
+      return
+    }
+
+    target.classList.add('seen')
+  })
+}
+
+const { observer: heroObserver, observerRef: heroObserverRef } =
+  useIntersectionObserver({
+    callback: heroObserverCallback,
+    useStateKey: heroObserverName,
+  })
+
+onMounted(() => {
+  heroObserverRef.value = heroObserver
+})
+</script>
+
 <template>
   <PageWrapper class="pt-0">
     <!-- Hero Banner -->
@@ -106,58 +149,6 @@
     </div>
   </PageWrapper>
 </template>
-
-<script setup lang="ts">
-import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
-
-definePageMeta({
-  layout: 'page',
-  // required to keep intersection observer active after page navigation
-  keepalive: true,
-})
-
-const heroAdjectives = ref([
-  'Garage',
-  'Specialists',
-  'Experts',
-  'Shop',
-  'Connoisseurs',
-  'Proffessionals',
-  'Gurus',
-  'Fanatics',
-])
-
-// hero section obvserver
-const heroObserverName = 'hero-section.observer'
-const heroObserverCallback: IntersectionObserverCallback = (
-  element,
-  observer
-) => {
-  element.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
-    setTimeout(() => {
-      target.classList.add('seen')
-      observer.unobserve(target)
-    }, 500)
-  })
-}
-
-const { observer: heroObserver, observerRef: heroObserverRef } =
-  useIntersectionObserver({
-    callback: heroObserverCallback,
-    useStateKey: heroObserverName,
-  })
-
-onMounted(() => {
-  heroObserverRef.value = heroObserver
-})
-
-onBeforeUnmount(() => {
-  heroObserverRef.value.disconnect()
-})
-</script>
 
 <style lang="scss" scoped>
 .mobile-safe-area {

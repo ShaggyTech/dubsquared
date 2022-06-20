@@ -3,11 +3,11 @@ definePageMeta({
   layout: 'page',
 })
 
-// header section obvserver
-const container = ref<Element | null>(null)
+const container = ref<HTMLElement | null>(null)
 
-const headerObserverName = 'contact-page__header.observer'
-const headerObserverCallback: IntersectionObserverCallback = (
+// hero section obvserver
+const heroObserverName = 'page-contact-hero-section-observer'
+const heroObserverCallback: IntersectionObserverCallback = (
   element,
   observer
 ) => {
@@ -15,47 +15,38 @@ const headerObserverCallback: IntersectionObserverCallback = (
     if (!target || !isIntersecting) {
       return
     }
-    setTimeout(() => {
-      target.classList.add('seen')
-      observer.unobserve(target)
-    }, 500)
+    target.classList.add('seen')
+    observer.unobserve(target)
   })
 }
-const { observer: headerObserver, observerRef: headerObserverRef } =
+
+const { observer: heroObserver, observerRef: heroObserverRef } =
   useIntersectionObserver({
-    callback: headerObserverCallback,
-    useStateKey: headerObserverName,
+    callback: heroObserverCallback,
+    useStateKey: heroObserverName,
   })
 
 onMounted(async () => {
   await nextTick(() => {
-    headerObserverRef.value = headerObserver
-    container.value = document.querySelector('.contact-page__header')
-    if (container.value && headerObserverRef.value) {
-      headerObserverRef.value.observe(container.value)
+    heroObserverRef.value = heroObserver
+    container.value = document.querySelector(`#${heroObserverName}`)
+    console.log('heroObserverRef: ', heroObserverRef.value)
+    console.log('hero container: ', container.value)
+    if (container.value && heroObserverRef.value) {
+      heroObserverRef.value.observe(container.value)
     }
   })
 })
+</script>
 
-onBeforeUnmount(() => {
-  headerObserverRef.value.disconnect()
-})
+<script lang="ts">
+export default { name: 'PageContact' }
 </script>
 
 <template>
   <PageWrapper class="contact-page">
-    <PageHeader
-      class="contact-page__header backdrop-filter backdrop-brightness-70"
-    >
-      <div class="grid place-items-center bg-stone-900/30 h-full w-full py-10">
-        <SVGDubsquaredSquareLogo
-          class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
-        />
-        <PageTitle
-          :text="'Get in Touch'"
-          class="capitalize text-center text-stone-100 text-shadow-xl bg-stone-900/90 py-8 w-full tracking-wider lg:text-5xl font-kanit border-y-4 border-red-900"
-        />
-      </div>
+    <PageHeader class="contact-page-header">
+      <PageHero title="Get in Touch" :observer-key="heroObserverName" />
     </PageHeader>
     <PageBody class="mt-20 grid gap-14">
       <PageSection>
@@ -77,9 +68,9 @@ onBeforeUnmount(() => {
   </PageWrapper>
 </template>
 
-<style lang="scss" scoped>
-.contact-page {
-  &__header {
+<style lang="scss">
+.contact-page-header {
+  .page-hero {
     display: grid;
     place-items: center;
     min-height: min(100vh, 900px);
