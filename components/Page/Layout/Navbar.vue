@@ -57,6 +57,7 @@ import MakiArtGallery from '~icons/maki/art-gallery'
 import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
 import MdiCellphone from '~icons/mdi/cellphone'
 import MdiEmailFast from '~icons/mdi/email-fast'
+import RiTeamLine from '~icons/ri/team-line'
 
 import type { IMenuItem, IContactBarItem } from '@/types'
 
@@ -87,10 +88,11 @@ const menuItems = computed((): IMenuItem[] => [
     route: { name: 'contact' },
     icon: FluentContactCard28Filled,
   },
+
   {
     variant: 'button',
     text: t('pages.get_a_quote.nav'),
-    route: { name: 'get-a-quote' },
+    route: { name: 'contact' },
   },
 ])
 
@@ -100,6 +102,12 @@ const mobileMenuItems = computed((): IMenuItem[] => [
     text: t('pages.index.nav'),
     route: { name: 'index' },
     icon: MdiGarage,
+  },
+  {
+    variant: 'link',
+    text: 'Meet the Team',
+    route: { name: 'meet-the-team' },
+    icon: RiTeamLine,
   },
   ...menuItems.value,
 ])
