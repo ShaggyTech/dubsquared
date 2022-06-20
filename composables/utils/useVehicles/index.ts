@@ -1,10 +1,35 @@
 import { isValidVin } from '~/utils/isValidVin'
 
 export const useVehicles = () => {
-  const validateVIN = function ({ value }: { value: string }) {
-    return isValidVin(value)
+  const decodedVIN = ref()
+  const validVin = ({ value }: { value: string }) => isValidVin(value)
+  const validateVIN = async ({ value }: { value: string }) => {
+    const valid = validVin({ value })
+    if (valid) await submitVin({ value })
+    return valid
   }
-  const maxVehicleYear = ref<number>(new Date().getFullYear())
+
+  const submitVin = async ({ value }: { value: string }) => {
+    if (!validVin({ value })) return 'That is not a valid VIN'
+
+    const { data } = await useFetch('/api/decode-vin', {
+      method: 'post',
+      body: { vin: value },
+    }).catch((error) => {
+      return { error: 'Oops... Something went wrong ' + error }
+    })
+
+    if (data)
+      decodedVIN.value = {
+        vin: data.value.VIN,
+        year: data.value.ModelYear,
+        make: data.value.Make,
+        model: data.value.Model,
+      }
+    console.log(data.value)
+  }
+
+  const maxVehicleYear = ref<number>(new Date().getFullYear() + 1)
   const minVehicleYear = ref<number>(2004)
   const vehicleMakes = ref<string[]>(['Audi', 'Volkswagen'])
   const vehicleModels = ref({
@@ -76,7 +101,9 @@ export const useVehicles = () => {
   }
 
   return {
+    submitVin,
     validateVIN,
+    decodedVIN,
     minVehicleYear,
     maxVehicleYear,
     vehicleMakes,

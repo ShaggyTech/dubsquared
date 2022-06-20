@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const {
   validateVIN,
+  decodedVIN,
   minVehicleYear,
   vehicleYears,
   vehicleMakes,
@@ -110,6 +111,7 @@ export default { name: 'PageContactForm' }
               validateVIN: () => 'That is not a valid VIN',
             }"
           />
+          <div>Decoded VIN: {{ decodedVIN }}</div>
           <FormKit
             type="select"
             name="vehicleYear"
