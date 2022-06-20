@@ -17,3 +17,16 @@ interface IContactBarItem {
   title: string
   icon?: UnpluginIcon
 }
+
+interface IContactFormBody {
+  nameFirst: string
+  nameLast: string
+  phone: string
+  email: string
+  vehicleVIN: string
+  vehicleYear: string
+  vehicleMake: string
+  vehicleModel: string
+  subject: string
+  message: string
+}

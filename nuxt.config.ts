@@ -11,10 +11,13 @@ declare module '@nuxt/schema' {
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    sendgridApiKey: '',
+  },
   // css
   css: ['~/assets/sass/vendor.scss', '~/assets/sass/index.scss'],
 
-  modules: ['@vueuse/motion/nuxt'],
+  modules: ['@vueuse/motion/nuxt', '@formkit/nuxt'],
 
   // build
   build: {

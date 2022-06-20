@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+import '@formkit/themes/genesis'
 import { AppSetup } from './utils/app'
 import { ITheme } from './utils/theme'
 AppSetup()
