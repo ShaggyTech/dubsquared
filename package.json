@@ -25,6 +25,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@formkit/nuxt": "^1.0.0-beta.8",
+    "@formkit/themes": "^1.0.0-beta.8",
     "@headlessui/vue": "1.6.3",
     "@iconify/json": "^1.1.456",
     "@intlify/nuxt3": "^0.1.10",
@@ -58,5 +60,6 @@
     "**/*.{js,ts,vue,html,css,scss}": [
       "yarn lintfix"
     ]
-  }
+  },
+  "dependencies": {}
 }
