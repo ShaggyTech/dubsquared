@@ -6,6 +6,7 @@ export const useVehicles = () => {
   const validateVIN = async ({ value }: { value: string }) => {
     const valid = validVin({ value })
     if (valid) await submitVin({ value })
+    else decodedVIN.value = {}
     return valid
   }
 
@@ -15,18 +16,15 @@ export const useVehicles = () => {
     const { data } = await useFetch('/api/decode-vin', {
       method: 'post',
       body: { vin: value },
-    }).catch((error) => {
-      return { error: 'Oops... Something went wrong ' + error }
     })
 
-    if (data)
+    if (data.value)
       decodedVIN.value = {
         vin: data.value.VIN,
         year: data.value.ModelYear,
         make: data.value.Make,
         model: data.value.Model,
       }
-    console.log(data.value)
   }
 
   const maxVehicleYear = ref<number>(new Date().getFullYear() + 1)
