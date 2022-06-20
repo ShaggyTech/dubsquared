@@ -31,8 +31,9 @@ onMounted(async () => {
   await nextTick(() => {
     headerObserverRef.value = headerObserver
     container.value = document.querySelector('.contact-page__header')
-    if (container.value && headerObserverRef.value)
+    if (container.value && headerObserverRef.value) {
       headerObserverRef.value.observe(container.value)
+    }
   })
 })
 
@@ -44,21 +45,24 @@ onBeforeUnmount(() => {
 <template>
   <PageWrapper class="contact-page">
     <PageHeader
-      class="contact-page__header backdrop-filter backdrop-brightness-80"
+      class="contact-page__header backdrop-filter backdrop-brightness-70"
     >
-      <div class="grid place-items-center bg-stone-900/60 h-full w-full py-10">
+      <div class="grid place-items-center bg-stone-900/30 h-full w-full py-10">
         <SVGDubsquaredSquareLogo
           class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
         />
         <PageTitle
-          :text="'Contact Us'"
-          class="capitalize text-center text-shadow-xl bg-stone-900/90 py-4 w-full"
+          :text="'Get in Touch'"
+          class="capitalize text-center text-stone-100 text-shadow-xl bg-stone-900/90 py-8 w-full tracking-wider lg:text-5xl font-kanit border-y-4 border-red-900"
         />
       </div>
     </PageHeader>
     <PageBody class="mt-20 grid gap-14">
       <PageSection>
-        <AppNavbarMenuSocialMedia class="max-w- text-4xl lg:text-5xl" />
+        <AppNavbarMenuSocialMedia
+          id="social"
+          class="max-w-4xl text-4xl lg:text-5xl mx-auto"
+        />
       </PageSection>
       <PageSection>
         <div class="grid grid-rows-2 gap-10 lg:(grid-rows-1 grid-cols-2)">
@@ -66,7 +70,9 @@ onBeforeUnmount(() => {
           <PageContactCardHours id="hours" />
         </div>
       </PageSection>
-      <PageSection> Contact Form TODO </PageSection>
+      <PageSection id="contact-form">
+        <PageContactForm />
+      </PageSection>
     </PageBody>
   </PageWrapper>
 </template>

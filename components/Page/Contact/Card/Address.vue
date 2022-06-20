@@ -12,7 +12,10 @@
         delay: 200,
       },
     }"
-    class="grid content-center bg-no-repeat bg-cover bg-center py-4em text-center text-xl rounded lg:(text-2xl tracking-wide)"
+    :class="`
+      grid content-center py-4em rounded shadow-xl text-center text-xl
+      bg-no-repeat bg-cover bg-center lg:(text-2xl tracking-wide)
+    `"
   >
     <a
       v-motion
@@ -48,62 +51,32 @@
             opacity: 1,
             transition: {
               duration: 500,
-              delay: 600,
+              delay: 300,
             },
           }"
           class="flex flex-col font-bold text-stone-100 text-shadow-xl"
         >
-          <span
-            v-motion
-            :initial="{
-              x: -50,
-              opacity: 0,
-            }"
-            :visible="{
-              x: 0,
-              opacity: 1,
-              transition: {
-                duration: 500,
-                delay: 600,
-              },
-            }"
-            >1223 Colorado Ln</span
-          >
-          <span
-            v-motion
-            :initial="{
-              x: -50,
-              opacity: 0,
-            }"
-            :visible="{
-              x: 0,
-              opacity: 1,
-              transition: {
-                duration: 500,
-                delay: 600,
-              },
-            }"
-            >Suite 105</span
-          >
-          <span
-            v-motion
-            :initial="{
-              x: -50,
-              opacity: 0,
-            }"
-            :visible="{
-              x: 0,
-              opacity: 1,
-              transition: {
-                duration: 600,
-                delay: 600,
-              },
-            }"
-            >Arlington, TX 76015</span
-          >
+          <span>1223 Colorado Ln</span>
+          <span>Suite 105</span>
+          <span>Arlington, TX 76015</span>
         </span>
       </address>
-      <div class="text-yellow-400 underline underline-offset-4">
+      <div
+        v-motion
+        :initial="{
+          y: 20,
+          opacity: 0,
+        }"
+        :visible="{
+          y: 0,
+          opacity: 1,
+          transition: {
+            duration: 500,
+            delay: 500,
+          },
+        }"
+        class="text-yellow-400 underline underline-offset-4"
+      >
         Click for Google Maps Directions
       </div>
     </a>

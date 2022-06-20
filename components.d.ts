@@ -6,6 +6,7 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'IconCib:instagram': typeof import('~icons/cib/instagram')['default']
+    'IconIconParkOutline:messageSuccess': typeof import('~icons/icon-park-outline/message-success')['default']
     'IconIon:clock': typeof import('~icons/ion/clock')['default']
     'IconIon:closeRound': typeof import('~icons/ion/close-round')['default']
     'IconLa:language': typeof import('~icons/la/language')['default']

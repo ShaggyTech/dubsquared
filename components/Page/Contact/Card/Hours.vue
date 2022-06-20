@@ -32,7 +32,11 @@ onMounted(() => {
         delay: 500,
       },
     }"
-    class="grid gap-6 sm:gap-8 lg:gap-10 place-items-center text-center text-lg md:text-xl rounded lg:(text-2xl tracking-wide) h-full w-full py-[2em] bg-zinc-900 text-shadow-xl"
+    :class="`
+      grid gap-6 sm:gap-8 place-items-center h-full w-full py-[2em]
+      shadow-xl bg-zinc-900 text-center text-lg text-white text-shadow-xl
+      md:text-xl rounded lg:(gap-10 text-2xl tracking-wide)
+    `"
   >
     <IconIon:clock
       :class="[
