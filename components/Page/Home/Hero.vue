@@ -1,10 +1,8 @@
 <script setup lang="ts">
 interface Props {
-  observerKey: string
   adjectives?: string[]
 }
 const props = withDefaults(defineProps<Props>(), {
-  observerKey: undefined,
   adjectives: () => ['Default Adjective'],
 })
 
@@ -13,17 +11,56 @@ const { currentAdjective, showAdjective } = useHeroAdjectives({
   adjectives: adjectivesRef.value,
 })
 
-// used for lazy loading real hero background image
-const observer = useState<IntersectionObserver>(props.observerKey)
-const container = ref<Element | null>(null)
+// const heroObserverCallback: IntersectionObserverCallback = (
+//   element,
+//   observer
+// ) => {
+//   element.forEach(({ target, isIntersecting }) => {
+//     if (!target || !isIntersecting) {
+//       return
+//     }
+//     target.classList.add('seen')
+//     observer.unobserve(target)
+//   })
+// }
 
-onActivated(async () => {
-  await nextTick(() => {
-    container.value = document.querySelector('.hero__container')
-    if (container.value && observer.value)
-      observer.value.observe(container.value)
-  })
+const heroObserverName = useState<string>('heroObserverName')
+const homeHeroElements = useState<Element[]>('homeHeroElements')
+const heroObserver = useState<IntersectionObserver | undefined>(
+  heroObserverName.value
+)
+
+onMounted(async () => {
+  const elements = document ? document?.querySelectorAll('.page-hero') : []
+  if (elements)
+    elements.forEach((element) => {
+      // element.classList.remove('seen')
+      homeHeroElements.value.push(element)
+    })
+  await nextTick()
+  if (homeHeroElements.value && heroObserver.value) {
+    homeHeroElements.value.forEach((element) => {
+      heroObserver?.value?.observe(element)
+    })
+  }
+
+  console.log('from onMounted home hero -------')
+  console.log('elements: ', elements)
+  console.log('heroElements: ', homeHeroElements.value)
+  console.log('observer: ', heroObserver.value)
 })
+
+// // used for lazy loading real hero background image
+// const observer = useState<IntersectionObserver>(props.observerKey)
+// const container = useState<HTMLElement | null>(`${props.observerKey}-container`)
+
+// onMounted(async () => {
+//   await nextTick(() => {
+//     container.value = document.querySelectorAll('.page-hero')
+//     if (container.value && observer.value)
+//       observer.value.observe(container.value)
+//   })
+// })
 </script>
 
 <script lang="ts">
@@ -31,7 +68,7 @@ export default { name: 'PageHomeHero' }
 </script>
 
 <template>
-  <div class="hero__container backdrop-filter backdrop-brightness-80">
+  <div class="page-hero page-hero--home backdrop-filter backdrop-brightness-80">
     <!-- hero content wrapper -->
     <div
       :class="`
@@ -91,40 +128,6 @@ export default { name: 'PageHomeHero' }
 .animate-swivel-in {
   opacity: 0;
   animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
-}
-
-.hero__container {
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 40% center;
-  background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
-
-  filter: blur(100px);
-  transition-property: filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-
-  @supports (-webkit-touch-callout: none) {
-    background-attachment: scroll;
-  }
-  @supports not (-webkit-touch-callout: none) {
-    background-attachment: fixed;
-  }
-
-  @screen sm {
-    background-position: center center;
-  }
-
-  // different background images only fetched once .seen class is added via intersection observer
-  &.seen {
-    filter: blur(0px);
-    background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp');
-
-    @screen lg {
-      background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp');
-    }
-  }
 }
 
 .logo__dubsquared {

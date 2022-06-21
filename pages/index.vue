@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
+// import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
 
 definePageMeta({
   layout: 'page',
@@ -19,35 +19,34 @@ const heroAdjectives = ref([
 ])
 
 // hero section obvserver
-const heroObserverName = 'hero-section.observer'
-const heroObserverCallback: IntersectionObserverCallback = (element) => {
-  element.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
+// const heroObserverName = 'hero-section.observer'
+// const heroObserverCallback: IntersectionObserverCallback = (element) => {
+//   element.forEach(({ target, isIntersecting }) => {
+//     if (!target || !isIntersecting) {
+//       return
+//     }
 
-    target.classList.add('seen')
-  })
-}
+//     target.classList.add('seen')
+//   })
+// }
 
-const { observer: heroObserver, observerRef: heroObserverRef } =
-  useIntersectionObserver({
-    callback: heroObserverCallback,
-    useStateKey: heroObserverName,
-  })
+// const { observer: heroObserver, observerRef: heroObserverRef } =
+//   useIntersectionObserver({
+//     callback: heroObserverCallback,
+//     useStateKey: heroObserverName,
+//   })
 
-onMounted(() => {
-  heroObserverRef.value = heroObserver
-})
+// onMounted(() => {
+//   heroObserverRef.value = heroObserver
+// })
 </script>
 
 <template>
-  <PageWrapper class="pt-0">
-    <!-- Hero Banner -->
-    <PageHomeHero
-      :adjectives="heroAdjectives"
-      :observer-key="heroObserverName"
-    />
+  <PageWrapper class="home-page pt-0">
+    <PageHeader class="home-page__header">
+      <!-- Hero Banner -->
+      <PageHomeHero :adjectives="heroAdjectives" />
+    </PageHeader>
     <!-- CTA container-->
     <PageSectionCallToAction id="get-in-touch" class="mobile-safe-area" />
     <!-- intro container-->
@@ -150,7 +149,44 @@ onMounted(() => {
   </PageWrapper>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.home-page {
+  &__header {
+    .page-hero {
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 40% center;
+      background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+
+      filter: blur(100px);
+      transition-property: filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
+
+      @supports (-webkit-touch-callout: none) {
+        background-attachment: scroll;
+      }
+      @supports not (-webkit-touch-callout: none) {
+        background-attachment: fixed;
+      }
+
+      @screen sm {
+        background-position: center center;
+      }
+
+      // different background images only fetched once .seen class is added via intersection observer
+      &.seen {
+        filter: blur(0px);
+        background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp');
+
+        @screen lg {
+          background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp');
+        }
+      }
+    }
+  }
+}
 .mobile-safe-area {
   @supports (padding: max(0px)) {
     padding-left: max(1.5rem, env(safe-area-inset-left));

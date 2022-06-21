@@ -1,43 +1,45 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'page',
+  keepalive: true,
 })
 
 // hero section obvserver
-const heroContainerName = ref('page-about-header-container')
-const heroObserverName = ref('page-about-hero-section-observer')
 
-const container = useState<HTMLElement | null>(heroContainerName.value)
-const heroObserverCallback: IntersectionObserverCallback = (
-  element,
-  observer
-) => {
-  element.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
-    target.classList.add('seen')
-    observer.unobserve(target)
-  })
-}
+// const heroContainerName = ref('page-about-header-container')
+// const heroObserverName = ref('page-about-hero-section-observer')
 
-const { observer: heroObserver, observerRef: heroObserverRef } =
-  useIntersectionObserver({
-    callback: heroObserverCallback,
-    useStateKey: heroObserverName.value,
-  })
+// const container = useState<HTMLElement | null>(heroContainerName.value)
+// const heroObserverCallback: IntersectionObserverCallback = (
+//   element,
+//   observer
+// ) => {
+//   element.forEach(({ target, isIntersecting }) => {
+//     if (!target || !isIntersecting) {
+//       return
+//     }
+//     target.classList.add('seen')
+//     observer.unobserve(target)
+//   })
+// }
 
-onMounted(async () => {
-  await nextTick(() => {
-    heroObserverRef.value = heroObserver
-    container.value = document.querySelector(`#${heroObserverName.value}`)
-    console.log('heroObserverRef: ', heroObserverRef.value)
-    console.log('hero container: ', container.value)
-    if (container.value && heroObserverRef.value) {
-      heroObserverRef.value.observe(container.value)
-    }
-  })
-})
+// const { observer: heroObserver, observerRef: heroObserverRef } =
+//   useIntersectionObserver({
+//     callback: heroObserverCallback,
+//     useStateKey: heroObserverName.value,
+//   })
+
+// onMounted(async () => {
+//   await nextTick(() => {
+//     heroObserverRef.value = heroObserver
+//     container.value = document.querySelector(`#${heroObserverName.value}`)
+//     console.log('heroObserverRef: ', heroObserverRef.value)
+//     console.log('hero container: ', container.value)
+//     if (container.value && heroObserverRef.value) {
+//       heroObserverRef.value.observe(container.value)
+//     }
+//   })
+// })
 
 // onUnmounted(() => {
 //   heroObserverRef?.value?.disconnect()
@@ -54,15 +56,13 @@ export default { name: 'PageAbout' }
 
 <template>
   <PageWrapper class="about-page">
-    <PageHeader class="about-page-header">
-      <ClientOnly>
-        <PageHero title="Our Story" :observer-key="heroObserverName" />
-      </ClientOnly>
+    <PageHeader class="about-page__header">
+      <PageHero title="Our Story" />
     </PageHeader>
     <PageBody>
       <section
         :class="`
-          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose sm:prose-lg lg:prose-xl
+          about-page__section grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose sm:prose-lg lg:prose-xl
           bg-zinc-300/20 dark:bg-zinc-800 p-10
         `"
       >
@@ -215,56 +215,59 @@ export default { name: 'PageAbout' }
 </template>
 
 <style lang="scss">
-.about-page-header {
-  .page-hero {
-    display: grid;
-    place-items: center;
-    min-height: min(100vh, 900px);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+.about-page {
+  &__header {
+    .page-hero {
+      display: grid;
+      place-items: center;
+      min-height: min(100vh, 900px);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
 
-    filter: blur(100px);
-    transition-property: filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+      filter: blur(100px);
+      transition-property: filter;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 300ms;
 
-    @supports (-webkit-touch-callout: none) {
-      background-attachment: scroll;
-    }
-    @supports not (-webkit-touch-callout: none) {
-      background-attachment: fixed;
-    }
-
-    // different background images only fetched once .seen class is added via intersection observer
-    &.seen {
-      filter: blur(0px);
-      background-image: url('/images/shop-frontage--meetup-multicar-1280x780.webp');
-
-      @screen lg {
-        background-image: url('/images/shop-frontage--meetup-multicar-2400x1460.webp');
+      @supports (-webkit-touch-callout: none) {
+        background-attachment: scroll;
       }
-      @screen 2xl {
-        background-image: url('/images/shop-frontage--meetup-multicar-4000x2430.webp');
+      @supports not (-webkit-touch-callout: none) {
+        background-attachment: fixed;
+      }
+
+      // different background images only fetched once .seen class is added via intersection observer
+      &.seen {
+        filter: blur(0px);
+        background-image: url('/images/shop-frontage--meetup-multicar-1280x780.webp');
+
+        @screen lg {
+          background-image: url('/images/shop-frontage--meetup-multicar-2400x1460.webp');
+        }
+        @screen 2xl {
+          background-image: url('/images/shop-frontage--meetup-multicar-4000x2430.webp');
+        }
       }
     }
   }
-}
-.section-about {
-  @supports (padding: max(0px)) {
-    padding-left: max(1.5rem, env(safe-area-inset-left));
-    padding-right: max(1.5rem, env(safe-area-inset-right));
-  }
-  @screen md {
+
+  &__section {
     @supports (padding: max(0px)) {
-      padding-left: max(2.5rem, env(safe-area-inset-left));
-      padding-right: max(2.5rem, env(safe-area-inset-right));
+      padding-left: max(1.5rem, env(safe-area-inset-left));
+      padding-right: max(1.5rem, env(safe-area-inset-right));
     }
-  }
-  @screen lg {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    @screen md {
+      @supports (padding: max(0px)) {
+        padding-left: max(2.5rem, env(safe-area-inset-left));
+        padding-right: max(2.5rem, env(safe-area-inset-right));
+      }
+    }
+    @screen lg {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
   }
 }
 </style>

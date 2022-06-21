@@ -49,7 +49,7 @@ export const useHeroAdjectives = (options: UseHeroAdjectivesOptions) => {
     )
   }
 
-  onActivated(async () => {
+  onMounted(async () => {
     await nextTick(() => {
       currentAdjective.value = adjectives.value[0]
       showAdjective.value = true
@@ -63,7 +63,7 @@ export const useHeroAdjectives = (options: UseHeroAdjectivesOptions) => {
     })
   })
 
-  onDeactivated(() => {
+  onUnmounted(() => {
     clearTimeout(delayBetweenTimeout.value as NodeJS.Timeout)
     clearTimeout(delayFirstChangeTimeout.value as NodeJS.Timeout)
     clearInterval(timeBetweenInterval.value as NodeJS.Timer)
