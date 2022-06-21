@@ -4,40 +4,56 @@ definePageMeta({
 })
 
 // hero section obvserver
-const heroContainerName = ref('page-about-header-container')
+// const heroContainerName = ref('page-about-header-container')
 const heroObserverName = ref('page-about-hero-section-observer')
-
-const container = useState<HTMLElement | null>(heroContainerName.value)
-const heroObserverCallback: IntersectionObserverCallback = (
-  element,
-  observer
-) => {
-  element.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
-    target.classList.add('seen')
-    observer.unobserve(target)
-  })
+const heroBackgroundImage = {
+  alt: 'Car meetup at Dubsquared',
+  height: '1280',
+  width: '780',
+  src: '/images/shop-frontage--meetup-multicar-1280x780.webp',
+  srcSets: [
+    {
+      media: '(max-width: 768px)',
+      srcSet: '/images/shop-frontage--meetup-multicar-1280x780.webp',
+    },
+    {
+      media: '(min-width: 769px)',
+      srcSet: '/images/shop-frontage--meetup-multicar-2400x1460.webp',
+    },
+  ],
+  placeholderSrc: '/images/placeholder-1280x720.webp',
 }
+// const container = useState<HTMLElement | null>(heroContainerName.value)
+// const heroObserverCallback: IntersectionObserverCallback = (
+//   element,
+//   observer
+// ) => {
+//   element.forEach(({ target, isIntersecting }) => {
+//     if (!target || !isIntersecting) {
+//       return
+//     }
+//     target.classList.add('seen')
+//     observer.unobserve(target)
+//   })
+// }
 
-const { observer: heroObserver, observerRef: heroObserverRef } =
-  useIntersectionObserver({
-    callback: heroObserverCallback,
-    useStateKey: heroObserverName.value,
-  })
+// const { observer: heroObserver, observerRef: heroObserverRef } =
+//   useIntersectionObserver({
+//     callback: heroObserverCallback,
+//     useStateKey: heroObserverName.value,
+//   })
 
-onMounted(async () => {
-  await nextTick(() => {
-    heroObserverRef.value = heroObserver
-    container.value = document.querySelector(`#${heroObserverName.value}`)
-    console.log('heroObserverRef: ', heroObserverRef.value)
-    console.log('hero container: ', container.value)
-    if (container.value && heroObserverRef.value) {
-      heroObserverRef.value.observe(container.value)
-    }
-  })
-})
+// onMounted(async () => {
+//   await nextTick(() => {
+//     heroObserverRef.value = heroObserver
+//     container.value = document.querySelector(`#${heroObserverName.value}`)
+//     console.log('heroObserverRef: ', heroObserverRef.value)
+//     console.log('hero container: ', container.value)
+//     if (container.value && heroObserverRef.value) {
+//       heroObserverRef.value.observe(container.value)
+//     }
+//   })
+// })
 
 // onUnmounted(() => {
 //   heroObserverRef?.value?.disconnect()
@@ -55,9 +71,11 @@ export default { name: 'PageAbout' }
 <template>
   <PageWrapper class="about-page">
     <PageHeader class="about-page-header">
-      <ClientOnly>
-        <PageHero title="Our Story" :observer-key="heroObserverName" />
-      </ClientOnly>
+      <PageHero
+        title="Our Story"
+        :observer-key="heroObserverName"
+        :background-image="heroBackgroundImage"
+      />
     </PageHeader>
     <PageBody>
       <section
@@ -217,38 +235,37 @@ export default { name: 'PageAbout' }
 <style lang="scss">
 .about-page-header {
   .page-hero {
-    display: grid;
-    place-items: center;
-    min-height: min(100vh, 900px);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
+    // display: grid;
+    // place-items: center;
+    // min-height: min(100vh, 900px);
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center center;
+    // background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720-loading.webp');
 
-    filter: blur(100px);
-    transition-property: filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+    // transition-property: filter;
+    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    // transition-duration: 300ms;
 
-    @supports (-webkit-touch-callout: none) {
-      background-attachment: scroll;
-    }
-    @supports not (-webkit-touch-callout: none) {
-      background-attachment: fixed;
-    }
+    // @supports (-webkit-touch-callout: none) {
+    //   background-attachment: scroll;
+    // }
+    // @supports not (-webkit-touch-callout: none) {
+    //   background-attachment: fixed;
+    // }
 
     // different background images only fetched once .seen class is added via intersection observer
-    &.seen {
-      filter: blur(0px);
-      background-image: url('/images/shop-frontage--meetup-multicar-1280x780.webp');
+    // &.seen {
+    //   filter: blur(0px);
+    //   background-image: url('/images/shop-frontage--meetup-multicar-1280x780.webp');
 
-      @screen lg {
-        background-image: url('/images/shop-frontage--meetup-multicar-2400x1460.webp');
-      }
-      @screen 2xl {
-        background-image: url('/images/shop-frontage--meetup-multicar-4000x2430.webp');
-      }
-    }
+    //   @screen lg {
+    //     background-image: url('/images/shop-frontage--meetup-multicar-2400x1460.webp');
+    //   }
+    //   @screen 2xl {
+    //     background-image: url('/images/shop-frontage--meetup-multicar-4000x2430.webp');
+    //   }
+    // }
   }
 }
 .section-about {
