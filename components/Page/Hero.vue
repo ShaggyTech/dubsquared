@@ -51,26 +51,21 @@ onMounted(() => {
   observer.value = new IntersectionObserver((entries) => {
     const el = entries[0]
     if (el.isIntersecting) {
-      intersected.value = true
-
-      observer?.value?.disconnect()
+      const timeout = setTimeout(() => {
+        intersected.value = true
+        observer?.value?.disconnect()
+      }, 1000)
+      clearTimeout(timeout)
     }
   })
   element.value = document.getElementById(`${props.observerKey}`)
   if (element.value && observer.value) observer.value.observe(element.value)
 })
 
-// used for lazy loading real hero background image
-// const observer = useState<IntersectionObserver>(props.observerKey)
-// const container = ref<Element | null>(null)
-
-// onActivated(async () => {
-//   await nextTick(() => {
-//     container.value = document.querySelector(`#${props.observerKey}`)
-//     if (container.value && observer.value)
-//       observer.value.observe(container.value)
-//   })
-// })
+onUnmounted(() => {
+  observer.value?.disconnect()
+  observer.value = undefined
+})
 </script>
 
 <template>
@@ -101,10 +96,10 @@ onMounted(() => {
     <div
       class="relative grid content-between place-items-center gap-14 bg-stone-900/50 h-full w-full pt-20"
     >
-      <SVGDubsquaredSquareLogo
+      <LazySVGDubsquaredSquareLogo
         class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
-      <PageTitle
+      <LazyPageTitle
         :text="title"
         class="font-kanit capitalize text-center text-4xl text-stone-100 text-shadow-xl bg-stone-900/90 py-8 w-full tracking-wider border-y-4 border-red-900 lg:text-5xl"
       />
