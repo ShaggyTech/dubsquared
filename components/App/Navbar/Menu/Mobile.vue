@@ -1,3 +1,38 @@
+<script lang="ts" setup>
+import { FocusTrap, TransitionRoot, TransitionChild } from '@headlessui/vue'
+
+import type { IMenuItem } from '@/types'
+
+interface Props {
+  menu?: IMenuItem[]
+  headerText?: string
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(), {
+  headerText: 'Menu',
+  menu: () => [],
+})
+
+// micro compiler
+const emit = defineEmits(['onClose'])
+// state
+const show = ref(false)
+// methods
+const close = () => {
+  show.value = false
+  setTimeout(() => emit('onClose'), 1000)
+}
+
+// lifecycle
+onMounted(() => {
+  show.value = true
+})
+</script>
+
+<script lang="ts">
+export default { name: 'AppNavbarMenuMobile' }
+</script>
+
 <template>
   <Teleport to="body">
     <TransitionRoot :show="show" appear>
@@ -68,7 +103,7 @@
             </div>
             <!-- Menu Logo -->
             <div class="grid place-items-center">
-              <SVGDubsquaredSquareLogo
+              <LazySVGDubsquaredSquareLogo
                 alt="dubsquared logo"
                 height="64px"
                 width="64px"
@@ -77,7 +112,7 @@
               />
             </div>
             <!-- Mobile Social Media Icons -->
-            <AppNavbarMenuSocialMedia class="text-2xl" />
+            <LazyAppNavbarMenuSocialMedia class="text-2xl" />
             <!-- Divider -->
             <div class="border-b-2 border-stone-500/50" />
             <!-- Menu -->
@@ -144,7 +179,7 @@
                 {{ $t('components.theme_switcher.change_theme') }}
               </div>
               <div class="mt-2">
-                <ThemeToggle variant="select-box" />
+                <LazyThemeToggle variant="select-box" />
               </div>
             </div>
             <!-- Divider -->
@@ -167,41 +202,6 @@
     </TransitionRoot>
   </Teleport>
 </template>
-
-<script lang="ts" setup>
-import { FocusTrap, TransitionRoot, TransitionChild } from '@headlessui/vue'
-
-import type { IMenuItem } from '@/types'
-
-interface Props {
-  menu?: IMenuItem[]
-  headerText?: string
-}
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<Props>(), {
-  headerText: 'Menu',
-  menu: () => [],
-})
-
-// micro compiler
-const emit = defineEmits(['onClose'])
-// state
-const show = ref(false)
-// methods
-const close = () => {
-  show.value = false
-  setTimeout(() => emit('onClose'), 1000)
-}
-
-// lifecycle
-onMounted(() => {
-  show.value = true
-})
-</script>
-
-<script lang="ts">
-export default { name: 'AppNavbarMenuMobile' }
-</script>
 
 <style lang="scss" scoped>
 .nav-link.router-link-active {

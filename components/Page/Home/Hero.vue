@@ -41,7 +41,7 @@ export default { name: 'PageHomeHero' }
       `"
     >
       <!-- hero logo -->
-      <SVGDubsquaredSquareLogo
+      <LazySVGDubsquaredSquareLogo
         class="logo__dubsquared animate-swivel-in h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
       <!-- hero text -->
@@ -50,11 +50,11 @@ export default { name: 'PageHomeHero' }
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
-          <SVGLogoVolkswagen
+          <LazySVGLogoVolkswagen
             alt="Volkswagen logo"
             class="logo__volkswagen animate-swivel-in h-1.5em w-auto sm:pl-8"
           />
-          <SVGLogoAudi
+          <LazySVGLogoAudi
             alt="Audi logo"
             class="logo__audi animate-swivel-in h-1em w-auto"
           />

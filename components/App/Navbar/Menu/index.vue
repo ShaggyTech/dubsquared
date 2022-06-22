@@ -38,10 +38,10 @@
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <AppNavbarMenuSocialMedia class="icon-section gap-6 text-xl" />
+    <LazyAppNavbarMenuSocialMedia class="icon-section gap-6 text-xl" />
     <!-- Desktop - App Options -->
     <div class="icon-section">
-      <ThemeToggle />
+      <LazyThemeToggle />
     </div>
   </div>
 </template>

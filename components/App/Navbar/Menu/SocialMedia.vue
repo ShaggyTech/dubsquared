@@ -1,3 +1,7 @@
+<script lang="ts">
+export default { name: 'AppNavbarMenuSocialMedia' }
+</script>
+
 <template>
   <div class="grid grid-flow-col place-items-center">
     <Anchor href="https://www.instagram.com/dubsquared.llc" title="Instagram">
@@ -11,7 +15,3 @@
     </Anchor>
   </div>
 </template>
-
-<script lang="ts">
-export default { name: 'AppNavbarMenuSocialMedia' }
-</script>

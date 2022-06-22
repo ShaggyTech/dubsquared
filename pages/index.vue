@@ -96,8 +96,8 @@ onMounted(() => {
     >
       <!-- container business hours and location -->
       <div class="grid grid-rows-2 lg:(grid-rows-1 grid-cols-2 h-full w-full)">
-        <PageContactCardHours />
-        <PageContactCardAddress />
+        <LazyPageContactCardHours />
+        <LazyPageContactCardAddress />
       </div>
     </section>
 
@@ -110,7 +110,7 @@ onMounted(() => {
         Brands We Use
         <span class="mx-1 md:mx-2 text-yellow-500/80">&</span> Endorse
       </div>
-      <Marquee :duration="40" gradient />
+      <LazyMarquee :duration="40" gradient />
     </section>
 
     <!-- Services-->
@@ -127,19 +127,19 @@ onMounted(() => {
           bg-gray-300 dark:bg-zinc-800 rounded-md
         `"
       >
-        <SVGAuthorizedAPR
+        <LazySVGAuthorizedAPR
           alt="Authorized APR Dealer"
           class="authorized-logs__apr w-full h-full"
           height="100px"
           width="100px"
         />
-        <SVGAuthorized034
+        <LazySVGAuthorized034
           alt="Authorized 034-Motorsport Dealer"
           class="authorized-logs__034 w-full h-full"
           height="100px"
           width="100px"
         />
-        <SVGAuthorizedMotul
+        <LazySVGAuthorizedMotul
           alt="Authorized Motul Distributor"
           class="authorized-logs__motul w-full h-full"
           height="100px"

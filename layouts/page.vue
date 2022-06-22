@@ -14,7 +14,7 @@
         </div>
       </div>
       <slot name="footer">
-        <PageLayoutFooter />
+        <LazyPageLayoutFooter />
       </slot>
     </div>
     <slot name="app-after" />

@@ -1,54 +1,3 @@
-<template>
-  <AppNavbarBuilder
-    :class="`
-      border-b-2 border-red-600/80 dark:border-red-600/80 shadow-md
-      bg-stone-300/70 dark:bg-zinc-800/70 backdrop-filter backdrop-blur
-      transition-colors duration-300
-    `"
-  >
-    <!-- Banner -->
-    <template #banner>
-      <AppContactBar
-        :items="contactBarItems"
-        :class="`
-            grid-flow-col py-1 bg-red-800 border-t border-b border-stone-500/70
-            transition-colors duration-300
-          `"
-        :anchor-class="`
-            col-span-1 px-1 md:px-8
-            text-xs sm:text-sm xl:text-base text-center tracking-widest
-            text-stone-200 hover:text-white
-          `"
-        icon-class="px-1"
-      />
-    </template>
-
-    <!-- Title -->
-    <template #title>
-      <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
-        <span class="sr-only">home</span>
-        <div class="flex items-center h-full">
-          <SVGDubsquaredTextLogo width="150px" />
-        </div>
-      </NuxtLink>
-    </template>
-
-    <!-- Desktop Menu -->
-    <template #menu>
-      <AppNavbarMenu :menu="menuItems" />
-    </template>
-
-    <!-- Mobile Menu -->
-    <template #options="{ toggleOptions }">
-      <AppNavbarMenuMobile
-        header-text="Navigation"
-        :menu="mobileMenuItems"
-        @onClose="toggleOptions(false)"
-      />
-    </template>
-  </AppNavbarBuilder>
-</template>
-
 <script lang="ts" setup>
 import MdiGarage from '~icons/mdi/garage'
 import MdiInformation from '~icons/mdi/information'
@@ -131,5 +80,56 @@ const contactBarItems: IContactBarItem[] = [
 </script>
 
 <script lang="ts">
-export default { name: 'LayoutNavbar' }
+export default { name: 'PageLayoutNavbar' }
 </script>
+
+<template>
+  <AppNavbarBuilder
+    :class="`
+      border-b-2 border-red-600/80 dark:border-red-600/80 shadow-md
+      bg-stone-300/70 dark:bg-zinc-800/70 backdrop-filter backdrop-blur
+      transition-colors duration-300
+    `"
+  >
+    <!-- Banner -->
+    <template #banner>
+      <AppContactBar
+        :items="contactBarItems"
+        :class="`
+            grid-flow-col py-1 bg-red-800 border-t border-b border-stone-500/70
+            transition-colors duration-300
+          `"
+        :anchor-class="`
+            col-span-1 px-1 md:px-8
+            text-xs sm:text-sm xl:text-base text-center tracking-widest
+            text-stone-200 hover:text-white
+          `"
+        icon-class="px-1"
+      />
+    </template>
+
+    <!-- Title -->
+    <template #title>
+      <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
+        <span class="sr-only">home</span>
+        <div class="flex items-center h-full">
+          <LazySVGDubsquaredTextLogo width="150px" />
+        </div>
+      </NuxtLink>
+    </template>
+
+    <!-- Desktop Menu -->
+    <template #menu>
+      <LazyAppNavbarMenu :menu="menuItems" />
+    </template>
+
+    <!-- Mobile Menu -->
+    <template #options="{ toggleOptions }">
+      <LazyAppNavbarMenuMobile
+        header-text="Navigation"
+        :menu="mobileMenuItems"
+        @onClose="toggleOptions(false)"
+      />
+    </template>
+  </AppNavbarBuilder>
+</template>
