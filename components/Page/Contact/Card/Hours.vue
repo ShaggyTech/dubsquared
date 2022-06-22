@@ -31,14 +31,14 @@ onMounted(() => {
       },
     }"
     :class="`
-      grid gap-6 sm:gap-8 place-items-center h-full w-full py-[2em]
-      shadow-xl bg-zinc-900 text-center text-lg text-white text-shadow-xl
-      md:text-xl rounded lg:(gap-10 text-2xl tracking-wide)
+      grid place-items-center content-around h-full w-full py-[1.5em] bg-zinc-900 rounded shadow-xl
+      text-xl text-center text-white text-shadow-lg
+      md:(text-2xl) lg:(text-2xl tracking-wide)
     `"
   >
     <IconIon:clock
       :class="[
-        'h-[2.5em] w-[2.5em] animate-spin animate-duration-60s',
+        'h-[2.2em] w-[2.2em] animate-spin animate-duration-60s',
         isBusinessOpen ? 'text-green-500' : 'text-red-500',
       ]"
     />
@@ -56,27 +56,26 @@ onMounted(() => {
           delay: 300,
         },
       }"
-      class="text-1.5em"
+      class="text-1.5em font-kanit"
     >
       Shop Hours
-      <hr
-        v-motion
-        :initial="{
-          x: -50,
-          opacity: 0,
-        }"
-        :visible="{
-          x: 0,
-          opacity: 1,
-          transition: {
-            duration: 500,
-            delay: 300,
-          },
-        }"
-        class="hr w-10ch mx-auto mt-3"
-      />
     </div>
-
+    <hr
+      v-motion
+      :initial="{
+        x: -50,
+        opacity: 0,
+      }"
+      :visible="{
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 500,
+          delay: 300,
+        },
+      }"
+      class="hr w-12ch mx-auto border-red-900/90"
+    />
     <div
       v-motion
       :initial="{
@@ -91,12 +90,31 @@ onMounted(() => {
           delay: 300,
         },
       }"
-      class="grid gap-[0.5em]"
+      class="grid gap-1"
     >
-      <span class="italic">Monday - Friday</span>
-      <span class="font-bold text-green-500"> 9am - 6pm </span>
+      <span class="italic font-semibold">Monday - Friday</span>
+      <span
+        class="font-nunito-sans font-bold text-green-500 text-shadow-none tracking-wider"
+      >
+        9am - 6pm
+      </span>
     </div>
-    <hr class="hr w-8ch mx-auto" />
+    <hr
+      v-motion
+      :initial="{
+        x: -50,
+        opacity: 0,
+      }"
+      :visible="{
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 500,
+          delay: 300,
+        },
+      }"
+      class="hr w-12ch mx-auto border-red-900/90"
+    />
     <div
       v-motion
       :initial="{
@@ -111,10 +129,13 @@ onMounted(() => {
           delay: 300,
         },
       }"
-      class="grid gap-[0.5em]"
+      class="grid gap-1"
     >
-      <span class="italic">Saturday & Sunday</span>
-      <span class="font-bold text-red-500">CLOSED</span>
+      <span class="italic font-semibold">Saturday & Sunday</span>
+      <span
+        class="font-nunito-sans font-bold text-red-600 text-shadow-none tracking-wider"
+        >CLOSED</span
+      >
     </div>
   </div>
 </template>
