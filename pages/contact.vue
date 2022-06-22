@@ -11,12 +11,14 @@ const heroBackgroundImage = {
   src: '/images/shop-frontage--meetup-multicar-1280x780.webp',
   srcSets: [
     {
-      media: '(max-width: 768px)',
+      media: '(max-width: 1023.9px)',
       srcSet: '/images/shop-frontage--meetup-multicar-1280x780.webp',
+      type: 'image/webp',
     },
     {
-      media: '(min-width: 769px)',
+      media: '(min-width: 1024px)',
       srcSet: '/images/shop-frontage--meetup-multicar-2400x1460.webp',
+      type: 'image/webp',
     },
   ],
   placeholderSrc: '/images/placeholder-1280x720.webp',
@@ -24,7 +26,7 @@ const heroBackgroundImage = {
 </script>
 
 <script lang="ts">
-export default { name: 'PageContact' }
+export default { name: 'PagesContact' }
 </script>
 
 <template>

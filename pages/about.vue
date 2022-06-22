@@ -7,27 +7,28 @@ definePageMeta({
 // const heroContainerName = ref('page-about-header-container')
 const heroObserverName = ref('page-about-hero-section-observer')
 const heroBackgroundImage = {
-  alt: 'Dubsquared Hardpoint R8 Racecar',
-  height: '1280',
-  width: '780',
-  src: '/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp',
+  alt: 'Volkswagen R32 parked between two school buses',
+  height: '1080',
+  width: '720',
+  src: '/images/r32-bus-yard-1080x720.webp',
   srcSets: [
     {
-      media: '(max-width: 768px)',
-      srcSet: '/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp',
+      media: '(max-width: 1023.9px)',
+      srcSet: '/images/r32-bus-yard-1080x720.webp',
+      type: 'image/webp',
     },
     {
-      media: '(min-width: 769px)',
-      srcSet:
-        '/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp',
+      media: '(min-width: 1024px)',
+      srcSet: '/images/r32-bus-yard-1920x1280.webp',
+      type: 'image/webp',
     },
   ],
-  placeholderSrc: '/images/placeholder-1280x720.webp',
+  placeholderSrc: '/images/placeholder-1080x720.webp',
 }
 </script>
 
 <script lang="ts">
-export default { name: 'PageAbout' }
+export default { name: 'PagesAbout' }
 </script>
 
 <template>
@@ -46,12 +47,6 @@ export default { name: 'PageAbout' }
           bg-zinc-300/20 dark:bg-zinc-800 p-10
         `"
       >
-        <img
-          src="/images/BillyT-vr6-gti.webp"
-          alt="Billy.T VR6 GTI"
-          loading="lazy"
-          class="w-full h-full"
-        />
         <p>
           Dubsquared is one of the oldest independent Volkswagen and Audi shops
           in the DFW area, and to understand it's humble beginnings we have to
@@ -69,14 +64,22 @@ export default { name: 'PageAbout' }
         </p>
         <p>
           Billy was constantly chasing the horsepower dragon, pushing into the
-          unknown and uncharted. His canvas of choice was a MKIV VW Golf 1.8T
-          weighing in at 4 doors and 4 cylinders, all on a 5-Speed Manual FWD
-          platform. Known as '1.BillyT' in early online forums such as VWVortex
-          and VdubAddiction, fellow enthusiasts followed his journey to an
-          eventual 420whp and 10 second quarter mile. It was one of the quickest
-          water cooled cars of it's time, known for breaking record after record
-          in it's class.
+          unknown and uncharted. Known as '1.BillyT' in early online forums such
+          as VWVortex and VdubAddiction, fellow enthusiasts followed his journey
+          to an eventual 420whp and 10 second quarter mile.
         </p>
+        <p>
+          Billy's canvas of choice was a MKIV VW Golf 1.8T weighing in at 4
+          doors and 4 cylinders, all on a 5-Speed Manual FWD platform. It was
+          one of the quickest water cooled cars of it's time, known for breaking
+          record after record in it's class.
+        </p>
+        <img
+          src="/images/BillyT-vr6-gti.webp"
+          alt="Billy.T VR6 GTI"
+          loading="lazy"
+          class="w-full h-auto max-w-3xl"
+        />
         <p>
           Jeff was more than familar with Volkswagens, already having been a
           Master Certified Volkswagen technician with Autobahn Volkswagen for
@@ -85,16 +88,31 @@ export default { name: 'PageAbout' }
           partnernship.
         </p>
         <p>
-          Disaster struck for Billy's Golf in April 2005. He stated online
-          "Happened at 35psi, second gear, just as peak boost hit. Either the
-          rod let go, or the rod bolts let go. I had been driving the car all
-          week at 23-24 psi, even seeing 30 a couple of times, and it was fine,
-          pulled hard... but as soon as she saw 35psi again... boom!"
-          <a
-            href="https://www.vwvortex.com/threads/motor-is-done.1929307/#post-20148769"
-            target="_blank"
-          />
+          In April 2005, disaster struck for Billy's Golf. He stated online:
         </p>
+        <blockquote
+          class="relative p-6 text-xl italic border-l-4 !border-yellow-500/40 bg-stone-100 !text-neutral-700 dark:(bg-zinc-900/50 !text-stone-300)"
+        >
+          <p class="mb-4 font-nunito-sans">
+            Happened at 35psi, second gear, just as peak boost hit. Either the
+            rod let go, or the rod bolts let go. I had been driving the car all
+            week at 23-24 psi, even seeing 30 a couple of times, and it was
+            fine, pulled hard... but as soon as she saw 35psi again... boom!
+          </p>
+          <cite class="flex place-content-end">
+            <div class="flex flex-col items-start">
+              <span class="mb-1 italic text-base">- 1.BillyT </span>
+              <a
+                href="https://www.vwvortex.com/threads/motor-is-done.1929307/#post-20148769"
+                target="_blank"
+                name="VWVortex.com forum thread"
+                class="text-base"
+              >
+                via VWVortex forums
+              </a>
+            </div>
+          </cite>
+        </blockquote>
         <p>
           Billy parted out the 1.8T and soon found a new project in a MKII GTI
           body he aquired. It just so happened that Jeff had in his possession a

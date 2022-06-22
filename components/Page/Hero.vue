@@ -1,24 +1,13 @@
 <script setup lang="ts">
-type SrcSet = {
-  media?: string
-  srcSet?: string
-}
+import type { IImageProps } from '~/types'
 
 interface Props {
   observerKey: string
   title?: string
-  backgroundImage?: {
-    alt?: string
-    height?: string
-    width?: string
-    src?: string
-    srcSets?: SrcSet[]
-    placeholderSrc?: string
-  }
+  backgroundImage?: IImageProps
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
-  observerKey: undefined,
   title: '',
   backgroundImage: () => ({
     alt: '',
@@ -68,16 +57,16 @@ onUnmounted(() => {
 })
 </script>
 
+<script lang="ts">
+export default { name: 'PageHero' }
+</script>
+
 <template>
   <div
     :id="observerKey"
-    class="page-hero relative grid place-items-center min-h-[max(min(100vh,500px))] lg:min-h-[max(min(100vh,800px))] w-full backdrop-filter backdrop-brightness-20"
+    class="page-hero relative grid place-items-center min-h-[max(min(100vh,500px))] lg:(min-h-[max(min(85vh,800px))]) max-h-screen) w-full backdrop-filter backdrop-brightness-20"
   >
     <picture class="absolute inset-0 -z-1">
-      <!-- <source
-          media="(max-width: 768px)"
-          srcset="/images/shop-frontage--meetup-multicar-1280x780.webp"
-        /> -->
       <source
         v-for="(src, index) in srcSets"
         :key="index"
@@ -94,7 +83,7 @@ onUnmounted(() => {
       />
     </picture>
     <div
-      class="relative grid content-between place-items-center gap-14 bg-stone-900/50 h-full w-full pt-20"
+      class="relative grid content-between place-items-center gap-14 bg-stone-900/80 h-full w-full pt-20"
     >
       <LazySVGDubsquaredSquareLogo
         class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"

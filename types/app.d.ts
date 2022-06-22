@@ -2,7 +2,22 @@ import type { FunctionalComponent } from 'vue'
 
 export type UnpluginIcon = FunctionalComponent
 
-export interface IMenuItem {
+export type IPictureSrcSet = {
+  media?: string
+  srcSet?: string
+  type?: string
+}
+
+export type IImageProps = {
+  alt?: string
+  height?: string
+  width?: string
+  src?: string
+  srcSets?: SrcSet[]
+  placeholderSrc?: string
+}
+
+export type IMenuItem = {
   variant: 'link' | 'button'
   text: string
   href?: any
@@ -10,7 +25,7 @@ export interface IMenuItem {
   icon?: UnpluginIcon
 }
 
-interface IContactBarItem {
+export type IContactBarItem = {
   text: string
   href: string
   ariaLabel: string
@@ -18,7 +33,7 @@ interface IContactBarItem {
   icon?: UnpluginIcon
 }
 
-interface IContactFormBody {
+export type IContactFormBody = {
   nameFirst: string
   nameLast: string
   phone: string
