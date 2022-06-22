@@ -1,11 +1,9 @@
+<script lang="ts">
+export default { name: 'PageHeader' }
+</script>
+
 <template>
   <div>
     <slot />
   </div>
 </template>
-
-<script lang="ts">
-export default defineComponent({
-  layout: 'dashboard',
-})
-</script>
