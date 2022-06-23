@@ -15,14 +15,25 @@ const { currentAdjective, showAdjective } = useHeroAdjectives({
 
 // used for lazy loading real hero background image
 const observer = useState<IntersectionObserver>(props.observerKey)
-const container = ref<Element | null>(null)
+const container = ref<HTMLElement>()
+const seen = ref<boolean>(false)
 
-onActivated(async () => {
-  await nextTick(() => {
-    container.value = document.querySelector('.hero__container')
-    if (container.value && observer.value)
-      observer.value.observe(container.value)
-  })
+onMounted(async () => {
+  const heroObserverCallback: IntersectionObserverCallback = (
+    entries,
+    observer
+  ) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!target || !isIntersecting) {
+        return
+      }
+      seen.value = true
+      observer.disconnect()
+    })
+  }
+  await nextTick()
+  observer.value = new IntersectionObserver(heroObserverCallback)
+  if (container.value && observer.value) observer.value.observe(container.value)
 })
 </script>
 
@@ -31,7 +42,13 @@ export default { name: 'PageHomeHero' }
 </script>
 
 <template>
-  <div class="hero__container backdrop-filter backdrop-brightness-80">
+  <div
+    ref="container"
+    :class="`
+      hero__container backdrop-filter backdrop-brightness-80
+      ${seen ? 'seen' : ''}
+    `"
+  >
     <!-- hero content wrapper -->
     <div
       :class="`
@@ -88,11 +105,6 @@ export default { name: 'PageHomeHero' }
 </template>
 
 <style lang="scss" scoped>
-.animate-swivel-in {
-  opacity: 0;
-  animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
-}
-
 .hero__container {
   overflow: hidden;
   background-repeat: no-repeat;
@@ -128,27 +140,27 @@ export default { name: 'PageHomeHero' }
 }
 
 .logo__dubsquared {
-  animation-delay: 1500ms;
+  animation-delay: 1000ms;
 }
 .logo__volkswagen {
-  animation-delay: 2500ms;
+  animation-delay: 1500ms;
   animation-duration: 0.8s;
 }
 .logo__audi {
-  animation-delay: 3100ms;
+  animation-delay: 2000ms;
   animation-duration: 0.8s;
 }
 
 .hero__heading {
-  animation-delay: 3700ms;
+  animation-delay: 2500ms;
   animation-duration: 0.5s;
 }
 .hero__spacer {
-  animation-delay: 4000ms;
+  animation-delay: 3000ms;
   animation-duration: 0.5s;
 }
 .hero__subheading {
-  animation-delay: 4300ms;
+  animation-delay: 3500ms;
   animation-duration: 0.6s;
 }
 
@@ -186,6 +198,11 @@ export default { name: 'PageHomeHero' }
       text-decoration-color: rgba(0, 0, 0, 0);
     }
   }
+}
+
+.animate-swivel-in {
+  opacity: 0;
+  animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
 }
 
 @keyframes swivel-in {

@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
+// import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
 
 definePageMeta({
   layout: 'page',
-  // required to keep intersection observer active after page navigation
-  keepalive: true,
 })
 
 const heroAdjectives = ref([
@@ -17,37 +15,18 @@ const heroAdjectives = ref([
   'Gurus',
   'Fanatics',
 ])
-
-// hero section obvserver
-const heroObserverName = 'hero-section.observer'
-const heroObserverCallback: IntersectionObserverCallback = (element) => {
-  element.forEach(({ target, isIntersecting }) => {
-    if (!target || !isIntersecting) {
-      return
-    }
-
-    target.classList.add('seen')
-  })
-}
-
-const { observer: heroObserver, observerRef: heroObserverRef } =
-  useIntersectionObserver({
-    callback: heroObserverCallback,
-    useStateKey: heroObserverName,
-  })
-
-onMounted(() => {
-  heroObserverRef.value = heroObserver
-})
+const heroObserverName = ref('page-home-hero-section-observer')
 </script>
 
 <template>
-  <PageWrapper class="pt-0">
-    <!-- Hero Banner -->
-    <PageHomeHero
-      :adjectives="heroAdjectives"
-      :observer-key="heroObserverName"
-    />
+  <PageWrapper>
+    <PageHeader>
+      <!-- Hero Banner -->
+      <PageHomeHero
+        :adjectives="heroAdjectives"
+        :observer-key="heroObserverName"
+      />
+    </PageHeader>
     <!-- CTA container-->
     <PageSectionCallToAction id="get-in-touch" class="mobile-safe-area" />
     <!-- intro container-->
