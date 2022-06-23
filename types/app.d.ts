@@ -14,7 +14,7 @@ export type IImageProps = {
   width?: string
   src?: string
   srcSets?: SrcSet[]
-  placeholderSrc?: string
+  placeholder?: string
 }
 
 export type IMenuItem = {

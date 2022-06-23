@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
     width: '',
     src: '',
     srcSets: [],
-    placeholderSrc: '',
+    placeholder: '',
   }),
 })
 
@@ -37,7 +37,6 @@ onMounted(async () => {
 
 onUnmounted(() => {
   observer.value?.disconnect()
-  observer.value = undefined
 })
 </script>
 
@@ -67,7 +66,7 @@ export default { name: 'PageHero' }
       <LazySVGDubsquaredSquareLogo
         class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
-      <LazyPageTitle
+      <PageTitle
         :text="title"
         :class="`
           w-full py-8 bg-stone-900/90 border-y-4 border-red-900

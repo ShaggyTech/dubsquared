@@ -1,10 +1,11 @@
 <script lang="ts" setup>
+import type { IImageProps } from '~/types'
 definePageMeta({
   layout: 'page',
 })
 
 const heroObserverName = ref('page-contact-hero-section-observer')
-const heroBackgroundImage = {
+const heroBackgroundImage: IImageProps = {
   alt: 'Car meetup at Dubsquared',
   height: '1080',
   width: '720',
@@ -26,7 +27,7 @@ const heroBackgroundImage = {
       type: 'image/webp',
     },
   ],
-  placeholderSrc: '/images/placeholder-1080x720.webp',
+  placeholder: '/images/placeholder-1080x720.webp',
 }
 </script>
 

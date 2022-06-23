@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { IImageProps } from '~/types'
+
 definePageMeta({
   layout: 'page',
 })
@@ -6,7 +8,7 @@ definePageMeta({
 // hero section obvserver
 // const heroContainerName = ref('page-about-header-container')
 const heroObserverName = ref('page-about-hero-section-observer')
-const heroBackgroundImage = {
+const heroBackgroundImage: IImageProps = {
   alt: 'Volkswagen R32 parked between two school buses',
   height: '1080',
   width: '720',
@@ -23,7 +25,7 @@ const heroBackgroundImage = {
       type: 'image/webp',
     },
   ],
-  placeholderSrc: '/images/placeholder-1080x720.webp',
+  placeholder: '/images/placeholder-1080x720.webp',
 }
 </script>
 
@@ -74,10 +76,15 @@ export default { name: 'PagesAbout' }
           one of the quickest water cooled cars of it's time, known for breaking
           record after record in it's class.
         </p>
-        <img
-          src="/images/BillyT-vr6-gti.webp"
-          alt="Billy.T VR6 GTI"
-          loading="lazy"
+        <Picture
+          :image="{
+            src: '/images/BillyT-vr6-gti.webp',
+            alt: 'Billy.T VR6 GTI',
+            height: '400',
+            width: '600',
+          }"
+          observer-key="about-page-image-BillyT-vr6-gti"
+          :lazy="true"
           class="w-full h-auto max-w-3xl"
         />
         <p>
@@ -125,16 +132,16 @@ export default { name: 'PagesAbout' }
           early 90s GTI making 700hp+ at the wheels. This combo was effective
           enough for a respectable 10.39s 1/4 mile at Texas Motorplex.
         </p>
-        <iframe
-          width="585"
+        <Object
+          data="https://www.youtube.com/embed/TutHds80xu0"
           height="400"
-          src="https://www.youtube.com/embed/TutHds80xu0"
-          title="Billy T. Turbo VR6 1/4 Mile Drag Race"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          class="w-full"
-        ></iframe>
+          width="600"
+          name="Youtube - Billy T. Turbo VR6 1/4 Mile Drag Race"
+          type="video/mp4"
+          :lazy="true"
+          observer-key="page-about-video-Billy_T_Turbo_VR6_Drag_Race"
+          class="w-full max-w-3xl max-h-md p-2"
+        />
         <p>
           As the MK2 continued to generate buzz and interest at the track,
           friends and other enthusiasts begain asking the guys for help with
@@ -168,16 +175,16 @@ export default { name: 'PagesAbout' }
           eventual 205mph in the standing mile, a record breaking run that still
           stands to this day.
         </p>
-        <iframe
-          width="585"
+        <Object
+          data="https://www.youtube.com/embed/oYEiEL-keZg"
           height="400"
-          src="https://www.youtube.com/embed/oYEiEL-keZg"
-          title="Jeremy's MK3 GTI Texas Mile 205mph"
-          frameborder="0"
-          allowfullscreen
-          loading="lazy"
-          class="w-full"
-        ></iframe>
+          width="600"
+          name="Youtube - Jeremy's MK3 GTI Texas Mile 205mph"
+          type="video/mp4"
+          :lazy="true"
+          observer-key="page-about-video-Jeremys_MK3_GTI_Texas_Mile_205mph"
+          class="w-full max-w-3xl max-h-md p-2"
+        />
         <p>
           By the year 2010 the shop was running out of space in it's small
           facility on Colorado Lane. An opportunity for growth was siezed upon
