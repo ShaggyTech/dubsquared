@@ -14,6 +14,7 @@ type Props = {
   lazy?: boolean
   seen?: boolean
   variant?: Variant
+  observerKey?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -23,25 +24,41 @@ const props = withDefaults(defineProps<Props>(), {
     width: '',
     src: '',
     srcSets: [],
-    placeholderSrc: '',
+    placeholder: '',
   }),
   sourceClass: '',
   imgClass: '',
   lazy: false,
   seen: false,
   variant: 'default',
+  observerKey: undefined,
 })
 
+// HTMLElement ref
+const containerRef = ref<HTMLElement>()
+
+// optional internal observer state, if props.observerKey
+const observer = props.observerKey
+  ? useState<IntersectionObserver | undefined>(props.observerKey)
+  : undefined
+const container = props.observerKey
+  ? useState(`${props.observerKey}-container`, () => containerRef)
+  : undefined
+const seen = props.observerKey
+  ? useState(`${props.observerKey}-seen`, () => false)
+  : undefined
+
+// image state
 const srcSets = computed(() => {
-  if (props.lazy && props.seen) return props.image.srcSets
+  if (props.lazy && (props.seen || seen?.value)) return props.image.srcSets
   else return []
 })
 const imgSrc = computed(() => {
   if (props.lazy) {
-    return props.seen
+    return props.seen || seen?.value
       ? props.image.src
-      : props.image.placeholderSrc
-      ? props.image.placeholderSrc
+      : props.image.placeholder
+      ? props.image.placeholder
       : ''
   } else {
     return props.image.src ? props.image.src : ''
@@ -52,7 +69,7 @@ const styles = reactive<Variants>({
   default: {
     picture: '',
     source: '',
-    img: '',
+    img: 'w-full h-full object-cover object-center',
   },
   background: {
     picture: 'absolute inset-0 -z-1',
@@ -61,6 +78,27 @@ const styles = reactive<Variants>({
   },
 })
 const selectedStyle = computed(() => styles[props.variant] || styles.default)
+
+onMounted(async () => {
+  await nextTick()
+  // only if lazy and props.observerKey provided
+  if (props.lazy && observer) {
+    observer.value = new IntersectionObserver((entries) => {
+      const el = entries[0]
+      if (el.isIntersecting) {
+        if (seen) seen.value = true
+        observer?.value?.disconnect()
+      }
+    })
+
+    if (container?.value && observer.value)
+      observer.value.observe(container.value)
+  }
+})
+
+onUnmounted(() => {
+  observer?.value?.disconnect()
+})
 </script>
 
 <script lang="ts">
@@ -68,7 +106,7 @@ export default { name: 'Picture' }
 </script>
 
 <template>
-  <picture :class="`${selectedStyle.picture}`">
+  <picture ref="containerRef" :class="`${selectedStyle.picture}`">
     <source
       v-for="(src, index) in srcSets"
       :key="index"
