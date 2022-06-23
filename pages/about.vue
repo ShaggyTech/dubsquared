@@ -41,7 +41,7 @@ export default { name: 'PagesAbout' }
       />
     </PageHeader>
     <PageBody>
-      <section
+      <PageSection
         :class="`
           section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose sm:prose-lg lg:prose-xl
           bg-zinc-300/20 dark:bg-zinc-800 p-10
@@ -206,8 +206,10 @@ export default { name: 'PagesAbout' }
           Volkswagen and Audi vehicles and that has allowed us to build
           extensive knowledge over the years specific to these models.
         </p>
-      </section>
-      <div>TODO: Contact us link.....</div>
+      </PageSection>
+      <PageSection id="contact-form">
+        <LazyPageContactForm />
+      </PageSection>
     </PageBody>
   </PageWrapper>
 </template>
