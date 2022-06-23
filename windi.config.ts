@@ -41,6 +41,12 @@ export default defineConfig({
       './app.vue',
     ],
   },
+  preflight: {
+    alias: {
+      'nuxt-link': 'a',
+      'nuxt-img': 'img',
+    },
+  },
   theme: {
     extend: {
       typography: {
