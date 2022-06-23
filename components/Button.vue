@@ -1,43 +1,3 @@
-<template>
-  <NuxtLink
-    v-if="to"
-    tag="a"
-    :to="to"
-    :role="role"
-    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
-  >
-    <slot name="icon"></slot>
-    <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" />
-    </div>
-    <div :class="{ 'ml-2': icon || $slots['icon'] }">
-      <slot>{{ text }}</slot>
-    </div>
-  </NuxtLink>
-  <a
-    v-else-if="href"
-    :href="href"
-    :role="role"
-    target="_blank"
-    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
-  >
-    <slot name="icon"></slot>
-    <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" />
-    </div>
-    <div :class="{ 'ml-2': icon || $slots['icon'] }">
-      <slot>{{ text }}</slot>
-    </div>
-  </a>
-  <button
-    v-else
-    :type="type"
-    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
-  >
-    <slot>{{ text }}</slot>
-  </button>
-</template>
-
 <script lang="ts" setup>
 import type { UnpluginIcon } from '~/types'
 
@@ -114,3 +74,47 @@ const sizes = reactive<Sizes>({
 const selectedStyle = computed(() => styles[props.variant] || styles.primary)
 const selectedSize = computed(() => sizes[props.size] || sizes.md)
 </script>
+
+<script lang="ts">
+export default { name: 'Button' }
+</script>
+
+<template>
+  <NuxtLink
+    v-if="to"
+    tag="a"
+    :to="to"
+    :role="role"
+    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
+  >
+    <slot name="icon"></slot>
+    <div v-if="!$slots['icon'] && icon">
+      <component :is="icon" />
+    </div>
+    <div :class="{ 'ml-2': icon || $slots['icon'] }">
+      <slot>{{ text }}</slot>
+    </div>
+  </NuxtLink>
+  <a
+    v-else-if="href"
+    :href="href"
+    :role="role"
+    target="_blank"
+    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
+  >
+    <slot name="icon"></slot>
+    <div v-if="!$slots['icon'] && icon">
+      <component :is="icon" />
+    </div>
+    <div :class="{ 'ml-2': icon || $slots['icon'] }">
+      <slot>{{ text }}</slot>
+    </div>
+  </a>
+  <button
+    v-else
+    :type="type"
+    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
+  >
+    <slot>{{ text }}</slot>
+  </button>
+</template>
