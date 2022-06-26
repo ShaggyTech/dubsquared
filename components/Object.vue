@@ -70,5 +70,6 @@ export default { name: 'Object' }
     :width="width"
     :name="name"
     :type="type"
+    :aria-label="name"
   ></object>
 </template>

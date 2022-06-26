@@ -5,8 +5,6 @@ definePageMeta({
   layout: 'page',
 })
 
-// hero section obvserver
-// const heroContainerName = ref('page-about-header-container')
 const heroObserverName = ref('page-about-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Volkswagen R32 parked between two school buses',
@@ -76,7 +74,7 @@ export default { name: 'PagesAbout' }
           one of the quickest water cooled cars of it's time, known for breaking
           record after record in it's class.
         </p>
-        <Picture
+        <LazyPicture
           :image="{
             src: '/images/BillyT-vr6-gti.webp',
             alt: 'Billy.T VR6 GTI',
@@ -132,7 +130,7 @@ export default { name: 'PagesAbout' }
           early 90s GTI making 700hp+ at the wheels. This combo was effective
           enough for a respectable 10.39s 1/4 mile at Texas Motorplex.
         </p>
-        <Object
+        <LazyObject
           data="https://www.youtube.com/embed/TutHds80xu0"
           height="400"
           width="600"
@@ -175,7 +173,7 @@ export default { name: 'PagesAbout' }
           eventual 205mph in the standing mile, a record breaking run that still
           stands to this day.
         </p>
-        <Object
+        <LazyObject
           data="https://www.youtube.com/embed/oYEiEL-keZg"
           height="400"
           width="600"

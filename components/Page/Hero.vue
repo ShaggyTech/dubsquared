@@ -18,26 +18,6 @@ const props = withDefaults(defineProps<Props>(), {
     placeholder: '',
   }),
 })
-
-const observer = useState<IntersectionObserver | undefined>(props.observerKey)
-const element = ref<HTMLElement>()
-const seen = ref<boolean>(false)
-
-onMounted(async () => {
-  await nextTick()
-  observer.value = new IntersectionObserver((entries) => {
-    const el = entries[0]
-    if (el.isIntersecting) {
-      seen.value = true
-      observer?.value?.disconnect()
-    }
-  })
-  if (element.value && observer.value) observer.value.observe(element.value)
-})
-
-onUnmounted(() => {
-  observer.value?.disconnect()
-})
 </script>
 
 <script lang="ts">
@@ -46,8 +26,6 @@ export default { name: 'PageHero' }
 
 <template>
   <div
-    :id="observerKey"
-    ref="element"
     :class="`
       page-hero
       relative grid place-items-center w-full min-h-[max(min(100vh,500px))]
@@ -58,7 +36,7 @@ export default { name: 'PageHero' }
       :image="backgroundImage"
       variant="background"
       :lazy="true"
-      :seen="seen"
+      :observer-key="observerKey"
     />
     <div
       class="relative grid content-between place-items-center gap-14 bg-stone-900/70 h-full w-full pt-20"
