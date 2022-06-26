@@ -96,12 +96,12 @@ export default { name: 'PageLayoutNavbar' }
       <AppContactBar
         :items="contactBarItems"
         :class="`
-            grid-flow-col py-1 bg-red-800 border-t border-b border-stone-500/70
+            grid-flow-col py-2 bg-red-800 border-t border-b border-stone-500/70
             transition-colors duration-300
           `"
         :anchor-class="`
             col-span-1 px-1 md:px-8
-            text-xs sm:text-sm xl:text-base text-center tracking-widest
+            text-sm lg:text-base text-center tracking-widest
             text-stone-200 hover:text-white
           `"
         icon-class="px-1"
@@ -120,12 +120,12 @@ export default { name: 'PageLayoutNavbar' }
 
     <!-- Desktop Menu -->
     <template #menu>
-      <LazyAppNavbarMenu :menu="menuItems" />
+      <AppNavbarMenu :menu="menuItems" />
     </template>
 
     <!-- Mobile Menu -->
     <template #options="{ toggleOptions }">
-      <LazyAppNavbarMenuMobile
+      <AppNavbarMenuMobile
         header-text="Navigation"
         :menu="mobileMenuItems"
         @onClose="toggleOptions(false)"
