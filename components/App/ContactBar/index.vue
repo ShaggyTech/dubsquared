@@ -1,33 +1,10 @@
-<template>
-  <div v-if="items.length" :class="`${selectedStyles}`">
-    <Anchor
-      v-for="(item, i) in items"
-      :key="i"
-      :href="item.href"
-      :aria-label="item.ariaLabel"
-      :title="item.title"
-      :class="`
-          relative flex place-items-center place-content-center
-          whitespace-nowrap no-underline
-          ${anchorClass} 
-        `"
-    >
-      <template #icon>
-        <div v-if="item.icon" :class="`${iconClass}`">
-          <component :is="item.icon" />
-        </div>
-      </template>
-      {{ item.text }}
-    </Anchor>
-  </div>
-</template>
-
 <script setup lang="ts">
 import type { IContactBarItem } from '@/types'
+
 type Variant = 'detached' | 'attachedTop'
 type Variants = Record<Variant, string>
 
-interface Props {
+type Props = {
   items: IContactBarItem[]
   variant?: Variant
   anchorClass?: string
@@ -55,3 +32,31 @@ const selectedStyles = computed(
   () => variants[props.variant] || variants.detached
 )
 </script>
+
+<script lang="ts">
+export default { name: 'AppContactBar' }
+</script>
+
+<template>
+  <div v-if="items.length" :class="`${selectedStyles}`">
+    <Anchor
+      v-for="(item, i) in items"
+      :key="i"
+      :href="item.href"
+      :aria-label="item.ariaLabel"
+      :title="item.title"
+      :class="`
+          relative flex place-items-center place-content-center
+          whitespace-nowrap no-underline
+          ${anchorClass} 
+        `"
+    >
+      <template #icon>
+        <div v-if="item.icon" :class="`${iconClass}`">
+          <component :is="item.icon" />
+        </div>
+      </template>
+      {{ item.text }}
+    </Anchor>
+  </div>
+</template>

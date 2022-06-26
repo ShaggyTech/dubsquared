@@ -1,31 +1,3 @@
-<template>
-  <div
-    ref="cardRef"
-    :class="{
-      [`${defaultStyle}`]: true,
-    }"
-  >
-    <div :class="`${defaultHeadingStyle} ${headingStyle}`">
-      <div ref="iconRef" :class="`${defaultIconStyle} ${iconStyle}`">
-        <slot name="heading-icon" />
-      </div>
-      <h3><slot name="heading-text" /></h3>
-    </div>
-    <div :class="`${defaultParagraphStyle} ${paragraphStyle} mobile-safe-area`">
-      <hr ref="dividerRef" :class="`${defaultDividerStyle} ${dividerStyle}`" />
-      <slot name="paragraph" />
-      <Button
-        ref="buttonRef"
-        size="lg"
-        class="mt-[3.5em] shadow-lg"
-        :href="buttonHref"
-        :to="buttonTo"
-        >{{ buttonText }}</Button
-      >
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { useMotion } from '@vueuse/motion'
 import type { MotionVariants } from '@vueuse/motion'
@@ -148,6 +120,38 @@ onMounted(() => {
   useMotion(buttonRef, buttonMotionVariants)
 })
 </script>
+
+<script lang="ts">
+export default { name: 'PageServiceCard' }
+</script>
+
+<template>
+  <div
+    ref="cardRef"
+    :class="{
+      [`${defaultStyle}`]: true,
+    }"
+  >
+    <div :class="`${defaultHeadingStyle} ${headingStyle}`">
+      <div ref="iconRef" :class="`${defaultIconStyle} ${iconStyle}`">
+        <slot name="heading-icon" />
+      </div>
+      <h2><slot name="heading-text" /></h2>
+    </div>
+    <div :class="`${defaultParagraphStyle} ${paragraphStyle} mobile-safe-area`">
+      <hr ref="dividerRef" :class="`${defaultDividerStyle} ${dividerStyle}`" />
+      <slot name="paragraph" />
+      <Button
+        ref="buttonRef"
+        size="lg"
+        class="mt-[3.5em] shadow-lg"
+        :href="buttonHref"
+        :to="buttonTo"
+        >{{ buttonText }}</Button
+      >
+    </div>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .mobile-safe-area {
