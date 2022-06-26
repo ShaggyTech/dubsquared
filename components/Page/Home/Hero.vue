@@ -58,8 +58,8 @@ export default { name: 'PageHomeHero' }
       `"
     >
       <!-- hero logo -->
-      <LazySVGDubsquaredSquareLogo
-        class="logo__dubsquared animate-swivel-in h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
+      <SVGDubsquaredSquareLogo
+        class="animate-swivel-in logo__dubsquared h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
       <!-- hero text -->
       <div
@@ -67,13 +67,13 @@ export default { name: 'PageHomeHero' }
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
-          <LazySVGLogoVolkswagen
+          <SVGLogoVolkswagen
             alt="Volkswagen logo"
-            class="logo__volkswagen animate-swivel-in h-1.5em w-auto sm:pl-8"
+            class="animate-swivel-in logo__volkswagen h-1.5em w-auto sm:pl-8"
           />
-          <LazySVGLogoAudi
+          <SVGLogoAudi
             alt="Audi logo"
-            class="logo__audi animate-swivel-in h-1em w-auto"
+            class="animate-swivel-in logo__audi h-1em w-auto"
           />
         </div>
         <!-- hero headings -->
@@ -140,28 +140,29 @@ export default { name: 'PageHomeHero' }
 }
 
 .logo__dubsquared {
-  animation-delay: 1000ms;
-}
-.logo__volkswagen {
   animation-delay: 1500ms;
   animation-duration: 0.8s;
 }
-.logo__audi {
+.logo__volkswagen {
   animation-delay: 2000ms;
+  animation-duration: 0.8s;
+}
+.logo__audi {
+  animation-delay: 2300ms;
   animation-duration: 0.8s;
 }
 
 .hero__heading {
   animation-delay: 2500ms;
-  animation-duration: 0.5s;
+  animation-duration: 0.8s;
 }
 .hero__spacer {
-  animation-delay: 3000ms;
-  animation-duration: 0.5s;
+  animation-delay: 2800ms;
+  animation-duration: 0.8s;
 }
 .hero__subheading {
-  animation-delay: 3500ms;
-  animation-duration: 0.6s;
+  animation-delay: 3100ms;
+  animation-duration: 0.8s;
 }
 
 .adjective-container {
@@ -202,7 +203,10 @@ export default { name: 'PageHomeHero' }
 
 .animate-swivel-in {
   opacity: 0;
-  animation: swivel-in 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+  animation-name: swivel-in;
+  animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  animation-fill-mode: forwards;
+  transform: scale(0.1) rotate(30deg);
 }
 
 @keyframes swivel-in {
