@@ -15,7 +15,7 @@ const { t } = useLang()
 const menuItems = computed((): IMenuItem[] => [
   {
     variant: 'link',
-    text: 'Our Story',
+    text: 'About Us',
     route: { name: 'about' },
     icon: MdiInformation,
   },
