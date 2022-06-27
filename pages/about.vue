@@ -48,9 +48,20 @@ export default { name: 'PagesAbout' }
         `"
       >
         <p>
+          In it's current form, Dubsquared offers full repair, performance, and
+          maintenance services on all 2004 and newer Volkswagen and Audi
+          vehicles. We employ factory trained technicians with decades of
+          combined experience ready to take on any job. We work exclusively on
+          Volkswagen and Audi vehicles and that has allowed us to build
+          extensive knowledge over the years specific to these models.
+        </p>
+        <span class="text-center py-4">
+          <Anchor to="/meet-the-team">Meet the Team</Anchor> to learn more!
+        </span>
+        <p>
           Dubsquared is one of the oldest independent Volkswagen and Audi shops
-          in the DFW area, and to understand it's humble beginnings we have to
-          go all the way back to the mid-2000s.
+          in the DFW area. To understand our humble beginnings let's go all the
+          way back to the mid-2000s...
         </p>
         <p>
           Around 2005, two friends and fellow Volkswagen enthusiasts, Billy
@@ -201,15 +212,6 @@ export default { name: 'PagesAbout' }
           Eichler was hired on. What he brought with him was 13 years of
           dealership experience, first as a Volkswagen Master Technician and
           then an Audi Technician.
-        </p>
-        <Anchor to="/meet-the-team"> Meet the Team </Anchor> to learn more!
-        <p>
-          In it's current form, Dubsquared now offers full repair, performance,
-          and maintenance services on all water cooled Volkswagen and Audi
-          vehicles. We employ factory trained technicians with decades of
-          combined experience ready to take on any job. We work exclusively on
-          Volkswagen and Audi vehicles and that has allowed us to build
-          extensive knowledge over the years specific to these models.
         </p>
       </PageSection>
       <PageSection id="contact-form">

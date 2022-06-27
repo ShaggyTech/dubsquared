@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import IconMdiTimelineClock from '~icons/mdi/timeline-clock'
+import IconMakiRacetrack from '~icons/maki/racetrack'
 import type { IImageProps } from '~/types'
 
 definePageMeta({
@@ -35,359 +37,170 @@ export default { name: 'PagesMeetTheTeam' }
   <PageWrapper>
     <PageHeader class="meet-the-team-page-header">
       <PageHero
-        title="Meet the Team"
+        title="The Team"
         :observer-key="heroObserverName"
         :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>
-      <PageSection class="mt-20">
+      <PageSection>
         <!-- Page Container -->
         <div
           class="flex items-center justify-center min-h-screen bg-gray-200 dark:(bg-zinc-800) py-20"
         >
-          <div class="flex flex-col mt-8">
-            <!-- Meet the Team -->
-            <div class="container max-w-7xl px-4">
-              <!-- Section Header -->
-              <div class="flex flex-wrap justify-center text-center">
-                <div class="w-full lg:w-10/12 px-4">
-                  <!-- Header -->
-                  <h1
-                    class="text-stone-900 text-4xl font-bold mb-8 dark:(text-stone-100)"
-                  >
-                    Meet the Team
-                  </h1>
+          <!-- Meet the Team -->
+          <div class="flex flex-col mt-8 px-4 w-full">
+            <!-- Section Header -->
+            <div class="flex flex-wrap justify-center text-center">
+              <div class="w-full sm:w-10/12 lg:w-8/12 px-4">
+                <!-- Header -->
+                <h1
+                  class="text-stone-900 text-4xl font-bold mb-8 dark:(text-stone-100)"
+                >
+                  Meet the Team
+                </h1>
 
-                  <!-- Description -->
-                  <p class="text-stone-800 text-lg dark:(text-stone-300)">
-                    With over 50 years of combined Volkswagen and Audi
-                    experience, we've got a well-seasoned team ready for
-                    anything that comes their way.
-                  </p>
-                </div>
+                <!-- Description -->
+                <p class="text-stone-800 text-lg dark:(text-stone-300)">
+                  With over 50 years of combined Volkswagen and Audi experience,
+                  we've got a well-seasoned team ready for anything that comes
+                  their way.
+                </p>
               </div>
+            </div>
 
-              <hr
-                class="border-t-3 border-t-red-900 mt-24 mb-24 w-10/12 mx-auto"
+            <hr
+              class="border-t-3 border-t-red-900 mt-24 mb-24 w-10/12 mx-auto"
+            />
+            <!-- Team Members -->
+            <div class="flex flex-wrap place-content-around gap-x-6 w-full">
+              <!-- Member #1 -->
+              <PageTeamMemberCard
+                name="Philip W."
+                title="Owner"
+                email="philip@dubsquared.com"
+                :biography="[
+                  {
+                    icon: IconMdiTimelineClock,
+                    iconClass: 'text-blue-600',
+                    text: '21 years Audi/VW experience',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Certified Volkswagen Technician',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    html: `Founder of PWM <span class='text-xs font-extralight'> - Philip Wight Motorsports</span>`,
+                  },
+                ]"
+                observer-key="team-member-philip-w"
+                :image="{
+                  alt: 'Photo of team member Philip W.',
+                  height: '450',
+                  width: '375',
+                  placeholder: '/images/person-placeholder-375x450.webp',
+                }"
               />
-              <!-- Team Members -->
-              <div class="flex flex-wrap col-span-1">
-                <!-- Member #1 -->
-                <div
-                  class="w-full sm:w-6/12 lg:w-4/12 xl:w-3/12 py-6 mb-10 px-6 sm:px-6 lg:px-4 shadow-lg rounded-lg"
-                >
-                  <div class="flex flex-col">
-                    <!-- Avatar -->
-                    <a href="#" class="mx-auto">
-                      <img
-                        class="rounded-2xl drop-shadow-sm hover:drop-shadow-xl transition-all duration-200 delay-100"
-                        src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
-                      />
-                    </a>
 
-                    <!-- Details -->
-                    <div
-                      class="flex flex-col mt-6 items-center w-full font-medium"
-                    >
-                      <div
-                        class="grid gap-1 pl-6 py-6 border-l-2 border-stone-400/20 dark:(border-stone-600/20)"
-                      >
-                        <!-- Name -->
-                        <h2
-                          class="text-stone-900 text-3xl font-bold dark:(text-stone-100)"
-                        >
-                          Philip W.
-                        </h2>
-                        <!-- Title -->
-                        <p class="pl-2 text-gray-700 dark:(text-stone-300)">
-                          Owner
-                        </p>
+              <!-- Member #2 -->
+              <PageTeamMemberCard
+                name="Tyler S."
+                title="Technician"
+                email="tyler@dubsquared.com"
+                :biography="[
+                  {
+                    icon: IconMdiTimelineClock,
+                    iconClass: 'text-blue-600',
+                    text: '13 years Audi/VW experience',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Performance Specialist',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Electrical Guru',
+                  },
+                ]"
+                observer-key="team-member-tyler-s"
+                :image="{
+                  alt: 'Photo of team member Tyler S.',
+                  height: '450',
+                  width: '375',
+                  placeholder: '/images/person-placeholder-375x450.webp',
+                }"
+              />
 
-                        <hr
-                          class="border-t-2 border-red-900/70 w-4/12 h-auto mt-2"
-                        />
-
-                        <Anchor
-                          href="mailto:philip@dubsquared.com"
-                          text="philip@dubsquared.com"
-                          title="Email philip@dubsquared.com"
-                          aria-label="Email philip@dubsquared.com"
-                          class="flex items-center mt-2 text-base no-underline font-medium tracking-wider"
-                        >
-                          <template #icon>
-                            <IconMdi:emailFast class="text-green-700" />
-                          </template>
-                        </Anchor>
-                        <h3
-                          class="text-stone-800 mt-8 text-xl dark:(text-stone-300)"
-                        >
-                          Biography:
-                        </h3>
-                        <div class="grid gap-2 pl-3 mt-3">
-                          <div class="flex items-center">
-                            <IconMdi:timelineClock
-                              class="text-cyan-600 text-lg"
-                            />
-                            <span class="pl-2">23 Years Audi/VW</span>
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Certified Volkswagen Technician</span
-                            >
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Founder of PWM -
-                              <span class="text-sm">
-                                Philip Wight Motorsport</span
-                              ></span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Member #2 -->
-                <div
-                  class="w-full sm:w-6/12 lg:w-4/12 xl:w-3/12 py-6 mb-10 px-6 sm:px-6 lg:px-4 shadow-lg rounded-lg"
-                >
-                  <div class="flex flex-col">
-                    <!-- Avatar -->
-                    <a href="#" class="mx-auto">
-                      <img
-                        class="rounded-2xl drop-shadow-sm hover:drop-shadow-xl transition-all duration-200 delay-100"
-                        src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
-                      />
-                    </a>
-
-                    <!-- Details -->
-                    <div
-                      class="flex flex-col mt-6 items-center w-full font-medium"
-                    >
-                      <div
-                        class="grid gap-1 pl-6 py-6 border-l-2 border-stone-400/20 dark:(border-stone-600/20)"
-                      >
-                        <!-- Name -->
-                        <h2
-                          class="text-stone-900 text-3xl font-bold dark:(text-stone-100)"
-                        >
-                          Philip W.
-                        </h2>
-                        <!-- Title -->
-                        <p class="pl-2 text-gray-700 dark:(text-stone-300)">
-                          Owner
-                        </p>
-
-                        <hr
-                          class="border-t-2 border-red-900/70 w-4/12 h-auto mt-2"
-                        />
-
-                        <Anchor
-                          href="mailto:philip@dubsquared.com"
-                          text="philip@dubsquared.com"
-                          title="Email philip@dubsquared.com"
-                          aria-label="Email philip@dubsquared.com"
-                          class="flex items-center mt-2 text-base no-underline font-medium tracking-wider"
-                        >
-                          <template #icon>
-                            <IconMdi:emailFast class="text-green-700" />
-                          </template>
-                        </Anchor>
-                        <h3
-                          class="text-stone-800 mt-8 text-xl dark:(text-stone-300)"
-                        >
-                          Biography:
-                        </h3>
-                        <div class="grid gap-2 pl-3 mt-3">
-                          <div class="flex items-center">
-                            <IconMdi:timelineClock
-                              class="text-cyan-600 text-lg"
-                            />
-                            <span class="pl-2">23 Years Audi/VW</span>
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Certified Volkswagen Technician</span
-                            >
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Founder of PWM -
-                              <span class="text-sm">
-                                Philip Wight Motorsport</span
-                              ></span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Member #3 -->
-                <div
-                  class="w-full sm:w-6/12 lg:w-4/12 xl:w-3/12 py-6 mb-10 px-6 sm:px-6 lg:px-4 shadow-lg rounded-lg"
-                >
-                  <div class="flex flex-col">
-                    <!-- Avatar -->
-                    <a href="#" class="mx-auto">
-                      <img
-                        class="rounded-2xl drop-shadow-sm hover:drop-shadow-xl transition-all duration-200 delay-100"
-                        src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
-                      />
-                    </a>
-
-                    <!-- Details -->
-                    <div
-                      class="flex flex-col mt-6 items-center w-full font-medium"
-                    >
-                      <div
-                        class="grid gap-1 pl-6 py-6 border-l-2 border-stone-400/20 dark:(border-stone-600/20)"
-                      >
-                        <!-- Name -->
-                        <h2
-                          class="text-stone-900 text-3xl font-bold dark:(text-stone-100)"
-                        >
-                          Philip W.
-                        </h2>
-                        <!-- Title -->
-                        <p class="pl-2 text-gray-700 dark:(text-stone-300)">
-                          Owner
-                        </p>
-
-                        <hr
-                          class="border-t-2 border-red-900/70 w-4/12 h-auto mt-2"
-                        />
-
-                        <Anchor
-                          href="mailto:philip@dubsquared.com"
-                          text="philip@dubsquared.com"
-                          title="Email philip@dubsquared.com"
-                          aria-label="Email philip@dubsquared.com"
-                          class="flex items-center mt-2 text-base no-underline font-medium tracking-wider"
-                        >
-                          <template #icon>
-                            <IconMdi:emailFast class="text-green-700" />
-                          </template>
-                        </Anchor>
-                        <h3
-                          class="text-stone-800 mt-8 text-xl dark:(text-stone-300)"
-                        >
-                          Biography:
-                        </h3>
-                        <div class="grid gap-2 pl-3 mt-3">
-                          <div class="flex items-center">
-                            <IconMdi:timelineClock
-                              class="text-cyan-600 text-lg"
-                            />
-                            <span class="pl-2">23 Years Audi/VW</span>
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Certified Volkswagen Technician</span
-                            >
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Founder of PWM -
-                              <span class="text-sm">
-                                Philip Wight Motorsport</span
-                              ></span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Member #4 -->
-                <div
-                  class="w-full sm:w-6/12 lg:w-4/12 xl:w-3/12 py-6 mb-10 px-6 sm:px-6 lg:px-4 shadow-lg rounded-lg"
-                >
-                  <div class="flex flex-col">
-                    <!-- Avatar -->
-                    <a href="#" class="mx-auto">
-                      <img
-                        class="rounded-2xl drop-shadow-sm hover:drop-shadow-xl transition-all duration-200 delay-100"
-                        src="https://images.unsplash.com/photo-1634926878768-2a5b3c42f139?fit=clamp&w=400&h=400&q=80"
-                      />
-                    </a>
-
-                    <!-- Details -->
-                    <div
-                      class="flex flex-col mt-6 items-center w-full font-medium"
-                    >
-                      <div
-                        class="grid gap-1 pl-6 py-6 border-l-2 border-stone-400/20 dark:(border-stone-600/20)"
-                      >
-                        <!-- Name -->
-                        <h2
-                          class="text-stone-900 text-3xl font-bold dark:(text-stone-100)"
-                        >
-                          Philip W.
-                        </h2>
-                        <!-- Title -->
-                        <p class="pl-2 text-gray-700 dark:(text-stone-300)">
-                          Owner
-                        </p>
-
-                        <hr
-                          class="border-t-2 border-red-900/70 w-4/12 h-auto mt-2"
-                        />
-
-                        <Anchor
-                          href="mailto:philip@dubsquared.com"
-                          text="philip@dubsquared.com"
-                          title="Email philip@dubsquared.com"
-                          aria-label="Email philip@dubsquared.com"
-                          class="flex items-center mt-2 text-base no-underline font-medium tracking-wider"
-                        >
-                          <template #icon>
-                            <IconMdi:emailFast class="text-green-700" />
-                          </template>
-                        </Anchor>
-                        <h3
-                          class="text-stone-800 mt-8 text-xl dark:(text-stone-300)"
-                        >
-                          Biography:
-                        </h3>
-                        <div class="grid gap-2 pl-3 mt-3">
-                          <div class="flex items-center">
-                            <IconMdi:timelineClock
-                              class="text-cyan-600 text-lg"
-                            />
-                            <span class="pl-2">23 Years Audi/VW</span>
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Certified Volkswagen Technician</span
-                            >
-                          </div>
-                          <div class="flex items-center">
-                            <IconMaki:racetrack class="text-red-700 text-lg" />
-                            <span class="pl-2"
-                              >Founder of PWM -
-                              <span class="text-sm">
-                                Philip Wight Motorsport</span
-                              ></span
-                            >
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <!-- Member #3 -->
+              <PageTeamMemberCard
+                name="Brandon E."
+                title="Technician"
+                email="brandon@dubsquared.com"
+                :biography="[
+                  {
+                    icon: IconMdiTimelineClock,
+                    iconClass: 'text-blue-600',
+                    text: '21 years Audi/VW experience',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Master Certified Volkswagen Technician',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Certified Audi Technician',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Volkswagen Academy Graduate',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    html: `UTI Graduate <span class='text-xs font-extralight'> - Universal Technical Institute</span>`,
+                  },
+                ]"
+                observer-key="team-member-brandon-e"
+                :image="{
+                  alt: 'Photo of team member Brandon E.',
+                  height: '450',
+                  width: '375',
+                  placeholder: '/images/person-placeholder-375x450.webp',
+                }"
+              />
+              <!-- Member #4 -->
+              <PageTeamMemberCard
+                name="Bryan H."
+                title="Customer Service Specialist"
+                email="bryan@dubsquared.com"
+                :biography="[
+                  {
+                    icon: IconMdiTimelineClock,
+                    iconClass: 'text-blue-600',
+                    text: 'Lifelong Audi/VW Enthusiast',
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
+                    text: 'Aftermarket Specialist',
+                  },
+                ]"
+                observer-key="team-member-bryan-h"
+                :image="{
+                  alt: 'Photo of team member Bryan H.',
+                  height: '450',
+                  width: '375',
+                  placeholder: '/images/person-placeholder-375x450.webp',
+                }"
+              />
             </div>
           </div>
         </div>
