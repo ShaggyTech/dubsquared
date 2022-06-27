@@ -35,7 +35,7 @@ export default { name: 'PagesAbout' }
   <PageWrapper class="about-page">
     <PageHeader class="about-page-header">
       <PageHero
-        title="Our Story"
+        title="About Us"
         :observer-key="heroObserverName"
         :background-image="heroBackgroundImage"
       />
@@ -43,25 +43,38 @@ export default { name: 'PagesAbout' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose sm:prose-lg lg:prose-xl
-          bg-zinc-300/20 dark:bg-zinc-800 p-10
+          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-24 prose prose-lg lg:prose-xl
+          bg-zinc-300 dark:bg-zinc-900
         `"
       >
         <p>
-          In it's current form, Dubsquared offers full repair, performance, and
+          Dubsquared is one of the oldest independent Volkswagen and Audi shops
+          in the DFW area. Dubsquared offers full repair, performance, and
           maintenance services on all 2004 and newer Volkswagen and Audi
           vehicles. We employ factory trained technicians with decades of
           combined experience ready to take on any job. We work exclusively on
           Volkswagen and Audi vehicles and that has allowed us to build
           extensive knowledge over the years specific to these models.
         </p>
-        <span class="text-center py-4">
-          <Anchor to="/meet-the-team">Meet the Team</Anchor> to learn more!
-        </span>
-        <p>
-          Dubsquared is one of the oldest independent Volkswagen and Audi shops
-          in the DFW area. To understand our humble beginnings let's go all the
-          way back to the mid-2000s...
+        <div class="flex flex-col items-center text-center mt-4 font-bold">
+          <Anchor to="/meet-the-team" class="!font-bold">Meet the Team</Anchor>
+          to learn more about our current crew!
+        </div>
+      </PageSection>
+      <PageSection
+        :class="`
+          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose prose-lg lg:prose-xl
+          bg-zinc-200/20 dark:bg-zinc-800 p-10
+        `"
+      >
+        <h2
+          class="font-kanit !text-2.2em tracking-wider underline underline-red-800 underline-offset-14"
+        >
+          Our Story
+        </h2>
+        <p class="w-full !mt-10">
+          To learn more about our humble beginnings let's go all the way back to
+          the mid-2000s...
         </p>
         <p>
           Around 2005, two friends and fellow Volkswagen enthusiasts, Billy
@@ -103,7 +116,7 @@ export default { name: 'PagesAbout' }
           meant he could bring his tools, contacts, and mechanical skills to the
           partnernship.
         </p>
-        <p>
+        <p class="w-full">
           In April 2005, disaster struck for Billy's Golf. He stated online:
         </p>
         <blockquote
@@ -141,15 +154,14 @@ export default { name: 'PagesAbout' }
           early 90s GTI making 700hp+ at the wheels. This combo was effective
           enough for a respectable 10.39s 1/4 mile at Texas Motorplex.
         </p>
-        <LazyObject
-          data="https://www.youtube.com/embed/TutHds80xu0"
+        <LazyIframe
+          src="https://www.youtube.com/embed/TutHds80xu0"
           height="400"
           width="600"
           name="Youtube - Billy T. Turbo VR6 1/4 Mile Drag Race"
-          type="video/mp4"
           :lazy="true"
           observer-key="page-about-video-Billy_T_Turbo_VR6_Drag_Race"
-          class="w-full max-w-3xl max-h-md p-2"
+          class="w-full max-w-3xl max-h-md p-2 my-10"
         />
         <p>
           As the MK2 continued to generate buzz and interest at the track,
@@ -184,15 +196,14 @@ export default { name: 'PagesAbout' }
           eventual 205mph in the standing mile, a record breaking run that still
           stands to this day.
         </p>
-        <LazyObject
-          data="https://www.youtube.com/embed/oYEiEL-keZg"
+        <LazyIframe
+          src="https://www.youtube.com/embed/oYEiEL-keZg"
           height="400"
           width="600"
           name="Youtube - Jeremy's MK3 GTI Texas Mile 205mph"
-          type="video/mp4"
           :lazy="true"
           observer-key="page-about-video-Jeremys_MK3_GTI_Texas_Mile_205mph"
-          class="w-full max-w-3xl max-h-md p-2"
+          class="w-full max-w-3xl max-h-md p-2 my-10"
         />
         <p>
           By the year 2010 the shop was running out of space in it's small
@@ -213,9 +224,10 @@ export default { name: 'PagesAbout' }
           dealership experience, first as a Volkswagen Master Technician and
           then an Audi Technician.
         </p>
-      </PageSection>
-      <PageSection id="contact-form">
-        <LazyPageContactForm />
+        <div class="flex flex-col items-center text-center py-4 font-bold">
+          <Anchor to="/contact" class="!font-bold">Contact Us</Anchor>
+          <span>to schedule service, get a quote, or just ask a question!</span>
+        </div>
       </PageSection>
     </PageBody>
   </PageWrapper>
