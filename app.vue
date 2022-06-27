@@ -69,4 +69,34 @@ const fontsHref = ref(
     }
   }
 }
+
+// scrollbar
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background: theme('colors.zinc.100');
+  border-left: 1px solid theme('colors.zinc.200');
+}
+::-webkit-scrollbar-thumb {
+  border: 3px solid theme('colors.zinc.200');
+  border-radius: 9999px;
+  background-color: theme('colors.red.900');
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: theme('colors.red.700');
+}
+html.dark {
+  ::-webkit-scrollbar-track {
+    background: theme('colors.zinc.800');
+    border-left: 1px solid theme('colors.zinc.900');
+  }
+  ::-webkit-scrollbar-thumb {
+    border-color: theme('colors.zinc.800');
+    background-color: theme('colors.red.900');
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.red.700');
+  }
+}
 </style>
