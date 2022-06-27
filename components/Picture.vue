@@ -55,13 +55,11 @@ const srcSets = computed(() => {
 })
 const imgSrc = computed(() => {
   if (props.lazy) {
-    return props.seen || seen?.value
-      ? props.image.src
-      : props.image.placeholder
-      ? props.image.placeholder
-      : ''
+    if (props.seen || seen?.value) {
+      return props.image.src || props.image.placeholder || ''
+    }
   } else {
-    return props.image.src ? props.image.src : ''
+    return props.image.src || props.image.placeholder || ''
   }
 })
 
