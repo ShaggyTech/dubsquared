@@ -3,8 +3,8 @@ import type { IImageProps, UnpluginIcon } from '~/types'
 
 type Props = {
   image: IImageProps
-  observerKey: string
-  seen: boolean
+  observerKey?: string
+  seen?: boolean
   name: string
   title: string
   email: string
@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
     placeholder: '',
   }),
   observerKey: undefined,
-  seen: false,
+  seen: undefined,
   name: '',
   title: '',
   email: '',
