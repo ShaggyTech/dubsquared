@@ -22,7 +22,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
   <PageWrapper>
     <PageHeader>
       <!-- Hero Banner -->
-      <PageHomeHero
+      <LazyPageHomeHero
         :adjectives="heroAdjectives"
         :observer-key="heroObserverName"
       />
@@ -71,10 +71,12 @@ const heroObserverName = ref('page-home-hero-section-observer')
     <!-- section business hours and location -->
     <section
       id="shop-hours-and-location"
-      class="grid max-w-8xl mt-10 h-full w-full text-center"
+      class="grid max-w-8xl mt-10 h-full w-full text-center mobile-safe-area"
     >
       <!-- container business hours and location -->
-      <div class="grid grid-rows-2 lg:(grid-rows-1 grid-cols-2 h-full w-full)">
+      <div
+        class="grid grid-rows-2 gap-6 lg:(grid-rows-1 grid-cols-2 h-full w-full)"
+      >
         <LazyPageContactCardHours />
         <LazyPageContactCardAddress />
       </div>
@@ -83,7 +85,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
     <!-- brands we use -->
     <section
       id="brands-we-use"
-      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full pt-36 pb-48 bg-stone-100 dark:bg-zinc-900"
+      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full py-18 mt-14 bg-stone-100 dark:bg-zinc-900"
     >
       <div class="font-bold text-center text-2xl md:text-3xl lg:text-4xl">
         Brands We Use
@@ -93,7 +95,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
     </section>
 
     <!-- Services-->
-    <section id="services">
+    <section id="services" class="mt-14">
       <LazyPageServiceCardGroup />
     </section>
 
@@ -140,10 +142,6 @@ const heroObserverName = ref('page-home-hero-section-observer')
       padding-left: max(2rem, env(safe-area-inset-left));
       padding-right: max(2rem, env(safe-area-inset-right));
     }
-  }
-  @screen lg {
-    padding-left: 5em;
-    padding-right: 5em;
   }
 }
 </style>
