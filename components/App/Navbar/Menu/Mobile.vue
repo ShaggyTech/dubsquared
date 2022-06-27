@@ -145,7 +145,7 @@ export default { name: 'AppNavbarMenuMobile' }
                     :href="item.href ? item.href : undefined"
                     class="nav-link"
                     :class="`
-                      flex-1 px-2 py-1
+                      flex-1 px-2 py-2
                       rounded border-b-2 border-transparent hover:border-red-900/80
                       font-bold capitalize tracking-wider leading-8
                       text-stone-700 dark:text-stone-300
@@ -163,10 +163,10 @@ export default { name: 'AppNavbarMenuMobile' }
                     v-else-if="item.variant === 'button'"
                     role="menuitem"
                     :text="item.text"
-                    size="sm"
+                    size="md"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
-                    class="nav-btn flex-1"
+                    class="flex-1"
                   />
                 </li>
               </ul>

@@ -3,7 +3,7 @@ import MdiGarage from '~icons/mdi/garage'
 import MdiInformation from '~icons/mdi/information'
 import MdiCarCog from '~icons/mdi/car-cog'
 import MakiArtGallery from '~icons/maki/art-gallery'
-import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
+// import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
 import MdiCellphone from '~icons/mdi/cellphone'
 import MdiEmailFast from '~icons/mdi/email-fast'
 import RiTeamLine from '~icons/ri/team-line'
@@ -15,9 +15,15 @@ const { t } = useLang()
 const menuItems = computed((): IMenuItem[] => [
   {
     variant: 'link',
-    text: t('pages.about.nav'),
+    text: 'Our Story',
     route: { name: 'about' },
     icon: MdiInformation,
+  },
+  {
+    variant: 'link',
+    text: 'The Team',
+    route: { name: 'meet-the-team' },
+    icon: RiTeamLine,
   },
   {
     variant: 'link',
@@ -32,15 +38,8 @@ const menuItems = computed((): IMenuItem[] => [
     icon: MakiArtGallery,
   },
   {
-    variant: 'link',
-    text: t('pages.contact.nav'),
-    route: { name: 'contact' },
-    icon: FluentContactCard28Filled,
-  },
-
-  {
     variant: 'button',
-    text: t('pages.get_a_quote.nav'),
+    text: 'Contact Us',
     route: { name: 'contact' },
   },
 ])
@@ -52,12 +51,7 @@ const mobileMenuItems = computed((): IMenuItem[] => [
     route: { name: 'index' },
     icon: MdiGarage,
   },
-  {
-    variant: 'link',
-    text: 'Meet the Team',
-    route: { name: 'meet-the-team' },
-    icon: RiTeamLine,
-  },
+
   ...menuItems.value,
 ])
 
@@ -96,11 +90,11 @@ export default { name: 'PageLayoutNavbar' }
       <AppContactBar
         :items="contactBarItems"
         :class="`
-            grid-flow-col py-2 bg-red-800 border-t border-b border-stone-500/70
+            grid-flow-col bg-red-800 border-t border-b border-stone-500/70
             transition-colors duration-300
           `"
         :anchor-class="`
-            col-span-1 px-1 md:px-8
+            col-span-1 px-1 sm:px-4 py-2
             text-sm lg:text-base text-center tracking-widest
             text-stone-200 hover:text-white
           `"
@@ -110,11 +104,9 @@ export default { name: 'PageLayoutNavbar' }
 
     <!-- Title -->
     <template #title>
-      <NuxtLink tag="a" class="mr-4" :to="{ name: 'index' }">
+      <NuxtLink tag="a" class="mr-4 py-1" :to="{ name: 'index' }">
         <span class="sr-only">home</span>
-        <div class="flex items-center h-full">
-          <LazySVGDubsquaredTextLogo width="150px" />
-        </div>
+        <LazySVGDubsquaredTextLogo class="h-12 w-36 xl:(h-14 w-40)" />
       </NuxtLink>
     </template>
 
