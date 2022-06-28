@@ -1,4 +1,5 @@
 import type { FunctionalComponent } from 'vue'
+import type { RouteLocationRaw } from 'vue-router'
 
 export type UnpluginIcon = FunctionalComponent
 
@@ -21,7 +22,7 @@ export type IMenuItem = {
   variant: 'link' | 'button'
   text: string
   href?: any
-  route?: any
+  route?: RouteLocationRaw
   icon?: UnpluginIcon
 }
 

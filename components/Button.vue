@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import type { RouteLocationRaw } from 'vue-router'
 import type { UnpluginIcon } from '~/types'
 
 type ButtonType = 'button' | 'submit' | 'reset' | undefined
@@ -10,7 +11,7 @@ type Variant = 'primary' | 'secondary' | 'close'
 type Variants = Record<Variant, string>
 
 interface Props {
-  to?: string | object
+  to?: RouteLocationRaw
   href?: string
   role?: string
   type?: ButtonType
@@ -81,9 +82,10 @@ export default { name: 'Button' }
 
 <template>
   <NuxtLink
-    v-if="to"
+    v-if="to || href"
     tag="a"
-    :to="to"
+    :to="to && !href ? to : undefined"
+    :href="!to ? href : undefined"
     :role="role"
     :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
   >
@@ -95,21 +97,6 @@ export default { name: 'Button' }
       <slot>{{ text }}</slot>
     </div>
   </NuxtLink>
-  <a
-    v-else-if="href"
-    :href="href"
-    :role="role"
-    target="_blank"
-    :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
-  >
-    <slot name="icon"></slot>
-    <div v-if="!$slots['icon'] && icon">
-      <component :is="icon" />
-    </div>
-    <div :class="{ 'ml-2': icon || $slots['icon'] }">
-      <slot>{{ text }}</slot>
-    </div>
-  </a>
   <button
     v-else
     :type="type"

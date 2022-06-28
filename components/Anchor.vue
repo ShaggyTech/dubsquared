@@ -1,8 +1,9 @@
 <script lang="ts" setup>
+import type { RouteLocationRaw } from 'vue-router'
 import type { UnpluginIcon } from '~/types'
 
 type Props = {
-  to?: string | object
+  to?: RouteLocationRaw
   href?: string
   role?: string
   text?: string
@@ -26,8 +27,8 @@ export default { name: 'Anchor' }
 
 <template>
   <NuxtLink
-    :to="to"
-    :href="href"
+    :to="to ? to : undefined"
+    :href="!to ? href : undefined"
     :role="role"
     class="flex font-bold tracking-wide transition-colors duration-300 hover:no-underline"
   >
