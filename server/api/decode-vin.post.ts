@@ -5,6 +5,5 @@ export default defineEventHandler(async (event) => {
   ).catch((error) => {
     return { error: 'Oops... Something went wrong ' + error }
   })
-  console.log(Results)
   return Results[0]
 })
