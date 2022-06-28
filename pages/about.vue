@@ -43,25 +43,28 @@ export default { name: 'PagesAbout' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-24 prose prose-lg lg:prose-xl
+          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24 prose prose-lg lg:prose-xl
           bg-zinc-300 dark:bg-zinc-900
         `"
       >
-        <p>
+        <p class="w-full max-w-4xl">
           Dubsquared is one of the oldest independent Volkswagen and Audi shops
-          in the DFW area. Dubsquared offers full repair, performance, and
-          maintenance services on all 2004 and newer Volkswagen and Audi
-          vehicles. We employ factory trained technicians with decades of
-          combined experience ready to take on any job. We work exclusively on
-          Volkswagen and Audi vehicles and that has allowed us to build
-          extensive knowledge over the years specific to these models.
+          in the DFW area.
+        </p>
+        <p class="max-w-4xl">
+          Dubsquared offers full repair, performance, and maintenance services
+          on all 2004 and newer Volkswagen and Audi vehicles. We employ factory
+          trained technicians with decades of combined experience ready to take
+          on any job. We work exclusively on Volkswagen and Audi vehicles and
+          that has allowed us to build extensive knowledge over the years
+          specific to these models.
         </p>
         <div class="flex flex-col items-center text-center mt-4 font-bold">
           <Anchor to="/meet-the-team" class="!font-bold">Meet the Team</Anchor>
           to learn more about our current crew!
         </div>
       </PageSection>
-      <PageSection
+      <LazyPageSection
         :class="`
           section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose prose-lg lg:prose-xl
           bg-zinc-200/20 dark:bg-zinc-800 p-10
@@ -159,6 +162,7 @@ export default { name: 'PagesAbout' }
           height="400"
           width="600"
           name="Youtube - Billy T. Turbo VR6 1/4 Mile Drag Race"
+          title="Youtube - Billy T. Turbo VR6 1/4 Mile Drag Race"
           :lazy="true"
           observer-key="page-about-video-Billy_T_Turbo_VR6_Drag_Race"
           class="w-full max-w-3xl max-h-md p-2 my-10"
@@ -201,6 +205,7 @@ export default { name: 'PagesAbout' }
           height="400"
           width="600"
           name="Youtube - Jeremy's MK3 GTI Texas Mile 205mph"
+          title="Youtube - Jeremy's MK3 GTI Texas Mile 205mph"
           :lazy="true"
           observer-key="page-about-video-Jeremys_MK3_GTI_Texas_Mile_205mph"
           class="w-full max-w-3xl max-h-md p-2 my-10"
@@ -228,7 +233,7 @@ export default { name: 'PagesAbout' }
           <Anchor to="/contact" class="!font-bold">Contact Us</Anchor>
           <span>to schedule service, get a quote, or just ask a question!</span>
         </div>
-      </PageSection>
+      </LazyPageSection>
     </PageBody>
   </PageWrapper>
 </template>
