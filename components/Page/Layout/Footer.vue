@@ -19,7 +19,7 @@ export default { name: 'PageLayoutFooter' }
     <section
       class="flex flex-col h-fit w-full max-w-8xl mx-auto apple-safe-area"
     >
-      <Object
+      <LazyObject
         :data="footerObjectData"
         height="800"
         width="800"

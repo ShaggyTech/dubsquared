@@ -28,9 +28,9 @@ const heroObserverName = ref('page-home-hero-section-observer')
       />
     </PageHeader>
     <!-- CTA container-->
-    <PageSectionCallToAction id="get-in-touch" class="mobile-safe-area" />
+    <LazyPageSectionCallToAction id="get-in-touch" class="mobile-safe-area" />
     <!-- intro container-->
-    <PageSectionIntroduction id="introduction">
+    <LazyPageSectionIntroduction id="introduction">
       <template #heading>Welcome to Dubsquared</template>
       <template #content>
         <p>
@@ -67,7 +67,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           </NuxtLink>
         </p>
       </template>
-    </PageSectionIntroduction>
+    </LazyPageSectionIntroduction>
     <!-- section business hours and location -->
     <section
       id="shop-hours-and-location"

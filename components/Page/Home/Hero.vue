@@ -58,7 +58,7 @@ export default { name: 'PageHomeHero' }
       `"
     >
       <!-- hero logo -->
-      <SVGDubsquaredSquareLogo
+      <LazySVGDubsquaredSquareLogo
         class="animate-swivel-in logo__dubsquared h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
       />
       <!-- hero text -->
@@ -67,11 +67,11 @@ export default { name: 'PageHomeHero' }
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
-          <SVGLogoVolkswagen
+          <LazySVGLogoVolkswagen
             alt="Volkswagen logo"
             class="animate-swivel-in logo__volkswagen h-1.5em w-auto sm:pl-8"
           />
-          <SVGLogoAudi
+          <LazySVGLogoAudi
             alt="Audi logo"
             class="animate-swivel-in logo__audi h-1em w-auto"
           />
@@ -83,14 +83,14 @@ export default { name: 'PageHomeHero' }
           Volkswagen <span class="text-yellow-400/80">&</span> Audi
           <br />
           <span class="adjective-container font-lora">
-            <transition name="adjective">
+            <Transition name="adjective">
               <div
                 v-if="showAdjective"
                 class="adjective font-lora text-stone-200 underline underline-offset-4 tracking-wider"
               >
                 {{ currentAdjective }}
               </div>
-            </transition>
+            </Transition>
           </span>
         </h1>
         <hr class="hero__spacer animated animate-light-speed-in-right" />
