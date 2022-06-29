@@ -94,6 +94,145 @@ const heroObserverName = ref('page-home-hero-section-observer')
       <LazyMarquee :duration="40" gradient />
     </section>
 
+    <section id="services" class="mt-14">
+      <div
+        class="flex flex-row place-content-around flex-wrap gap-10 lg:(px-8)"
+      >
+        <div
+          href="#"
+          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <IconMdi:oilLevel class="w-full text-5xl text-yellow-500" />
+          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
+            <h5
+              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
+            >
+              Oil Changes
+            </h5>
+            <p
+              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
+            >
+              Keeping the engine in your car well-lubricated with clean oil is
+              vital to its performance and longevity. Dubsquared offers quick
+              and easy oil changes using only the highest quality oil.
+            </p>
+            <Button
+              size="md"
+              class="mt-8 shadow-lg w-fit mx-auto"
+              to="/services"
+              >+ Learn More</Button
+            >
+          </div>
+        </div>
+
+        <div
+          href="#"
+          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <IconMdi:carClock class="w-full text-5xl text-yellow-500" />
+          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
+            <h5
+              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
+            >
+              Factory Maintenance
+            </h5>
+            <p
+              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
+            >
+              Dubsquared provides comprehensive automotive maintenance and
+              tune-ups to keep your Volkswagen or Audi running smoothly and
+              efficiently and increase longevity.
+            </p>
+            <Button
+              size="md"
+              class="mt-8 shadow-lg w-fit mx-auto"
+              to="/services"
+              >+ Learn More</Button
+            >
+          </div>
+        </div>
+
+        <div
+          href="#"
+          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <IconMdi:engineOffOutline class="w-full text-5xl text-yellow-500" />
+          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
+            <h5
+              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
+            >
+              Diagnostics
+            </h5>
+            <p
+              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
+            >
+              Dubsquared offers state-of-the-art diagnostics services to get to
+              the root of the problem so we can perform your Volkswagen or Audi
+              repair quickly, efficiently, and right the first time.
+            </p>
+            <Button
+              size="md"
+              class="mt-8 shadow-lg w-fit mx-auto"
+              to="/services"
+              >+ Learn More</Button
+            >
+          </div>
+        </div>
+
+        <div
+          href="#"
+          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <IconMdi:carTurbocharger class="w-full text-5xl text-red-500" />
+          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
+            <h5
+              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
+            >
+              Performance Upgrades
+            </h5>
+            <p
+              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
+            >
+              Dubsquared carries a wide variety of Volkswagen and Audi
+              performance parts from industry-leading brands. We have the skill
+              and experience necessary to assist you in finding the right part
+              you need at the right price.
+            </p>
+            <Button
+              size="md"
+              class="mt-8 shadow-lg w-fit mx-auto"
+              to="/services"
+              >+ Learn More</Button
+            >
+          </div>
+        </div>
+
+        <div
+          href="#"
+          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        >
+          <IconMdi:carInfo class="w-full text-5xl text-sky-400" />
+          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
+            <h5
+              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
+            >
+              Pre-Purchase Inspections
+            </h5>
+            <p
+              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
+            >
+              Considering purchasing a used Volkswagen or Audi? We recommend a
+              full inspection be performed by a party independent of the seller
+              before any used vehicle purchase.
+            </p>
+            <Button size="md" class="mt-8 shadow-lg w-fit mx-auto" to="services"
+              >+ Learn More</Button
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Services-->
     <section id="services" class="mt-14">
       <LazyPageServiceCardGroup />
