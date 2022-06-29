@@ -84,7 +84,7 @@ export default { name: 'Button' }
   <NuxtLink
     v-if="to || href"
     tag="a"
-    :to="to && !href ? to : undefined"
+    :to="to ? to : undefined"
     :href="!to ? href : undefined"
     :role="role"
     :class="`${defaultStyle} ${selectedStyle} ${selectedSize}`"
