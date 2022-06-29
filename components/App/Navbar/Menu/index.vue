@@ -31,7 +31,7 @@
             :to="item.route ? item.route : undefined"
             :href="item.href ? item.href : undefined"
             :text="item.text"
-            size="sm"
+            size="md"
             class="nav-btn whitespace-nowrap"
           />
         </li>
@@ -74,9 +74,19 @@ export default { name: 'AppNavbarMenu' }
   color: theme('colors.slate.900');
   border-bottom: 3px solid theme('colors.red.800');
 }
+
+.nav-btn.router-link-exact-active {
+  color: theme('colors.stone.600');
+  border-bottom: 3px solid theme('colors.red.900');
+  background: transparent;
+}
 html.dark {
   .nav-link.router-link-exact-active {
     color: theme('colors.stone.300');
+  }
+  .nav-btn.router-link-exact-active {
+    color: theme('colors.stone.300');
+    border-bottom: 3px solid theme('colors.red.900');
   }
 }
 </style>

@@ -166,7 +166,7 @@ export default { name: 'AppNavbarMenuMobile' }
                     size="md"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
-                    class="flex-1"
+                    class="nav-btn flex-1"
                   />
                 </li>
               </ul>
@@ -204,21 +204,34 @@ export default { name: 'AppNavbarMenuMobile' }
 </template>
 
 <style lang="scss" scoped>
-.nav-link.router-link-active {
-  font-weight: bold;
+.nav-link.router-link-active,
+.nav-btn.router-link-active {
+  font-weight: normal;
 }
 .nav-link.router-link-exact-active {
-  @apply border-b border-b-stone-400/20;
-  color: theme('colors.stone.600');
+  color: theme('colors.stone.700');
   border-left: 3px solid theme('colors.red.900');
   border-right: 3px solid theme('colors.red.900');
+  border-bottom: 1px solid theme('colors.stone.400');
+}
+.nav-btn.router-link-exact-active {
+  color: theme('colors.stone.700');
+  border-left: 2px solid theme('colors.red.900');
+  border-right: 2px solid theme('colors.red.900');
+  background: transparent;
 }
 html.dark {
   .nav-link.router-link-exact-active {
-    @apply border-b border-b-stone-700/20;
-    color: theme('colors.stone.400');
+    color: theme('colors.stone.300');
     border-left: 3px solid theme('colors.red.900');
     border-right: 3px solid theme('colors.red.900');
+    border-bottom: 1px solid theme('colors.stone.900');
+  }
+  .nav-btn.router-link-exact-active {
+    color: theme('colors.stone.300');
+    border-left: 2px solid theme('colors.red.900');
+    border-right: 2px solid theme('colors.red.900');
+    background: transparent;
   }
 }
 </style>
