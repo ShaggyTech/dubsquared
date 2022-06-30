@@ -98,6 +98,25 @@ const heroObserverName = ref('page-home-hero-section-observer')
       <div
         class="flex flex-row place-content-around flex-wrap gap-10 lg:(px-8)"
       >
+        <PageServiceCard
+          background-image="/images/service-oil-changes-2400x1800.webp"
+          heading-style="bg-zinc-900/70"
+          paragraph-style="bg-red-900"
+          button-to="services"
+          button-variant="secondary"
+          variant="small"
+        >
+          <template #heading-icon><IconMdi:oilLevel /></template>
+          <template #heading-text>Oil Changes</template>
+          <template #paragraph>
+            <p>
+              Keeping the engine in your car well-lubricated with clean oil is
+              vital to its performance and longevity. Dubsquared offers quick
+              and easy oil changes using only the highest quality oil and
+              filters.
+            </p>
+          </template>
+        </PageServiceCard>
         <div
           href="#"
           class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"

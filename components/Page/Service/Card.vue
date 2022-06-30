@@ -2,6 +2,10 @@
 import { useMotion } from '@vueuse/motion'
 import type { MotionVariants } from '@vueuse/motion'
 
+type Variant = 'default' | 'small'
+type Variants = Record<Variant, string>
+type ButtonVariant = 'primary' | 'secondary'
+
 interface Props {
   headingStyle?: string
   paragraphStyle?: string
@@ -10,7 +14,9 @@ interface Props {
   buttonText?: string
   buttonTo?: string
   buttonHref?: string
+  buttonVariant?: ButtonVariant
   backgroundImage?: string
+  variant?: Variant
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
@@ -21,28 +27,88 @@ const props = withDefaults(defineProps<Props>(), {
   buttonText: '+ Learn More',
   buttonTo: undefined,
   buttonHref: '',
+  buttonVariant: 'primary',
   backgroundImage: '',
+  variant: 'default',
 })
 
-const defaultStyle = `
-  flex flex-col items-center text-stone-100
-  bg-no-repeat bg-contain z-10
-`
-const defaultHeadingStyle = `
-  flex flex-col items-center gap-y-[0.7em] min-w-[40%] lg:(max-w-500px)
-  -mb-7rem mt-[calc(12rem+4vw)] p-6 font-bold text-2xl text-center
-  backdrop-blur rounded-md shadow-xl z-12
-  sm:(mt-19rem p-1.5em text-3xl tracking-wider) md:(mt-[calc(28rem+2vw)]) lg:(mt-[calc(39rem+2vw)]) xl:(mt-48rem)
-`
-const defaultParagraphStyle = `
-  flex flex-col items-center gap-y-1.5em backdrop-blur-md
-  pb-30 font-semibold text-lg leading-8 z-11
-  lg:(leading-9 text-xl)
-`
-const defaultIconStyle = `text-yellow-500 text-5xl lg:(text-6xl)`
-const defaultDividerStyle = `
-  w-[66%] mx-auto mt-[calc(9rem+2vw)] mb-[calc(1rem+1vw)] border-t-2 border-t-yellow-500/60
-`
+// ==========================================================
+
+const rootStyles = reactive<Variants>({
+  default: `
+    flex flex-col items-center text-stone-100
+    bg-no-repeat bg-contain z-10
+  `,
+  small: `
+    flex flex-col items-center max-w-md text-stone-100
+    bg-no-repeat bg-contain z-10 mx-4 sm:mx-0 rounded-t-lg
+  `,
+})
+
+const headingStyles = reactive<Variants>({
+  default: `
+    flex flex-col items-center gap-y-[0.7em] min-w-[40%] lg:(max-w-500px)
+    -mb-7rem mt-[calc(12rem+4vw)] p-6 font-bold text-2xl text-center
+    backdrop-blur rounded-md shadow-xl z-12
+    sm:(mt-19rem p-1.5em text-3xl tracking-wider) md:(mt-[calc(28rem+2vw)]) lg:(mt-[calc(39rem+2vw)]) xl:(mt-48rem)
+  `,
+  small: `
+    flex flex-col items-center gap-y-[0.7em]
+    -mb-24 mt-[calc(1rem+35vw)] sm:mt-60 p-6 font-bold text-xl text-center
+    backdrop-blur rounded-md shadow-xl z-12
+  `,
+})
+
+const paragraphStyles = reactive<Variants>({
+  default: `
+    flex flex-col items-center gap-y-1.5em backdrop-blur-md
+    pb-30 font-semibold text-lg leading-8 z-11
+    lg:(leading-9 text-xl) mobile-safe-area
+  `,
+  small: `
+    flex flex-col items-center backdrop-blur-md
+    pb-10 px-2 font-semibold text-md leading-7 z-11
+    lg:(leading-9 text-lg) rounded-b-lg
+  `,
+})
+
+const iconStyles = reactive<Variants>({
+  default: `text-yellow-500 text-5xl lg:(text-6xl)`,
+  small: `text-yellow-500 text-4xl`,
+})
+
+const dividerStyles = reactive<Variants>({
+  default: `w-[66%] mx-auto mt-[calc(9rem+2vw)] mb-[calc(1rem+1vw)] border-t-2 border-t-yellow-500/60`,
+  small: `w-[66%] mx-auto mt-32 mb-8 border-t-2 border-t-yellow-500/60`,
+})
+
+// state
+const selectedStyle = computed(() => rootStyles[props.variant])
+const selectedHeadingStyle = computed(() => headingStyles[props.variant])
+const selectedParagraphStyle = computed(() => paragraphStyles[props.variant])
+const selectedIconStyle = computed(() => iconStyles[props.variant])
+const selectedDividerStyle = computed(() => dividerStyles[props.variant])
+
+// ====================================================
+// const defaultStyle = `
+//   flex flex-col items-center text-stone-100
+//   bg-no-repeat bg-contain z-10
+// `
+// const defaultHeadingStyle = `
+//   flex flex-col items-center gap-y-[0.7em] min-w-[40%] lg:(max-w-500px)
+//   -mb-7rem mt-[calc(12rem+4vw)] p-6 font-bold text-2xl text-center
+//   backdrop-blur rounded-md shadow-xl z-12
+//   sm:(mt-19rem p-1.5em text-3xl tracking-wider) md:(mt-[calc(28rem+2vw)]) lg:(mt-[calc(39rem+2vw)]) xl:(mt-48rem)
+// `
+// const defaultParagraphStyle = `
+//   flex flex-col items-center gap-y-1.5em backdrop-blur-md
+//   pb-30 font-semibold text-lg leading-8 z-11
+//   lg:(leading-9 text-xl)
+// `
+// const defaultIconStyle = `text-yellow-500 text-5xl lg:(text-6xl)`
+// const defaultDividerStyle = `
+//   w-[66%] mx-auto mt-[calc(9rem+2vw)] mb-[calc(1rem+1vw)] border-t-2 border-t-yellow-500/60
+// `
 
 const cardRef = ref<HTMLElement>()
 const cardMotionVariants = ref<MotionVariants>({
@@ -126,20 +192,15 @@ export default { name: 'PageServiceCard' }
 </script>
 
 <template>
-  <div
-    ref="cardRef"
-    :class="{
-      [`${defaultStyle}`]: true,
-    }"
-  >
-    <div :class="`${defaultHeadingStyle} ${headingStyle}`">
-      <div ref="iconRef" :class="`${defaultIconStyle} ${iconStyle}`">
+  <div ref="cardRef" :class="`${selectedStyle}`">
+    <div :class="`${selectedHeadingStyle} ${headingStyle}`">
+      <div ref="iconRef" :class="`${selectedIconStyle} ${iconStyle}`">
         <slot name="heading-icon" />
       </div>
       <h2><slot name="heading-text" /></h2>
     </div>
-    <div :class="`${defaultParagraphStyle} ${paragraphStyle} mobile-safe-area`">
-      <hr ref="dividerRef" :class="`${defaultDividerStyle} ${dividerStyle}`" />
+    <div :class="`${selectedParagraphStyle} ${paragraphStyle}`">
+      <hr ref="dividerRef" :class="`${selectedDividerStyle} ${dividerStyle}`" />
       <slot name="paragraph" />
       <Button
         ref="buttonRef"
@@ -147,6 +208,7 @@ export default { name: 'PageServiceCard' }
         class="mt-[3.5em] shadow-lg"
         :href="buttonHref"
         :to="buttonTo"
+        :variant="buttonVariant"
         >{{ buttonText }}</Button
       >
     </div>
