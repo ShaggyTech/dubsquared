@@ -96,10 +96,11 @@ const heroObserverName = ref('page-home-hero-section-observer')
 
     <section id="services" class="mt-14">
       <div
-        class="flex flex-row place-content-around flex-wrap gap-10 lg:(px-8)"
+        class="flex flex-row place-content-around flex-wrap gap-10 md:(mx-4)"
       >
+        <!-- Oil Changes -->
         <PageServiceCard
-          background-image="/images/service-oil-changes-2400x1800.webp"
+          background-image="/images/service-oil-changes-1080x810.webp"
           heading-style="bg-zinc-900/70"
           paragraph-style="bg-red-900"
           button-to="services"
@@ -117,138 +118,85 @@ const heroObserverName = ref('page-home-hero-section-observer')
             </p>
           </template>
         </PageServiceCard>
-        <div
-          href="#"
-          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-        >
-          <IconMdi:oilLevel class="w-full text-5xl text-yellow-500" />
-          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
-            <h5
-              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
-            >
-              Oil Changes
-            </h5>
-            <p
-              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
-            >
-              Keeping the engine in your car well-lubricated with clean oil is
-              vital to its performance and longevity. Dubsquared offers quick
-              and easy oil changes using only the highest quality oil.
-            </p>
-            <Button
-              size="md"
-              class="mt-8 shadow-lg w-fit mx-auto"
-              to="/services"
-              >+ Learn More</Button
-            >
-          </div>
-        </div>
 
-        <div
-          href="#"
-          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+        <!-- Maintenance / Tune-ups -->
+        <PageServiceCard
+          background-image="/images/service-tune-ups-1080x810.webp"
+          heading-style="bg-stone-900/70"
+          paragraph-style="bg-stone-200 text-zinc-900"
+          button-to="services"
+          variant="small"
         >
-          <IconMdi:carClock class="w-full text-5xl text-yellow-500" />
-          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
-            <h5
-              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
-            >
-              Factory Maintenance
-            </h5>
-            <p
-              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
-            >
+          <template #heading-icon><IconMdi:carClock /></template>
+          <template #heading-text>Factory Maintenance</template>
+          <template #paragraph>
+            <p>
               Dubsquared provides comprehensive automotive maintenance and
               tune-ups to keep your Volkswagen or Audi running smoothly and
               efficiently and increase longevity.
             </p>
-            <Button
-              size="md"
-              class="mt-8 shadow-lg w-fit mx-auto"
-              to="/services"
-              >+ Learn More</Button
-            >
-          </div>
-        </div>
-
-        <div
-          href="#"
-          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+          </template>
+        </PageServiceCard>
+        <!-- Diagnostics -->
+        <PageServiceCard
+          background-image="/images/service-diagnostic-1080x810.webp"
+          heading-style="bg-neutral-200/70 text-zinc-900"
+          paragraph-style="bg-zinc-900"
+          button-to="services"
+          variant="small"
         >
-          <IconMdi:engineOffOutline class="w-full text-5xl text-yellow-500" />
-          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
-            <h5
-              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
-            >
-              Diagnostics
-            </h5>
-            <p
-              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
-            >
+          <template #heading-icon><IconMdi:engineOffOutline /></template>
+          <template #heading-text>Diagnostics</template>
+          <template #paragraph>
+            <p>
               Dubsquared offers state-of-the-art diagnostics services to get to
               the root of the problem so we can perform your Volkswagen or Audi
               repair quickly, efficiently, and right the first time.
             </p>
-            <Button
-              size="md"
-              class="mt-8 shadow-lg w-fit mx-auto"
-              to="/services"
-              >+ Learn More</Button
-            >
-          </div>
-        </div>
-
-        <div
-          href="#"
-          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+          </template>
+        </PageServiceCard>
+        <!-- Performance Upgrades -->
+        <PageServiceCard
+          background-image="/images/service-performance-upgrades-1080x810.webp"
+          heading-style="mx-8 bg-sky-900/70"
+          paragraph-style="bg-sky-900"
+          button-to="services"
+          variant="small"
         >
-          <IconMdi:carTurbocharger class="w-full text-5xl text-red-500" />
-          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
-            <h5
-              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
-            >
-              Performance Upgrades
-            </h5>
-            <p
-              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
-            >
+          <template #heading-icon
+            ><IconMdi:carTurbocharger class="text-red-500"
+          /></template>
+          <template #heading-text>Performance Upgrades</template>
+          <template #paragraph>
+            <p>
               Dubsquared carries a wide variety of Volkswagen and Audi
               performance parts from industry-leading brands. We have the skill
-              and experience necessary to assist you in finding the right part
-              you need at the right price.
+              and experience necessary to assist you in finding the right part.
             </p>
-            <Button
-              size="md"
-              class="mt-8 shadow-lg w-fit mx-auto"
-              to="/services"
-              >+ Learn More</Button
-            >
-          </div>
-        </div>
-
-        <div
-          href="#"
-          class="flex flex-col items-center p-6 bg-white rounded-lg border shadow-md md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+          </template>
+        </PageServiceCard>
+        <!-- Pre-purchase Inspections-->
+        <PageServiceCard
+          background-image="/images/service-audi-dashboard-1080x810.webp"
+          heading-style="bg-stone-100/70 text-zinc-900"
+          paragraph-style="bg-blue-gray-900"
+          button-to="services"
+          variant="small"
         >
-          <IconMdi:carInfo class="w-full text-5xl text-sky-400" />
-          <div class="flex flex-col justify-between px-6 mt-6 leading-normal">
-            <h5
-              class="text-3xl text-center font-bold font-nunito-sans tracking-wide text-gray-900 dark:text-white underline underline-2 underline-yellow-500 underline-offset-4"
-            >
-              Pre-Purchase Inspections
-            </h5>
-            <p
-              class="mt-6 font-normal text-xl text-gray-700 dark:text-gray-400"
-            >
+          <template #heading-icon
+            ><IconMdi:carInfo class="text-sky-900"
+          /></template>
+          <template #heading-text>Pre-purchase Inspections</template>
+          <template #paragraph>
+            <p>
               Considering purchasing a used Volkswagen or Audi? We recommend a
               full inspection be performed by a party independent of the seller
-              before any used vehicle purchase.
+              before any used vehicle purchase. We offer pre-purchase
+              inspections that provide you with a full and unbiased overview of
+              the vehicle's condition + any needed repairs.
             </p>
-            <Button size="md" class="mt-8 shadow-lg w-fit mx-auto" to="services"
-              >+ Learn More</Button
-            >
-          </div>
-        </div>
+          </template>
+        </PageServiceCard>
       </div>
     </section>
 

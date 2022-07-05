@@ -129,12 +129,9 @@ export default { name: 'AppNavbarMenuMobile' }
                   role="none"
                   :class="[
                     'flex place-items-center w-full',
-                    item.variant === 'link'
-                      ? `rounded
-                        hover:bg-stone-100/90 hover:dark:bg-red-800/40
-                        shadow shadow-stone-300 dark:shadow-zinc-800 
-                        hover:shadow-stone-400 hover:dark:shadow-zinc-900
-                        transition-colors duration-300`
+                    item.variant === 'link' || 'dropdown'
+                      ? `rounded shadow shadow-stone-300 dark:shadow-zinc-800 transition-colors duration-300
+                        hover:(bg-stone-100/90 shadow-stone-400 dark:bg-red-800/40 dark:shadow-zinc-900)`
                       : '',
                   ]"
                 >
@@ -145,11 +142,9 @@ export default { name: 'AppNavbarMenuMobile' }
                     :href="item.href ? item.href : undefined"
                     class="nav-link"
                     :class="`
-                      flex-1 px-2 py-2
-                      rounded border-b-2 border-transparent hover:border-red-900/80
-                      font-bold capitalize tracking-wider leading-8
-                      text-stone-700 dark:text-stone-300
-                      hover:text-red-900 hover:dark:text-stone-100
+                      flex-1 px-2 py-2 rounded border-b-2 border-transparent
+                      font-bold capitalize tracking-wider leading-8 text-stone-700 dark:text-stone-300
+                      hover:(text-red-900 border-red-900/80 dark:text-stone-100)
                     `"
                   >
                     <template #icon>
@@ -166,8 +161,20 @@ export default { name: 'AppNavbarMenuMobile' }
                     size="md"
                     :to="item.route ? item.route : undefined"
                     :href="item.href ? item.href : undefined"
-                    class="nav-btn flex-1"
+                    class="nav-btn flex-1 py-5"
                   />
+                  <AppNavbarMenuDropdown
+                    v-else-if="item.variant === 'dropdown'"
+                    :text="item.text"
+                    :menu-items="item.dropdownItems"
+                    variant="mobile"
+                  >
+                    <template #icon>
+                      <div v-if="item.icon" class="px-2">
+                        <component :is="item.icon" class="h-7 w-7" />
+                      </div>
+                    </template>
+                  </AppNavbarMenuDropdown>
                 </li>
               </ul>
             </nav>

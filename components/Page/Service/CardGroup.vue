@@ -194,11 +194,11 @@
           and a full vehicle fault scan. Clients typically use this report as
           leverage in purchase negotiations or to plan for future repairs.
         </p>
-        <div>
+        <p>
           The vehicle will need to be brought to our shop but most reputable
           used car dealers and individual sellers will allow third party
           inspections before purchase.
-        </div>
+        </p>
         <p>
           <NuxtLink to="contact" class="link" title="Pre Purchase Inspections">
             Schedule a pre-purchase inspection

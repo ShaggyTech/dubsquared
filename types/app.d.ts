@@ -18,12 +18,19 @@ export type IImageProps = {
   placeholder?: string
 }
 
+export type IDropdownItem = {
+  to?: string
+  icon?: UnpluginIcon
+  text: string
+}
+
 export type IMenuItem = {
-  variant: 'link' | 'button'
+  variant: 'link' | 'button' | 'dropdown'
   text: string
   href?: any
   route?: RouteLocationRaw
   icon?: UnpluginIcon
+  dropdownItems?: IDropdownItem[]
 }
 
 export type IContactBarItem = {

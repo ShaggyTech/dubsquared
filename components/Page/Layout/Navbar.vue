@@ -1,16 +1,49 @@
 <script lang="ts" setup>
 import MdiGarage from '~icons/mdi/garage'
 import MdiInformation from '~icons/mdi/information'
-import MdiCarCog from '~icons/mdi/car-cog'
-import MakiArtGallery from '~icons/maki/art-gallery'
-// import FluentContactCard28Filled from '~icons/fluent/contact-card-28-filled'
+// import MakiArtGallery from '~icons/maki/art-gallery'
 import MdiCellphone from '~icons/mdi/cellphone'
 import MdiEmailFast from '~icons/mdi/email-fast'
 import RiTeamLine from '~icons/ri/team-line'
 
-import type { IMenuItem, IContactBarItem } from '@/types'
+import MdiCarCog from '~icons/mdi/car-cog'
+import MdiOilLevel from '~icons/mdi/oil-level'
+import MdiCarClock from '~icons/mdi/car-clock'
+import MdiEngineOffOutline from '~icons/mdi/engine-off-outline'
+import MdiCarTurbocharger from '~icons/mdi/car-turbocharger'
+import MdiCarInfo from '~icons/mdi/car-info'
+
+import type { IMenuItem, IContactBarItem, IDropdownItem } from '@/types'
 
 const { t } = useLang()
+
+const servicesDropdownItems: IDropdownItem[] = [
+  {
+    to: '/services',
+    icon: MdiOilLevel,
+    text: 'Oil Changes',
+  },
+  {
+    to: '/services',
+    icon: MdiCarClock,
+    text: 'Factory Maintenance',
+  },
+  {
+    to: '/services',
+    icon: MdiEngineOffOutline,
+    text: 'Diagnostics',
+  },
+  {
+    to: '/services',
+    icon: MdiCarTurbocharger,
+    text: 'Performance Upgrades',
+  },
+  {
+    to: '/services',
+    icon: MdiCarInfo,
+    text: 'Pre-purchase Inspections',
+  },
+]
 
 const menuItems = computed((): IMenuItem[] => [
   {
@@ -25,17 +58,17 @@ const menuItems = computed((): IMenuItem[] => [
     route: { name: 'meet-the-team' },
     icon: RiTeamLine,
   },
+  // {
+  //   variant: 'link',
+  //   text: t('pages.gallery.nav'),
+  //   route: { name: 'gallery' },
+  //   icon: MakiArtGallery,
+  // },
   {
-    variant: 'link',
-    text: t('pages.services.nav'),
-    route: { name: 'services' },
+    variant: 'dropdown',
+    text: 'Services',
+    dropdownItems: servicesDropdownItems,
     icon: MdiCarCog,
-  },
-  {
-    variant: 'link',
-    text: t('pages.gallery.nav'),
-    route: { name: 'gallery' },
-    icon: MakiArtGallery,
   },
   {
     variant: 'button',

@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import type { IMenuItem } from '@/types'
+
+interface Props {
+  menu?: IMenuItem[]
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const props = withDefaults(defineProps<Props>(), {
+  menu: () => [],
+})
+</script>
+
+<script lang="ts">
+export default { name: 'AppNavbarMenu' }
+</script>
+
 <template>
   <div class="relative hidden lg:flex items-center ml-auto">
     <!-- Desktop - Navigation -->
@@ -17,11 +33,10 @@
             class="nav-link"
             :class="`
               flex items-center p-2
-              border-b-2 border-transparent hover:border-red-600
+              border-b-2 border-transparent
               text-lg font-bold text-center tracking-wide
               text-zinc-800 dark:text-gray-300
-              hover:text-zinc-900 hover:dark:text-white
-              hover:no-underline
+              hover:(border-red-600 text-zinc-900 dark:text-white no-underline)
             `"
             >{{ item.text }}</Anchor
           >
@@ -34,6 +49,11 @@
             size="md"
             class="nav-btn whitespace-nowrap"
           />
+          <AppNavbarMenuDropdown
+            v-else-if="item.variant === 'dropdown'"
+            :text="item.text"
+            :menu-items="item.dropdownItems"
+          />
         </li>
       </ul>
     </nav>
@@ -45,22 +65,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import type { IMenuItem } from '@/types'
-
-interface Props {
-  menu?: IMenuItem[]
-}
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<Props>(), {
-  menu: () => [],
-})
-</script>
-
-<script lang="ts">
-export default { name: 'AppNavbarMenu' }
-</script>
 
 <style lang="scss" scoped>
 .icon-section {
