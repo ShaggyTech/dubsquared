@@ -8,9 +8,10 @@ type Variants = Record<Variant, string>
 
 interface Props {
   menuItems?: IDropdownItem[]
-  icon: UnpluginIcon
-  text: string
-  variant: Variant
+  icon?: UnpluginIcon
+  text?: string
+  variant?: Variant
+  to?: string
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
@@ -18,6 +19,7 @@ const props = withDefaults(defineProps<Props>(), {
   icon: undefined,
   text: '',
   variant: 'desktop',
+  to: undefined,
 })
 
 const rootStyles = reactive<Variants>({
@@ -30,14 +32,14 @@ const menuButtonStyles = reactive<Variants>({
     flex items-center p-2
     border-b-2 border-transparent
     text-lg font-bold text-center tracking-wide
-    text-zinc-800 dark:text-gray-300
+    text-zinc-800 dark:text-gray-300 cursor-pointer
     hover:(text-zinc-900 dark:text-white border-red-600 no-underline) transition
   `,
   mobile: `
     flex items-center w-full px-2 py-2
     rounded border-b-2 border-transparent
     font-bold capitalize tracking-wider leading-8
-    text-stone-700 dark:text-stone-300
+    text-stone-700 dark:text-stone-300 cursor-pointer
     hover:(text-red-900 dark:text-stone-100 border-red-900/80 no-underline)
   `,
 })
@@ -67,26 +69,24 @@ export default { name: 'AppNavbarMenuDropdown' }
 </script>
 
 <template>
-  <Menu as="li" :class="selectedRootStyle">
-    <div>
-      <MenuButton :class="`${selectedMenuButtonStyle}`">
-        <slot name="icon"></slot>
-        <div v-if="!$slots['icon'] && icon">
-          <component :is="icon" />
-        </div>
-        <div :class="{ 'pl-2': icon || $slots['icon'] }">
-          <slot>{{ text }}</slot>
-        </div>
-        <IconMdi:chevronDown
-          :class="{
-            'h-5 w-5 text-stone-700 dark:text-stone-200': true,
-            'ml-2 -mr-1': variant === 'desktop',
-            'ml-auto': variant === 'mobile',
-          }"
-          aria-hidden="true"
-        />
-      </MenuButton>
-    </div>
+  <Menu as="div" :class="selectedRootStyle">
+    <MenuButton as="div" :class="`${selectedMenuButtonStyle}`">
+      <slot name="icon"></slot>
+      <div v-if="!$slots['icon'] && icon">
+        <component :is="icon" />
+      </div>
+      <div :class="{ 'pl-2': icon || $slots['icon'] }">
+        <slot>{{ text }}</slot>
+      </div>
+      <IconMdi:chevronDown
+        :class="{
+          'h-5 w-5 text-stone-700 dark:text-stone-200': true,
+          'ml-2 -mr-1': variant === 'desktop',
+          'ml-auto': variant === 'mobile',
+        }"
+        aria-hidden="true"
+      />
+    </MenuButton>
 
     <transition
       enter-active-class="transition duration-100 ease-out"
@@ -96,7 +96,20 @@ export default { name: 'AppNavbarMenuDropdown' }
       leave-from-class="transform scale-100 opacity-100"
       leave-to-class="transform scale-80 opacity-0"
     >
-      <MenuItems as="ul" :class="`${selectedMenuItemsStyle}`">
+      <MenuItems :class="`${selectedMenuItemsStyle}`">
+        <MenuItem v-slot="{ active }">
+          <NuxtLink
+            :to="to ? to : undefined"
+            :class="[
+              active
+                ? 'bg-red-900 text-white'
+                : 'text-stone-900 dark:text-stone-200',
+              'flex w-full items-center px-3 py-2 place-content-center mb-4 transition border-b-2 border-red-900 rounded-t-md cursor-pointer',
+            ]"
+          >
+            {{ text }}
+          </NuxtLink>
+        </MenuItem>
         <MenuItem
           v-for="(item, index) in menuItems"
           :key="index"

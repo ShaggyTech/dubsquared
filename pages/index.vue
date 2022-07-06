@@ -96,14 +96,14 @@ const heroObserverName = ref('page-home-hero-section-observer')
 
     <section id="services" class="mt-14">
       <div
-        class="flex flex-row place-content-around flex-wrap gap-10 md:(mx-4)"
+        class="flex flex-row place-content-around flex-wrap gap-x-8 gap-y-10 md:(mx-4)"
       >
         <!-- Oil Changes -->
         <PageServiceCard
           background-image="/images/service-oil-changes-1080x810.webp"
           heading-style="bg-zinc-900/70"
           paragraph-style="bg-red-900"
-          button-to="services"
+          button-to="/oil-changes"
           button-variant="secondary"
           variant="small"
         >
@@ -124,7 +124,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           background-image="/images/service-tune-ups-1080x810.webp"
           heading-style="bg-stone-900/70"
           paragraph-style="bg-stone-200 text-zinc-900"
-          button-to="services"
+          button-to="/factory-maintenance"
           variant="small"
         >
           <template #heading-icon><IconMdi:carClock /></template>
@@ -142,7 +142,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           background-image="/images/service-diagnostic-1080x810.webp"
           heading-style="bg-neutral-200/70 text-zinc-900"
           paragraph-style="bg-zinc-900"
-          button-to="services"
+          button-to="/diagnostics"
           variant="small"
         >
           <template #heading-icon><IconMdi:engineOffOutline /></template>
@@ -160,7 +160,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           background-image="/images/service-performance-upgrades-1080x810.webp"
           heading-style="mx-8 bg-sky-900/70"
           paragraph-style="bg-sky-900"
-          button-to="services"
+          button-to="/performance-upgrades"
           variant="small"
         >
           <template #heading-icon
@@ -180,7 +180,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           background-image="/images/service-audi-dashboard-1080x810.webp"
           heading-style="bg-stone-100/70 text-zinc-900"
           paragraph-style="bg-blue-gray-900"
-          button-to="services"
+          button-to="/pre-purchase-inspections"
           variant="small"
         >
           <template #heading-icon
@@ -189,20 +189,13 @@ const heroObserverName = ref('page-home-hero-section-observer')
           <template #heading-text>Pre-purchase Inspections</template>
           <template #paragraph>
             <p>
-              Considering purchasing a used Volkswagen or Audi? We recommend a
-              full inspection be performed by a party independent of the seller
-              before any used vehicle purchase. We offer pre-purchase
-              inspections that provide you with a full and unbiased overview of
-              the vehicle's condition + any needed repairs.
+              Considering purchasing a used Volkswagen or Audi? We offer
+              pre-purchase inspections that provide you with a full and unbiased
+              overview of the vehicle's condition + any needed repairs.
             </p>
           </template>
         </PageServiceCard>
       </div>
-    </section>
-
-    <!-- Services-->
-    <section id="services" class="mt-14">
-      <LazyPageServiceCardGroup />
     </section>
 
     <!-- Authorized Dealer for -->

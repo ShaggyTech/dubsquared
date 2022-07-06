@@ -168,6 +168,7 @@ export default { name: 'AppNavbarMenuMobile' }
                     :text="item.text"
                     :menu-items="item.dropdownItems"
                     variant="mobile"
+                    to="/services"
                   >
                     <template #icon>
                       <div v-if="item.icon" class="px-2">

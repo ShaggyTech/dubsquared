@@ -19,27 +19,27 @@ const { t } = useLang()
 
 const servicesDropdownItems: IDropdownItem[] = [
   {
-    to: '/services',
+    to: '/oil-changes',
     icon: MdiOilLevel,
     text: 'Oil Changes',
   },
   {
-    to: '/services',
+    to: '/factory-maintenance',
     icon: MdiCarClock,
     text: 'Factory Maintenance',
   },
   {
-    to: '/services',
+    to: '/diagnostics',
     icon: MdiEngineOffOutline,
     text: 'Diagnostics',
   },
   {
-    to: '/services',
+    to: '/performance-upgrades',
     icon: MdiCarTurbocharger,
     text: 'Performance Upgrades',
   },
   {
-    to: '/services',
+    to: '/pre-purchase-inspections',
     icon: MdiCarInfo,
     text: 'Pre-purchase Inspections',
   },

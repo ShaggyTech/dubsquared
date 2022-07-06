@@ -5,37 +5,37 @@ definePageMeta({
   layout: 'page',
 })
 
-const heroObserverName = ref('page-services-hero-section-observer')
+const heroObserverName = ref('page-oil-changes-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
-  alt: 'Volkswagen R32 parked between two school buses',
+  alt: 'Technician performing an oil change',
   height: '1080',
-  width: '720',
-  src: '/images/r32-bus-yard-1080x720.webp',
+  width: '810',
+  src: '/images/service-oil-changes-1080x810.webp',
   srcSets: [
     {
       media: '(max-width: 1023.9px)',
-      srcSet: '/images/r32-bus-yard-1080x720.webp',
+      srcSet: '/images/service-oil-changes-1080x810.webp',
       type: 'image/webp',
     },
     {
       media: '(min-width: 1024px)',
-      srcSet: '/images/r32-bus-yard-1920x1280.webp',
+      srcSet: '/images/service-oil-changes-2400x1800.webp',
       type: 'image/webp',
     },
   ],
-  placeholder: '/images/placeholder-1080x720.webp',
+  placeholder: '/images/placeholder-1080x810.webp',
 }
 </script>
 
 <script lang="ts">
-export default { name: 'PagesServices' }
+export default { name: 'PagesOilChanges' }
 </script>
 
 <template>
   <PageWrapper>
-    <PageHeader class="services-page-header">
+    <PageHeader class="oil-changes-page-header">
       <PageHero
-        title="Services"
+        title="Oil Changes"
         :observer-key="heroObserverName"
         :background-image="heroBackgroundImage"
       />
@@ -48,65 +48,71 @@ export default { name: 'PagesServices' }
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
-          <p class="max-w-4xl">
-            We possess the skill and experience necessary to serve as your
-            full-service auto shop. We strive to provide Audi and Volkswagen
-            owners the highest quality services and customer care in the area.
+          <p>
+            Keeping the engine in your car well-lubricated with clean oil is
+            vital to its performance and longevity. Dubsquared offers quick and
+            easy oil changes using only the highest quality oil from
+            <a
+              href="https://www.motul.com/us/en-us"
+              target="_blank"
+              class="link"
+              title="Motul"
+              >MOTUL</a
+            >.
           </p>
-          <div class="flex flex-col items-center text-center mt-10 font-bold">
-            <Anchor to="/contact" class="!font-bold">Contact Us</Anchor>
-            to get a quote, ask a question, or schedule service!
+          <p>
+            At each oil change we top-off all regular fluids and take a quick
+            glance under the hood to check for any additional preventative
+            maintenance services you might need. Our goal is to keep your car at
+            optimal performance for years to come.
+          </p>
+          <div class="text-center flex flex-col mt-14">
+            <NuxtLink to="contact" class="link" title="Contact Us">
+              Schedule an appointment
+            </NuxtLink>
+            to keep your engine happy!
           </div>
-
-          <hr class="border-t-3 !border-t-red-900 my-10 w-10/12 mx-auto" />
-          <p class="w-full max-w-4xl !mt-12 text-center">
-            Here are just a few of the many automotive services we provide to
-            Audi and Volkswagen owners...
-          </p>
         </div>
         <div
           class="flex flex-wrap w-full gap-x-8 gap-y-6 sm:gap-y-12 mt-12 px-4 sm:px-10 py-16 place-content-center dark:bg-zinc-800/30 rounded-md shadow-lg"
         >
           <Button
             role="menuitem"
-            to="#oil-changes"
+            to="/oil-changes"
             text="Oil Changes"
             size="md"
             class="flex-1 whitespace-nowrap"
           />
           <Button
             role="menuitem"
-            to="#factory-maintenance"
+            to="/factory-maintenance"
             text="Factory Maintenance"
             size="md"
             class="flex-1 whitespace-nowrap"
           />
           <Button
             role="menuitem"
-            to="#diagnostics"
+            to="/diagnostics"
             text="Diagnostics"
             size="md"
             class="flex-1 whitespace-nowrap"
           />
           <Button
             role="menuitem"
-            to="#performance-upgrades"
+            to="/performance-upgrades"
             text="Performance Upgrades"
             size="md"
             class="flex-1 whitespace-nowrap"
           />
           <Button
             role="menuitem"
-            to="#pre-purchase-inspections"
+            to="/pre-purchase-inspections"
             text="Pre-purchase Inspections"
             size="md"
             class="flex-1 whitespace-nowrap"
           />
         </div>
       </PageSection>
-      <LazyPageSection class="mt-40">
-        <LazyPageServiceCardGroup />
-      </LazyPageSection>
     </PageBody>
   </PageWrapper>
 </template>

@@ -53,6 +53,7 @@ export default { name: 'AppNavbarMenu' }
             v-else-if="item.variant === 'dropdown'"
             :text="item.text"
             :menu-items="item.dropdownItems"
+            to="/services"
           />
         </li>
       </ul>
