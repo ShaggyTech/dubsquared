@@ -61,7 +61,7 @@ const headingStyles = reactive<Variants>({
 
 const paragraphStyles = reactive<Variants>({
   default: `
-    flex flex-col items-center gap-y-1.5em pb-30 backdrop-blur-md
+    flex flex-col items-center gap-y-2.5em pb-30 backdrop-blur-md
     font-semibold text-lg leading-8 z-11
     lg:(leading-9 text-xl) mobile-safe-area
   `,
@@ -184,6 +184,7 @@ export default { name: 'PageServiceCard' }
       <hr ref="dividerRef" :class="`${selectedDividerStyle} ${dividerStyle}`" />
       <slot name="paragraph" />
       <Button
+        v-if="variant === 'small'"
         ref="buttonRef"
         :size="selectedButtonSize"
         class="mt-[3.5em] shadow-lg"

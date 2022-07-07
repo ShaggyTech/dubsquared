@@ -6,7 +6,7 @@
       background-image="/images/service-oil-changes-2400x1800.webp"
       heading-style="bg-zinc-900/70"
       paragraph-style="bg-red-900"
-      button-to="services"
+      button-to="/oil-changes"
     >
       <template #heading-icon><IconMdi:oilLevel /></template>
       <template #heading-text>Oil Changes</template>
@@ -29,6 +29,12 @@
           maintenance services you might need. Our goal is to keep your car at
           optimal performance for years to come.
         </p>
+        <div class="text-center flex flex-col mt-8">
+          <NuxtLink to="/contact" class="link" title="Contact Us">
+            Schedule an appointment
+          </NuxtLink>
+          to keep your engine happy!
+        </div>
       </template>
     </PageServiceCard>
     <!-- Maintenance / Tune-ups -->
@@ -37,7 +43,7 @@
       background-image="/images/service-tune-ups-2400x1800.webp"
       heading-style="bg-stone-900/70"
       paragraph-style="bg-stone-200 text-zinc-900"
-      button-to="services"
+      button-to="/factory-maintenance"
     >
       <template #heading-icon><IconMdi:carClock /></template>
       <template #heading-text>Factory Maintenance</template>
@@ -57,17 +63,17 @@
           guidelines. We're here to help keep your vehicle up to date with these
           factory recommended maintenance intervals.
         </p>
-        <p>
+        <div class="text-center flex flex-col mt-8">
           Not sure what the intervals are for your vehicle?
           <NuxtLink
-            to="contact"
-            class="text-red-700 dark:text-red-700"
-            title="Contact"
+            to="/contact"
+            class="text-red-700 dark:text-red-700 underline underline-offset-2"
+            title="Contact Us"
           >
             Get in touch
           </NuxtLink>
           and we'll happily assist.
-        </p>
+        </div>
       </template>
     </PageServiceCard>
     <!-- Diagnostics -->
@@ -76,7 +82,7 @@
       background-image="/images/service-diagnostic-2400x1800.webp"
       heading-style="bg-neutral-200/70 text-zinc-900"
       paragraph-style="bg-zinc-900"
-      button-to="services"
+      button-to="/diagnostics"
     >
       <template #heading-icon><IconMdi:engineOffOutline /></template>
       <template #heading-text>Diagnostics</template>
@@ -88,6 +94,12 @@
           combined experience, our management and professional technicians are
           well qualified to diagnose and solve any problem you might have.
         </p>
+        <div class="text-center flex flex-col">
+          <NuxtLink to="/meet-the-team" class="link" title="Meet the Team">
+            Meet the team
+          </NuxtLink>
+          to learn more about our credentials.
+        </div>
         <p>
           Our current diagnostic fee is
           <span class="font-bold text-green-400">$130/hr</span>
@@ -96,10 +108,6 @@
           the diagnosis are authorized and performed within 30 days, then the
           diagnostic fee will be credited towards the price of recommended
           repairs.
-          <NuxtLink to="meet-the-team" class="link" title="Meet the Team">
-            Meet the team
-          </NuxtLink>
-          to learn more about our credentials.
         </p>
         <p>
           If you're looking to dive in on your own, we use and can recommend the
@@ -113,6 +121,13 @@
           </a>
           by Ross-Tech for all Volkswagen and Audi diagnostic needs.
         </p>
+
+        <div class="text-center flex flex-col mt-8">
+          <NuxtLink to="/contact" class="link" title="Contact Us">
+            Contact us
+          </NuxtLink>
+          to setup a diagnostic appointment!
+        </div>
       </template>
     </PageServiceCard>
     <!-- Performance Upgrades -->
@@ -121,7 +136,7 @@
       background-image="/images/service-performance-upgrades-2400x1800.webp"
       heading-style="mx-8 bg-sky-900/70"
       paragraph-style="bg-sky-900"
-      button-to="services"
+      button-to="/performance-upgrades"
     >
       <template #heading-icon
         ><IconMdi:carTurbocharger class="text-red-500"
@@ -163,11 +178,13 @@
           are passionate about performance, quality parts, and attention to
           detail. Customer satisfaction is our top priority and we will work
           hard to get you exactly what you want.
-          <NuxtLink to="contact" class="link" title="Contact">
+        </p>
+        <div class="text-center flex flex-col mt-8">
+          <NuxtLink to="/contact" class="link" title="Contact Us">
             Get in touch
           </NuxtLink>
           and we'll help you unlock some hidden fun in your vehicle.
-        </p>
+        </div>
       </template>
     </PageServiceCard>
     <!-- Pre-purchase Inspections-->
@@ -176,7 +193,7 @@
       background-image="/images/service-audi-dashboard-1080x810.webp"
       heading-style="bg-stone-100/70 text-zinc-900"
       paragraph-style="bg-blue-gray-900"
-      button-to="services"
+      button-to="/pre-purchase-inspections"
     >
       <template #heading-icon
         ><IconMdi:carInfo class="text-sky-900"
@@ -204,12 +221,12 @@
           used car dealers and individual sellers will allow third party
           inspections before purchase.
         </p>
-        <p>
-          <NuxtLink to="contact" class="link" title="Pre Purchase Inspections">
+        <div class="text-center flex flex-col mt-8">
+          <NuxtLink to="/contact" class="link" title="Contact Us">
             Schedule a pre-purchase inspection
           </NuxtLink>
           with Dubsquared so you don't get stuck with a 🍋.
-        </p>
+        </div>
       </template>
     </PageServiceCard>
   </section>
