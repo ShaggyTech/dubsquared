@@ -64,49 +64,11 @@ export default { name: 'PagesServices' }
             Audi and Volkswagen owners...
           </p>
         </div>
-        <div
-          class="flex flex-wrap w-full gap-x-8 gap-y-6 sm:gap-y-12 mt-12 px-4 sm:px-10 py-16 place-content-center dark:bg-zinc-800/30 rounded-md shadow-lg"
-        >
-          <Button
-            role="menuitem"
-            to="#oil-changes"
-            text="Oil Changes"
-            size="md"
-            class="flex-1 whitespace-nowrap"
-          />
-          <Button
-            role="menuitem"
-            to="#factory-maintenance"
-            text="Factory Maintenance"
-            size="md"
-            class="flex-1 whitespace-nowrap"
-          />
-          <Button
-            role="menuitem"
-            to="#diagnostics"
-            text="Diagnostics"
-            size="md"
-            class="flex-1 whitespace-nowrap"
-          />
-          <Button
-            role="menuitem"
-            to="#performance-upgrades"
-            text="Performance Upgrades"
-            size="md"
-            class="flex-1 whitespace-nowrap"
-          />
-          <Button
-            role="menuitem"
-            to="#pre-purchase-inspections"
-            text="Pre-purchase Inspections"
-            size="md"
-            class="flex-1 whitespace-nowrap"
-          />
-        </div>
+        <PageServiceButtonGroup variant="hash" />
       </PageSection>
-      <LazyPageSection class="mt-40">
+      <section class="mt-40">
         <LazyPageServiceCardGroup />
-      </LazyPageSection>
+      </section>
     </PageBody>
   </PageWrapper>
 </template>
