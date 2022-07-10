@@ -85,7 +85,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
     <!-- brands we use -->
     <section
       id="brands-we-use"
-      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full py-18 mt-14 bg-stone-100 dark:bg-zinc-900"
+      class="flex flex-col justify-center gap-8 lg:gap-12 w-full h-full py-18 my-20 bg-stone-100 dark:bg-zinc-900"
     >
       <div class="font-bold text-center text-2xl md:text-3xl lg:text-4xl">
         Brands We Use
@@ -94,9 +94,25 @@ const heroObserverName = ref('page-home-hero-section-observer')
       <LazyMarquee :duration="40" gradient />
     </section>
 
-    <section id="services" class="mt-14">
+    <section
+      id="services"
+      class="mobile-safe-area py-24 bg-stone-100 dark:bg-zinc-900/60 lg:py-32"
+    >
+      <PageSectionHeader
+        title="Services"
+        :paragraph="`
+          Dubsquared provides a wide variety of automotive services for Audi
+          and Volkswagen vehicles.
+        `"
+        anchor-text="See all of our offered services"
+        anchor-to="/services"
+      >
+        <template #icon>
+          <IconMdi:carCog class="text-6xl lg:text-7xl text-yellow-500" />
+        </template>
+      </PageSectionHeader>
       <div
-        class="flex flex-row place-content-around flex-wrap gap-x-8 gap-y-10 md:(mx-4)"
+        class="flex flex-wrap gap-x-8 gap-y-20 place-content-around mt-8 pt-20"
       >
         <!-- Oil Changes -->
         <PageServiceCard
@@ -110,7 +126,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           <template #heading-icon><IconMdi:oilLevel /></template>
           <template #heading-text>Oil Changes</template>
           <template #paragraph>
-            <p>
+            <p class="max-w-md">
               Keeping the engine in your car well-lubricated with clean oil is
               vital to its performance and longevity. Dubsquared offers quick
               and easy oil changes using only the highest quality oil and
@@ -130,10 +146,11 @@ const heroObserverName = ref('page-home-hero-section-observer')
           <template #heading-icon><IconMdi:carClock /></template>
           <template #heading-text>Factory Maintenance</template>
           <template #paragraph>
-            <p>
+            <p class="max-w-md">
               Dubsquared provides comprehensive automotive maintenance and
               tune-ups to keep your Volkswagen or Audi running smoothly and
-              efficiently and increase longevity.
+              efficiently. Regular maintenance is critical to the longevity of
+              your vehicle.
             </p>
           </template>
         </PageServiceCard>
@@ -148,7 +165,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           <template #heading-icon><IconMdi:engineOffOutline /></template>
           <template #heading-text>Diagnostics</template>
           <template #paragraph>
-            <p>
+            <p class="max-w-md">
               Dubsquared offers state-of-the-art diagnostics services to get to
               the root of the problem so we can perform your Volkswagen or Audi
               repair quickly, efficiently, and right the first time.
@@ -168,7 +185,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           /></template>
           <template #heading-text>Performance Upgrades</template>
           <template #paragraph>
-            <p>
+            <p class="max-w-md">
               Dubsquared carries a wide variety of Volkswagen and Audi
               performance parts from industry-leading brands. We have the skill
               and experience necessary to assist you in finding the right part.
@@ -188,13 +205,111 @@ const heroObserverName = ref('page-home-hero-section-observer')
           /></template>
           <template #heading-text>Pre-purchase Inspections</template>
           <template #paragraph>
-            <p>
+            <p class="max-w-md">
               Considering purchasing a used Volkswagen or Audi? We offer
               pre-purchase inspections that provide you with a full and unbiased
               overview of the vehicle's condition + any needed repairs.
             </p>
           </template>
         </PageServiceCard>
+      </div>
+    </section>
+
+    <section
+      id="testimonials"
+      class="mobile-safe-area py-24 bg-stone-200 dark:bg-zinc-900 lg:py-32"
+    >
+      <PageSectionHeader
+        title="Testimonials"
+        paragraph="See what our clients have to say about our work."
+        anchor-text="Read all of our reviews on Google"
+        anchor-to="https://goo.gl/maps/PGKJBqnGrKajR7En7"
+      >
+        <template #icon>
+          <TestimonialStars
+            star-class="h-6 w-6 sm:(h-7 w-7) lg:(h-8 w-8)"
+            class="gap-2"
+          />
+        </template>
+      </PageSectionHeader>
+
+      <div
+        class="flex flex-wrap gap-x-8 gap-y-20 place-content-around mt-8 pt-20"
+      >
+        <TestimonialCard
+          by="Reid D."
+          date="July 2022"
+          :num-stars="5"
+          :paragraph="`
+            The best place in the Metroplex for all your VW and Audi
+            needs. Honest, friendly, helpful staff, excellent mechanics.
+            You can trust them completely! They send status updates with
+            photos to show the progress of their work. I guarantee that
+            not many places do that.
+          `"
+        />
+        <TestimonialCard
+          by="Pamela C."
+          date="June 2022"
+          :num-stars="5"
+          :paragraph="`
+            Wow, great service. Very honest repair shop and reasonably
+            priced. They did an inspection on a vehicle for me.
+          `"
+        />
+        <TestimonialCard
+          by="Mitchel B."
+          date="June 2022"
+          :num-stars="5"
+          :paragraph="`
+            I would recommend this place to anyone, but especially
+            Vw/Audi/ European car owners. Every time I've been called or
+            emailed, they respond quickly. I have even called or brought
+            my car in, and they have always been honest in giving me
+            advice on what could be wrong, and tips on things that I want
+            to do myself. They want the best for their customers, and it
+            really shows. If there is work I need done on a vehicle, this
+            is the first place I call.
+          `"
+        />
+        <TestimonialCard
+          by="Darrion S."
+          date="May 2022"
+          :num-stars="5"
+          :paragraph="`
+            I have been taking my daughter's car to Dub for several years
+            and and Tyler has been awesome. Very transparent and
+            reasonable. Thanks felllas
+          `"
+        />
+        <TestimonialCard
+          by="Austin H."
+          date="April 2022"
+          :num-stars="5"
+          :paragraph="`
+            Bryan has been putting up with all of my dumb questions with
+            honesty and professionalism. It's like having a personal
+            mechanic who knows your exact car and has owned similar cars
+            in the past. They've transformed my vehicle to something
+            special and opened my eyes to vehicle modifications. Guys
+            around town I've met also say great things about them so they
+            have a positive presence in the area.
+          `"
+        />
+        <TestimonialCard
+          by="Minh N."
+          date="February 2022"
+          :num-stars="5"
+          :paragraph="`
+            Good people, I know they are busy but they are car guys, they
+            understand that their customers are passionate about their
+            cars. They will spend time answering addressing your concerns.
+            Business building is more than just knowledge, it is also
+            about listening to your customers. Seems like Dubsquared has a
+            dedicated customer service department empowered with knowledge
+            and empathy.
+          `"
+        />
       </div>
     </section>
 

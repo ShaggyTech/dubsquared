@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     'IconLogos:facebook': typeof import('~icons/logos/facebook')['default']
     'IconLogos:googleIcon': typeof import('~icons/logos/google-icon')['default']
     'IconMdi:carClock': typeof import('~icons/mdi/car-clock')['default']
+    'IconMdi:carCog': typeof import('~icons/mdi/car-cog')['default']
     'IconMdi:carInfo': typeof import('~icons/mdi/car-info')['default']
     'IconMdi:carTurbocharger': typeof import('~icons/mdi/car-turbocharger')['default']
     'IconMdi:chevronDown': typeof import('~icons/mdi/chevron-down')['default']
