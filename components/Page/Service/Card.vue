@@ -40,7 +40,7 @@ const rootStyles = reactive<Variants>({
     bg-no-repeat bg-contain z-10
   `,
   small: `
-    flex flex-col items-center max-w-md text-stone-100
+    flex flex-col items-center w-fit text-stone-100
     bg-no-repeat bg-contain z-10 mx-4 sm:mx-0 rounded-t-lg
   `,
 })
