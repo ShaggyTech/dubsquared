@@ -70,7 +70,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
         </template>
       </LazyPageSectionHeader>
 
-      <LazyageServiceCardGroupSmall />
+      <LazyPageServiceCardGroupSmall />
     </section>
 
     <section
