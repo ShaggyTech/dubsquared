@@ -11,7 +11,7 @@ const { submitted, submitHandler, formData, formDataRef } = useContactForm()
 </script>
 
 <script lang="ts">
-export default { name: 'PageContactForm' }
+export default { name: 'ContactForm' }
 </script>
 
 <template>
