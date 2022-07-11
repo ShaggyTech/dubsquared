@@ -1,3 +1,55 @@
+<script setup lang="ts">
+import { useMotion } from '@vueuse/motion'
+import type { MotionVariants } from '@vueuse/motion'
+
+const textRef = ref<HTMLElement>()
+const textMotionVariants = ref<MotionVariants>({
+  initial: {
+    y: 30,
+    opacity: 0,
+    scale: 0.98,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 500,
+      delay: 300,
+    },
+  },
+})
+
+const buttonARef = ref<HTMLElement>()
+const buttonBRef = ref<HTMLElement>()
+const buttonMotionVariants = ref<MotionVariants>({
+  initial: {
+    y: 30,
+    opacity: 0,
+    scale: 0.95,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 500,
+      delay: 400,
+    },
+  },
+})
+
+onMounted(() => {
+  useMotion(textRef, textMotionVariants)
+  useMotion(buttonARef, buttonMotionVariants)
+  useMotion(buttonBRef, buttonMotionVariants)
+})
+</script>
+
+<script lang="ts">
+export default { name: 'PageHomeCallToAction' }
+</script>
+
 <template>
   <section
     :class="`
@@ -6,19 +58,7 @@
     `"
   >
     <h2
-      v-motion
-      :initial="{
-        opacity: 0,
-        y: 50,
-      }"
-      :visible="{
-        opacity: 1,
-        y: 0,
-        transition: {
-          duration: 500,
-          delay: 300,
-        },
-      }"
+      ref="textRef"
       class="max-w-6xl px-6 text-lg font-semibold sm:text-2xl lg:px-16"
     >
       We're here to help get you back on the road and dedicated to keeping you
@@ -32,19 +72,7 @@
       `"
     >
       <Button
-        v-motion
-        :initial="{
-          opacity: 0,
-          y: 50,
-        }"
-        :visible="{
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 300,
-            delay: 300,
-          },
-        }"
+        ref="buttonARef"
         size="none"
         text="Get a Quote"
         :to="{ name: 'contact' }"
@@ -52,19 +80,7 @@
         class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
       />
       <Button
-        v-motion
-        :initial="{
-          opacity: 0,
-          y: 50,
-        }"
-        :visible="{
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 300,
-            delay: 300,
-          },
-        }"
+        ref="buttonBRef"
         size="none"
         text="Book Appointment"
         variant="secondary"
