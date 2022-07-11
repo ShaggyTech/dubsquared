@@ -21,7 +21,7 @@ export default { name: 'PageSectionHeader' }
 <template>
   <div class="grid place-items-center">
     <div
-      class="flex flex-col items-center text-center prose lg:prose-lg xl:prose-xl"
+      class="flex flex-col items-center text-center prose prose-sm md:prose-md lg:prose-lg xl:prose-xl"
     >
       <slot name="icon" />
       <h1 class="!mt-8 font-nunito-sans font-bold tracking-wider">
