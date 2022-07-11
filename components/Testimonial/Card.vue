@@ -35,14 +35,34 @@ const cardMotionVariants = ref<MotionVariants>({
 const nameRef = ref<HTMLElement>()
 const nameMotionVariants = ref<MotionVariants>({
   initial: {
+    x: -20,
     opacity: 0,
     scale: 0.98,
   },
   visible: {
+    x: 0,
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 500,
+      duration: 400,
+      delay: 300,
+    },
+  },
+})
+
+const iconRef = ref<HTMLElement>()
+const iconMotionVariants = ref<MotionVariants>({
+  initial: {
+    x: -30,
+    opacity: 0,
+    scale: 0.98,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 400,
       delay: 300,
     },
   },
@@ -51,7 +71,7 @@ const nameMotionVariants = ref<MotionVariants>({
 const dividerRef = ref<HTMLElement>()
 const dividerMotionVariants = ref<MotionVariants>({
   initial: {
-    x: -75,
+    x: -40,
     opacity: 0,
   },
   visible: {
@@ -59,25 +79,7 @@ const dividerMotionVariants = ref<MotionVariants>({
     opacity: 1,
     transition: {
       duration: 500,
-      delay: 500,
-    },
-  },
-})
-
-const iconRef = ref<HTMLElement>()
-const iconMotionVariants = ref<MotionVariants>({
-  initial: {
-    y: -50,
-    opacity: 0,
-    scale: 0.8,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 400,
-      delay: 400,
+      delay: 300,
     },
   },
 })
@@ -85,9 +87,9 @@ const iconMotionVariants = ref<MotionVariants>({
 const paragraphRef = ref<HTMLElement>()
 const paragraphMotionVariants = ref<MotionVariants>({
   initial: {
-    y: -40,
+    y: 20,
     opacity: 0,
-    scale: 0.85,
+    scale: 0.98,
   },
   visible: {
     y: 0,
@@ -103,8 +105,8 @@ const paragraphMotionVariants = ref<MotionVariants>({
 onMounted(() => {
   useMotion(cardRef, cardMotionVariants)
   useMotion(nameRef, nameMotionVariants)
-  useMotion(dividerRef, dividerMotionVariants)
   useMotion(iconRef, iconMotionVariants)
+  useMotion(dividerRef, dividerMotionVariants)
   useMotion(paragraphRef, paragraphMotionVariants)
 })
 </script>

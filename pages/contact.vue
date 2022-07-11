@@ -53,12 +53,12 @@ export default { name: 'PagesContact' }
       </PageSection>
       <PageSection>
         <div class="grid grid-rows-2 gap-10 lg:(grid-rows-1 grid-cols-2)">
-          <LazyPageContactCardAddress id="address" />
-          <LazyPageContactCardHours id="hours" />
+          <LazyContactCardAddress id="address" />
+          <LazyContactCardHours id="hours" />
         </div>
       </PageSection>
       <PageSection id="contact-form">
-        <LazyPageContactForm />
+        <LazyContactForm />
       </PageSection>
     </PageBody>
   </PageWrapper>

@@ -13,7 +13,6 @@ interface Props {
   dividerStyle?: string
   buttonText?: string
   buttonTo?: string
-  buttonHref?: string
   buttonVariant?: ButtonVariant
   backgroundImage?: string
   variant?: Variant
@@ -26,7 +25,6 @@ const props = withDefaults(defineProps<Props>(), {
   dividerStyle: '',
   buttonText: '+ Learn More',
   buttonTo: undefined,
-  buttonHref: '',
   buttonVariant: 'primary',
   backgroundImage: '',
   variant: 'default',
@@ -108,28 +106,12 @@ const cardMotionVariants = ref<MotionVariants>({
   },
 })
 
-const dividerRef = ref<HTMLElement>()
-const dividerMotionVariants = ref<MotionVariants>({
-  initial: {
-    x: -75,
-    opacity: 0,
-  },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: {
-      duration: 500,
-      delay: 300,
-    },
-  },
-})
-
 const iconRef = ref<HTMLElement>()
 const iconMotionVariants = ref<MotionVariants>({
   initial: {
     y: 20,
     opacity: 0,
-    scale: 0.8,
+    scale: 0.95,
   },
   visible: {
     y: 0,
@@ -142,20 +124,36 @@ const iconMotionVariants = ref<MotionVariants>({
   },
 })
 
+const dividerRef = ref<HTMLElement>()
+const dividerMotionVariants = ref<MotionVariants>({
+  initial: {
+    x: -50,
+    opacity: 0,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 500,
+      delay: 300,
+    },
+  },
+})
+
 const buttonRef = ref<HTMLElement>()
 const buttonMotionVariants = ref<MotionVariants>({
   initial: {
-    y: 20,
+    y: 30,
     opacity: 0,
-    scale: 0.5,
+    scale: 0.98,
   },
   visible: {
     y: 0,
     opacity: 1,
     scale: 1,
     transition: {
-      duration: 300,
-      delay: 200,
+      duration: 500,
+      delay: 300,
     },
   },
 })
@@ -188,7 +186,6 @@ export default { name: 'PageServiceCard' }
         ref="buttonRef"
         :size="selectedButtonSize"
         class="mt-[3.5em] shadow-lg"
-        :href="buttonHref"
         :to="buttonTo"
         :variant="buttonVariant"
         >{{ buttonText }}</Button
