@@ -36,12 +36,12 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <script lang="ts">
-export default { name: 'PageTeamMemberCard' }
+export default { name: 'TeamMemberCard' }
 </script>
 
 <template>
   <div
-    class="flex mx-auto mb-10 py-6 px-5 lg:px-8 shadow-lg rounded bg-stone-100 dark:(bg-zinc-900)"
+    class="flex mx-auto mb-10 py-6 px-5 bg-stone-100 rounded shadow-lg lg:px-8 dark:(bg-zinc-900)"
   >
     <div class="flex flex-col w-full">
       <!-- Avatar -->
