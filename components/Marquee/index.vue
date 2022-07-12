@@ -1,21 +1,3 @@
-<template>
-  <Vue3Marquee>
-    <div
-      class="flex gap-x-32 items-center h-[100px] w-full px-16 bg-gray-100 dark:bg-gray-100"
-    >
-      <img
-        v-for="(item, i) in logoCollection"
-        :key="i"
-        :src="item.src"
-        :alt="item.alt"
-        loading="lazy"
-        height="40"
-        width="125"
-      />
-    </div>
-  </Vue3Marquee>
-</template>
-
 <script setup lang="ts">
 import { Vue3Marquee } from 'vue3-marquee'
 import 'vue3-marquee/dist/style.css'
@@ -67,3 +49,25 @@ const logoCollection = [
   },
 ]
 </script>
+
+<script lang="ts">
+export default { name: 'Marquee' }
+</script>
+
+<template>
+  <Vue3Marquee>
+    <div
+      class="flex gap-x-32 items-center h-[100px] w-full px-16 bg-gray-100 dark:bg-gray-100"
+    >
+      <img
+        v-for="(item, i) in logoCollection"
+        :key="i"
+        :src="item.src"
+        :alt="item.alt"
+        loading="lazy"
+        height="40"
+        width="125"
+      />
+    </div>
+  </Vue3Marquee>
+</template>
