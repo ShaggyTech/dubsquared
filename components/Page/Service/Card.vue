@@ -38,34 +38,35 @@ const rootStyles = reactive<Variants>({
     bg-no-repeat bg-contain z-10
   `,
   small: `
-    flex flex-col items-center w-fit text-stone-100
-    bg-no-repeat bg-contain z-10 mx-4 sm:mx-0 rounded-t-lg
+    flex flex-col items-center w-fit mx-4 text-stone-100 rounded-t-lg 
+    bg-no-repeat bg-contain z-10 sm:mx-0
   `,
 })
 
 const headingStyles = reactive<Variants>({
   default: `
-    flex flex-col items-center gap-y-[0.7em] min-w-[40%] lg:(max-w-500px)
+    flex flex-col items-center gap-y-[0.7em] min-w-[40%]
     -mb-7rem mt-[calc(12rem+4vw)] p-6 font-bold text-2xl text-center
-    backdrop-blur rounded-md shadow-xl z-12
-    sm:(mt-19rem p-1.5em text-3xl tracking-wider) md:(mt-[calc(28rem+2vw)]) lg:(mt-[calc(39rem+2vw)]) xl:(mt-48rem)
+    rounded-md shadow-xl backdrop-blur z-12
+    sm:(mt-19rem p-1.5em text-3xl tracking-wider)
+    md:(mt-[calc(28rem+2vw)]) lg:(max-w-500px mt-[calc(39rem+2vw)]) xl:(mt-48rem)
   `,
   small: `
     flex flex-col items-center gap-y-[0.7em]
-    -mb-24 mt-[calc(1rem+35vw)] sm:mt-60 p-6 font-bold text-xl text-center
-    backdrop-blur rounded-md shadow-xl z-12
+    -mb-24 mt-[calc(1rem+35vw)] p-6 font-bold text-xl text-center
+    rounded-md shadow-xl backdrop-blur z-12 sm:mt-60
   `,
 })
 
 const paragraphStyles = reactive<Variants>({
   default: `
-    flex flex-col items-center gap-y-2.5em pb-30 backdrop-blur-md
-    font-semibold text-lg leading-8 z-11
+    flex flex-col items-center gap-y-2.5em pb-30
+    font-semibold text-lg leading-8 backdrop-blur-md z-11
     lg:(leading-9 text-xl) mobile-safe-area
   `,
   small: `
-    flex flex-col items-center pb-10 px-8 backdrop-blur-md rounded-b-lg
-    font-semibold text-md leading-7 z-11
+    flex flex-col items-center pb-10 px-8 rounded-b-lg
+    font-semibold text-md leading-7 backdrop-blur-md z-11
   `,
 })
 

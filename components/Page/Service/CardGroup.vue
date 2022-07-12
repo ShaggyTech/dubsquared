@@ -3,7 +3,7 @@
     <!-- Oil Changes -->
     <PageServiceCard
       id="oil-changes"
-      background-image="/images/service-oil-changes-2400x1800.webp"
+      background-image="/images/service-oil-changes-1080x810.webp"
       heading-style="bg-zinc-900/70"
       paragraph-style="bg-red-900"
       button-to="/oil-changes"
@@ -40,7 +40,7 @@
     <!-- Maintenance / Tune-ups -->
     <PageServiceCard
       id="factory-maintenance"
-      background-image="/images/service-tune-ups-2400x1800.webp"
+      background-image="/images/service-tune-ups-1080x810.webp"
       heading-style="bg-stone-900/70"
       paragraph-style="bg-stone-200 text-zinc-900"
       button-to="/factory-maintenance"
@@ -79,7 +79,7 @@
     <!-- Diagnostics -->
     <PageServiceCard
       id="diagnostics"
-      background-image="/images/service-diagnostic-2400x1800.webp"
+      background-image="/images/service-diagnostic-1080x810.webp"
       heading-style="bg-neutral-200/70 text-zinc-900"
       paragraph-style="bg-zinc-900"
       button-to="/diagnostics"
@@ -133,7 +133,7 @@
     <!-- Performance Upgrades -->
     <PageServiceCard
       id="performance-upgrades"
-      background-image="/images/service-performance-upgrades-2400x1800.webp"
+      background-image="/images/service-performance-upgrades-1080x810.webp"
       heading-style="mx-8 bg-sky-900/70"
       paragraph-style="bg-sky-900"
       button-to="/performance-upgrades"

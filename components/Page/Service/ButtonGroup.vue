@@ -43,9 +43,8 @@ export default { name: 'PageServiceButtonGroup' }
 <template>
   <div
     :class="`
-      flex flex-wrap w-full gap-x-8 gap-y-6 sm:gap-y-12
-      mt-12 px-4 sm:px-10 py-16 place-content-center
-      rounded-md shadow-lg
+      flex flex-wrap place-content-center max-w-4xl gap-x-8 gap-y-10 mt-16 px-4 py-16
+      bg-stone-100/20 rounded-md shadow-lg sm:(gap-y-12 px-10) dark:(bg-zinc-800)
     `"
   >
     <Button
