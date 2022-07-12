@@ -8,7 +8,7 @@ const footerObjectData =
 </script>
 
 <script lang="ts">
-export default { name: 'PageLayoutFooter' }
+export default { name: 'LayoutPageFooter' }
 </script>
 
 <template>
@@ -27,9 +27,9 @@ export default { name: 'PageLayoutFooter' }
         type="text/html"
         :lazy="true"
         observer-key="page-layout-footer-object"
-        class="border-none h-64 w-full mx-auto py-8 px-4 lg:px-8"
+        class="h-64 w-full mx-auto py-8 px-4 border-none lg:px-8"
       />
-      <div class="w-full py-4 px-4 lg:px-8 text-center md:text-left">
+      <div class="w-full py-4 px-4 text-center md:text-left lg:px-8">
         <div class="mb-1">
           {{ app.name }}
         </div>

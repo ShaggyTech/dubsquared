@@ -107,15 +107,15 @@ const contactBarItems: IContactBarItem[] = [
 </script>
 
 <script lang="ts">
-export default { name: 'PageLayoutNavbar' }
+export default { name: 'LayoutPageNavbar' }
 </script>
 
 <template>
   <AppNavbarBuilder
     :class="`
-      border-b-2 border-red-600/80 dark:border-red-600/80 shadow-md
-      bg-stone-300/70 dark:bg-zinc-800/70 backdrop-filter backdrop-blur
-      transition-colors duration-300
+      border-b-2 border-red-600/80 shadow-md bg-stone-300/70
+      backdrop-filter backdrop-blur transition-colors duration-300
+      dark:(bg-zinc-800/70 border-red-600/80)
     `"
   >
     <!-- Banner -->
@@ -127,9 +127,9 @@ export default { name: 'PageLayoutNavbar' }
             transition-colors duration-300
           `"
         :anchor-class="`
-            col-span-1 px-1 sm:px-4 py-2
-            text-sm lg:text-base text-center tracking-widest
-            text-stone-200 hover:text-white
+            col-span-1 px-1 py-2
+            text-stone-200 text-sm text-center tracking-widest
+            sm:px-4 lg:text-base hover:text-white
           `"
         icon-class="px-1"
       />
