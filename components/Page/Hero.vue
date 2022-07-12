@@ -27,7 +27,6 @@ export default { name: 'PageHero' }
 <template>
   <div
     :class="`
-      page-hero
       relative grid place-items-center w-full min-h-[max(min(100vh,500px))]
       lg:(min-h-[max(min(85vh,900px))]) max-h-screen)
     `"

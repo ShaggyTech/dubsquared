@@ -1,9 +1,3 @@
-<template>
-  <div class="text-2xl font-semibold mb-1">
-    <slot>{{ text }}</slot>
-  </div>
-</template>
-
 <script lang="ts" setup>
 defineProps({
   text: {
@@ -12,3 +6,13 @@ defineProps({
   },
 })
 </script>
+
+<script lang="ts">
+export default { name: 'PageSectionTitle' }
+</script>
+
+<template>
+  <div class="mb-1 text-2xl font-semibold">
+    <slot>{{ text }}</slot>
+  </div>
+</template>
