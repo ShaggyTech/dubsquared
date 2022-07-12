@@ -75,7 +75,7 @@ export default { name: 'PagesFactoryMaintenance' }
             and we'll happily assist.
           </div>
         </div>
-        <PageServiceButtonGroup />
+        <LazyServiceButtonGroup />
       </PageSection>
     </PageBody>
   </PageWrapper>

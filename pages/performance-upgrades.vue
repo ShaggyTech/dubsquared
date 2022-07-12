@@ -85,7 +85,7 @@ export default { name: 'PagesPerformanceUpgrades' }
             and we'll help you unlock some hidden fun in your vehicle.
           </div>
         </div>
-        <PageServiceButtonGroup />
+        <LazyServiceButtonGroup />
       </PageSection>
     </PageBody>
   </PageWrapper>

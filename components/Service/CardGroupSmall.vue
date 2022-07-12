@@ -1,11 +1,11 @@
 <script lang="ts">
-export default { name: 'PageServiceCardGroupSmall' }
+export default { name: 'ServiceCardGroupSmall' }
 </script>
 
 <template>
   <div class="flex flex-wrap gap-x-8 gap-y-20 place-content-around mt-28">
     <!-- Oil Changes -->
-    <PageServiceCard
+    <ServiceCard
       background-image="/images/service-oil-changes-1080x810.webp"
       heading-style="bg-zinc-900/70"
       paragraph-style="bg-red-900"
@@ -22,10 +22,10 @@ export default { name: 'PageServiceCardGroupSmall' }
           changes using only the highest quality oil and filters.
         </p>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
 
     <!-- Maintenance / Tune-ups -->
-    <PageServiceCard
+    <ServiceCard
       background-image="/images/service-tune-ups-1080x810.webp"
       heading-style="bg-stone-900/70"
       paragraph-style="bg-stone-200 text-zinc-900"
@@ -41,9 +41,9 @@ export default { name: 'PageServiceCardGroupSmall' }
           Regular maintenance is critical to the longevity of your vehicle.
         </p>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Diagnostics -->
-    <PageServiceCard
+    <ServiceCard
       background-image="/images/service-diagnostic-1080x810.webp"
       heading-style="bg-neutral-200/70 text-zinc-900"
       paragraph-style="bg-zinc-900"
@@ -59,9 +59,9 @@ export default { name: 'PageServiceCardGroupSmall' }
           quickly, efficiently, and right the first time.
         </p>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Performance Upgrades -->
-    <PageServiceCard
+    <ServiceCard
       background-image="/images/service-performance-upgrades-1080x810.webp"
       heading-style="mx-8 bg-sky-900/70"
       paragraph-style="bg-sky-900"
@@ -79,9 +79,9 @@ export default { name: 'PageServiceCardGroupSmall' }
           necessary to assist you in finding the right part.
         </p>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Pre-purchase Inspections-->
-    <PageServiceCard
+    <ServiceCard
       background-image="/images/service-audi-dashboard-1080x810.webp"
       heading-style="bg-stone-100/70 text-zinc-900"
       paragraph-style="bg-blue-gray-900"
@@ -99,6 +99,6 @@ export default { name: 'PageServiceCardGroupSmall' }
           overview of the vehicle's condition + any needed repairs.
         </p>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
   </div>
 </template>

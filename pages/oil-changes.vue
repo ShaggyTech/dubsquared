@@ -72,7 +72,7 @@ export default { name: 'PagesOilChanges' }
             to keep your engine happy!
           </div>
         </div>
-        <PageServiceButtonGroup />
+        <LazyServiceButtonGroup />
       </PageSection>
     </PageBody>
   </PageWrapper>

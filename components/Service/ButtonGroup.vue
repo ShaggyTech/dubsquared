@@ -37,7 +37,7 @@ const buttons = [
 </script>
 
 <script lang="ts">
-export default { name: 'PageServiceButtonGroup' }
+export default { name: 'ServiceButtonGroup' }
 </script>
 
 <template>

@@ -70,7 +70,7 @@ export default { name: 'PagesMeetTheTeam' }
             />
 
             <div class="flex flex-wrap place-content-around gap-x-6 w-full">
-              <TeamMemberCard
+              <LazyTeamMemberCard
                 name="Philip W."
                 title="Owner"
                 email="philip@dubsquared.com"
@@ -99,7 +99,7 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-              <TeamMemberCard
+              <LazyTeamMemberCard
                 name="Tyler S."
                 title="Technician"
                 email="tyler@dubsquared.com"
@@ -128,7 +128,7 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-              <TeamMemberCard
+              <LazyTeamMemberCard
                 name="Brandon E."
                 title="Technician"
                 email="brandon@dubsquared.com"
@@ -167,7 +167,7 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-              <TeamMemberCard
+              <LazyTeamMemberCard
                 name="Bryan H."
                 title="Customer Service Specialist"
                 email="bryan@dubsquared.com"

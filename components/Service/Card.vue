@@ -168,7 +168,7 @@ onMounted(() => {
 </script>
 
 <script lang="ts">
-export default { name: 'PageServiceCard' }
+export default { name: 'ServiceCard' }
 </script>
 
 <template>

@@ -1,7 +1,11 @@
+<script lang="ts">
+export default { name: 'ServiceCardGroup' }
+</script>
+
 <template>
   <section class="flex flex-col items-center justify-center">
     <!-- Oil Changes -->
-    <PageServiceCard
+    <ServiceCard
       id="oil-changes"
       background-image="/images/service-oil-changes-1080x810.webp"
       heading-style="bg-zinc-900/70"
@@ -36,9 +40,9 @@
           to keep your engine happy!
         </div>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Maintenance / Tune-ups -->
-    <PageServiceCard
+    <ServiceCard
       id="factory-maintenance"
       background-image="/images/service-tune-ups-1080x810.webp"
       heading-style="bg-stone-900/70"
@@ -75,9 +79,9 @@
           and we'll happily assist.
         </div>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Diagnostics -->
-    <PageServiceCard
+    <ServiceCard
       id="diagnostics"
       background-image="/images/service-diagnostic-1080x810.webp"
       heading-style="bg-neutral-200/70 text-zinc-900"
@@ -129,9 +133,9 @@
           to setup a diagnostic appointment!
         </div>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Performance Upgrades -->
-    <PageServiceCard
+    <ServiceCard
       id="performance-upgrades"
       background-image="/images/service-performance-upgrades-1080x810.webp"
       heading-style="mx-8 bg-sky-900/70"
@@ -186,9 +190,9 @@
           and we'll help you unlock some hidden fun in your vehicle.
         </div>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
     <!-- Pre-purchase Inspections-->
-    <PageServiceCard
+    <ServiceCard
       id="pre-purchase-inspections"
       background-image="/images/service-audi-dashboard-1080x810.webp"
       heading-style="bg-stone-100/70 text-zinc-900"
@@ -228,13 +232,9 @@
           with Dubsquared so you don't get stuck with a 🍋.
         </div>
       </template>
-    </PageServiceCard>
+    </ServiceCard>
   </section>
 </template>
-
-<script lang="ts">
-export default { name: 'PageServiceCardGroup' }
-</script>
 
 <style lang="scss" scoped>
 .link {

@@ -64,10 +64,10 @@ export default { name: 'PagesServices' }
             Audi and Volkswagen owners...
           </p>
         </div>
-        <PageServiceButtonGroup variant="hash" />
+        <LazyServiceButtonGroup variant="hash" />
       </PageSection>
       <section class="mt-40">
-        <LazyPageServiceCardGroup />
+        <LazyServiceCardGroup />
       </section>
     </PageBody>
   </PageWrapper>

@@ -78,7 +78,7 @@ export default { name: 'PagesPrePurchaseInspections' }
             with Dubsquared so you don't get stuck with a 🍋.
           </div>
         </div>
-        <PageServiceButtonGroup />
+        <LazyServiceButtonGroup />
       </PageSection>
     </PageBody>
   </PageWrapper>

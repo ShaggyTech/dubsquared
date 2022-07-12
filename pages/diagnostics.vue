@@ -90,7 +90,7 @@ export default { name: 'PagesDiagnostics' }
             to setup a diagnostic appointment!
           </div>
         </div>
-        <PageServiceButtonGroup />
+        <LazyServiceButtonGroup />
       </PageSection>
     </PageBody>
   </PageWrapper>
