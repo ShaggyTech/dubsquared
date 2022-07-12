@@ -33,7 +33,7 @@ export default { name: 'PagesFactoryMaintenance' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="factory-maintenance-page-header">
+    <PageHeader>
       <PageHero
         title="Factory Maintenance"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesFactoryMaintenance' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -63,7 +63,7 @@ export default { name: 'PagesFactoryMaintenance' }
             manufacturer guidelines. We're here to help keep your vehicle up to
             date with these factory recommended maintenance intervals.
           </p>
-          <div class="text-center flex flex-col mt-14">
+          <div class="flex flex-col mt-14 text-center">
             Not sure what the intervals are for your vehicle?
             <NuxtLink
               to="contact"

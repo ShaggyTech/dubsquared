@@ -32,8 +32,8 @@ export default { name: 'PagesAbout' }
 </script>
 
 <template>
-  <PageWrapper class="about-page">
-    <PageHeader class="about-page-header">
+  <PageWrapper>
+    <PageHeader>
       <PageHero
         title="About Us"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesAbout' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24 prose prose-lg lg:prose-xl
-          bg-zinc-300 dark:bg-zinc-900
+          section-about grid place-items-center max-w-8xl mx-auto py-20
+          prose prose-lg bg-zinc-300 lg:(py-24 prose-xl) dark:bg-zinc-900
         `"
       >
         <p class="w-full max-w-4xl">
@@ -59,23 +59,23 @@ export default { name: 'PagesAbout' }
           that has allowed us to build extensive knowledge over the years
           specific to these models.
         </p>
-        <div class="flex flex-col items-center text-center mt-4 font-bold">
+        <div class="flex flex-col items-center text-center mt-10 font-bold">
           <Anchor to="/meet-the-team" class="!font-bold">Meet the Team</Anchor>
           to learn more about our current crew!
         </div>
       </PageSection>
       <LazyPageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-6xl py-20 lg:py-32 prose prose-lg lg:prose-xl
-          bg-zinc-200/20 dark:bg-zinc-800 p-10
+          section-about grid place-items-center max-w-6xl mx-auto py-20
+          prose prose-lg bg-zinc-200/20 lg:(py-32 prose-xl) dark:bg-zinc-800
         `"
       >
         <h2
-          class="font-kanit !text-2.2em tracking-wider underline underline-red-800 underline-offset-14"
+          class="font-lora !text-2.2em tracking-wide underline underline-red-800 underline-offset-14"
         >
           Our Story
         </h2>
-        <p class="w-full !mt-10">
+        <p class="w-full !mt-14">
           To learn more about our humble beginnings let's go all the way back to
           the mid-2000s...
         </p>
@@ -123,7 +123,11 @@ export default { name: 'PagesAbout' }
           In April 2005, disaster struck for Billy's Golf. He stated online:
         </p>
         <blockquote
-          class="relative p-6 text-xl italic border-l-4 !border-yellow-500/40 bg-stone-100 !text-neutral-700 dark:(bg-zinc-900/50 !text-stone-300)"
+          :class="`
+            relative max-w-3xl py-10 !px-10 text-xl italic !text-neutral-700
+            bg-stone-100 border-l-4 !border-yellow-500/40
+            dark:(bg-zinc-900/50 !text-stone-300)
+          `"
         >
           <p class="mb-4 font-nunito-sans">
             Happened at 35psi, second gear, just as peak boost hit. Either the
@@ -165,7 +169,7 @@ export default { name: 'PagesAbout' }
           title="Youtube - Billy T. Turbo VR6 1/4 Mile Drag Race"
           :lazy="true"
           observer-key="page-about-video-Billy_T_Turbo_VR6_Drag_Race"
-          class="w-full max-w-3xl max-h-md p-2 my-10"
+          class="w-full max-w-3xl max-h-lg my-10 p-2"
         />
         <p>
           As the MK2 continued to generate buzz and interest at the track,
@@ -208,7 +212,7 @@ export default { name: 'PagesAbout' }
           title="Youtube - Jeremy's MK3 GTI Texas Mile 205mph"
           :lazy="true"
           observer-key="page-about-video-Jeremys_MK3_GTI_Texas_Mile_205mph"
-          class="w-full max-w-3xl max-h-md p-2 my-10"
+          class="w-full max-w-3xl max-h-lg my-10 p-2"
         />
         <p>
           By the year 2010 the shop was running out of space in it's small

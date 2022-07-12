@@ -33,7 +33,7 @@ export default { name: 'PagesOilChanges' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="oil-changes-page-header">
+    <PageHeader>
       <PageHero
         title="Oil Changes"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesOilChanges' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -55,7 +55,6 @@ export default { name: 'PagesOilChanges' }
             <a
               href="https://www.motul.com/us/en-us"
               target="_blank"
-              class="link"
               title="Motul"
               >MOTUL</a
             >.
@@ -66,10 +65,10 @@ export default { name: 'PagesOilChanges' }
             maintenance services you might need. Our goal is to keep your car at
             optimal performance for years to come.
           </p>
-          <div class="text-center flex flex-col mt-14">
-            <NuxtLink to="contact" class="link" title="Contact Us">
+          <div class="flex flex-col mt-14 text-center">
+            <Anchor to="contact" class="mx-auto" title="Contact Us">
               Schedule an appointment
-            </NuxtLink>
+            </Anchor>
             to keep your engine happy!
           </div>
         </div>

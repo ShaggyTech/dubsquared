@@ -33,7 +33,7 @@ export default { name: 'PagesPerformanceUpgrades' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="performance-upgrades-page-header">
+    <PageHeader>
       <PageHero
         title="Peformance Upgrades"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesPerformanceUpgrades' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -56,18 +56,12 @@ export default { name: 'PagesPerformanceUpgrades' }
           </p>
           <p>
             We're an authorized dealer for
-            <a
-              href="https://www.goapr.com/"
-              class="link"
-              title="APR"
-              target="_blank"
-            >
+            <a href="https://www.goapr.com/" title="APR" target="_blank">
               APR
             </a>
             and
             <a
               href="https://store.034motorsport.com/"
-              class="link"
               title="034 Motorsport"
               target="_blank"
             >
@@ -84,7 +78,7 @@ export default { name: 'PagesPerformanceUpgrades' }
             to detail. Customer satisfaction is our top priority and we will
             work hard to get you exactly what you want.
           </p>
-          <div class="text-center flex flex-col mt-14">
+          <div class="flex flex-col mt-14 text-center">
             <NuxtLink to="contact" class="link" title="Contact Us">
               Get in touch
             </NuxtLink>

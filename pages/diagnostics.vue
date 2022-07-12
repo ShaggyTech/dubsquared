@@ -33,7 +33,7 @@ export default { name: 'PagesDiagnostics' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="diagnostics-page-header">
+    <PageHeader>
       <PageHero
         title="Diagnostics"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesDiagnostics' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -56,6 +56,12 @@ export default { name: 'PagesDiagnostics' }
             technicians are well qualified to diagnose and solve any problem you
             might have.
           </p>
+          <div class="text-center flex flex-col my-10">
+            <Anchor to="/meet-the-team" class="mx-auto" title="Meet the Team">
+              Meet the team
+            </Anchor>
+            to learn more about our credentials.
+          </div>
           <p>
             Our current diagnostic fee is
             <span class="font-bold text-green-400">$130/hr</span>
@@ -64,17 +70,12 @@ export default { name: 'PagesDiagnostics' }
             the diagnosis are authorized and performed within 30 days, then the
             diagnostic fee will be credited towards the price of recommended
             repairs.
-            <NuxtLink to="/meet-the-team" class="link" title="Meet the Team">
-              Meet the team
-            </NuxtLink>
-            to learn more about our credentials.
           </p>
           <p>
             If you're looking to dive in on your own, we use and can recommend
             the
             <a
               href="https://www.ross-tech.com/vag-com/"
-              class="link"
               title="Ross-tech VAG-COM"
               target="_blank"
             >
@@ -82,10 +83,10 @@ export default { name: 'PagesDiagnostics' }
             </a>
             by Ross-Tech for all Volkswagen and Audi diagnostic needs.
           </p>
-          <div class="text-center flex flex-col mt-14">
-            <NuxtLink to="contact" class="link" title="Contact Us">
+          <div class="flex flex-col mt-10 text-center">
+            <Anchor to="/contact" class="mx-auto" title="Contact Us">
               Contact us
-            </NuxtLink>
+            </Anchor>
             to setup a diagnostic appointment!
           </div>
         </div>

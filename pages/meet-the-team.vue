@@ -35,7 +35,7 @@ export default { name: 'PagesMeetTheTeam' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="meet-the-team-page-header">
+    <PageHeader>
       <PageHero
         title="The Team"
         :observer-key="heroObserverName"
@@ -44,37 +44,32 @@ export default { name: 'PagesMeetTheTeam' }
     </PageHeader>
     <PageBody>
       <PageSection>
-        <!-- Page Container -->
         <div
-          class="flex items-center justify-center min-h-screen bg-gray-200 dark:(bg-zinc-800) py-20"
+          class="flex items-center justify-center min-h-screen py-20 bg-gray-200 dark:(bg-zinc-800)"
         >
-          <!-- Meet the Team -->
-          <div class="flex flex-col mt-8 px-4 w-full">
-            <!-- Section Header -->
-            <div class="flex flex-wrap justify-center text-center">
-              <div class="w-full sm:w-10/12 lg:w-8/12 px-4">
-                <!-- Header -->
-                <h1
-                  class="text-stone-900 text-4xl font-bold mb-8 dark:(text-stone-100)"
-                >
-                  Meet the Team
-                </h1>
-
-                <!-- Description -->
-                <p class="text-stone-800 text-lg dark:(text-stone-300)">
-                  With over 50 years of combined Volkswagen and Audi experience,
-                  we've got a well-seasoned team ready for anything that comes
-                  their way.
-                </p>
-              </div>
+          <div class="flex flex-col w-full mt-8 px-4">
+            <div
+              class="flex flex-col justify-center text-center w-full mx-auto px-4 sm:w-10/12 lg:w-8/12"
+            >
+              <h1
+                class="text-stone-900 text-4xl font-bold font-lora lg:(text-5xl tracking-wide) dark:(text-stone-100)"
+              >
+                Meet the Team
+              </h1>
+              <p
+                class="mt-10 text-stone-800 text-xl lg:(text-2xl) dark:(text-stone-300)"
+              >
+                With over 50 years of combined Volkswagen and Audi experience,
+                we've got a well-seasoned team ready for anything that comes
+                their way.
+              </p>
             </div>
 
             <hr
-              class="border-t-3 border-t-red-900 mt-24 mb-24 w-10/12 mx-auto"
+              class="mt-24 mb-24 w-10/12 mx-auto border-t-3 border-t-red-900"
             />
-            <!-- Team Members -->
+
             <div class="flex flex-wrap place-content-around gap-x-6 w-full">
-              <!-- Member #1 -->
               <PageTeamMemberCard
                 name="Philip W."
                 title="Owner"
@@ -104,8 +99,6 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-
-              <!-- Member #2 -->
               <PageTeamMemberCard
                 name="Tyler S."
                 title="Technician"
@@ -135,8 +128,6 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-
-              <!-- Member #3 -->
               <PageTeamMemberCard
                 name="Brandon E."
                 title="Technician"
@@ -176,7 +167,6 @@ export default { name: 'PagesMeetTheTeam' }
                   placeholder: '/images/person-placeholder-375x450.webp',
                 }"
               />
-              <!-- Member #4 -->
               <PageTeamMemberCard
                 name="Bryan H."
                 title="Customer Service Specialist"

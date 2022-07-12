@@ -98,9 +98,8 @@ const heroObserverName = ref('page-home-hero-section-observer')
     <div class="w-full h-full flex space-around items-center my-16">
       <div
         :class="`
-          flex flex-col lg:flex-row gap-8 items-center flex-around
-           max-h-[clamp(10em,50vh,400px)] w-[80%] rounded-md px-5 py-5 mb-4 mx-auto
-          bg-gray-300 dark:bg-zinc-800 rounded-md
+          flex flex-col gap-10 items-center flex-around px-5 py-5 mb-4 mx-auto
+          max-h-[clamp(10em,50vh,400px)] w-[80%] rounded-md lg:flex-row
         `"
       >
         <LazySVGAuthorizedAPR

@@ -35,7 +35,7 @@ export default { name: 'PagesPrePurchaseInspections' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="pre-purchase-inspections-page-header">
+    <PageHeader>
       <PageHero
         title="Pre-purchase Inspections"
         :observer-key="heroObserverName"
@@ -45,8 +45,8 @@ export default { name: 'PagesPrePurchaseInspections' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -71,7 +71,7 @@ export default { name: 'PagesPrePurchaseInspections' }
             used car dealers and individual sellers will allow third party
             inspections before purchase.
           </p>
-          <div class="text-center flex flex-col mt-14">
+          <div class="flex flex-col mt-14 text-center">
             <NuxtLink to="contact" class="link" title="Contact Us">
               Schedule a pre-purchase inspection
             </NuxtLink>

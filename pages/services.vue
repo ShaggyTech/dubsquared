@@ -33,7 +33,7 @@ export default { name: 'PagesServices' }
 
 <template>
   <PageWrapper>
-    <PageHeader class="services-page-header">
+    <PageHeader>
       <PageHero
         title="Services"
         :observer-key="heroObserverName"
@@ -43,8 +43,8 @@ export default { name: 'PagesServices' }
     <PageBody>
       <PageSection
         :class="`
-          section-about grid place-items-center mx-auto max-w-8xl py-20 lg:py-24
-          bg-zinc-300 dark:bg-zinc-900
+          grid place-items-center mx-auto max-w-8xl py-20
+          bg-zinc-300 lg:py-24 dark:bg-zinc-900
         `"
       >
         <div class="prose prose-lg lg:prose-xl">
@@ -58,7 +58,7 @@ export default { name: 'PagesServices' }
             to get a quote, ask a question, or schedule service!
           </div>
 
-          <hr class="border-t-3 !border-t-red-900 my-10 w-10/12 mx-auto" />
+          <hr class="w-10/12 mx-auto my-10 border-t-3 !border-t-red-900" />
           <p class="w-full max-w-4xl !mt-12 text-center">
             Here are just a few of the many automotive services we provide to
             Audi and Volkswagen owners...

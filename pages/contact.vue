@@ -39,16 +39,30 @@ export default { name: 'PagesContact' }
   <PageWrapper class="contact-page">
     <PageHeader class="contact-page-header">
       <PageHero
-        title="Get in Touch"
+        title="Contact Us"
         :observer-key="heroObserverName"
         :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody class="mt-20 grid gap-14">
-      <PageSection>
+      <PageSection
+        :class="`
+          grid place-items-center text-center mx-auto max-w-8xl py-20 rounded
+          prose prose-lg bg-gray-100 lg:(py-24 prose-xl) dark:bg-zinc-900
+        `"
+      >
+        <p class="text-center max-w-4xl">
+          Give us a ring, send a message, or come by and check out the shop!
+        </p>
+        <div class="flex flex-col items-center text-center mt-4 font-bold">
+          <Anchor to="/meet-the-team" class="!font-bold">Read our Story</Anchor>
+          to learn more about the shop.
+        </div>
+      </PageSection>
+      <PageSection class="py-8 lg:(py-12)">
         <LazyAppNavbarMenuSocialMedia
           id="social"
-          class="max-w-4xl text-4xl lg:text-5xl mx-auto"
+          class="max-w-4xl text-4xl mx-auto lg:(text-5xl)"
         />
       </PageSection>
       <PageSection>
