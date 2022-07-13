@@ -81,7 +81,8 @@ const heroObserverName = ref('page-home-hero-section-observer')
         title="Testimonials"
         paragraph="See what our clients have to say about our work."
         anchor-text="Read all of our reviews on Google"
-        anchor-to="https://goo.gl/maps/PGKJBqnGrKajR7En7"
+        anchor-to="https://g.page/r/CUv2zwK5qtl8EAE"
+        anchor-target="_blank"
       >
         <template #icon>
           <TestimonialStars
@@ -89,6 +90,13 @@ const heroObserverName = ref('page-home-hero-section-observer')
             class="gap-2"
           />
         </template>
+        <Anchor
+          to="https://g.page/r/CUv2zwK5qtl8EAg/review"
+          class="!mt-10 !text-2xl !font-bold"
+          target="_blank"
+        >
+          Leave us a review and let us how we did
+        </Anchor>
       </LazyPageSectionHeader>
 
       <LazyTestimonialCardGroup />

@@ -4,6 +4,7 @@ interface Props {
   paragraph?: string
   anchorText: string
   anchorTo?: string
+  anchorTarget?: string
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
@@ -11,6 +12,7 @@ const props = withDefaults(defineProps<Props>(), {
   paragraph: '',
   anchorText: '',
   anchorTo: undefined,
+  anchorTarget: undefined,
 })
 </script>
 
@@ -33,9 +35,15 @@ export default { name: 'PageSectionHeader' }
       <p class="text-2xl font-semibold">
         {{ paragraph }}
       </p>
-      <Anchor v-if="anchorTo" :to="anchorTo" class="!mt-8 !text-2xl !font-bold">
+      <Anchor
+        v-if="anchorTo"
+        :to="anchorTo"
+        :target="anchorTarget"
+        class="!mt-8 !text-2xl !font-bold"
+      >
         {{ anchorText }}
       </Anchor>
+      <slot />
     </div>
   </div>
 </template>
