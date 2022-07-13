@@ -1,17 +1,40 @@
 import { isValidVin } from '~/utils/isValidVin'
 
 export const useVehicles = () => {
-  const decodedVIN = ref()
-  const validVin = ({ value }: { value: string }) => isValidVin(value)
+  const decodedVIN = ref({
+    vin: '',
+    year: '',
+    make: '',
+    model: '',
+  })
+
+  const validVin = (value: string) => isValidVin(value)
+
+  // input validation
   const validateVIN = async ({ value }: { value: string }) => {
-    const valid = validVin({ value })
-    if (valid) await submitVin({ value })
-    else decodedVIN.value = {}
+    const valid = validVin(value)
+    if (valid) await submitVin(value)
+    else
+      decodedVIN.value = {
+        vin: '',
+        year: '',
+        make: '',
+        model: '',
+      }
     return valid
   }
 
-  const submitVin = async ({ value }: { value: string }) => {
-    if (!validVin({ value })) return 'That is not a valid VIN'
+  // decode VIN
+  const submitVin = async (value: string) => {
+    if (!validVin(value)) {
+      decodedVIN.value = {
+        vin: '',
+        year: '',
+        make: '',
+        model: '',
+      }
+      return 'That is not a valid VIN'
+    }
 
     const { data } = await useFetch('/api/decode-vin', {
       method: 'post',
@@ -45,12 +68,12 @@ export const useVehicles = () => {
       'Q7',
       'Q8',
       'R8',
-      'RS Q8',
       'RS3',
       'RS4',
       'RS5',
       'RS6',
       'RS7',
+      'RSQ8',
       'S3',
       'S4',
       'S5',
