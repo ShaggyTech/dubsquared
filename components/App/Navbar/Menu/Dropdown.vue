@@ -70,7 +70,11 @@ export default { name: 'AppNavbarMenuDropdown' }
 
 <template>
   <Menu as="div" :class="selectedRootStyle">
-    <MenuButton as="div" :class="`${selectedMenuButtonStyle}`">
+    <MenuButton
+      :id="`${text}-dropdown-menu-btn`"
+      :aria-controls="`${text}-dropdown-menu`"
+      :class="`${selectedMenuButtonStyle}`"
+    >
       <slot name="icon"></slot>
       <div v-if="!$slots['icon'] && icon">
         <component :is="icon" />
@@ -96,10 +100,13 @@ export default { name: 'AppNavbarMenuDropdown' }
       leave-from-class="transform scale-100 opacity-100"
       leave-to-class="transform scale-80 opacity-0"
     >
-      <MenuItems :class="`${selectedMenuItemsStyle}`">
-        <MenuItem v-slot="{ active }">
+      <MenuItems
+        :id="`${text}-dropdown-menu`"
+        :class="`${selectedMenuItemsStyle}`"
+      >
+        <MenuItem v-if="to" v-slot="{ active }">
           <NuxtLink
-            :to="to ? to : undefined"
+            :to="to"
             :class="[
               active
                 ? 'bg-red-900 text-white'

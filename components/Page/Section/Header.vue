@@ -32,9 +32,9 @@ export default { name: 'PageSectionHeader' }
       <hr
         class="w-10/12 md:w-full !mt-0 !mb-12 !border-t-2 !border-t-red-900 dark:!border-t-red-900"
       />
-      <p class="text-2xl font-semibold">
+      <h2 class="text-2xl font-semibold">
         {{ paragraph }}
-      </p>
+      </h2>
       <Anchor
         v-if="anchorTo"
         :to="anchorTo"

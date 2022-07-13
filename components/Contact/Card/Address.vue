@@ -117,7 +117,7 @@ export default { name: 'ContactCardAddress' }
         ref="linkRef"
         class="text-yellow-400 font-semibold font-nunito-sans tracking-wider underline underline-offset-3"
       >
-        Click for Google Maps Directions
+        Get Directions
       </span>
     </a>
   </div>
