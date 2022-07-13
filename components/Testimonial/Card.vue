@@ -124,32 +124,37 @@ export default { name: 'TestimonialCard' }
     `"
   >
     <div class="flex flex-col gap-4 text-left">
-      <p ref="nameRef" class="flex items-baseline gap-2 w-full">
-        <span class="text-stone-600 text-xl font-bold dark:text-stone-200">
-          {{ by }}
-        </span>
-        <span class="ml-1 text-stone-500 text-sm dark:text-stone-300">
+      <div class="flex justify-between px-1">
+        <div ref="iconRef" class="flex items-center">
+          <SVGStar
+            v-for="i in numStars"
+            :key="i"
+            :filled="true"
+            class="w-4 h-4"
+          />
+          <SVGStar v-for="i in 5 - numStars" :key="i" class="h-4 w-4" />
+        </div>
+        <span class="text-stone-500 text-sm dark:text-stone-300">
           {{ date }}
         </span>
-      </p>
-      <div ref="iconRef" class="flex items-center">
-        <SVGStar
-          v-for="i in numStars"
-          :key="i"
-          :filled="true"
-          class="w-4 h-4"
-        />
-        <SVGStar v-for="i in 5 - numStars" :key="i" class="h-4 w-4" />
       </div>
+
       <hr
         ref="dividerRef"
         class="mt-2 border-t-2 border-t-red-900 dark:border-t-red-900/50"
       />
       <p
         ref="paragraphRef"
-        class="mt-4 max-w-md sm:max-w-xs text-lg dark:text-white"
+        class="mt-4 max-w-md sm:max-w-xs px-2 text-lg dark:text-white"
       >
         "{{ paragraph }}"
+      </p>
+      <p ref="nameRef" class="flex justify-end gap-2 w-full mt-6">
+        <span
+          class="mr-4 text-stone-600 text-lg font-lora font-semibold dark:text-stone-200"
+        >
+          - {{ by }}
+        </span>
       </p>
     </div>
   </div>
