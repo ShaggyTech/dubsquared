@@ -2,23 +2,6 @@
 import { useMotion } from '@vueuse/motion'
 import type { MotionVariants } from '@vueuse/motion'
 
-const isBusinessOpen = ref<boolean>(true)
-
-onMounted(() => {
-  const date = new Date()
-  // Set business timezone
-  const timezone = -6
-  const timezoneOffset = (date.getTimezoneOffset() + timezone * 60) * 60 * 1000
-  // set date to account for actual business timezone
-  date.setTime(date.getTime() + timezoneOffset)
-  const day = date.getDay()
-  const hour = date.getHours()
-
-  // open M-F 9am-6pm, closed saturday and sunday
-  if (day < 1 || day > 5 || hour < 9 || hour > 18) isBusinessOpen.value = false
-  else isBusinessOpen.value = true
-})
-
 const cardRef = ref<HTMLElement>()
 const cardMotionVariants = ref<MotionVariants>({
   initial: {
@@ -109,7 +92,18 @@ const sectionMotionVariants = ref<MotionVariants>({
   },
 })
 
+const isBusinessOpen = ref<boolean>(true)
+
 onMounted(() => {
+  const { day, hour } = getCurrentTime()
+
+  // open M-F 9am-6pm, closed saturday and sunday
+  if (day === 0 || day === 6) {
+    isBusinessOpen.value = false
+  } else if (hour < 9 || hour > 18) {
+    isBusinessOpen.value = false
+  }
+
   useMotion(cardRef, cardMotionVariants)
   useMotion(iconRef, iconMotionVariants)
   useMotion(headingRef, headingMotionVariants)
