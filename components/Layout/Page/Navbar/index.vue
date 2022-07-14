@@ -1,11 +1,9 @@
 <script lang="ts" setup>
 import MdiGarage from '~icons/mdi/garage'
 import MdiInformation from '~icons/mdi/information'
-// import MakiArtGallery from '~icons/maki/art-gallery'
 import MdiCellphone from '~icons/mdi/cellphone'
 import MdiEmailFast from '~icons/mdi/email-fast'
 import RiTeamLine from '~icons/ri/team-line'
-
 import MdiCarCog from '~icons/mdi/car-cog'
 import MdiOilLevel from '~icons/mdi/oil-level'
 import MdiCarClock from '~icons/mdi/car-clock'
@@ -14,8 +12,6 @@ import MdiCarTurbocharger from '~icons/mdi/car-turbocharger'
 import MdiCarInfo from '~icons/mdi/car-info'
 
 import type { IMenuItem, IContactBarItem, IDropdownItem } from '@/types'
-
-const { t } = useLang()
 
 const servicesDropdownItems: IDropdownItem[] = [
   {
@@ -58,12 +54,6 @@ const menuItems = computed((): IMenuItem[] => [
     route: { name: 'meet-the-team' },
     icon: RiTeamLine,
   },
-  // {
-  //   variant: 'link',
-  //   text: t('pages.gallery.nav'),
-  //   route: { name: 'gallery' },
-  //   icon: MakiArtGallery,
-  // },
   {
     variant: 'dropdown',
     text: 'Services',
@@ -80,7 +70,7 @@ const menuItems = computed((): IMenuItem[] => [
 const mobileMenuItems = computed((): IMenuItem[] => [
   {
     variant: 'link',
-    text: t('pages.index.nav'),
+    text: 'Home',
     route: { name: 'index' },
     icon: MdiGarage,
   },
