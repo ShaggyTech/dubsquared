@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { IApp } from '~/utils/app'
+import type { IApp } from '~/types'
 
 const app = useState<IApp>('app')
 
@@ -237,8 +237,7 @@ export default { name: 'LayoutPageFooter' }
         <div class="mb-1">Dubsquared - Volkswagen and Audi Specialists</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">
           Copyright © 2022 <a :href="app.author.link">{{ app.author.name }}</a
-          >. All rights reserved. Original template design by
-          <a href="https://github.com/viandwi24">viandwi24</a>
+          >. All rights reserved.
         </div>
       </div>
     </section>
