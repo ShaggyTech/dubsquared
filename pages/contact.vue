@@ -60,7 +60,7 @@ export default { name: 'PagesContact' }
         </div>
       </PageSection>
       <PageSection class="py-8 lg:(py-12)">
-        <LazyAppNavbarMenuSocialMedia
+        <LazyContactSocialMedia
           id="social"
           class="max-w-4xl text-4xl mx-auto lg:(text-5xl)"
         />

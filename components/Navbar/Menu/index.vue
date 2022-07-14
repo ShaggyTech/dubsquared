@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <script lang="ts">
-export default { name: 'AppNavbarMenu' }
+export default { name: 'NavbarMenu' }
 </script>
 
 <template>
@@ -49,7 +49,7 @@ export default { name: 'AppNavbarMenu' }
             size="md"
             class="nav-btn whitespace-nowrap"
           />
-          <AppNavbarMenuDropdown
+          <NavbarMenuDropdown
             v-else-if="item.variant === 'dropdown'"
             :text="item.text"
             :menu-items="item.dropdownItems"
@@ -59,7 +59,7 @@ export default { name: 'AppNavbarMenu' }
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <LazyAppNavbarMenuSocialMedia class="icon-section gap-6 text-xl" />
+    <LazyContactSocialMedia class="icon-section gap-6 text-xl" />
     <!-- Desktop - App Options -->
     <div class="icon-section">
       <LazyThemeToggle />

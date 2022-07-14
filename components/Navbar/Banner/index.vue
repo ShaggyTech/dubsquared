@@ -34,7 +34,7 @@ const selectedStyles = computed(
 </script>
 
 <script lang="ts">
-export default { name: 'AppContactBar' }
+export default { name: 'NavbarBanner' }
 </script>
 
 <template>

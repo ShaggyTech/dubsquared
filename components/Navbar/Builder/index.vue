@@ -1,3 +1,30 @@
+<script setup lang="ts">
+// import { IApp } from '~/utils/app'
+
+// const app = useState<IApp>('app')
+const navbar = ref<HTMLElement | null>(null)
+const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
+const showOptions = useState<boolean>('navbar.showOptions', () => false)
+
+onMounted(() => {
+  const { onScroll } = useSticky(navbar.value as HTMLElement, 0)
+  setTimeout(() => onScroll(), 50)
+})
+
+const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
+const toggleOptions = (show?: boolean) => {
+  if (show) {
+    showOptions.value = show
+  } else {
+    showOptions.value = !showOptions.value
+  }
+}
+</script>
+
+<script lang="ts">
+export default { name: 'NavbarBuilder' }
+</script>
+
 <template>
   <div ref="navbar" class="top-0 z-40 h-auto w-full lg:z-50">
     <!-- Banner -->
@@ -81,33 +108,6 @@
     </ClientOnly>
   </div>
 </template>
-
-<script lang="ts" setup>
-// import { IApp } from '~/utils/app'
-
-// const app = useState<IApp>('app')
-const navbar = ref<HTMLElement | null>(null)
-const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
-const showOptions = useState<boolean>('navbar.showOptions', () => false)
-
-onMounted(() => {
-  const { onScroll } = useSticky(navbar.value as HTMLElement, 0)
-  setTimeout(() => onScroll(), 50)
-})
-
-const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
-const toggleOptions = (show?: boolean) => {
-  if (show) {
-    showOptions.value = show
-  } else {
-    showOptions.value = !showOptions.value
-  }
-}
-</script>
-
-<script lang="ts">
-export default { name: 'AppNavbarBuilder' }
-</script>
 
 <style lang="scss">
 .slide-fade-from-up-enter-active {

@@ -30,7 +30,7 @@ onMounted(() => {
 </script>
 
 <script lang="ts">
-export default { name: 'AppNavbarMenuMobile' }
+export default { name: 'NavbarMenuMobile' }
 </script>
 
 <template>
@@ -112,7 +112,7 @@ export default { name: 'AppNavbarMenuMobile' }
               />
             </div>
             <!-- Mobile Social Media Icons -->
-            <LazyAppNavbarMenuSocialMedia class="text-2xl" />
+            <LazyContactSocialMedia class="text-2xl" />
             <!-- Divider -->
             <div class="border-b-2 border-stone-500/50" />
             <!-- Menu -->
@@ -163,7 +163,7 @@ export default { name: 'AppNavbarMenuMobile' }
                     :href="item.href ? item.href : undefined"
                     class="nav-btn flex-1 py-5"
                   />
-                  <AppNavbarMenuDropdown
+                  <NavbarMenuDropdown
                     v-else-if="item.variant === 'dropdown'"
                     :text="item.text"
                     :menu-items="item.dropdownItems"
@@ -175,7 +175,7 @@ export default { name: 'AppNavbarMenuMobile' }
                         <component :is="item.icon" class="h-7 w-7" />
                       </div>
                     </template>
-                  </AppNavbarMenuDropdown>
+                  </NavbarMenuDropdown>
                 </li>
               </ul>
             </nav>

@@ -1,5 +1,5 @@
 <script lang="ts">
-export default { name: 'AppNavbarMenuSocialMedia' }
+export default { name: 'ContactSocialMedia' }
 </script>
 
 <template>

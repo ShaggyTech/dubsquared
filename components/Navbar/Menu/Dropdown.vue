@@ -65,7 +65,7 @@ const selectedMenuItemsStyle = computed(() => menuItemsStyles[props.variant])
 </script>
 
 <script lang="ts">
-export default { name: 'AppNavbarMenuDropdown' }
+export default { name: 'NavbarMenuDropdown' }
 </script>
 
 <template>
