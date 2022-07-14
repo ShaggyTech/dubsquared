@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Pre-purchase Inspections',
+  description:
+    'Considering purchasing a used Volkswagen or Audi? We provide pre-purchase inspections to catch any potential problems before committing to the purchase.',
 })
 
 const heroObserverName = ref(

@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Factory Maintenance',
+  description:
+    'Dubsquared provides comprehensive factory maintenance to keep your Volkswagen or Audi running smoothly and efficiently and increase longevity.',
 })
 
 const heroObserverName = ref('page-factory-maintenance-hero-section-observer')

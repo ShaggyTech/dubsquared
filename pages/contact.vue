@@ -1,7 +1,11 @@
 <script lang="ts" setup>
 import type { IImageProps } from '~/types'
+
 definePageMeta({
   layout: 'page',
+  title: 'Contact Us',
+  description:
+    'Contact Dubsquared today to schedule service, make an appointment, or inquire about performance upgrades for your Volkswagen or Audi.',
 })
 
 const heroObserverName = ref('page-contact-hero-section-observer')

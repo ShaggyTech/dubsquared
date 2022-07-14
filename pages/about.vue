@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'About Us',
+  description:
+    'Dubsquared is one of the oldest independent Volkswagen and Audi shops in the DFW area, circa 2007.  Read our origin story to see where it all began.',
 })
 
 const heroObserverName = ref('page-about-hero-section-observer')

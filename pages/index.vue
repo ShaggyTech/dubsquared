@@ -1,8 +1,9 @@
 <script setup lang="ts">
-// import { useIntersectionObserver } from '~/composables/useIntersectionObserver'
-
 definePageMeta({
   layout: 'page',
+  title: 'Home',
+  description:
+    'Dubsquared is an independent Volkswagen and Audi shop located in Arlington, TX providing complete repair, maintenance, and performance services.',
 })
 
 const heroAdjectives = ref([
@@ -79,7 +80,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
     >
       <LazyPageSectionHeader
         title="Testimonials"
-        paragraph="See what our clients have to say about our work."
+        paragraph="See what our clients have to say about our work"
         anchor-text="Read all of our reviews on Google"
         anchor-to="https://g.page/r/CUv2zwK5qtl8EAE"
         anchor-target="_blank"
@@ -95,7 +96,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
           class="!mt-10 !text-2xl !font-bold"
           target="_blank"
         >
-          Leave us a review and let us how we did
+          Leave us a review and let us know how we did
         </Anchor>
       </LazyPageSectionHeader>
 

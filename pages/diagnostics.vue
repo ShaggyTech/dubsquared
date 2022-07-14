@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Diagnostics',
+  description:
+    'Dubsquared offers professional Volkswagen and Audi diagnostic services.',
 })
 
 const heroObserverName = ref('page-diagnostics-hero-section-observer')

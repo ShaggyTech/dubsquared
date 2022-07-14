@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Oil Changes',
+  description:
+    'Dubsquared offers quick and easy oil changes for Volkswagen and Audi owners, using only the highest quality oil and filters.',
 })
 
 const heroObserverName = ref('page-oil-changes-hero-section-observer')

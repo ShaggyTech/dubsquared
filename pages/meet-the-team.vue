@@ -5,6 +5,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Meet the Team',
+  description:
+    'With over 50 years of combined Volkswagen and Audi experience, Dubsquared has a professional team ready for anything that comes their way.',
 })
 
 const heroObserverName = ref('page-about-hero-section-observer')

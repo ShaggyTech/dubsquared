@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Services',
+  description:
+    'Dubsquared provides a variety of services for Volkswagen and Audi vehicles. Whatever your vehicle needs we have you covered.',
 })
 
 const heroObserverName = ref('page-services-hero-section-observer')

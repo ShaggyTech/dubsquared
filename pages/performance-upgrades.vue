@@ -3,6 +3,9 @@ import type { IImageProps } from '~/types'
 
 definePageMeta({
   layout: 'page',
+  title: 'Performance Upgrades',
+  description:
+    'Dubsquared carries a wide variety of Volkswagen and Audi performance parts from industry leading brands like APR and 034 Motorsport',
 })
 
 const heroObserverName = ref('page-performance-upgrades-hero-section-observer')
