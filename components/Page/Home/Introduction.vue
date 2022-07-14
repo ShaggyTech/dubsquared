@@ -32,10 +32,10 @@ export default { name: 'PageHomeIntroduction' }
         who'll be responsible for your vehicle.
       </p>
       <p>
-        We provide a variety of services, including Volkswagen repair,
-        Volkswagen maintenance, Audi Repair, Audi Maintenance, oil changes, tire
-        rotations, timing belt services, timing chain services, brake services,
-        chip tuning, ECU tuning, and many more.
+        We provide a variety of services for Volkswagen and Audi vehicles, Our
+        services include repair, maintenance, oil changes, tire rotations,
+        timing belt services, timing chain services, brake services, chip
+        tuning, ECU tuning, and many more.
       </p>
       <p>
         We possess the skill and experience necessary to serve as your
