@@ -111,7 +111,7 @@ export default { name: 'LayoutPageNavbar' }
 </script>
 
 <template>
-  <AppNavbarBuilder
+  <NavbarBuilder
     :class="`
       border-b-2 border-red-600/80 shadow-md bg-stone-300/70
       backdrop-filter backdrop-blur transition-colors duration-300
@@ -120,7 +120,7 @@ export default { name: 'LayoutPageNavbar' }
   >
     <!-- Banner -->
     <template #banner>
-      <LazyAppContactBar
+      <LazyNavbarBanner
         :items="contactBarItems"
         :class="`
             grid-flow-col bg-red-800 border-t border-b border-stone-500/70
@@ -145,16 +145,16 @@ export default { name: 'LayoutPageNavbar' }
 
     <!-- Desktop Menu -->
     <template #menu>
-      <LazyAppNavbarMenu :menu="menuItems" />
+      <LazyNavbarMenu :menu="menuItems" />
     </template>
 
     <!-- Mobile Menu -->
     <template #options="{ toggleOptions }">
-      <LazyAppNavbarMenuMobile
+      <LazyNavbarMenuMobile
         header-text="Navigation"
         :menu="mobileMenuItems"
         @onClose="toggleOptions(false)"
       />
     </template>
-  </AppNavbarBuilder>
+  </NavbarBuilder>
 </template>

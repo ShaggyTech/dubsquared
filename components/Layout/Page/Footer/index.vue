@@ -14,25 +14,17 @@ export default { name: 'LayoutPageFooter' }
 <template>
   <footer
     ref="container"
-    class="relative w-full h-fit border-t lg:border-gray-900/10 dark:border-gray-50/[0.2]"
+    class="relative w-full h-fit bg-true-gray-100 border-t border-zinc-900/20 dark:(bg-zinc-900 border-gray-50/20)"
   >
     <section
       class="flex flex-col h-fit w-full max-w-8xl mx-auto apple-safe-area"
     >
+      <SVGDubsquaredTextLogo class="max-w-lg mx-auto mt-14" />
       <div
-        class="grid gap-y-20 gap-x-6 text-center w-full py-10 px-4 md:grid-cols-2 lg:(grid-cols-4 px-8)"
+        class="grid gap-y-14 gap-x-6 text-center w-full mt-16 px-4 md:grid-cols-2 xl:(grid-cols-4 mt-20 px-8)"
       >
-        <!-- social -->
-        <div class="flex flex-col w-full items-center">
-          <h4 class="mt-4 text-2xl font-bold">Social</h4>
-          <AppNavbarMenuSocialMedia
-            class="w-full mt-10 px-4 max-w-lg text-3xl"
-          />
-        </div>
         <!-- contact -->
-        <div class="flex flex-col w-full items-center">
-          <h4 class="text-2xl font-bold">Contact</h4>
-
+        <LayoutPageFooterCard title="Contact">
           <ul class="flex flex-col gap-6 mt-6 tracking-wide">
             <li>
               <a
@@ -79,12 +71,11 @@ export default { name: 'LayoutPageFooter' }
               </a>
             </li>
           </ul>
-        </div>
+        </LayoutPageFooterCard>
         <!-- Business Hours -->
-        <div class="flex flex-col w-full items-center">
-          <h4 class="text-2xl font-bold">Hours</h4>
+        <LayoutPageFooterCard title="Shop Hours">
           <table class="mt-6">
-            <tbody class="flex flex-col gap-2 text-left tracking-wide">
+            <tbody class="flex flex-col gap-1 text-left">
               <tr class="flex gap-4">
                 <th class="w-4ch">Mon:</th>
                 <td>
@@ -129,11 +120,11 @@ export default { name: 'LayoutPageFooter' }
               </tr>
             </tbody>
           </table>
-        </div>
+        </LayoutPageFooterCard>
+
         <!-- links -->
-        <div class="flex flex-col w-full items-center">
-          <h4 class="text-2xl font-bold">Links</h4>
-          <ul class="flex flex-col gap-4 mt-8 tracking-wide">
+        <LayoutPageFooterCard title="Links">
+          <ul class="flex flex-col gap-2 mt-8">
             <li>
               <NuxtLink to="/about" class="flex items-center gap-6">
                 <IconMdi:information
@@ -225,7 +216,12 @@ export default { name: 'LayoutPageFooter' }
               </NuxtLink>
             </li>
           </ul>
-        </div>
+        </LayoutPageFooterCard>
+
+        <!-- social -->
+        <LayoutPageFooterCard title="Social">
+          <ContactSocialMedia class="w-full mt-10 px-4 max-w-lg text-3xl" />
+        </LayoutPageFooterCard>
       </div>
       <LazyObject
         :data="footerObjectData"
@@ -235,9 +231,9 @@ export default { name: 'LayoutPageFooter' }
         type="text/html"
         :lazy="true"
         observer-key="page-layout-footer-object"
-        class="h-64 w-full mx-auto py-8 px-4 border-none lg:px-8"
+        class="h-64 w-full mt-12 mx-auto px-4 border-none lg:(mt-20 px-8)"
       />
-      <div class="w-full py-4 px-4 text-center lg:px-8">
+      <div class="w-full mt-10 py-4 px-4 text-center lg:(mt-20 px-8)">
         <div class="mb-1">Dubsquared - Volkswagen and Audi Specialists</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">
           Copyright © 2022 <a :href="app.author.link">{{ app.author.name }}</a
