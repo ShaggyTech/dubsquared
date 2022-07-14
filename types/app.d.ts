@@ -3,21 +3,6 @@ import type { RouteLocationRaw } from 'vue-router'
 
 export type UnpluginIcon = FunctionalComponent
 
-export type IPictureSrcSet = {
-  media?: string
-  srcSet?: string
-  type?: string
-}
-
-export type IImageProps = {
-  alt?: string
-  height?: string
-  width?: string
-  src?: string
-  srcSets?: SrcSet[]
-  placeholder?: string
-}
-
 export type IDropdownItem = {
   to?: string
   icon?: UnpluginIcon
@@ -39,6 +24,29 @@ export type IContactBarItem = {
   ariaLabel: string
   title: string
   icon?: UnpluginIcon
+}
+
+export interface IApp {
+  name: string
+  author: {
+    name: string
+    link: string
+  }
+}
+
+export type IPictureSrcSet = {
+  media?: string
+  srcSet?: string
+  type?: string
+}
+
+export type IImageProps = {
+  alt?: string
+  height?: string
+  width?: string
+  src?: string
+  srcSets?: SrcSet[]
+  placeholder?: string
 }
 
 export type IContactFormBody = {

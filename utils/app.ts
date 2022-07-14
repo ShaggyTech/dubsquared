@@ -1,13 +1,7 @@
 import { ThemeManager } from './theme'
 import { LanguageManager } from './lang'
 
-export interface IApp {
-  name: string
-  author: {
-    name: string
-    link: string
-  }
-}
+import type { IApp } from '~/types'
 
 export function AppSetup() {
   // declare app information
