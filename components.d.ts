@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     'IconIon:closeRound': typeof import('~icons/ion/close-round')['default']
     'IconLogos:facebook': typeof import('~icons/logos/facebook')['default']
     'IconLogos:googleIcon': typeof import('~icons/logos/google-icon')['default']
+    'IconMdi:arrowLeft': typeof import('~icons/mdi/arrow-left')['default']
     'IconMdi:carClock': typeof import('~icons/mdi/car-clock')['default']
     'IconMdi:carCog': typeof import('~icons/mdi/car-cog')['default']
     'IconMdi:carInfo': typeof import('~icons/mdi/car-info')['default']

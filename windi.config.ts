@@ -39,6 +39,7 @@ export default defineConfig({
       './plugins/**/*.{js,ts}',
       './utils/**/*.{js,ts}',
       './app.vue',
+      './error.vue',
     ],
   },
   preflight: {
