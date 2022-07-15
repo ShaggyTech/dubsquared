@@ -39,7 +39,7 @@ export default { name: 'PageSectionHeader' }
         v-if="anchorTo"
         :to="anchorTo"
         :target="anchorTarget"
-        class="!mt-8 !text-2xl !font-bold"
+        class="!mt-8 !text-2xl !font-bold !text-xl"
       >
         {{ anchorText }}
       </Anchor>
