@@ -6,16 +6,6 @@ definePageMeta({
     'Dubsquared is an independent Volkswagen and Audi shop located in Arlington, TX providing complete repair, maintenance, and performance services.',
 })
 
-const heroAdjectives = ref([
-  'Garage',
-  'Specialists',
-  'Experts',
-  'Shop',
-  'Connoisseurs',
-  'Proffessionals',
-  'Gurus',
-  'Fanatics',
-])
 const heroObserverName = ref('page-home-hero-section-observer')
 </script>
 
@@ -23,10 +13,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
   <PageWrapper>
     <PageHeader>
       <!-- Hero Banner -->
-      <LazyPageHomeHero
-        :adjectives="heroAdjectives"
-        :observer-key="heroObserverName"
-      />
+      <PageHomeHero :observer-key="heroObserverName" />
     </PageHeader>
 
     <LazyPageHomeCallToAction id="get-in-touch" class="mobile-safe-area" />
@@ -93,7 +80,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
         </template>
         <Anchor
           to="https://g.page/r/CUv2zwK5qtl8EAg/review"
-          class="!mt-10 !text-2xl !font-bold"
+          class="!mt-10 !text-2xl !font-bold !text-xl"
           target="_blank"
         >
           Leave us a review and let us know how we did

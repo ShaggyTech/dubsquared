@@ -90,6 +90,9 @@ export default defineConfig({
         teko: ['Teko', ...defaultTheme.fontFamily.sans].join(','),
         kanit: ['Kanit', ...defaultTheme.fontFamily.sans].join(','),
       },
+      backgroundPosition: {
+        'center-35': '35% center',
+      },
     },
     backgroundImage: {
       'map-dark': "url('/images/map-background-dark.webp')",
