@@ -14,7 +14,7 @@ export default { name: 'LayoutPageFooterCard' }
 
 <template>
   <div class="flex flex-col w-full items-center">
-    <h4 class="text-xl font-bold">{{ title }}</h4>
+    <h1 class="text-xl font-bold">{{ title }}</h1>
     <slot />
   </div>
 </template>
