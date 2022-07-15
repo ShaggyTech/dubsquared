@@ -74,19 +74,19 @@ export default { name: 'PageHomeCallToAction' }
       <Button
         ref="buttonARef"
         size="none"
-        text="Get a Quote"
-        :to="{ name: 'contact' }"
-        title="Get a Quote"
-        class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
+        text="Schedule Service"
+        to="/contact"
+        title="Contact us to schedule service"
+        class="h-10 px-4 shadow-sm leading-4 whitespace-pre-wrap hover:shadow-md sm:(h-11 leading-normal) md:(h-12)"
       />
       <Button
         ref="buttonBRef"
         size="none"
-        text="Book Appointment"
+        text="Our Services"
         variant="secondary"
-        :to="{ name: 'contact' }"
-        title="Book Appointment"
-        class="h-10 sm:h-11 md:h-12 px-4 shadow-sm hover:shadow-md whitespace-pre-wrap leading-4 sm:leading-normal"
+        to="services"
+        title="See all of our Services"
+        class="h-10 px-4 shadow-sm leading-4 whitespace-pre-wrap hover:shadow-md sm:(h-11 leading-normal) md:(h-12)"
       />
     </div>
   </section>
