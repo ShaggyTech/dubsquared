@@ -64,7 +64,7 @@ export default defineEventHandler(async (event) => {
       personalizations: [
         {
           subject: body.subject,
-          to: [{ email: 'brandon@dubsquared.com', name: 'Dubsquared Team' }],
+          to: [{ email: 'info@dubsquared.com', name: 'Dubsquared Team' }],
         },
       ],
       subject: body.subject,
