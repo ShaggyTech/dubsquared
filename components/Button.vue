@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { RouteLocationRaw } from 'vue-router'
-import type { UnpluginIcon } from '~/types'
+import type { IUnpluginIcon } from '~/types'
 
 type ButtonType = 'button' | 'submit' | 'reset' | undefined
 
@@ -18,7 +18,7 @@ interface Props {
   text?: string
   variant?: Variant
   size?: Size
-  icon?: UnpluginIcon
+  icon?: IUnpluginIcon
 }
 
 const props = withDefaults(defineProps<Props>(), {

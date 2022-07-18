@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IImageProps, UnpluginIcon } from '~/types'
+import type { IImageProps, IUnpluginIcon } from '~/types'
 
 type Props = {
   image: IImageProps
@@ -9,7 +9,7 @@ type Props = {
   title: string
   email: string
   biography?: {
-    icon?: UnpluginIcon
+    icon?: IUnpluginIcon
     iconClass?: string
     text?: string
     html?: string

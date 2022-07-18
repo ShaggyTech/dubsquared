@@ -1,6 +1,8 @@
 import type { RouteLocationRaw } from 'vue-router'
 import type UnpluginIcon from '~icons/*'
 
+export type IUnpluginIcon = UnpluginIcon
+
 export type IDropdownItem = {
   to?: string
   icon?: UnpluginIcon

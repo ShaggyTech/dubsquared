@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import type { RouteLocationRaw } from 'vue-router'
-import type { UnpluginIcon } from '~/types'
+import type { IUnpluginIcon } from '~/types'
 
 type Props = {
   to?: RouteLocationRaw
   href?: string
   role?: string
   text?: string
-  icon?: UnpluginIcon
+  icon?: IUnpluginIcon
 }
 const props = withDefaults(defineProps<Props>(), {
   to: undefined,

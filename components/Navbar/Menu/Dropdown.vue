@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
-import type { IDropdownItem, UnpluginIcon } from '~/types'
+import type { IDropdownItem, IUnpluginIcon } from '~/types'
 
 type Variant = 'desktop' | 'mobile'
 type Variants = Record<Variant, string>
 
 interface Props {
   menuItems?: IDropdownItem[]
-  icon?: UnpluginIcon
+  icon?: IUnpluginIcon
   text?: string
   variant?: Variant
   to?: string
