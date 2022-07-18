@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@vueuse/motion/nuxt',
     'nuxt-windicss',
     'unplugin-icons/nuxt',
+    '~/modules/sitemap',
   ],
   build: {
     transpile: ['@headlessui/vue'],
