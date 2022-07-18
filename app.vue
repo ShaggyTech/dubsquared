@@ -20,7 +20,7 @@ const routeTitle = computed(() =>
 </script>
 
 <template>
-  <Html :class="`${theme === 'dark' ? 'dark' : ''}`">
+  <Html :class="`${theme === 'dark' ? 'dark' : ''}`" lang="en">
     <Head>
       <Title>{{ routeTitle }} Dubsquared - VW & Audi Specialists</Title>
       <Meta
@@ -35,7 +35,7 @@ const routeTitle = computed(() =>
       <Link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
     <Body
-      class="font-nunito antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-800"
+      class="bg-gray-200 dark:bg-zinc-800 text-gray-800 dark:text-gray-200 font-nunito antialiased duration-300 transition-colors"
     >
       <NuxtLayout>
         <NuxtPage />
