@@ -74,7 +74,7 @@ export default { name: 'NavbarBuilder' }
                 class="flex items-center p-2 text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
-                <IconMdi:menu style="font-size: 1.4em" />
+                <IconMdi:menu class="text-1.2em" />
               </span>
             </button>
           </div>

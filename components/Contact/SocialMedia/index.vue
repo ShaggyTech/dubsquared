@@ -5,7 +5,7 @@ export default { name: 'ContactSocialMedia' }
 <template>
   <div class="grid grid-flow-col place-items-center">
     <Anchor href="https://www.instagram.com/dubsquared.llc" title="Instagram">
-      <IconCib:instagram style="color: #bb20c9" />
+      <IconCib:instagram class="text-fuchsia-800" />
     </Anchor>
     <Anchor href="https://www.facebook.com/vwaudirepair/" title="Facebook">
       <IconLogos:facebook />

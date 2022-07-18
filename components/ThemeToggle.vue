@@ -9,10 +9,10 @@
       <ListboxLabel class="sr-only">Theme</ListboxLabel>
       <ListboxButton type="button" title="Change theme">
         <span class="flex justify-center items-center dark:hidden">
-          <IconUil:sun style="font-size: 1.2em" />
+          <IconUil:sun class="text-1.2em" />
         </span>
         <span class="justify-center items-center hidden dark:flex">
-          <IconUil:moon style="font-size: 1.2em" />
+          <IconUil:moon class="text-1.2em" />
         </span>
       </ListboxButton>
       <transition
