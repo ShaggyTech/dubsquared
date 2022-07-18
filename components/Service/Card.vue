@@ -38,7 +38,7 @@ const rootStyles = reactive<Variants>({
     bg-no-repeat bg-contain z-10
   `,
   small: `
-    flex flex-col items-center w-fit mx-4 text-stone-100 rounded-t-lg 
+    flex flex-col items-center w-fit text-stone-100 rounded-t-lg 
     bg-no-repeat bg-contain z-10 sm:mx-0
   `,
 })
@@ -177,7 +177,7 @@ export default { name: 'ServiceCard' }
       <div ref="iconRef" :class="`${selectedIconStyle} ${iconStyle}`">
         <slot name="heading-icon" />
       </div>
-      <h2><slot name="heading-text" /></h2>
+      <h3><slot name="heading-text" /></h3>
     </div>
     <div :class="`${selectedParagraphStyle} ${paragraphStyle}`">
       <hr ref="dividerRef" :class="`${selectedDividerStyle} ${dividerStyle}`" />
