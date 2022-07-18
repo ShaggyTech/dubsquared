@@ -1,7 +1,5 @@
-import type { FunctionalComponent } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
-
-export type UnpluginIcon = FunctionalComponent
+import type UnpluginIcon from '~icons/*'
 
 export type IDropdownItem = {
   to?: string
