@@ -183,9 +183,7 @@ export default { name: 'NavbarMenuMobile' }
             <div class="border-b-2 border-stone-500/50" />
             <!-- Theme Toggle -->
             <div class="flex flex-col px-2 apple-safe-area--right">
-              <div class="ml-2 text-sm capitalize">
-                {{ $t('components.theme_switcher.change_theme') }}
-              </div>
+              <div class="ml-2 text-sm capitalize">Change Theme</div>
               <div class="mt-2">
                 <LazyThemeToggle variant="select-box" />
               </div>

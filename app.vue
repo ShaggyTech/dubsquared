@@ -7,7 +7,6 @@ import { ITheme } from './utils/theme'
 AppSetup()
 
 const theme = useState<ITheme>('theme.current')
-const locale = useState<string>('locale.setting')
 
 const fontsHref = ref(
   'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300;400;500;600;700&display=swap'
@@ -21,7 +20,7 @@ const routeTitle = computed(() =>
 </script>
 
 <template>
-  <Html :class="`${theme === 'dark' ? 'dark' : ''}`" :lang="locale">
+  <Html :class="`${theme === 'dark' ? 'dark' : ''}`">
     <Head>
       <Title>{{ routeTitle }} Dubsquared - VW & Audi Specialists</Title>
       <Meta
@@ -36,7 +35,7 @@ const routeTitle = computed(() =>
       <Link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
     <Body
-      class="antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-800"
+      class="font-nunito antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-gray-200 dark:bg-zinc-800"
     >
       <NuxtLayout>
         <NuxtPage />

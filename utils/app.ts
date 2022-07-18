@@ -1,5 +1,4 @@
 import { ThemeManager } from './theme'
-import { LanguageManager } from './lang'
 
 import type { IApp } from '~/types'
 
@@ -17,12 +16,8 @@ export function AppSetup() {
   // use theme manager
   const themeManager = ThemeManager()
 
-  // use language manager
-  const languageManager = LanguageManager()
-
   return {
     app,
     themeManager,
-    languageManager,
   }
 }
