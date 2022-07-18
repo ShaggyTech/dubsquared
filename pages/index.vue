@@ -16,8 +16,8 @@ const heroObserverName = ref('page-home-hero-section-observer')
       <PageHomeHero :observer-key="heroObserverName" />
     </PageHeader>
 
-    <LazyPageHomeCallToAction id="get-in-touch" class="mobile-safe-area" />
-    <LazyPageHomeIntroduction id="introduction" />
+    <PageHomeCallToAction id="get-in-touch" class="mobile-safe-area" />
+    <PageHomeIntroduction id="introduction" />
 
     <!-- section business hours and location -->
     <section
@@ -26,8 +26,8 @@ const heroObserverName = ref('page-home-hero-section-observer')
     >
       <!-- container business hours and location -->
       <div class="grid grid-rows-2 gap-6 md:(grid-rows-1 grid-cols-2)">
-        <LazyContactCardHours />
-        <LazyContactCardAddress />
+        <ContactCardHours />
+        <ContactCardAddress />
       </div>
     </section>
 
@@ -47,7 +47,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
       id="services"
       class="py-24 bg-stone-100 lg:py-32 dark:bg-zinc-900/60 mobile-safe-area"
     >
-      <LazyPageSectionHeader
+      <PageSectionHeader
         title="Services"
         paragraph="Dubsquared provides a wide variety of automotive services for Audi and Volkswagen vehicles."
         anchor-text="See all of our offered services"
@@ -56,16 +56,16 @@ const heroObserverName = ref('page-home-hero-section-observer')
         <template #icon>
           <IconMdi:carCog class="text-6xl lg:text-7xl text-yellow-500" />
         </template>
-      </LazyPageSectionHeader>
+      </PageSectionHeader>
 
-      <LazyServiceCardGroupSmall />
+      <ServiceCardGroupSmall />
     </section>
 
     <section
       id="testimonials"
       class="py-24 bg-stone-200 lg:py-32 dark:bg-zinc-900 mobile-safe-area"
     >
-      <LazyPageSectionHeader
+      <PageSectionHeader
         title="Testimonials"
         paragraph="See what our clients have to say about our work"
         anchor-text="Read all of our reviews on Google"
@@ -85,9 +85,9 @@ const heroObserverName = ref('page-home-hero-section-observer')
         >
           Leave us a review and let us know how we did
         </Anchor>
-      </LazyPageSectionHeader>
+      </PageSectionHeader>
 
-      <LazyTestimonialCardGroup />
+      <TestimonialCardGroup />
     </section>
 
     <!-- Authorized Dealer for -->

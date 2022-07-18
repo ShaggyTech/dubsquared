@@ -59,10 +59,10 @@ export default { name: 'NavbarMenu' }
       </ul>
     </nav>
     <!-- Desktop - Social Nav -->
-    <LazyContactSocialMedia class="icon-section gap-6 text-xl" />
+    <ContactSocialMedia class="icon-section gap-6 text-xl" />
     <!-- Desktop - App Options -->
     <div class="icon-section">
-      <LazyThemeToggle />
+      <ThemeToggle />
     </div>
   </div>
 </template>

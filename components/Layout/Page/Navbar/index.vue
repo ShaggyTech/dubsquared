@@ -110,7 +110,7 @@ export default { name: 'LayoutPageNavbar' }
   >
     <!-- Banner -->
     <template #banner>
-      <LazyNavbarBanner
+      <NavbarBanner
         :items="contactBarItems"
         :class="`
             grid-flow-col bg-red-800 border-t border-b border-stone-500/70
@@ -129,18 +129,18 @@ export default { name: 'LayoutPageNavbar' }
     <template #title>
       <NuxtLink tag="a" class="mr-4 py-1" :to="{ name: 'index' }">
         <span class="sr-only">home</span>
-        <LazySVGDubsquaredTextLogo class="h-12 w-36 xl:(h-14 w-40)" />
+        <SVGDubsquaredTextLogo class="h-12 w-36 xl:(h-14 w-40)" />
       </NuxtLink>
     </template>
 
     <!-- Desktop Menu -->
     <template #menu>
-      <LazyNavbarMenu :menu="menuItems" />
+      <NavbarMenu :menu="menuItems" />
     </template>
 
     <!-- Mobile Menu -->
     <template #options="{ toggleOptions }">
-      <LazyNavbarMenuMobile
+      <NavbarMenuMobile
         header-text="Navigation"
         :menu="mobileMenuItems"
         @onClose="toggleOptions(false)"
