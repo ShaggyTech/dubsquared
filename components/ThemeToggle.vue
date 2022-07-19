@@ -6,8 +6,10 @@
       as="div"
       class="relative flex items-center"
     >
-      <ListboxLabel class="sr-only">Theme</ListboxLabel>
-      <ListboxButton type="button" title="Change theme">
+      <ListboxLabel for="theme-dropdown-btn" class="sr-only"
+        >Theme</ListboxLabel
+      >
+      <ListboxButton id="theme-dropdown-btn" type="button" title="Change theme">
         <span class="flex justify-center items-center dark:hidden">
           <IconUil:sun class="text-1.2em" />
         </span>

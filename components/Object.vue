@@ -71,5 +71,7 @@ export default { name: 'Object' }
     :name="name"
     :type="type"
     :aria-label="name"
-  ></object>
+  >
+    {{ name }}
+  </object>
 </template>
