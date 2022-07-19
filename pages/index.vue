@@ -73,7 +73,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
         anchor-target="_blank"
       >
         <template #icon>
-          <TestimonialStars
+          <LazyTestimonialStars
             star-class="h-6 w-6 sm:(h-7 w-7) lg:(h-8 w-8)"
             class="gap-2"
           />

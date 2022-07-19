@@ -55,13 +55,13 @@ export default { name: 'PageHomeHero' }
     <!-- hero content wrapper -->
     <div
       :class="`
-        grid place-items-center content-center gap-8 pt-10 pb-20 px-4
+        grid place-items-center content-center w-full min-h-screen gap-8 pt-10 pb-20 px-4
         bg-stone-900/95 text-stone-200 text-4xl
-        md:(text-5xl) lg:(gap-20 pt-20 text-6xl min-h-[min(100vh,1000px)])
+        md:(text-5xl) lg:(min-h-[min(100vh,1000px)] gap-20 pt-20 text-6xl)
       `"
     >
       <!-- hero logo -->
-      <LazySVGDubsquaredSquareLogo
+      <SVGDubsquaredSquareLogo
         :class="`
           animate-swivel-in logo__dubsquared
           h-36 w-36 rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm
@@ -70,15 +70,15 @@ export default { name: 'PageHomeHero' }
       />
       <!-- hero text -->
       <div
-        class="grid gap-y-8 text-stone-200 text-center text-shadow-xl tracking-wide md:gap-y-10"
+        class="grid gap-y-10 text-stone-200 text-center text-shadow-xl tracking-wide"
       >
         <!-- hero brand logos -->
         <div class="grid grid-flow-col justify-between place-items-center px-8">
-          <LazySVGLogoVolkswagen
+          <SVGLogoVolkswagen
             alt="Volkswagen logo"
             class="logo__volkswagen h-1.5em w-auto animate-swivel-in sm:pl-8"
           />
-          <LazySVGLogoAudi
+          <SVGLogoAudi
             alt="Audi logo"
             class="logo__audi h-1em w-auto animate-swivel-in"
           />
@@ -121,10 +121,10 @@ $base-animation-delay: 1500ms;
 
 .hero__container {
   background-image: url('/images/placeholder-1080x720.webp');
-  filter: blur(100px);
+  filter: blur(50px);
   transition-property: filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  transition-duration: 400ms;
 
   @supports (-webkit-touch-callout: none) {
     background-attachment: scroll;
@@ -145,28 +145,28 @@ $base-animation-delay: 1500ms;
 }
 
 .logo__dubsquared {
-  animation-delay: 1000ms;
+  animation-delay: 400ms;
   animation-duration: 0.6s;
 }
 .logo__volkswagen {
-  animation-delay: 1300ms;
+  animation-delay: 600ms;
   animation-duration: 0.6s;
 }
 .logo__audi {
-  animation-delay: 1500ms;
+  animation-delay: 800ms;
   animation-duration: 0.6s;
 }
 
 .hero__heading {
-  animation-delay: 1800ms;
+  animation-delay: 1000ms;
   animation-duration: 0.6s;
 }
 .hero__spacer {
-  animation-delay: 2100ms;
+  animation-delay: 1200ms;
   animation-duration: 0.6s;
 }
 .hero__subheading {
-  animation-delay: 2300ms;
+  animation-delay: 1400ms;
   animation-duration: 0.6s;
 }
 
