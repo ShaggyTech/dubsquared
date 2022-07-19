@@ -22,7 +22,17 @@ export default defineNuxtConfig({
     transpile: ['@headlessui/vue'],
   },
   pwa: {
-    workbox: false,
+    meta: {
+      // nativeUI: false,
+      theme_color: '#7c0000',
+      ogHost: 'dubsquared.com',
+    },
+    manifest: {
+      name: 'Dubsquared',
+      short_name: 'Dubsquared',
+      description:
+        'Independent Volkswagen and Audi shop located in Arlington, TX',
+    },
   },
   vite: {
     // @ts-ignore
