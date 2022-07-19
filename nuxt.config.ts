@@ -15,10 +15,14 @@ export default defineNuxtConfig({
     '@vueuse/motion/nuxt',
     'nuxt-windicss',
     'unplugin-icons/nuxt',
+    '@kevinmarrec/nuxt-pwa',
     '~/modules/sitemap',
   ],
   build: {
     transpile: ['@headlessui/vue'],
+  },
+  pwa: {
+    workbox: false,
   },
   vite: {
     // @ts-ignore
