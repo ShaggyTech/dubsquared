@@ -77,7 +77,7 @@ export default { name: 'NavbarMenuMobile' }
             :class="`
               relative grid grid-cols-1 gap-y-8 h-full w-full px-2 sm:px-4 pt-8 pb-32
               border-l-8 border-red-900/80 dark:border-red-900/70
-              bg-stone-300 dark:bg-zinc-800
+              bg-zinc-200 dark:bg-zinc-800
               overflow-x-hidden overflow-y-auto
             `"
           >
@@ -119,20 +119,19 @@ export default { name: 'NavbarMenuMobile' }
               <ul
                 role="menu"
                 aria-labelledby="mobile-nav-button"
-                class="grid gap-4 px-2"
+                class="grid gap-y-5 px-2"
               >
                 <!-- Menu Item -->
                 <li
                   v-for="(item, i) in menu"
                   :key="i"
                   role="none"
-                  :class="[
-                    'flex place-items-center w-full',
-                    item.variant === 'link' || 'dropdown'
-                      ? `rounded shadow shadow-stone-300 dark:shadow-zinc-800 transition-colors duration-300
-                        hover:(bg-stone-100/90 shadow-stone-400 dark:bg-red-800/40 dark:shadow-zinc-900)`
-                      : '',
-                  ]"
+                  :class="`
+                    flex place-items-center w-full
+                    rounded shadow shadow-zinc-300 transition-colors duration-200
+                    hover:(bg-zinc-100/90 shadow-zinc-400 dark:bg-red-800/40 dark:shadow-zinc-900/60)
+                    dark:shadow-zinc-900/20
+                  `"
                 >
                   <Anchor
                     v-if="item.variant === 'link'"
@@ -142,8 +141,8 @@ export default { name: 'NavbarMenuMobile' }
                     class="nav-link"
                     :class="`
                       flex-1 px-2 py-2 rounded border-b-2 border-transparent
-                      font-bold capitalize tracking-wider leading-8 text-stone-700 dark:text-stone-300
-                      hover:(text-red-900 border-red-900/80 dark:text-stone-100)
+                      font-bold capitalize tracking-wider leading-8 text-zinc-800 dark:text-zinc-200
+                      hover:(text-red-900 border-red-900/80 dark:text-zinc-100)
                     `"
                   >
                     <template #icon>
@@ -168,6 +167,7 @@ export default { name: 'NavbarMenuMobile' }
                     :menu-items="item.dropdownItems"
                     variant="mobile"
                     to="/services"
+                    class="text-zinc-800 dark:text-zinc-100"
                   >
                     <template #icon>
                       <div v-if="item.icon" class="px-2">

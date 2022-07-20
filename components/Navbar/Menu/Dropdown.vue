@@ -32,15 +32,15 @@ const menuButtonStyles = reactive<Variants>({
     flex items-center p-2
     border-b-2 border-transparent
     text-lg font-bold text-center tracking-wide
-    text-zinc-800 dark:text-gray-300 cursor-pointer
+    text-zinc-800 dark:text-zinc-200 cursor-pointer
     hover:(text-zinc-900 dark:text-white border-red-600 no-underline) transition
   `,
   mobile: `
     flex items-center w-full px-2 py-2
     rounded border-b-2 border-transparent
     font-bold capitalize tracking-wider leading-8
-    text-stone-700 dark:text-stone-300 cursor-pointer
-    hover:(text-red-900 dark:text-stone-100 border-red-900/80 no-underline)
+    text-zinc-800 dark:text-zinc-200 cursor-pointer
+    hover:(text-red-900 dark:text-zinc-100 border-red-900/80 no-underline)
   `,
 })
 

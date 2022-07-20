@@ -103,22 +103,18 @@ export default { name: 'LayoutPageNavbar' }
 <template>
   <NavbarBuilder
     :class="`
-      border-b-2 border-red-600/80 shadow-md bg-stone-300/70
+      border-b-2 border-red-700 shadow-md bg-zinc-300/70
       backdrop-filter backdrop-blur transition-colors duration-300
-      dark:(bg-zinc-800/70 border-red-600/80)
+      dark:(bg-zinc-800/70 border-red-700)
     `"
   >
     <!-- Banner -->
     <template #banner>
       <NavbarBanner
         :items="contactBarItems"
-        :class="`
-            grid-flow-col bg-red-800 border-t border-b border-stone-500/70
-            transition-colors duration-300
-          `"
+        class="grid-flow-col bg-red-800 transition-colors duration-300"
         :anchor-class="`
-            col-span-1 px-1 py-2
-            text-stone-200 text-sm text-center tracking-widest
+            col-span-1 px-1 py-2 text-stone-200 text-sm text-center tracking-widest
             sm:px-4 lg:text-base hover:text-white
           `"
         icon-class="px-1"
