@@ -26,7 +26,7 @@ const heroBackgroundImage: IImageProps = {
       type: 'image/webp',
     },
   ],
-  placeholder: '/images/placeholder-1080x810.webp',
+  placeholder: '/images/placeholders/placeholder-1080x810.webp',
 }
 </script>
 

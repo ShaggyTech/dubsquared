@@ -107,7 +107,6 @@ export default { name: 'NavbarMenuMobile' }
                 alt="dubsquared logo"
                 height="64px"
                 width="64px"
-                src="~assets/icons/dubsquared-logo-white_optimized.svg"
                 class="bg-zinc-800 dark:bg-transparent"
               />
             </div>

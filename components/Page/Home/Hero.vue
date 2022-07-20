@@ -120,7 +120,7 @@ export default { name: 'PageHomeHero' }
 $base-animation-delay: 1500ms;
 
 .hero__container {
-  background-image: url('/images/placeholder-1080x720.webp');
+  background-image: url('/images/placeholders/placeholder-1080x720.webp');
   filter: blur(50px);
   transition-property: filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -136,10 +136,10 @@ $base-animation-delay: 1500ms;
   // different background images only fetched once .seen class is added via intersection observer
   &.seen {
     filter: blur(0px);
-    background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1080x720.webp');
+    background-image: url('/images/audi-r8-hardpoint-front-1080x720.webp');
 
     @screen lg {
-      background-image: url('/images/hardpoint-r8/audi-r8-hardpoint-front-view-1920x1278.webp');
+      background-image: url('/images/audi-r8-hardpoint-front-1920x1278.webp');
     }
   }
 }
