@@ -106,7 +106,7 @@ export default { name: 'ServiceCardGroup' }
         </div>
         <p>
           Our current diagnostic fee is
-          <span class="font-bold text-green-400">$130/hr</span>
+          <span class="font-bold text-green-500">$130/hr</span>
           with a minimum of
           <span class="font-bold">1</span> hour required. If repairs based on
           the diagnosis are authorized and performed within 30 days, then the
@@ -143,7 +143,7 @@ export default { name: 'ServiceCardGroup' }
       button-to="/performance-upgrades"
     >
       <template #heading-icon
-        ><IconMdi:carTurbocharger class="text-red-500"
+        ><IconMdi:carTurbocharger class="text-red-600"
       /></template>
       <template #heading-text>Performance Upgrades</template>
       <template #paragraph>

@@ -67,7 +67,7 @@ export default { name: 'PagesDiagnostics' }
           </div>
           <p>
             Our current diagnostic fee is
-            <span class="font-bold text-green-400">$130/hr</span>
+            <span class="font-bold text-green-500">$130/hr</span>
             with a minimum of
             <span class="font-bold">1</span> hour required. If repairs based on
             the diagnosis are authorized and performed within 30 days, then the

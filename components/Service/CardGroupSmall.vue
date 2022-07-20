@@ -69,7 +69,7 @@ export default { name: 'ServiceCardGroupSmall' }
       variant="small"
     >
       <template #heading-icon
-        ><IconMdi:carTurbocharger class="text-red-500"
+        ><IconMdi:carTurbocharger class="text-red-600"
       /></template>
       <template #heading-text>Performance Upgrades</template>
       <template #paragraph>

@@ -131,7 +131,7 @@ export default { name: 'ContactCardHours' }
       ref="iconRef"
       :class="[
         'h-[2.2em] w-[2.2em] animate-spin animate-duration-60s',
-        isBusinessOpen ? 'text-green-500' : 'text-red-500',
+        isBusinessOpen ? 'text-green-500' : 'text-red-600',
       ]"
     />
     <div ref="headingRef" class="text-1.5em font-kanit">Shop Hours</div>

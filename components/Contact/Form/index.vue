@@ -31,7 +31,7 @@ export default { name: 'ContactForm' }
             input: 'font-kanit dark:(bg-zinc-900 text-stone-100)',
             label: 'tracking-wider',
             message: 'text-lg dark:text-yellow-400',
-            help: 'text-red-400 dark:text-yellow-400',
+            help: 'text-red-600 dark:text-yellow-400',
           },
         }"
         submit-label="Send"
@@ -204,7 +204,7 @@ export default { name: 'ContactForm' }
       </FormKit>
       <div
         v-if="submitted"
-        class="grid gap-4 place-items-center px-8 py-12 text-center font-semibold text-green-900 dark:text-green-500 dark:bg-zinc-900"
+        class="grid gap-4 place-items-center px-8 py-12 text-center font-semibold text-green-800 dark:text-green-500 dark:bg-zinc-900"
       >
         <IconIconParkOutline:message-success class="text-4xl lg:text-5xl" />
         <h2 class="text-2xl lg:text-3xl">Submission successful!</h2>

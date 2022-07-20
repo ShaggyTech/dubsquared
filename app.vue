@@ -35,7 +35,7 @@ const routeTitle = computed(() =>
       <Link rel="icon" type="image/png" href="/favicon.png" />
     </Head>
     <Body
-      class="bg-gray-200 dark:bg-zinc-800 text-gray-800 dark:text-gray-200 font-nunito antialiased duration-300 transition-colors"
+      class="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-nunito antialiased duration-300 transition-colors"
     >
       <NuxtLayout>
         <NuxtPage />
