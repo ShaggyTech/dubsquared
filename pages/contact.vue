@@ -48,19 +48,21 @@ export default { name: 'PagesContact' }
         :background-image="heroBackgroundImage"
       />
     </PageHeader>
-    <PageBody class="mt-20 grid gap-14">
+    <PageBody class="grid gap-14">
       <PageSection
         :class="`
-          grid place-items-center text-center mx-auto max-w-8xl py-20 rounded
-          prose prose-lg bg-gray-100 lg:(py-24 prose-xl) dark:bg-zinc-900
+          grid place-items-center gap-10 w-full max-w-8xl mx-auto py-20
+          text-center bg-zinc-200 prose lg:(py-24) dark:bg-zinc-900
         `"
       >
-        <p class="text-center max-w-4xl">
+        <h2 class="max-w-4xl text-center font-bold">
           Give us a ring, send a message, or come by and check out the shop!
-        </p>
-        <div class="flex flex-col items-center text-center mt-4 font-bold">
-          <Anchor to="/meet-the-team" class="!font-bold">Read our Story</Anchor>
-          to learn more about the shop.
+        </h2>
+        <div class="flex flex-col items-center text-center font-semibold">
+          <Anchor to="/about#our-story" class="!font-bold"
+            >Read our Story</Anchor
+          >
+          to learn more about our history and our mission.
         </div>
       </PageSection>
       <PageSection class="py-8 lg:(py-12)">

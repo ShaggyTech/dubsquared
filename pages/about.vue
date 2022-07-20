@@ -68,6 +68,7 @@ export default { name: 'PagesAbout' }
         </div>
       </PageSection>
       <LazyPageSection
+        id="our-story"
         :class="`
           section-about grid place-items-center max-w-6xl mx-auto py-20
           prose prose-lg bg-zinc-200/20 lg:(py-32 prose-xl) dark:bg-zinc-800
