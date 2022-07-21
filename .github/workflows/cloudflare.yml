@@ -35,7 +35,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn cloudflare-build
         env:
           NITRO_PRESET: cloudflare
 

@@ -38,12 +38,12 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn cloudflare-build
         env:
           NITRO_PRESET: cloudflare
 
-      - name: Publish to Cloudflare
+      - name: Publish to Cloudflare Dev
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          command: wrangler publish --config wrangler.dev.toml
+          command: publish --config wrangler.dev.toml
