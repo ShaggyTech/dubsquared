@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ${{ matrix.os }}
 
-    name: Deploy
+    name: Deploy Production
 
     strategy:
       matrix:
