@@ -1,7 +1,10 @@
-name: cloudflare
+name: cloudflare-dev
 
 on:
   push:
+    branches:
+      - next
+  pull_request:
     branches:
       - main
 
@@ -9,7 +12,7 @@ jobs:
   deploy:
     runs-on: ${{ matrix.os }}
 
-    name: Deploy Production
+    name: Deploy Dev
 
     strategy:
       matrix:
@@ -40,6 +43,7 @@ jobs:
           NITRO_PRESET: cloudflare
 
       - name: Publish to Cloudflare
-        uses: cloudflare/wrangler-action@1.3.0
+        uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: wrangler publish --config wrangler.dev.toml

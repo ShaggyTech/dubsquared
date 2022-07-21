@@ -13,6 +13,7 @@
     "dev": "nuxt dev",
     "cloudflare-build": "NITRO_PRESET=cloudflare yarn build",
     "cloudflare-dev": "yarn cloudflare-build && nuxt start",
+    "cloudflare-publish-dev": "yarn cloudflare-build && wrangler publish --config wrangler.dev.toml",
     "cloudflare-publish": "yarn cloudflare-build && wrangler publish",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

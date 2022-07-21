@@ -1,0 +1,13 @@
+name = "dubsquared-next"
+type = "javascript"
+account_id = "e447e4c0da31cb819d3fead9bccbce1d"
+workers_dev = true
+compatibility_date = "2022-04-07"
+
+[site]
+bucket = ".output/public"
+entry-point = ".output"
+
+[build]
+command = ""
+upload.format = "service-worker"
