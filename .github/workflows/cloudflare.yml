@@ -1,13 +1,12 @@
 name: cloudflare
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  ci:
+  deploy:
     runs-on: ${{ matrix.os }}
+
+    name: Deploy
 
     strategy:
       matrix:
@@ -15,15 +14,15 @@ jobs:
         node: [16]
 
     steps:
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
 
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3.0.5
         with:
           path: node_modules
           key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
@@ -38,6 +37,6 @@ jobs:
           NITRO_PRESET: cloudflare
 
       - name: Publish to Cloudflare
-        uses: cloudflare/wrangler-action@1.3.0
+        uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
