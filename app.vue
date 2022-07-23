@@ -17,6 +17,13 @@ const route = useRoute()
 const routeTitle = computed(() =>
   route.meta.title !== 'Home' ? `${route.meta.title} -` : ''
 )
+const routeCanonical = computed(() => {
+  if (route.meta.title?.includes('Error')) return undefined
+  else
+    return `https://dubsquared.com${route.path}${
+      route.path.length > 1 ? '/' : ''
+    }`
+})
 </script>
 
 <template>
@@ -33,6 +40,7 @@ const routeTitle = computed(() =>
       <Link rel="preload" as="style" :href="fontsHref" />
       <Link rel="stylesheet" :href="fontsHref" defer="true" />
       <Link rel="icon" type="image/png" href="/favicon.png" />
+      <Link v-if="routeCanonical" rel="canonical" :href="routeCanonical" />
     </Head>
     <Body
       class="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-nunito antialiased duration-300 transition-colors"

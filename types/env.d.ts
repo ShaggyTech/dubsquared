@@ -20,4 +20,11 @@ declare global {
   type GS = typeof globalThis & GlobalSecrets
 }
 
+declare module '#app' {
+  interface PageMeta {
+    title?: string
+    description?: string
+  }
+}
+
 export {}
