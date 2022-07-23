@@ -6,21 +6,15 @@ type Props = {
     message: string
   }
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   error: undefined,
 })
 
 definePageMeta({
   layout: 'page',
-})
-useHead({
-  title: `Error ${props.error?.statusCode ? props.error.statusCode : ''}`,
-  meta: [
-    {
-      name: 'description',
-      content: `An error occured: ${props.error?.statusMessage}`,
-    },
-  ],
+  title: 'Error',
+  description: 'An Error Occurred',
 })
 
 const handleError = () => {
