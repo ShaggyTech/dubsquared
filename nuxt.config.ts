@@ -3,8 +3,22 @@ import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
-  components: true,
-  css: ['~/assets/sass/vendor.scss'],
+  nitro: {
+    rollupConfig: {
+      output: {
+        generatedCode: {
+          symbols: true,
+        },
+      },
+    },
+  },
+  css: [
+    'virtual:windi-base.css',
+    'virtual:windi-components.css',
+    'virtual:windi-utilities.css',
+    'virtual:windi-devtools',
+    '~/assets/sass/vendor.scss',
+  ],
   runtimeConfig: {
     sendgridApiKey: '',
   },
