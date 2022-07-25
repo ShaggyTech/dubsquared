@@ -24,12 +24,13 @@ export default defineNuxtConfig({
   },
   modules: [
     '@formkit/nuxt',
+    '@kevinmarrec/nuxt-pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
+    '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-windicss',
     'unplugin-icons/nuxt',
-    '@kevinmarrec/nuxt-pwa',
     '~/modules/sitemap',
   ],
   build: {
