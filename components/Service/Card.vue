@@ -14,7 +14,7 @@ interface Props {
   buttonText?: string
   buttonTo?: string
   buttonVariant?: ButtonVariant
-  backgroundImage?: string
+  backgroundImage?: { src: string; cloudinaryId: string; alt: string }
   variant?: Variant
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,11 +26,9 @@ const props = withDefaults(defineProps<Props>(), {
   buttonText: '+ Learn More',
   buttonTo: undefined,
   buttonVariant: 'primary',
-  backgroundImage: '',
+  backgroundImage: undefined,
   variant: 'default',
 })
-
-// ==========================================================
 
 const rootStyles = reactive<Variants>({
   default: `
@@ -90,16 +88,33 @@ const selectedButtonSize = computed(() =>
   props.variant === 'default' ? 'lg' : 'md'
 )
 
+const imgHeight = computed(() => {
+  if (props.variant === 'small') {
+    return 640
+  } else {
+    return 1080
+  }
+})
+const placeholder = useCloudinaryPlaceholder({
+  height: imgHeight.value,
+})
+const backgroundImage = useCloudinary({
+  path: props.backgroundImage.src,
+  id: props.backgroundImage.cloudinaryId,
+  height: imgHeight.value,
+})
+
 const cardRef = ref<HTMLElement>()
 const cardMotionVariants = ref<MotionVariants>({
   initial: {
     opacity: 0,
     scale: 0.98,
+    backgroundImage: `url('${placeholder}')`,
   },
   visible: {
     opacity: 1,
     scale: 1,
-    backgroundImage: `url('${props.backgroundImage}')`,
+    backgroundImage: `url('${backgroundImage}')`,
     transition: {
       duration: 500,
       delay: 100,
