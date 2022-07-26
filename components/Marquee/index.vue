@@ -74,7 +74,7 @@ export default { name: 'Marquee' }
 <template>
   <Vue3Marquee>
     <div
-      class="flex gap-x-32 items-center h-[100px] w- px-16 bg-gray-100 dark:bg-gray-100"
+      class="flex gap-x-32 items-center h-[100px] px-16 bg-gray-100 dark:bg-gray-100"
     >
       <Image
         v-for="(item, i) in logoCollection"
