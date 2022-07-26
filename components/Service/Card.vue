@@ -3,7 +3,7 @@ import { useMotion } from '@vueuse/motion'
 import type { MotionVariants } from '@vueuse/motion'
 
 type Variant = 'default' | 'small'
-type Variants = Record<Variant, string>
+type Variants = { [key in Variant]: string }
 type ButtonVariant = 'primary' | 'secondary'
 
 interface Props {
@@ -92,7 +92,7 @@ const imgHeight = computed(() => {
   if (props.variant === 'small') {
     return 640
   } else {
-    return 1080
+    return 810
   }
 })
 const placeholder = useCloudinaryPlaceholder({
