@@ -42,11 +42,12 @@ export type IPictureSrcSet = {
 
 export type IImageProps = {
   alt?: string
-  height?: string
-  width?: string
+  height?: string | number
+  width?: string | number
   src?: string
   srcSets?: SrcSet[]
-  placeholder?: string
+  placeholderSrc?: string
+  cloudinaryId?: string
 }
 
 export type IContactFormBody = {

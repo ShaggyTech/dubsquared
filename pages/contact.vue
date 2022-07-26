@@ -11,27 +11,8 @@ definePageMeta({
 const heroObserverName = ref('page-contact-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Car meetup at Dubsquared',
-  height: '1080',
-  width: '720',
-  src: '/images/shop-frontage--meetup-multicar-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1280x780.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1536px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
+  src: '/images/shop-frontage--meetup-multicar-1280x780.webp',
+  cloudinaryId: 'x142wq',
 }
 </script>
 

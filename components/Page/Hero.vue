@@ -6,18 +6,32 @@ interface Props {
   title?: string
   backgroundImage?: IImageProps
 }
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   title: '',
   backgroundImage: () => ({
-    alt: '',
-    height: '',
-    width: '',
-    src: '',
-    srcSets: [],
-    placeholder: '',
+    alt: undefined,
+    height: undefined,
+    width: undefined,
+    src: undefined,
+    placeholderSrc: undefined,
+    cloudinaryId: undefined,
   }),
 })
+
+// background image state
+const { width: windowWidth } = useWindowSize()
+const imgHeight = computed(() => (windowWidth.value < 1024 ? 720 : 1280))
+const imgWidth = computed(() => (windowWidth.value < 1024 ? 1080 : 1920))
+const imgSrc = computed(() =>
+  useCloudinary({
+    path: props.backgroundImage.src || '',
+    id: props.backgroundImage.cloudinaryId || '',
+    height: imgHeight.value,
+    width: imgWidth.value,
+  })
+)
 </script>
 
 <script lang="ts">
@@ -31,11 +45,21 @@ export default { name: 'PageHero' }
       lg:(min-h-[max(min(85vh,900px))]) max-h-screen)
     `"
   >
-    <LazyPicture
-      :image="backgroundImage"
-      variant="background"
-      :lazy="true"
+    <Image
+      :src="imgSrc"
+      :alt="props.backgroundImage.alt"
+      :height="imgHeight"
+      :width="imgWidth"
       :observer-key="observerKey"
+      :placeholder-src="
+        backgroundImage.placeholderSrc
+          ? backgroundImage.placeholderSrc
+          : useCloudinaryPlaceholder({
+              width: imgWidth,
+              height: imgHeight,
+            })
+      "
+      variant="background"
     />
     <div
       class="relative grid content-between place-items-center gap-14 bg-stone-900/70 h-full w-full pt-20"

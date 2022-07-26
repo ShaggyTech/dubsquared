@@ -20,11 +20,10 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   image: () => ({
     alt: '',
-    height: '',
-    width: '',
+    height: '450',
+    width: '375',
     src: '',
-    srcSets: [],
-    placeholder: '',
+    placeholderSrc: '',
   }),
   observerKey: undefined,
   seen: undefined,
@@ -45,7 +44,7 @@ export default { name: 'TeamMemberCard' }
   >
     <div class="flex flex-col w-full">
       <!-- Avatar -->
-      <LazyPicture
+      <Picture
         :image="image"
         :lazy="true"
         :observer-key="observerKey"

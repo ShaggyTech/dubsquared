@@ -2,10 +2,9 @@
 import type { IImageProps } from '~/types'
 
 type Variant = 'default' | 'background'
-type Variants = Record<
-  Variant,
-  { picture: string; source: string; img: string }
->
+type Variants = {
+  [key in Variant]: { picture: string; source: string; img: string }
+}
 
 type Props = {
   image: IImageProps
@@ -24,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
     width: '',
     src: '',
     srcSets: [],
-    placeholder: '',
+    placeholderSrc: '',
   }),
   sourceClass: '',
   imgClass: '',
@@ -56,10 +55,10 @@ const srcSets = computed(() => {
 const imgSrc = computed(() => {
   if (props.lazy) {
     if (props.seen || seen?.value) {
-      return props.image.src || props.image.placeholder || ''
+      return props.image.src || props.image.placeholderSrc || ''
     }
   } else {
-    return props.image.src || props.image.placeholder || ''
+    return props.image.src || props.image.placeholderSrc || ''
   }
 })
 
@@ -80,17 +79,16 @@ const selectedStyle = computed(() => styles[props.variant] || styles.default)
 onMounted(async () => {
   await nextTick()
   // only if lazy and props.observerKey provided
-  if (props.lazy && observer) {
+  if (observer && container?.value) {
     observer.value = new IntersectionObserver((entries) => {
       const el = entries[0]
       if (el.isIntersecting) {
         if (seen) seen.value = true
-        observer?.value?.disconnect()
+        observer.value?.disconnect()
       }
     })
 
-    if (container?.value && observer.value)
-      observer.value.observe(container.value)
+    if (observer.value) observer.value.observe(container.value)
   }
 })
 

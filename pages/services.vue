@@ -11,22 +11,8 @@ definePageMeta({
 const heroObserverName = ref('page-services-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Volkswagen R32 parked between two school buses',
-  height: '1080',
-  width: '720',
-  src: '/images/r32-bus-yard-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/r32-bus-yard-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/r32-bus-yard-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
+  src: '/images/r32-bus-yard-1920x1280.webp',
+  cloudinaryId: 'xboxyw',
 }
 </script>
 

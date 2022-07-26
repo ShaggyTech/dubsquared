@@ -13,23 +13,16 @@ definePageMeta({
 const heroObserverName = ref('page-about-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Volkswagen R32 parked between two school buses',
-  height: '1080',
-  width: '720',
-  src: '/images/r32-bus-yard-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/r32-bus-yard-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/r32-bus-yard-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
+  src: '/images/r32-bus-yard-1920x1280.webp',
+  cloudinaryId: 'xboxyw',
 }
+
+const placeholderSrc = useCloudinary({
+  path: 'images/placeholders/person-placeholder-375x450.webp',
+  id: 'dmwcsw',
+  height: 450,
+  width: 375,
+})
 </script>
 
 <script lang="ts">
@@ -73,7 +66,7 @@ export default { name: 'PagesMeetTheTeam' }
             />
 
             <div class="flex flex-wrap place-content-around gap-x-6 w-full">
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Philip W."
                 title="Owner"
                 email="philip@dubsquared.com"
@@ -97,13 +90,10 @@ export default { name: 'PagesMeetTheTeam' }
                 observer-key="team-member-philip-w"
                 :image="{
                   alt: 'Photo of team member Philip W.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
+                  placeholderSrc,
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Tyler S."
                 title="Technician"
                 email="tyler@dubsquared.com"
@@ -127,13 +117,10 @@ export default { name: 'PagesMeetTheTeam' }
                 observer-key="team-member-tyler-s"
                 :image="{
                   alt: 'Photo of team member Tyler S.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
+                  placeholderSrc,
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Brandon E."
                 title="Technician"
                 email="brandon@dubsquared.com"
@@ -167,13 +154,10 @@ export default { name: 'PagesMeetTheTeam' }
                 observer-key="team-member-brandon-e"
                 :image="{
                   alt: 'Photo of team member Brandon E.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
+                  placeholderSrc,
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Bryan H."
                 title="Customer Service Specialist"
                 email="bryan@dubsquared.com"
@@ -192,10 +176,7 @@ export default { name: 'PagesMeetTheTeam' }
                 observer-key="team-member-bryan-h"
                 :image="{
                   alt: 'Photo of team member Bryan H.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
+                  placeholderSrc,
                 }"
               />
             </div>

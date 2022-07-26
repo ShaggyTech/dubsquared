@@ -11,22 +11,8 @@ definePageMeta({
 const heroObserverName = ref('page-factory-maintenance-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Maintenance Parts',
-  height: '1080',
-  width: '810',
-  src: '/images/service-tune-ups-1080x810.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/service-tune-ups-1080x810.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/service-tune-ups-2400x1800.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x810.webp',
+  src: '/images/service-tune-ups-2400x1800.webp',
+  cloudinaryId: 'giem9s',
 }
 </script>
 

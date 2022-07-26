@@ -11,22 +11,8 @@ definePageMeta({
 const heroObserverName = ref('page-diagnostics-hero-section-observer')
 const heroBackgroundImage: IImageProps = {
   alt: 'Engine Diagnostic Procedure',
-  height: '1080',
-  width: '810',
-  src: '/images/service-diagnostic-1080x810.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/service-diagnostic-1080x810.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/service-diagnostic-2400x1800.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x810.webp',
+  src: '/images/service-diagnostic-2400x1800.webp',
+  cloudinaryId: 'reop1z',
 }
 </script>
 

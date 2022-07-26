@@ -1,11 +1,17 @@
 <script lang="ts" setup>
+type Variant = 'default' | 'background'
+type Variants = {
+  [key in Variant]: { figure: string; img: string }
+}
+
 interface Props {
   src: string
   placeholderSrc?: string
   alt?: string
-  lazy?: boolean | 'false' | 'true'
   observerKey?: string
+  lazy?: boolean | 'false' | 'true'
   seen?: boolean | 'false' | 'true'
+  variant?: Variant
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
@@ -15,6 +21,7 @@ const props = withDefaults(defineProps<Props>(), {
   lazy: false,
   observerKey: undefined,
   seen: undefined,
+  variant: 'default',
 })
 
 const containerRef = ref<HTMLElement>()
@@ -36,15 +43,27 @@ const imgSrc = computed(() => {
     if (props.seen || seen?.value) {
       return props.src
     } else {
-      return props.placeholderSrc
+      return props.placeholderSrc || ''
     }
   } else return props.src
 })
 
+const styles = reactive<Variants>({
+  default: {
+    figure: '',
+    img: '',
+  },
+  background: {
+    figure: 'absolute inset-0 -z-1',
+    img: 'w-full h-full object-cover object-center',
+  },
+})
+const selectedStyle = computed(() => styles[props.variant] || styles.default)
+
 onMounted(async () => {
   await nextTick()
   // only if lazy and props.observerKey provided
-  if (props.lazy && observer && container?.value) {
+  if (observer && container?.value) {
     observer.value = new IntersectionObserver((entries) => {
       const el = entries[0]
       if (el.isIntersecting) {
@@ -70,12 +89,13 @@ export default {
 </script>
 
 <template>
-  <figure ref="containerRef">
+  <figure ref="containerRef" :class="`${selectedStyle.figure}`">
     <img
       v-bind="$attrs"
       :alt="alt"
       :src="imgSrc"
       :loading="Boolean(lazy) ? 'lazy' : 'eager'"
+      :class="`${selectedStyle.img}`"
     />
   </figure>
 </template>
