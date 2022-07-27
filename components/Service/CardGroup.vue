@@ -36,6 +36,7 @@ const selectedStyle = computed(() => rootStyles[props.variant])
       heading-style="bg-zinc-900/70"
       paragraph-style="bg-red-900"
       button-to="/oil-changes"
+      button-variant="secondary"
       :variant="variant"
     >
       <template #heading-icon><IconMdi:oilLevel /></template>
