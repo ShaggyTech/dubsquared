@@ -91,23 +91,16 @@ export default { name: 'PagesAbout' }
           one of the quickest water cooled cars of it's time, known for breaking
           record after record in it's class.
         </p>
-        <Image
-          :src="
-            useCloudinary({
-              path: '/images/BillyT-vr6-gti.webp',
-              id: 'cnze4u',
-              height: 400,
-              width: 600,
-            })
-          "
-          :placeholder-src="
-            useCloudinaryPlaceholder({
-              height: 400,
-              width: 600,
-            })
-          "
+        <CloudinaryImage
+          :image="{
+            path: '/images/BillyT-vr6-gti.webp',
+            id: 'cnze4u',
+          }"
+          height="720"
+          width="1280"
+          alt="BillyT VR6 GTI"
           observer-key="about-page-image-BillyT-vr6-gti"
-          :lazy="true"
+          lazy="true"
           class="w-full h-auto max-w-3xl"
         />
         <p>

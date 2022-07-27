@@ -76,17 +76,13 @@ export default { name: 'Marquee' }
     <div
       class="flex gap-x-32 items-center h-[100px] px-16 bg-gray-100 dark:bg-gray-100"
     >
-      <Image
+      <CloudinaryImage
         v-for="(item, i) in logoCollection"
         :key="i"
-        :src="
-          useCloudinary({
-            path: item.src,
-            id: item.cloudinaryId,
-            height: logo.height,
-            width: logo.width,
-          })
-        "
+        :image="{
+          path: item.src,
+          id: item.cloudinaryId,
+        }"
         :alt="item.alt"
         v-bind="logo"
       />

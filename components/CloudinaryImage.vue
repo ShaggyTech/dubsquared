@@ -5,17 +5,20 @@ type Variants = {
 }
 
 interface Props {
-  src: string
-  placeholderSrc?: string
-  observerKey?: string
+  image: { path: string; id: string }
+  placeholder?: { path: string | undefined; id: string | undefined }
+  height?: string | number
+  width?: string | number
   lazy?: boolean | 'false' | 'true'
+  observerKey?: string
   seen?: boolean
   variant?: Variant
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const props = withDefaults(defineProps<Props>(), {
-  src: undefined,
-  placeholderSrc: undefined,
+  placeholder: undefined,
+  height: undefined,
+  width: undefined,
   lazy: false,
   observerKey: undefined,
   seen: undefined,
@@ -36,16 +39,37 @@ const seen = props.observerKey
   : undefined
 
 // image state
-const imgSrc = computed(() => {
-  if (props.seen !== undefined || props.observerKey) {
-    if (props.seen || seen?.value) {
-      return props.src
-    } else {
-      return props.placeholderSrc || ''
-    }
-  } else return props.src
+const imageSrc = useCloudinary({
+  path: props.image?.path,
+  id: props.image?.id,
+  height: props.height,
+  width: props.width,
 })
 
+const placeholderSrc =
+  props.placeholder?.path && props.placeholder?.id
+    ? useCloudinary({
+        path: props.placeholder.path,
+        id: props.placeholder.id,
+        height: props.height,
+        width: props.width,
+      })
+    : useCloudinaryPlaceholder({
+        height: props.height,
+        width: props.width,
+      })
+
+const computedSrc = computed(() => {
+  if (props.seen !== undefined || props.observerKey) {
+    if (props.seen || seen?.value) {
+      return imageSrc
+    } else {
+      return placeholderSrc
+    }
+  } else return imageSrc
+})
+
+// reactive styles based on props.variant
 const styles = reactive<Variants>({
   default: {
     figure: '',
@@ -81,7 +105,7 @@ onUnmounted(() => {
 
 <script lang="ts">
 export default {
-  name: 'Image',
+  name: 'CloudinaryImage',
   inheritAttrs: false,
 }
 </script>
@@ -90,7 +114,9 @@ export default {
   <figure ref="containerRef" :class="`${selectedStyle.figure}`">
     <img
       v-bind="$attrs"
-      :src="imgSrc"
+      :src="computedSrc"
+      :height="height"
+      :width="width"
       :loading="Boolean(lazy) ? 'lazy' : 'eager'"
       :class="`${selectedStyle.img}`"
     />

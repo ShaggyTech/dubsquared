@@ -4,8 +4,8 @@ interface Props {
   path: string
   id: string
   quality?: number
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   dpr?: string
 }
 
@@ -31,8 +31,8 @@ export const useCloudinaryPlaceholder = ({
   height,
   width,
 }: {
-  height?: number
-  width?: number
+  height?: number | string
+  width?: number | string
 }): string => {
   return useCloudinary({
     path: '/images/placeholders/placeholder-1080x810.webp',

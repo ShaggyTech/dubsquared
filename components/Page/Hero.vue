@@ -24,14 +24,6 @@ const props = withDefaults(defineProps<Props>(), {
 const { width: windowWidth } = useWindowSize()
 const imgHeight = computed(() => (windowWidth.value < 1024 ? 720 : 1280))
 const imgWidth = computed(() => (windowWidth.value < 1024 ? 1080 : 1920))
-const imgSrc = computed(() =>
-  useCloudinary({
-    path: props.backgroundImage.src || '',
-    id: props.backgroundImage.cloudinaryId || '',
-    height: imgHeight.value,
-    width: imgWidth.value,
-  })
-)
 </script>
 
 <script lang="ts">
@@ -45,20 +37,30 @@ export default { name: 'PageHero' }
       lg:(min-h-[max(min(85vh,900px))]) max-h-screen)
     `"
   >
-    <Image
-      :src="imgSrc"
-      :alt="props.backgroundImage.alt"
+    <CloudinaryImage
+      v-if="backgroundImage.cloudinaryId"
+      :image="{
+        path: backgroundImage.src,
+        id: backgroundImage.cloudinaryId,
+      }"
+      :placeholder="{
+        path: backgroundImage.placeholderSrc,
+        id: backgroundImage.cloudinaryId,
+      }"
+      :alt="backgroundImage.alt"
       :height="imgHeight"
       :width="imgWidth"
       :observer-key="observerKey"
-      :placeholder-src="
-        backgroundImage.placeholderSrc
-          ? backgroundImage.placeholderSrc
-          : useCloudinaryPlaceholder({
-              width: imgWidth,
-              height: imgHeight,
-            })
-      "
+      variant="background"
+    />
+    <Image
+      v-else
+      :src="backgroundImage.src"
+      :alt="backgroundImage.alt"
+      :height="imgHeight"
+      :width="imgWidth"
+      :observer-key="observerKey"
+      :placeholder-src="backgroundImage.placeholderSrc"
       variant="background"
     />
     <div
