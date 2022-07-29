@@ -1,29 +1,36 @@
 <script setup lang="ts">
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 interface Props {
-  observerKey: string
   title?: string
-  backgroundImage?: IImageProps
+  image?: IImage
+  observerKey?: string
 }
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   title: '',
-  backgroundImage: () => ({
-    alt: undefined,
+  image: () => ({
+    path: undefined,
+    cloudinaryId: undefined,
     height: undefined,
     width: undefined,
-    src: undefined,
-    placeholderSrc: undefined,
-    cloudinaryId: undefined,
+    alt: undefined,
+    placeholder: {
+      path: undefined,
+      cloudinaryId: undefined,
+      local: undefined,
+    },
   }),
+  observerKey: undefined,
 })
 
 // background image state
 const { width: windowWidth } = useWindowSize()
-const imgHeight = computed(() => (windowWidth.value < 1024 ? 720 : 1280))
-const imgWidth = computed(() => (windowWidth.value < 1024 ? 1080 : 1920))
+const imgHeight = computed(() => {
+  return props.image.height || windowWidth.value < 1024 ? 720 : 1280
+})
+const imgWidth = computed(() => {
+  return props.image.width || windowWidth.value < 1024 ? 1080 : 1920
+})
 </script>
 
 <script lang="ts">
@@ -38,29 +45,30 @@ export default { name: 'PageHero' }
     `"
   >
     <CloudinaryImage
-      v-if="backgroundImage.cloudinaryId"
+      v-if="image.cloudinaryId"
       :image="{
-        path: backgroundImage.src,
-        id: backgroundImage.cloudinaryId,
+        path: image.path,
+        cloudinaryId: image.cloudinaryId,
       }"
       :placeholder="{
-        path: backgroundImage.placeholderSrc,
-        id: backgroundImage.cloudinaryId,
+        path: image.placeholder?.path,
+        cloudinaryId: image.placeholder?.cloudinaryId,
+        local: image.placeholder?.local,
       }"
-      :alt="backgroundImage.alt"
       :height="imgHeight"
       :width="imgWidth"
+      :alt="image.alt"
       :observer-key="observerKey"
       variant="background"
     />
     <Image
       v-else
-      :src="backgroundImage.src"
-      :alt="backgroundImage.alt"
+      :src="image.path"
       :height="imgHeight"
       :width="imgWidth"
+      :alt="image.alt"
+      :placeholder-src="image.placeholder?.path"
       :observer-key="observerKey"
-      :placeholder-src="backgroundImage.placeholderSrc"
       variant="background"
     />
     <div

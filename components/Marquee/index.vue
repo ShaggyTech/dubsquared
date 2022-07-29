@@ -81,7 +81,7 @@ export default { name: 'Marquee' }
         :key="i"
         :image="{
           path: item.src,
-          id: item.cloudinaryId,
+          cloudinaryId: item.cloudinaryId,
         }"
         :alt="item.alt"
         v-bind="logo"

@@ -50,6 +50,19 @@ export type IImageProps = {
   cloudinaryId?: string
 }
 
+export type IImage = {
+  path?: string
+  cloudinaryId?: string
+  height?: number | string
+  width?: number | string
+  alt?: string
+  placeholder?: {
+    path?: string
+    cloudinaryId?: string
+    local?: boolean
+  }
+}
+
 export type IContactFormBody = {
   nameFirst: string
   nameLast: string

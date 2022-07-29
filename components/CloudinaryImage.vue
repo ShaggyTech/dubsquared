@@ -5,24 +5,34 @@ type Variants = {
 }
 
 interface Props {
-  image: { path: string; id: string }
-  placeholder?: { path: string | undefined; id: string | undefined }
+  image: { path: string; cloudinaryId: string }
+  placeholder?: {
+    path?: string
+    cloudinaryId?: string
+    local?: boolean
+  }
   height?: string | number
   width?: string | number
   lazy?: boolean | 'false' | 'true'
   observerKey?: string
   seen?: boolean
   variant?: Variant
+  imgClass?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  placeholder: undefined,
+  placeholder: () => ({
+    path: undefined,
+    cloudinaryId: undefined,
+    local: undefined,
+  }),
   height: undefined,
   width: undefined,
   lazy: false,
   observerKey: undefined,
   seen: undefined,
   variant: 'default',
+  imgClass: '',
 })
 
 const containerRef = ref<HTMLElement>()
@@ -39,34 +49,41 @@ const seen = props.observerKey
   : undefined
 
 // image state
-const imageSrc = useCloudinary({
-  path: props.image?.path,
-  id: props.image?.id,
-  height: props.height,
-  width: props.width,
-})
+const imageSrc = computed(() =>
+  useCloudinary({
+    path: props.image.path,
+    id: props.image.cloudinaryId,
+    height: props.height,
+    width: props.width,
+  })
+)
 
-const placeholderSrc =
-  props.placeholder?.path && props.placeholder?.id
-    ? useCloudinary({
-        path: props.placeholder.path,
-        id: props.placeholder.id,
-        height: props.height,
-        width: props.width,
-      })
-    : useCloudinaryPlaceholder({
-        height: props.height,
-        width: props.width,
-      })
+const placeholderSrc = computed(() => {
+  if (props.placeholder?.local) {
+    return props.placeholder.path
+  } else if (props.placeholder?.path && props.placeholder?.cloudinaryId) {
+    return useCloudinary({
+      path: props.placeholder.path,
+      id: props.placeholder.cloudinaryId,
+      height: props.height,
+      width: props.width,
+    })
+  } else {
+    return useCloudinaryPlaceholder({
+      height: props.height,
+      width: props.width,
+    })
+  }
+})
 
 const computedSrc = computed(() => {
   if (props.seen !== undefined || props.observerKey) {
     if (props.seen || seen?.value) {
-      return imageSrc
+      return imageSrc.value
     } else {
-      return placeholderSrc
+      return placeholderSrc.value
     }
-  } else return imageSrc
+  } else return imageSrc.value
 })
 
 // reactive styles based on props.variant
@@ -118,7 +135,7 @@ export default {
       :height="height"
       :width="width"
       :loading="Boolean(lazy) ? 'lazy' : 'eager'"
-      :class="`${selectedStyle.img}`"
+      :class="`${selectedStyle.img} ${imgClass}`"
     />
   </figure>
 </template>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -9,10 +9,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-services-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
-  alt: 'Volkswagen R32 parked between two school buses',
-  src: '/images/r32-bus-yard-1920x1280.webp',
+const heroBackgroundImage: IImage = {
+  path: '/images/r32-bus-yard-1920x1280.webp',
   cloudinaryId: 'xboxyw',
+  alt: 'Volkswagen R32 parked between two school buses',
 }
 </script>
 
@@ -25,8 +25,8 @@ export default { name: 'PagesServices' }
     <PageHeader>
       <PageHero
         title="Services"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>

@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import IconMdiTimelineClock from '~icons/mdi/timeline-clock'
 import IconMakiRacetrack from '~icons/maki/racetrack'
-import type { IImageProps } from '~/types'
+
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -11,18 +12,11 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-about-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
-  alt: 'Volkswagen R32 parked between two school buses',
-  src: '/images/r32-bus-yard-1920x1280.webp',
+const heroBackgroundImage: IImage = {
+  path: '/images/r32-bus-yard-1920x1280.webp',
   cloudinaryId: 'xboxyw',
+  alt: 'Volkswagen R32 parked between two school buses',
 }
-
-const placeholderSrc = useCloudinary({
-  path: 'images/placeholders/person-placeholder-375x450.webp',
-  id: 'dmwcsw',
-  height: 450,
-  width: 375,
-})
 </script>
 
 <script lang="ts">
@@ -34,8 +28,8 @@ export default { name: 'PagesMeetTheTeam' }
     <PageHeader>
       <PageHero
         title="The Team"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>
@@ -89,8 +83,9 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-philip-w"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Philip W.',
-                  placeholderSrc,
                 }"
               />
               <TeamMemberCard
@@ -116,8 +111,9 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-tyler-s"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Tyler S.',
-                  placeholderSrc,
                 }"
               />
               <TeamMemberCard
@@ -153,8 +149,9 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-brandon-e"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Brandon E.',
-                  placeholderSrc,
                 }"
               />
               <TeamMemberCard
@@ -175,8 +172,9 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-bryan-h"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Bryan H.',
-                  placeholderSrc,
                 }"
               />
             </div>
