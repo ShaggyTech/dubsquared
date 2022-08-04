@@ -233,7 +233,7 @@ export default { name: 'PagesAbout' }
   </PageWrapper>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .section-about {
   @supports (padding: max(0px)) {
     padding-left: max(1.5rem, env(safe-area-inset-left));
