@@ -118,7 +118,5 @@ export default defineEventHandler(async (event) => {
     },
   })
 
-  console.log('response', response)
-
   return { response }
 })
