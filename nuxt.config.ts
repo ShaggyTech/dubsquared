@@ -21,6 +21,11 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     sendgridApiKey: '',
+    sendgridFromEmail: '',
+    sendgridFromName: '',
+    sendgridToEmail: '',
+    sendgridToName: '',
+    companyEmail: '',
   },
   modules: [
     '@formkit/nuxt',
