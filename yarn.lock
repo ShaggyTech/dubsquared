@@ -1448,14 +1448,14 @@
     style-value-types "^5.1.0"
     vue-demi "*"
 
-"@vueuse/nuxt@9.0.2":
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/@vueuse/nuxt/-/nuxt-9.0.2.tgz#e40cebf1f7885e0addec6c489bda28e4d0d07ad3"
-  integrity sha512-1NYT3DC58fZ0YxFGaGZ4V0uAd3E4YMMnalKd1K1HBvrW3exB9zcBW52spKMspZL9dnNlxyv3TauH52b94fMxqg==
+"@vueuse/nuxt@9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/nuxt/-/nuxt-9.1.0.tgz#c13c692d0bf6980de26424558f0f556d2072f348"
+  integrity sha512-ejWjv8IPo2sSCQ81lY5TtzszWvnqRUYsBTrK0XOJGMDIeUHc6/gQbwezyb9OY3yJvIvQ3sGBbLo1iW04Rk7ZhA==
   dependencies:
     "@nuxt/kit" "^3.0.0-rc.6"
-    "@vueuse/core" "9.0.2"
-    "@vueuse/metadata" "9.0.2"
+    "@vueuse/core" "9.1.0"
+    "@vueuse/metadata" "9.1.0"
     local-pkg "^0.4.2"
     vue-demi "*"
 
