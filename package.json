@@ -45,7 +45,7 @@
     "lint-staged": "13.0.3",
     "nuxt": "3.0.0-rc.6",
     "nuxt-windicss": "2.5.0",
-    "postcss": "8.4.14",
+    "postcss": "8.4.16",
     "postcss-loader": "7.0.1",
     "prettier": "2.7.1",
     "sass": "1.54.3",
