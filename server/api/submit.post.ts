@@ -6,6 +6,22 @@ export default defineEventHandler(async (event) => {
     ? config.sendgridApiKey
     : (globalThis as GS).NUXT_SENDGRID_API_KEY
 
+  const sendgridFromEmail = config.sendgridFromEmail.length
+    ? config.sendgridFromEmail
+    : (globalThis as GS).NUXT_SENDGRID_FROM_EMAIL
+
+  const sendgridFromName = config.sendgridFromName.length
+    ? config.sendgridFromName
+    : (globalThis as GS).NUXT_SENDGRID_FROM_NAME
+
+  const sendgridToEmail = config.sendgridToEmail.length
+    ? config.sendgridToEmail
+    : (globalThis as GS).NUXT_SENDGRID_TO_EMAIL
+
+  const sendgridToName = config.sendgridToName.length
+    ? config.sendgridToName
+    : (globalThis as GS).NUXT_SENDGRID_TO_NAME
+
   const body: IContactFormBody = await useBody(event)
 
   const getEmailHtml = (body: IContactFormBody) => `
@@ -58,13 +74,16 @@ export default defineEventHandler(async (event) => {
   const getSendgridBody = (body: IContactFormBody, emailHtml: string) => {
     return {
       from: {
-        email: 'contactform@dubsquared.com',
-        name: 'dubsquared.com Contact Form',
+        email: sendgridFromEmail,
+        name: sendgridFromName,
       },
       personalizations: [
         {
           subject: body.subject,
-          to: [{ email: 'info@dubsquared.com', name: 'Dubsquared Team' }],
+          to: [{ email: sendgridToEmail, name: sendgridToName }],
+          cc: [
+            { email: body.email, name: `${body.nameFirst} ${body.nameLast}` },
+          ],
         },
       ],
       subject: body.subject,
@@ -74,10 +93,16 @@ export default defineEventHandler(async (event) => {
           value: emailHtml,
         },
       ],
-      reply_to: {
-        email: body.email,
-        name: `${body.nameFirst} ${body.nameLast}`,
-      },
+      reply_to_list: [
+        {
+          email: body.email,
+          name: `${body.nameFirst} ${body.nameLast}`,
+        },
+        {
+          email: sendgridToEmail,
+          name: sendgridToName,
+        },
+      ],
     }
   }
 

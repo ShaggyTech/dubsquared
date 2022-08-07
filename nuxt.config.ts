@@ -21,15 +21,21 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     sendgridApiKey: '',
+    sendgridFromEmail: '',
+    sendgridFromName: '',
+    sendgridToEmail: '',
+    sendgridToName: '',
+    companyEmail: '',
   },
   modules: [
     '@formkit/nuxt',
+    '@kevinmarrec/nuxt-pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
+    '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-windicss',
     'unplugin-icons/nuxt',
-    '@kevinmarrec/nuxt-pwa',
     '~/modules/sitemap',
   ],
   build: {

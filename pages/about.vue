@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -9,24 +9,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-about-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
+const heroBackgroundImage: IImage = {
+  path: '/images/r32-bus-yard-1920x1280.webp',
+  cloudinaryId: 'xboxyw',
   alt: 'Volkswagen R32 parked between two school buses',
-  height: '1080',
-  width: '720',
-  src: '/images/r32-bus-yard-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/r32-bus-yard-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/r32-bus-yard-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
 }
 </script>
 
@@ -39,8 +25,8 @@ export default { name: 'PagesAbout' }
     <PageHeader>
       <PageHero
         title="About Us"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>
@@ -105,15 +91,16 @@ export default { name: 'PagesAbout' }
           one of the quickest water cooled cars of it's time, known for breaking
           record after record in it's class.
         </p>
-        <LazyPicture
+        <CloudinaryImage
           :image="{
-            src: '/images/BillyT-vr6-gti.webp',
-            alt: 'Billy.T VR6 GTI',
-            height: '400',
-            width: '600',
+            path: '/images/BillyT-vr6-gti.webp',
+            cloudinaryId: 'cnze4u',
           }"
+          height="720"
+          width="1280"
+          alt="BillyT VR6 GTI"
           observer-key="about-page-image-BillyT-vr6-gti"
-          :lazy="true"
+          lazy="true"
           class="w-full h-auto max-w-3xl"
         />
         <p>
@@ -246,7 +233,7 @@ export default { name: 'PagesAbout' }
   </PageWrapper>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .section-about {
   @supports (padding: max(0px)) {
     padding-left: max(1.5rem, env(safe-area-inset-left));

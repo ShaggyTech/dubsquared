@@ -72,9 +72,6 @@ export default { name: 'NavbarMenu' }
   @apply ml-6 pl-6 border-l border-gray-900/10 dark:border-gray-50/[0.2];
 }
 
-// .nav-link.router-link-active {
-//   font-weight: bold;
-// }
 .nav-link.router-link-exact-active {
   color: theme('colors.slate.900');
   border-bottom: 3px solid theme('colors.red.800');

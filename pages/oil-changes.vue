@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -9,24 +9,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-oil-changes-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
-  alt: 'Technician performing an oil change',
-  height: '1080',
-  width: '810',
-  src: '/images/service-oil-changes-1080x810.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/service-oil-changes-1080x810.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/service-oil-changes-2400x1800.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x810.webp',
+const heroBackgroundImage: IImage = {
+  path: '/images/service-oil-changes-2400x1800.webp',
+  cloudinaryId: 'vbasbm',
+  alt: 'Technician performing an oil change on a Volkswagen',
 }
 </script>
 
@@ -39,8 +25,8 @@ export default { name: 'PagesOilChanges' }
     <PageHeader>
       <PageHero
         title="Oil Changes"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>

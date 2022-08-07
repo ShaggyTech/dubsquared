@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -9,29 +9,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-contact-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
+const heroBackgroundImage: IImage = {
+  path: '/images/shop-frontage--meetup-multicar-1280x780.webp',
+  cloudinaryId: 'x142wq',
   alt: 'Car meetup at Dubsquared',
-  height: '1080',
-  width: '720',
-  src: '/images/shop-frontage--meetup-multicar-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1280x780.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1536px)',
-      srcSet: '/images/shop-frontage--meetup-multicar-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
 }
 </script>
 
@@ -44,8 +25,8 @@ export default { name: 'PagesContact' }
     <PageHeader class="contact-page-header">
       <PageHero
         title="Contact Us"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody class="grid gap-14">

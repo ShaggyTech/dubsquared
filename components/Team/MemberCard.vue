@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type { IImageProps, IUnpluginIcon } from '~/types'
+import type { IImage, IUnpluginIcon } from '~/types'
 
 type Props = {
-  image: IImageProps
-  observerKey?: string
-  seen?: boolean
+  image: IImage
   name: string
   title: string
   email: string
@@ -14,25 +12,11 @@ type Props = {
     text?: string
     html?: string
   }[]
+  observerKey?: string
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = withDefaults(defineProps<Props>(), {
-  image: () => ({
-    alt: '',
-    height: '',
-    width: '',
-    src: '',
-    srcSets: [],
-    placeholder: '',
-  }),
-  observerKey: undefined,
-  seen: undefined,
-  name: '',
-  title: '',
-  email: '',
-  biography: undefined,
-})
+defineProps<Props>()
 </script>
 
 <script lang="ts">
@@ -41,15 +25,24 @@ export default { name: 'TeamMemberCard' }
 
 <template>
   <div
-    class="flex mx-auto mb-10 py-6 px-5 bg-stone-100 rounded shadow-lg lg:px-8 dark:(bg-zinc-900)"
+    class="flex mx-auto mb-10 py-6 px-6 bg-stone-100 rounded shadow-lg lg:px-8 dark:(bg-zinc-900)"
   >
     <div class="flex flex-col w-full">
       <!-- Avatar -->
-      <LazyPicture
-        :image="image"
+      <CloudinaryImage
+        :image="{
+          path: image.path,
+          cloudinaryId: image.cloudinaryId,
+        }"
+        :placeholder="{
+          path: 'images/placeholders/person-placeholder-375x450.webp',
+          cloudinaryId: 'dmwcsw',
+        }"
+        :height="image.height || 450"
+        :width="image.width || 375"
+        :alt="image.alt"
         :lazy="true"
         :observer-key="observerKey"
-        :seen="seen || undefined"
         img-class="rounded-lg"
         class="place-self-center min-h-450px min-w-375px"
       />

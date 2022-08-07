@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { IImageProps } from '~/types'
+import type { IImage } from '~~/types'
 
 definePageMeta({
   layout: 'page',
@@ -9,24 +9,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-factory-maintenance-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
-  alt: 'Maintenance Parts',
-  height: '1080',
-  width: '810',
-  src: '/images/service-tune-ups-1080x810.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/service-tune-ups-1080x810.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/service-tune-ups-2400x1800.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x810.webp',
+const heroBackgroundImage: IImage = {
+  path: '/images/service-tune-ups-2400x1800.webp',
+  cloudinaryId: 'giem9s',
+  alt: 'Factory Maintenance',
 }
 </script>
 
@@ -39,8 +25,8 @@ export default { name: 'PagesFactoryMaintenance' }
     <PageHeader>
       <PageHero
         title="Factory Maintenance"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>

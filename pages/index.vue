@@ -58,7 +58,7 @@ const heroObserverName = ref('page-home-hero-section-observer')
         </template>
       </PageSectionHeader>
 
-      <ServiceCardGroupSmall />
+      <ServiceCardGroup variant="small" />
     </section>
 
     <section

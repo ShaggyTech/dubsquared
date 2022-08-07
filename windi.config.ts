@@ -95,9 +95,6 @@ export default defineConfig({
         'center-35': '35% center',
       },
     },
-    backgroundImage: {
-      'map-dark': "url('/images/map-background-dark.webp')",
-    },
   },
   shortcuts: {
     'light-img': 'block dark:hidden',

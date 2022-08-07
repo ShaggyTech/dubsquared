@@ -51,7 +51,7 @@ const styles = reactive<Variants>({
     bg-red-900/90 hover:bg-stone-200 hover:dark:bg-stone-200
   `,
   secondary: `
-    border-red-800/70
+    border-stone-200/70
     text-stone-700 hover:text-stone-100
     bg-stone-200 dark:bg-zinc-800
     hover:bg-stone-700 hover:dark:bg-stone-200

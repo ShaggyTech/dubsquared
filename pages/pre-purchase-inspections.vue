@@ -1,34 +1,20 @@
 <script lang="ts" setup>
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
   title: 'Pre-purchase Inspections',
   description:
-    'Considering purchasing a used Volkswagen or Audi? We provide pre-purchase inspections to catch any potential problems before committing to the purchase.',
+    'Considering purchasing a used Volkswagen or Audi? We provide pre-purchase inspections to catch any potential problems before committing to the vehicle.',
 })
 
 const heroObserverName = ref(
   'page-pre-purchase-inspections-hero-section-observer'
 )
-const heroBackgroundImage: IImageProps = {
-  alt: 'Inspecting a vehicle before purchase',
-  height: '1080',
-  width: '810',
-  src: '/images/service-audi-dashboard-1080x810.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/service-audi-dashboard-1080x810.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/service-audi-dashboard-2400x1800.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x810.webp',
+const heroBackgroundImage: IImage = {
+  path: '/images/service-audi-dashboard-2400x1800.webp',
+  cloudinaryId: 'zebgjd',
+  alt: 'Technician performing a pre-purchase inspection',
 }
 </script>
 
@@ -41,8 +27,8 @@ export default { name: 'PagesPrePurchaseInspections' }
     <PageHeader>
       <PageHero
         title="Pre-purchase Inspections"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>

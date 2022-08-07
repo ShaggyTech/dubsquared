@@ -1,22 +1,35 @@
 <script setup lang="ts">
-import type { IImageProps } from '~/types'
+import type { IImage } from '~/types'
 
 interface Props {
-  observerKey: string
   title?: string
-  backgroundImage?: IImageProps
+  image?: IImage
+  observerKey?: string
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   title: '',
-  backgroundImage: () => ({
-    alt: '',
-    height: '',
-    width: '',
-    src: '',
-    srcSets: [],
-    placeholder: '',
+  image: () => ({
+    path: undefined,
+    cloudinaryId: undefined,
+    height: undefined,
+    width: undefined,
+    alt: undefined,
+    placeholder: {
+      path: undefined,
+      cloudinaryId: undefined,
+      local: undefined,
+    },
   }),
+  observerKey: undefined,
+})
+
+// background image state
+const { width: windowWidth } = useWindowSize()
+const imgHeight = computed(() => {
+  return props.image.height || windowWidth.value < 1024 ? 720 : 1280
+})
+const imgWidth = computed(() => {
+  return props.image.width || windowWidth.value < 1024 ? 1080 : 1920
 })
 </script>
 
@@ -31,11 +44,32 @@ export default { name: 'PageHero' }
       lg:(min-h-[max(min(85vh,900px))]) max-h-screen)
     `"
   >
-    <LazyPicture
-      :image="backgroundImage"
-      variant="background"
-      :lazy="true"
+    <CloudinaryImage
+      v-if="image.cloudinaryId"
+      :image="{
+        path: image.path,
+        cloudinaryId: image.cloudinaryId,
+      }"
+      :placeholder="{
+        path: image.placeholder?.path,
+        cloudinaryId: image.placeholder?.cloudinaryId,
+        local: image.placeholder?.local,
+      }"
+      :height="imgHeight"
+      :width="imgWidth"
+      :alt="image.alt"
       :observer-key="observerKey"
+      variant="background"
+    />
+    <Image
+      v-else
+      :src="image.path"
+      :height="imgHeight"
+      :width="imgWidth"
+      :alt="image.alt"
+      :placeholder-src="image.placeholder?.path"
+      :observer-key="observerKey"
+      variant="background"
     />
     <div
       class="relative grid content-between place-items-center gap-14 bg-stone-900/70 h-full w-full pt-20"

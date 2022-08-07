@@ -1,9 +1,8 @@
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.$router.options.scrollBehavior = (
-    to: any,
-    from: any,
-    savedPosition: any
-  ) => {
+import type { RouterConfig } from '@nuxt/schema'
+
+// https://router.vuejs.org/api/#routeroptions
+export default <RouterConfig>{
+  scrollBehavior: (to: any, from: any, savedPosition: any) => {
     // ex: to="#some-section"
     if (to.hash) {
       return {
@@ -28,5 +27,5 @@ export default defineNuxtPlugin((nuxtApp) => {
         })
       }, 500)
     })
-  }
-})
+  },
+}

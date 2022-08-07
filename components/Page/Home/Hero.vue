@@ -117,8 +117,6 @@ export default { name: 'PageHomeHero' }
 </template>
 
 <style lang="scss" scoped>
-$base-animation-delay: 1500ms;
-
 .hero__container {
   background-image: url('/images/placeholders/placeholder-1080x720.webp');
   filter: blur(50px);
@@ -133,7 +131,6 @@ $base-animation-delay: 1500ms;
     background-attachment: fixed;
   }
 
-  // different background images only fetched once .seen class is added via intersection observer
   &.seen {
     filter: blur(0px);
     background-image: url('/images/audi-r8-hardpoint-front-1080x720.webp');

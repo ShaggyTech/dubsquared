@@ -16,6 +16,11 @@ declare module '@vue/runtime-core' {
 declare global {
   interface GlobalSecrets {
     NUXT_SENDGRID_API_KEY: string
+    NUXT_SENDGRID_FROM_EMAIL: string
+    NUXT_SENDGRID_FROM_NAME: string
+    NUXT_SENDGRID_TO_EMAIL: string
+    NUXT_SENDGRID_TO_NAME: string
+    NUXT_COMPANY_EMAIL: string
   }
   type GS = typeof globalThis & GlobalSecrets
 }

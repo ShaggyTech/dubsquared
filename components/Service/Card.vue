@@ -3,7 +3,7 @@ import { useMotion } from '@vueuse/motion'
 import type { MotionVariants } from '@vueuse/motion'
 
 type Variant = 'default' | 'small'
-type Variants = Record<Variant, string>
+type Variants = { [key in Variant]: string }
 type ButtonVariant = 'primary' | 'secondary'
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
   buttonText?: string
   buttonTo?: string
   buttonVariant?: ButtonVariant
-  backgroundImage?: string
+  backgroundImage?: { src: string; cloudinaryId: string; alt: string }
   variant?: Variant
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -26,47 +26,47 @@ const props = withDefaults(defineProps<Props>(), {
   buttonText: '+ Learn More',
   buttonTo: undefined,
   buttonVariant: 'primary',
-  backgroundImage: '',
+  backgroundImage: undefined,
   variant: 'default',
 })
 
-// ==========================================================
-
+// styles based on props.variant
+const sharedRootStyles =
+  'flex flex-col items-center text-stone-100 bg-no-repeat bg-contain z-10'
 const rootStyles = reactive<Variants>({
-  default: `
-    flex flex-col items-center text-stone-100
-    bg-no-repeat bg-contain z-10
-  `,
-  small: `
-    flex flex-col items-center w-fit text-stone-100 rounded-t-lg 
-    bg-no-repeat bg-contain z-10 sm:mx-0
-  `,
+  default: sharedRootStyles,
+  small: `${sharedRootStyles} w-fit rounded-t-lg sm:mx-0`,
 })
 
+const sharedHeadingStyles =
+  'flex flex-col items-center text-center gap-y-[0.7em] p-6 font-bold rounded-md shadow-xl backdrop-blur z-12'
 const headingStyles = reactive<Variants>({
   default: `
-    flex flex-col items-center gap-y-[0.7em] min-w-[40%]
-    -mb-7rem mt-[calc(12rem+4vw)] p-6 font-bold text-2xl text-center
-    rounded-md shadow-xl backdrop-blur z-12
+    ${sharedHeadingStyles}
+    min-w-[40%] -mb-7rem mt-[calc(12rem+4vw)] text-2xl
     sm:(mt-19rem p-1.5em text-3xl tracking-wider)
-    md:(mt-[calc(28rem+2vw)]) lg:(max-w-500px mt-[calc(39rem+2vw)]) xl:(mt-48rem)
+    md:(mt-[calc(28rem+2vw)])
+    lg:(max-w-500px mt-[calc(39rem+2vw)])
+    xl:(mt-48rem)
   `,
   small: `
-    flex flex-col items-center gap-y-[0.7em]
-    -mb-24 mt-[calc(1rem+35vw)] p-6 font-bold text-xl text-center
-    rounded-md shadow-xl backdrop-blur z-12 sm:mt-60
+    ${sharedHeadingStyles}
+    -mb-24 mt-[calc(1rem+35vw)] text-xl
+    sm:(mt-60)
   `,
 })
 
+const sharedParagraphStyles =
+  'flex flex-col items-center font-semibold backdrop-blur-md z-11'
 const paragraphStyles = reactive<Variants>({
   default: `
-    flex flex-col items-center gap-y-2.5em pb-30
-    font-semibold text-lg leading-8 backdrop-blur-md z-11
-    lg:(leading-9 text-xl) mobile-safe-area
+    ${sharedParagraphStyles}
+    gap-y-2.5em pb-30 text-lg leading-8 mobile-safe-area
+    lg:(leading-9 text-xl)
   `,
   small: `
-    flex flex-col items-center pb-10 px-8 rounded-b-lg
-    font-semibold text-md leading-7 backdrop-blur-md z-11
+    ${sharedParagraphStyles}
+    gap-y-1em pb-14 px-10 text-md leading-7 rounded-b-lg
   `,
 })
 
@@ -75,12 +75,13 @@ const iconStyles = reactive<Variants>({
   small: `text-yellow-500 text-4xl`,
 })
 
+const sharedDividerStyles = 'w-[66%] mx-auto border-t-2 border-t-yellow-500/60'
 const dividerStyles = reactive<Variants>({
-  default: `w-[66%] mx-auto mt-[calc(9rem+2vw)] mb-[calc(1rem+1vw)] border-t-2 border-t-yellow-500/60`,
-  small: `w-[66%] mx-auto mt-32 mb-10 border-t-2 border-t-yellow-500/60`,
+  default: `${sharedDividerStyles} mt-[calc(9rem+2vw)] mb-[calc(1rem+1vw)]`,
+  small: `${sharedDividerStyles} mt-36 mb-10`,
 })
 
-// state
+// style state based on props.variant
 const selectedStyle = computed(() => rootStyles[props.variant])
 const selectedHeadingStyle = computed(() => headingStyles[props.variant])
 const selectedParagraphStyle = computed(() => paragraphStyles[props.variant])
@@ -90,16 +91,38 @@ const selectedButtonSize = computed(() =>
   props.variant === 'default' ? 'lg' : 'md'
 )
 
+// image state
+const imgHeight = computed(() => {
+  if (props.variant === 'small') {
+    return 640
+  } else {
+    return 810
+  }
+})
+
+const cardBackgroundImage = computed(() => ({
+  initial: useCloudinaryPlaceholder({
+    height: imgHeight.value,
+  }),
+  visibile: useCloudinary({
+    path: props.backgroundImage.src,
+    id: props.backgroundImage.cloudinaryId,
+    height: imgHeight.value,
+  }),
+}))
+
+// vueuse motion state
 const cardRef = ref<HTMLElement>()
 const cardMotionVariants = ref<MotionVariants>({
   initial: {
     opacity: 0,
     scale: 0.98,
+    backgroundImage: `url('${cardBackgroundImage.value.initial}')`,
   },
   visible: {
     opacity: 1,
     scale: 1,
-    backgroundImage: `url('${props.backgroundImage}')`,
+    backgroundImage: `url('${cardBackgroundImage.value.visibile}')`,
     transition: {
       duration: 500,
       delay: 100,
@@ -154,7 +177,7 @@ const buttonMotionVariants = ref<MotionVariants>({
     scale: 1,
     transition: {
       duration: 500,
-      delay: 300,
+      delay: 200,
     },
   },
 })
@@ -183,7 +206,7 @@ export default { name: 'ServiceCard' }
       <hr ref="dividerRef" :class="`${selectedDividerStyle} ${dividerStyle}`" />
       <slot name="paragraph" />
       <Button
-        v-if="variant === 'small'"
+        v-if="variant === 'small' && buttonTo"
         ref="buttonRef"
         :size="selectedButtonSize"
         class="mt-[3.5em] shadow-lg"

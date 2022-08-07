@@ -37,6 +37,7 @@ const routeCanonical = computed(() => {
       <Meta name="description" :content="route.meta.description" />
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <Link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+      <Link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
       <Link rel="preload" as="style" :href="fontsHref" />
       <Link rel="stylesheet" :href="fontsHref" defer="true" />
       <Link rel="icon" type="image/png" href="/favicon.png" />

@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import IconMdiTimelineClock from '~icons/mdi/timeline-clock'
 import IconMakiRacetrack from '~icons/maki/racetrack'
-import type { IImageProps } from '~/types'
+
+import type { IImage } from '~/types'
 
 definePageMeta({
   layout: 'page',
@@ -11,24 +12,10 @@ definePageMeta({
 })
 
 const heroObserverName = ref('page-about-hero-section-observer')
-const heroBackgroundImage: IImageProps = {
+const heroBackgroundImage: IImage = {
+  path: '/images/r32-bus-yard-1920x1280.webp',
+  cloudinaryId: 'xboxyw',
   alt: 'Volkswagen R32 parked between two school buses',
-  height: '1080',
-  width: '720',
-  src: '/images/r32-bus-yard-1080x720.webp',
-  srcSets: [
-    {
-      media: '(max-width: 1023.9px)',
-      srcSet: '/images/r32-bus-yard-1080x720.webp',
-      type: 'image/webp',
-    },
-    {
-      media: '(min-width: 1024px)',
-      srcSet: '/images/r32-bus-yard-1920x1280.webp',
-      type: 'image/webp',
-    },
-  ],
-  placeholder: '/images/placeholders/placeholder-1080x720.webp',
 }
 </script>
 
@@ -41,8 +28,8 @@ export default { name: 'PagesMeetTheTeam' }
     <PageHeader>
       <PageHero
         title="The Team"
+        :image="heroBackgroundImage"
         :observer-key="heroObserverName"
-        :background-image="heroBackgroundImage"
       />
     </PageHeader>
     <PageBody>
@@ -73,7 +60,7 @@ export default { name: 'PagesMeetTheTeam' }
             />
 
             <div class="flex flex-wrap place-content-around gap-x-6 w-full">
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Philip W."
                 title="Owner"
                 email="philip@dubsquared.com"
@@ -96,14 +83,12 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-philip-w"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Philip W.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Tyler S."
                 title="Technician"
                 email="tyler@dubsquared.com"
@@ -126,14 +111,12 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-tyler-s"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Tyler S.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Brandon E."
                 title="Technician"
                 email="brandon@dubsquared.com"
@@ -166,14 +149,12 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-brandon-e"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Brandon E.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
                 }"
               />
-              <LazyTeamMemberCard
+              <TeamMemberCard
                 name="Bryan H."
                 title="Customer Service Specialist"
                 email="bryan@dubsquared.com"
@@ -191,11 +172,9 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-bryan-h"
                 :image="{
+                  path: 'images/placeholders/person-placeholder-375x450.webp',
+                  cloudinaryId: 'dmwcsw',
                   alt: 'Photo of team member Bryan H.',
-                  height: '450',
-                  width: '375',
-                  placeholder:
-                    '/images/placeholders/person-placeholder-375x450.webp',
                 }"
               />
             </div>

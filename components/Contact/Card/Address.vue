@@ -13,7 +13,11 @@ const cardMotionVariants = ref<MotionVariants>({
     y: 0,
     opacity: 1,
     scale: 1,
-    backgroundImage: `url('/images/shop-frontage-SQ5.webp')`,
+    backgroundImage: `url('${useCloudinary({
+      path: '/images/shop-frontage-SQ5.webp',
+      id: 'h9skes',
+      height: 810,
+    })}')`,
     transition: {
       duration: 500,
       delay: 100,
@@ -97,7 +101,7 @@ export default { name: 'ContactCardAddress' }
       href="https://www.google.com/maps/dir//Dubsquared,+1223+Colorado+Ln,+Arlington,+TX+76015/@32.7024485,-97.1279981,17z"
       title="Google Maps"
       target="_blank"
-      class="grid gap-y-8 w-full h-full py-18 px-4 bg-zinc-900/95 backdrop-filter backdrop-blur-sm rounded"
+      class="grid gap-y-8 w-full h-full py-18 px-4 bg-zinc-900/85 backdrop-filter backdrop-blur-3px rounded"
     >
       <address class="grid gap-y-8 place-items-center">
         <IconMdi:mapMarkerRadius
@@ -106,7 +110,7 @@ export default { name: 'ContactCardAddress' }
         />
         <span
           ref="textRef"
-          class="grid font-bold text-stone-100 text-shadow-xl"
+          class="grid font-semibold font-nunito-sans text-2xl text-stone-100 text-shadow-xl tracking-wider"
         >
           <span>1223 Colorado Ln</span>
           <span>Suite 105</span>
