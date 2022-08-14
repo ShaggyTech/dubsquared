@@ -29,7 +29,7 @@ const routeCanonical = computed(() => {
 <template>
   <Html :class="`${theme === 'dark' ? 'dark' : ''}`" lang="en">
     <Head>
-      <Title>{{ routeTitle }} Dubsquared - VW & Audi Specialists</Title>
+      <Title>{{ routeTitle }} Dubsquared - Volkswagen & Audi Specialists</Title>
       <Meta
         name="viewport"
         content="width=device-width, initial-scale=1 viewport-fit=cover"
