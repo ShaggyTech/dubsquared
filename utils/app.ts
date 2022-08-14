@@ -11,7 +11,11 @@ export function AppSetup() {
       link: 'https://github.com/ShaggyTech',
     },
   }
+
+  // app state
   useState('app', () => app)
+  useState<boolean>('navbar.showDrawer', () => false)
+  useState<boolean>('navbar.showOptions', () => false)
 
   // use theme manager
   const themeManager = ThemeManager()
