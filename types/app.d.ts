@@ -1,6 +1,14 @@
 import type { RouteLocationRaw } from 'vue-router'
 import type UnpluginIcon from '~icons/*'
 
+export interface IApp {
+  name: string
+  author: {
+    name: string
+    link: string
+  }
+}
+
 export type IUnpluginIcon = UnpluginIcon
 
 export type IDropdownItem = {
@@ -24,14 +32,6 @@ export type IContactBarItem = {
   ariaLabel: string
   title: string
   icon?: UnpluginIcon
-}
-
-export interface IApp {
-  name: string
-  author: {
-    name: string
-    link: string
-  }
 }
 
 export type IPictureSrcSet = {
@@ -61,17 +61,4 @@ export type IImage = {
     cloudinaryId?: string
     local?: boolean
   }
-}
-
-export type IContactFormBody = {
-  nameFirst: string
-  nameLast: string
-  phone: string
-  email: string
-  vehicleVIN: string
-  vehicleYear: string
-  vehicleMake: string
-  vehicleModel: string
-  subject: string
-  message: string
 }

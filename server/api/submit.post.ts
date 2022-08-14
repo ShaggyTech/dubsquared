@@ -62,7 +62,7 @@ export default defineEventHandler(async (event) => {
       <br />
       Vehicle: ${body.vehicleYear} ${body.vehicleMake} ${body.vehicleModel}
       <br />
-      VIN: ${body.vehicleVIN}
+      VIN: ${body.vehicleVin}
       <br />
       <br />
       Message:

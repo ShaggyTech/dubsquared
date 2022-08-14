@@ -1,70 +1,36 @@
-import { isValidVin } from '~/utils/isValidVin'
+import type { VehicleModels } from '~/types'
 
 export const useVehicles = () => {
-  const decodedVIN = ref({
-    vin: '',
-    year: '',
-    make: '',
-    model: '',
-  })
-
-  const validVin = (value: string) => isValidVin(value)
-
-  // input validation
-  const validateVIN = async ({ value }: { value: string }) => {
-    const valid = validVin(value)
-    if (valid) await submitVin(value)
-    else
-      decodedVIN.value = {
-        vin: '',
-        year: '',
-        make: '',
-        model: '',
-      }
-    return valid
-  }
-
-  // decode VIN
-  const submitVin = async (value: string) => {
-    if (!validVin(value)) {
-      decodedVIN.value = {
-        vin: '',
-        year: '',
-        make: '',
-        model: '',
-      }
-      return 'That is not a valid VIN'
-    }
-
-    const { data } = await useFetch('/api/decode-vin', {
-      method: 'post',
-      body: { vin: value },
-    })
-
-    if (data.value)
-      decodedVIN.value = {
-        vin: data.value.VIN,
-        year: data.value.ModelYear,
-        make: data.value.Make,
-        model: data.value.Model,
-      }
-  }
-
   const maxVehicleYear = ref<number>(new Date().getFullYear() + 1)
   const minVehicleYear = ref<number>(2004)
+
+  const vehicleYears = ref<string[]>([])
+  for (let i = maxVehicleYear.value; i >= 1972; i--) {
+    vehicleYears.value.push(i.toString())
+  }
+
   const vehicleMakes = ref<string[]>(['Audi', 'Volkswagen'])
-  const vehicleModels = ref({
-    audi: [
+  const vehicleModels = ref<VehicleModels>({
+    Audi: [
       'A3',
       'A4',
+      'A4 allroad',
       'A5',
       'A6',
+      'A6 allroad',
       'A7',
       'A8',
-      'Allroad',
+      'A8 e',
+      'A8 L',
+      'allroad',
+      'Cabriolet',
+      'e-tron',
+      'e-tron Sportback',
+      'e-tron GT',
       'Q3',
       'Q4',
       'Q5',
+      'Q5 e',
       'Q7',
       'Q8',
       'R8',
@@ -73,7 +39,8 @@ export const useVehicles = () => {
       'RS5',
       'RS6',
       'RS7',
-      'RSQ8',
+      'RS Q8',
+      'RS e-tron GT',
       'S3',
       'S4',
       'S5',
@@ -83,48 +50,48 @@ export const useVehicles = () => {
       'SQ5',
       'SQ7',
       'SQ8',
-      'TT',
-      'TTRS',
+      'TT RS',
       'TTS',
-      'E-tron',
       'Other',
     ],
-    volkswagen: [
-      'Golf R32',
-      'Golf R',
-      '337/20th',
-      'Alltrack',
+    Volkswagen: [
       'Arteon',
+      'Arteon 4Motion',
       'Atlas',
+      'Atlas 4Motion',
       'Atlas Cross Sport',
-      'Beetle (12+)',
+      'Atlas Cross Sport 4Motion',
+      'Beetle',
+      'Corrado',
       'CC',
-      'EOS',
+      'e-Golf',
+      'Eos',
       'Golf',
-      'Golf Sportwagen',
+      'Golf Alltrack',
+      'Golf GTI',
+      'Golf R',
+      'Golf SportWagen',
       'GTI',
       'Rabbit',
       'ID.4',
       'Jetta',
-      'New Beetle (98-10)',
+      'Jetta GLI',
+      'Jetta Wagon',
       'Passat',
       'Phaeton',
+      'R32',
+      'Routan',
       'Taos',
+      'Taos 4Motion',
       'Tiguan',
+      'Tiguan 4motion',
+      'Tiguan Limited',
       'Touareg',
       'Other',
     ],
   })
 
-  const vehicleYears: number[] = []
-  for (let i = maxVehicleYear.value; i >= 1972; i--) {
-    vehicleYears.push(i)
-  }
-
   return {
-    submitVin,
-    validateVIN,
-    decodedVIN,
     minVehicleYear,
     maxVehicleYear,
     vehicleMakes,
