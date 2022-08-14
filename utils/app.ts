@@ -5,7 +5,7 @@ import type { IApp } from '~/types'
 export function AppSetup() {
   // declare app information
   const app: IApp = {
-    name: 'Dubsquared - Audi VW Specialists',
+    name: 'Dubsquared - Audi and Volkswagen Specialists',
     author: {
       name: 'ShaggyTech',
       link: 'https://github.com/ShaggyTech',
