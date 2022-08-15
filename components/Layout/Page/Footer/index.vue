@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import type { IApp } from '~/types'
+import { useAppStore } from '~/stores/app'
 
-const app = useState<IApp>('app')
+const { appAuthor, appName } = storeToRefs(useAppStore())
 
 const footerObjectData =
   'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d107441.24127096374!2d-97.19730196382534!3d32.6983079!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e7d2df9e608cb%3A0x7cd9aab902cff64b!2sDubsquared!5e0!3m2!1sen!2sus!4v1645761293912!5m2!1sen!2sus'
@@ -34,14 +34,16 @@ export default { name: 'LayoutPageFooter' }
       <div
         class="flex flex-col gap-y-3 w-full mt-10 mb-10 py-4 px-4 text-center lg:(mt-20 px-8)"
       >
-        <div class="mb-1">Dubsquared - Volkswagen and Audi Specialists</div>
+        <div class="mb-1">{{ appName }}</div>
         <div class="text-xs text-gray-600 dark:text-gray-400">
-          Website by
-          <a
-            :href="app.author.link"
-            class="underline underline-2 underline-offset-2 underline-red-700"
-            >Brandon Eichler
-          </a>
+          <div>
+            Website by
+            <a
+              :href="appAuthor.link"
+              class="underline underline-2 underline-offset-2 underline-red-700"
+              >{{ appAuthor.name }}
+            </a>
+          </div>
         </div>
         <div class="text-xs text-gray-600 dark:text-gray-400">
           Copyright © 2022 Dubsquared, LLC. All rights reserved.

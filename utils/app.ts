@@ -1,27 +1,20 @@
-import { ThemeManager } from './theme'
+import { useAppStore } from '~/stores/app'
+import { useThemeStore } from '~/stores/theme'
 
-import type { IApp } from '~/types'
-
+/**
+ *
+ * App setup logic. Should be called as early as possible in app.vue
+ * @example
+ * ```ts
+ * import { appSetup } from '~/utils/app'
+ *
+ * appSetup()
+ * ```
+ */
 export function AppSetup() {
-  // declare app information
-  const app: IApp = {
-    name: 'Dubsquared - Audi and Volkswagen Specialists',
-    author: {
-      name: 'ShaggyTech',
-      link: 'https://github.com/ShaggyTech',
-    },
-  }
+  const pinia = getActivePinia()
 
-  // app state
-  useState('app', () => app)
-  useState<boolean>('navbar.showDrawer', () => false)
-  useState<boolean>('navbar.showOptions', () => false)
-
-  // use theme manager
-  const themeManager = ThemeManager()
-
-  return {
-    app,
-    themeManager,
-  }
+  // initialize stores
+  useAppStore(pinia)
+  useThemeStore(pinia)
 }

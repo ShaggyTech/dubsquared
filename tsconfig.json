@@ -5,8 +5,9 @@
     "strict": true,
     "types": [
       "nuxt-windicss",
-      // "@vueuse/nuxt",
+      "@vueuse/nuxt",
       "@intlify/nuxt3",
+      "@pinia/nuxt",
       "unplugin-icons/types/vue",
     ]
   }
