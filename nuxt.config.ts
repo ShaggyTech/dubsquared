@@ -39,6 +39,7 @@ export default defineNuxtConfig({
           'acceptHMRUpdate',
           'defineStore',
           'getActivePinia',
+          'skipHydrate',
           'storeToRefs',
         ],
       },
