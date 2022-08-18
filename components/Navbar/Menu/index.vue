@@ -60,7 +60,7 @@ export default { name: 'NavbarMenu' }
     </nav>
     <!-- Desktop - Social Nav -->
     <ContactSocialMedia class="icon-section gap-6 text-xl" />
-    <!-- Desktop - App Options -->
+    <!-- Desktop - App Settings -->
     <div class="icon-section">
       <ThemeToggle />
     </div>

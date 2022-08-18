@@ -135,11 +135,11 @@ export default { name: 'LayoutPageNavbar' }
     </template>
 
     <!-- Mobile Menu -->
-    <template #options="{ toggleOptions }">
+    <template #mobile-nav="{ toggleMobileNav }">
       <NavbarMenuMobile
         header-text="Navigation"
         :menu="mobileMenuItems"
-        @onClose="toggleOptions(false)"
+        @onClose="toggleMobileNav(false)"
       />
     </template>
   </NavbarBuilder>

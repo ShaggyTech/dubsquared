@@ -1,6 +1,7 @@
 import type { IContactFormBody } from '~/types'
 
 export default defineEventHandler(async (event) => {
+  // env variables either set in .env file during dev or set in production environment
   const config = useRuntimeConfig()
   const sendgridKey = config.sendgridApiKey.length
     ? config.sendgridApiKey
@@ -22,8 +23,10 @@ export default defineEventHandler(async (event) => {
     ? config.sendgridToName
     : (globalThis as GS).NUXT_SENDGRID_TO_NAME
 
+  // get event body (form values)
   const body: IContactFormBody = await useBody(event)
 
+  // factory for email html
   const getEmailHtml = (body: IContactFormBody) => `
     <head>
     <style>
@@ -62,7 +65,7 @@ export default defineEventHandler(async (event) => {
       <br />
       Vehicle: ${body.vehicleYear} ${body.vehicleMake} ${body.vehicleModel}
       <br />
-      VIN: ${body.vehicleVIN}
+      VIN: ${body.vehicleVin}
       <br />
       <br />
       Message:
@@ -71,6 +74,7 @@ export default defineEventHandler(async (event) => {
     </div>
   `
 
+  // factory for body that will be posted to sendgrid api
   const getSendgridBody = (body: IContactFormBody, emailHtml: string) => {
     return {
       from: {
@@ -106,9 +110,11 @@ export default defineEventHandler(async (event) => {
     }
   }
 
+  // prepare email html and body for sendgrid api
   const emailHtml = getEmailHtml(body)
   const sendgridBody = getSendgridBody(body, emailHtml)
 
+  // send email
   const response = await $fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'post',
     body: sendgridBody,

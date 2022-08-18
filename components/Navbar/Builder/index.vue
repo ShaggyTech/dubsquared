@@ -1,24 +1,16 @@
 <script setup lang="ts">
-// import { IApp } from '~/utils/app'
+import { useAppStore } from '~/stores/app'
 
-// const app = useState<IApp>('app')
+const appStore = useAppStore()
+const { showMobileNav, showAppDrawer } = storeToRefs(appStore)
+const { toggleMobileNav, toggleAppDrawer } = appStore
+
 const navbar = ref<HTMLElement | null>(null)
-const showDrawer = useState<boolean>('navbar.showDrawer', () => false)
-const showOptions = useState<boolean>('navbar.showOptions', () => false)
 
 onMounted(() => {
   const { onScroll } = useSticky(navbar.value as HTMLElement, 0)
   setTimeout(() => onScroll(), 50)
 })
-
-const toggleDrawer = () => (showDrawer.value = !showDrawer.value)
-const toggleOptions = (show?: boolean) => {
-  if (show) {
-    showOptions.value = show
-  } else {
-    showOptions.value = !showOptions.value
-  }
-}
 </script>
 
 <script lang="ts">
@@ -41,13 +33,13 @@ export default { name: 'NavbarBuilder' }
             <button
               class="flex items-center focus:outline-none"
               aria-label="Toggle Drawer Menu"
-              @click="toggleDrawer()"
+              @click="toggleAppDrawer()"
             >
               <span
                 class="flex items-center text-gray-600 dark:text-gray-300 text-lg"
                 aria-hidden="true"
               >
-                <IconUil:bars v-if="!showDrawer" />
+                <IconUil:bars v-if="!showAppDrawer" />
                 <IconUil:times v-else />
               </span>
             </button>
@@ -58,17 +50,17 @@ export default { name: 'NavbarBuilder' }
           <!-- desktop nav -->
           <slot name="menu" />
 
-          <!-- mobile nav toggle (options:toggle) -->
+          <!-- mobile nav menu toggle -->
           <div
-            v-if="$slots['options']"
+            v-if="$slots['mobile-nav']"
             class="flex flex-1 justify-end lg:hidden"
           >
             <button
               class="flex items-center"
               aria-label="Navigation Menu"
               aria-haspopup="menu"
-              :aria-expanded="showOptions"
-              @click="toggleOptions()"
+              :aria-expanded="showMobileNav"
+              @click="toggleMobileNav()"
             >
               <span
                 class="flex items-center p-2 text-gray-600 dark:text-gray-300 text-lg"
@@ -84,24 +76,24 @@ export default { name: 'NavbarBuilder' }
 
     <ClientOnly>
       <Teleport to="#app-after">
-        <!-- drawer -->
+        <!-- app drawer -->
         <Transition name="slide-fade-from-up" mode="out-in">
           <div
-            v-if="showDrawer && $slots['drawer']"
+            v-if="showAppDrawer && $slots['drawer']"
             class="fixed lg:hidden bg-gray-100 dark:bg-slate-800 pt-16 top-0 left-0 w-screen h-screen z-30 flex flex-col"
           >
             <div class="flex-1 flex flex-col relative overflow-y-auto">
-              <slot name="drawer" :toggle-drawer="toggleDrawer" />
+              <slot name="drawer" :toggle-drawer="toggleAppDrawer" />
             </div>
           </div>
         </Transition>
 
-        <!-- options / mobile nav menu -->
-        <div v-if="showOptions && $slots['options']">
+        <!-- mobile nav -->
+        <div v-if="showMobileNav && $slots['mobile-nav']">
           <slot
-            name="options"
-            :toggle-options="toggleOptions"
-            :show-options="showOptions"
+            name="mobile-nav"
+            :toggle-mobile-nav="toggleMobileNav"
+            :show-mobile-nav="showMobileNav"
           />
         </div>
       </Teleport>

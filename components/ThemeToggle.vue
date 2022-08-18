@@ -1,8 +1,37 @@
+<script lang="ts" setup>
+import {
+  Listbox,
+  ListboxButton,
+  ListboxLabel,
+  ListboxOptions,
+  ListboxOption,
+} from '@headlessui/vue'
+import { useThemeStore } from '~/stores/theme'
+
+type Variants = 'dropdown-right-top' | 'select-box'
+
+interface Props {
+  variant?: Variants
+}
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'dropdown-right-top',
+})
+
+const { availableThemes, selectedTheme } = storeToRefs(useThemeStore())
+
+// state
+const currentVariant = toRef(props, 'variant')
+</script>
+
+<script lang="ts">
+export default { name: 'ThemeToggle' }
+</script>
+
 <template>
   <div class="flex items-center">
     <Listbox
       v-if="currentVariant === 'dropdown-right-top'"
-      v-model="themeSetting"
+      v-model="selectedTheme"
       as="div"
       class="relative flex items-center"
     >
@@ -41,9 +70,9 @@
             :class="{
               'py-2 px-2 flex items-center cursor-pointer': true,
               'text-stone-400 bg-stone-100 dark:bg-stone-600/30':
-                themeSetting === theme.key,
+                selectedTheme === theme.key,
               'hover:bg-gray-50 dark:hover:bg-stone-700/30':
-                themeSetting !== theme.key,
+                selectedTheme !== theme.key,
             }"
           >
             <span class="text-sm mr-2">
@@ -60,7 +89,7 @@
     </Listbox>
     <select
       v-if="currentVariant === 'select-box'"
-      v-model="themeSetting"
+      v-model="selectedTheme"
       class="select-box w-full px-2 pr-3 py-1 rounded dark:bg-zinc-700"
     >
       <option
@@ -73,27 +102,3 @@
     </select>
   </div>
 </template>
-
-<script lang="ts" setup>
-import {
-  Listbox,
-  ListboxButton,
-  ListboxLabel,
-  ListboxOptions,
-  ListboxOption,
-} from '@headlessui/vue'
-import { IThemeSettingOptions, availableThemes } from '~/utils/theme'
-
-type Variants = 'dropdown-right-top' | 'select-box'
-
-interface Props {
-  variant?: Variants
-}
-const props = withDefaults(defineProps<Props>(), {
-  variant: 'dropdown-right-top',
-})
-
-// state
-const themeSetting = useState<IThemeSettingOptions>('theme.setting')
-const currentVariant = toRef(props, 'variant')
-</script>

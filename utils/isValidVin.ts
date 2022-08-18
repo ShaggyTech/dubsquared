@@ -1,6 +1,10 @@
 /**
+ * Validates a Vehicle Identification Number (VIN)
  * @module utils/isValidVin
  * @category Utils
+ * @exports isValidVin
+ * @author Brandon Eichler <github.com/ShaggyTech>
+ * @license MIT
  */
 
 /*

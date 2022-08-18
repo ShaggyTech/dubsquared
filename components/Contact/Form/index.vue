@@ -1,13 +1,32 @@
 <script setup lang="ts">
-const {
-  validateVIN,
-  minVehicleYear,
-  vehicleYears,
+import type { DecodedVehicle } from '~/types'
+
+const decodedVehicle = ref<DecodedVehicle>({
+  vin: '',
+  year: '',
+  make: '',
+  model: '',
+})
+
+const { minVehicleYear, vehicleMakes, vehicleModels, vehicleYears } =
+  useVehicles()
+
+const { submitted, submitHandler, formData } = useContactForm({
+  decodedVehicle,
   vehicleMakes,
   vehicleModels,
-} = useVehicles()
+})
 
-const { submitted, submitHandler, formData, formDataRef } = useContactForm()
+const { isValidVin } = useVehiclesApi()
+
+const router = useRouter()
+
+// scroll up to contact-form anchor after form submission
+watch(submitted, (submitted) => {
+  if (submitted) {
+    router.push('#contact-form')
+  }
+})
 </script>
 
 <script lang="ts">
@@ -19,6 +38,7 @@ export default { name: 'ContactForm' }
     class="max-w-5xl mx-auto px-6 py-10 rounded shadow-xl dark:bg-zinc-900 sm:(px-8) md:(px-10) lg:(px-12)"
   >
     <ClientOnly>
+      <!-- Form -->
       <FormKit
         v-if="!submitted"
         id="form"
@@ -36,7 +56,7 @@ export default { name: 'ContactForm' }
         }"
         submit-label="Send"
         actions-class="grid sm:(place-items-center)"
-        incomplete-message="Achtung! We can't service your Deutsche automobil without all the fields being filled out correctly."
+        incomplete-message="Achtung! We can't provide efficient help without all fields being filled out correctly."
         @submit="submitHandler"
       >
         <div class="grid gap-6 md:gap-8 mb-8">
@@ -100,15 +120,20 @@ export default { name: 'ContactForm' }
           >
             <FormKit
               type="text"
-              name="vehicleVIN"
+              name="vehicleVin"
               label="Vehicle Identification Number (VIN)"
               placeholder="Ex: WAURFAFR6AA002698"
-              validation="validateVIN|length:17,17"
-              :validation-rules="{ validateVIN }"
+              :help="
+                formData.vehicleVin?.length
+                  ? `${formData.vehicleVin.length} / 17`
+                  : ''
+              "
+              validation="length:17,17|isValidVin"
+              :validation-rules="{ isValidVin }"
               validation-visibility="dirty"
               :validation-messages="{
                 length: () => 'A valid VIN contains exactly 17 characters',
-                validateVIN: () => 'That is not a valid VIN',
+                isValidVin: () => 'That is not a valid VIN',
               }"
             />
             <FormKit
@@ -125,10 +150,16 @@ export default { name: 'ContactForm' }
                 min: () =>
                   `Sorry, we only service ${minVehicleYear} or newer vehicles`,
               }"
+              validation-visibility="dirty"
               :options="vehicleYears"
             >
             </FormKit>
-            <template v-if="formDataRef.vehicleYear.value">
+            <template
+              v-if="
+                formData.vehicleYear &&
+                parseInt(formData.vehicleYear) >= minVehicleYear
+              "
+            >
               <FormKit
                 type="select"
                 name="vehicleMake"
@@ -138,14 +169,22 @@ export default { name: 'ContactForm' }
                   input: 'dark:(text-stone-100)',
                   option: 'dark:(bg-stone-100 text-black)',
                 }"
-                :disabled="
-                  !formDataRef.vehicleYear.value ||
-                  parseInt(formDataRef.vehicleYear.value) < minVehicleYear
-                "
+                validation="+matches:Audi,Volkswagen"
+                :validation-messages="{
+                  matches: () =>
+                    'Sorry, we only service Audi and Volkswagen vehicles',
+                }"
+                validation-visibility="dirty"
                 :options="vehicleMakes"
               />
             </template>
-            <template v-if="formDataRef.vehicleMake.value">
+            <template
+              v-if="
+                formData.vehicleMake &&
+                formData.vehicleYear &&
+                parseInt(formData.vehicleYear) >= minVehicleYear
+              "
+            >
               <FormKit
                 type="select"
                 name="vehicleModel"
@@ -154,19 +193,8 @@ export default { name: 'ContactForm' }
                   input: 'dark:(text-stone-100)',
                   option: 'dark:(bg-stone-100 text-black)',
                 }"
-                :disabled="
-                  !formDataRef.vehicleYear.value ||
-                  parseInt(formDataRef.vehicleYear.value) < minVehicleYear ||
-                  !formDataRef.vehicleMake.value
-                "
                 placeholder="Select a Model"
-                :options="
-                  formDataRef.vehicleMake.value == 'Volkswagen'
-                    ? vehicleModels.volkswagen
-                    : formDataRef.vehicleMake.value == 'Audi'
-                    ? vehicleModels.audi
-                    : []
-                "
+                :options="vehicleModels[formData.vehicleMake] || []"
               />
             </template>
           </div>
@@ -202,16 +230,10 @@ export default { name: 'ContactForm' }
           </div>
         </div>
       </FormKit>
-      <div
-        v-if="submitted"
-        class="grid gap-4 place-items-center px-8 py-12 text-center font-semibold text-green-800 dark:text-green-500 dark:bg-zinc-900"
-      >
-        <IconIconParkOutline:message-success class="text-4xl lg:text-5xl" />
-        <h2 class="text-2xl lg:text-3xl">Submission successful!</h2>
-        <p class="text-xl lg:text-2xl">
-          Help is on the way, we'll reply to your message ASAP.
-        </p>
-      </div>
+      <!-- Form submission message -->
+      <ContactFormSubmissionMessage v-if="submitted" />
+      <!-- Form submission modal -->
+      <ContactFormSubmissionModal :show="submitted" />
     </ClientOnly>
   </div>
 </template>

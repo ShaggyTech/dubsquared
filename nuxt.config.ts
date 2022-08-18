@@ -32,6 +32,18 @@ export default defineNuxtConfig({
     '@kevinmarrec/nuxt-pwa',
     '@nuxtjs/eslint-module',
     '@nuxtjs/svg',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          'acceptHMRUpdate',
+          'defineStore',
+          'getActivePinia',
+          'skipHydrate',
+          'storeToRefs',
+        ],
+      },
+    ],
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-windicss',

@@ -13,10 +13,12 @@ const props = withDefaults(defineProps<Props>(), {
   menu: () => [],
 })
 
-// micro compiler
+// emits
 const emit = defineEmits(['onClose'])
+
 // state
 const show = ref(false)
+
 // methods
 const close = () => {
   show.value = false
