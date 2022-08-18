@@ -73,42 +73,44 @@ export const useContactForm = ({
   watch(
     () => formData.value.vehicleVin,
     async (vin) => {
-      // convert vin to uppercase and remove all spaces
-      await nextTick(
-        () =>
-          (formData.value.vehicleVin = vin
-            .toLocaleUpperCase()
-            .replace(/\s/g, ''))
-      )
+      if (vin) {
+        // convert vin to uppercase and remove all spaces
+        await nextTick(
+          () =>
+            (formData.value.vehicleVin = vin
+              .toLocaleUpperCase()
+              .replace(/\s/g, ''))
+        )
 
-      // reset decodedVehicle values
-      decodedVehicle.value = {
-        vin,
-        year: '',
-        make: '',
-        model: '',
-      }
-      // reset form vehicle values
-      formData.value.vehicleYear = ''
-      formData.value.vehicleMake = ''
-      formData.value.vehicleModel = ''
+        // reset decodedVehicle values
+        decodedVehicle.value = {
+          vin,
+          year: '',
+          make: '',
+          model: '',
+        }
+        // reset form vehicle values
+        formData.value.vehicleYear = ''
+        formData.value.vehicleMake = ''
+        formData.value.vehicleModel = ''
 
-      // valid vin is exactly 17 characters
-      if (vin.length === 17) {
-        // decode vin and assign results to decodedVehicle ref
-        const results = await decodeVin({ value: vin })
+        // valid vin is exactly 17 characters
+        if (vin.length === 17) {
+          // decode vin and assign results to decodedVehicle ref
+          const results = await decodeVin({ value: vin })
 
-        if (results !== undefined && isRef(results) && results.value) {
-          const make = titleCase(results.value.Make || '')
-          if (make && !vehicleMakes.value.includes(make)) {
-            vehicleMakes.value.push(make)
-            vehicleMakes.value.sort((a, b) => a.localeCompare(b))
-          }
-          decodedVehicle.value = {
-            vin: results.value.VIN || '',
-            year: results.value.ModelYear || '',
-            make: make || '',
-            model: results.value.Model || '',
+          if (results !== undefined && isRef(results) && results.value) {
+            const make = titleCase(results.value.Make || '')
+            if (make && !vehicleMakes.value.includes(make)) {
+              vehicleMakes.value.push(make)
+              vehicleMakes.value.sort((a, b) => a.localeCompare(b))
+            }
+            decodedVehicle.value = {
+              vin: results.value.VIN || '',
+              year: results.value.ModelYear || '',
+              make: make || '',
+              model: results.value.Model || '',
+            }
           }
         }
       }
