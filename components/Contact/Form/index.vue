@@ -18,6 +18,15 @@ const { submitted, submitHandler, formData } = useContactForm({
 })
 
 const { isValidVin } = useVehiclesApi()
+
+const router = useRouter()
+
+// scroll up to contact-form anchor after form submission
+watch(submitted, (submitted) => {
+  if (submitted) {
+    router.push('#contact-form')
+  }
+})
 </script>
 
 <script lang="ts">
@@ -29,6 +38,7 @@ export default { name: 'ContactForm' }
     class="max-w-5xl mx-auto px-6 py-10 rounded shadow-xl dark:bg-zinc-900 sm:(px-8) md:(px-10) lg:(px-12)"
   >
     <ClientOnly>
+      <!-- Form -->
       <FormKit
         v-if="!submitted"
         id="form"
@@ -114,7 +124,7 @@ export default { name: 'ContactForm' }
               label="Vehicle Identification Number (VIN)"
               placeholder="Ex: WAURFAFR6AA002698"
               :help="
-                formData.vehicleVin.length
+                formData.vehicleVin?.length
                   ? `${formData.vehicleVin.length} / 17`
                   : ''
               "
@@ -220,16 +230,10 @@ export default { name: 'ContactForm' }
           </div>
         </div>
       </FormKit>
-      <div
-        v-if="submitted"
-        class="grid gap-4 place-items-center px-8 py-12 text-center font-semibold text-green-800 dark:text-green-500 dark:bg-zinc-900"
-      >
-        <IconIconParkOutline:message-success class="text-4xl lg:text-5xl" />
-        <h2 class="text-2xl lg:text-3xl">Submission successful!</h2>
-        <p class="text-xl lg:text-2xl">
-          Help is on the way, we'll reply to your message ASAP.
-        </p>
-      </div>
+      <!-- Form submission message -->
+      <ContactFormSubmissionMessage v-if="submitted" />
+      <!-- Form submission modal -->
+      <ContactFormSubmissionModal :show="submitted" />
     </ClientOnly>
   </div>
 </template>
