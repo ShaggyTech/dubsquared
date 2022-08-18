@@ -3,18 +3,19 @@ import { useAppStore } from '~/stores/app'
 
 // https://router.vuejs.org/api/#routeroptions
 export default <RouterConfig>{
-  scrollBehavior: (to: any, from: any, savedPosition: any) => {
-    // ex: to="#some-section"
+  scrollBehavior: (to, from, savedPosition) => {
+    // scroll to hash, useful for using to="#some-id" in NuxtLink
+    // ex: <NuxtLink to="#top"> To Top </NuxtLink>
     if (to.hash) {
       return {
         el: to.hash,
         behavior: 'smooth',
       }
     }
+
     // if link is to same page - close mobile nav then scroll to top
     if (to === from) {
-      const pinia = getActivePinia()
-      const { toggleMobileNav } = useAppStore(pinia)
+      const { toggleMobileNav } = useAppStore(getActivePinia())
       toggleMobileNav(false)
 
       return {
@@ -25,11 +26,20 @@ export default <RouterConfig>{
     }
 
     // use saved scroll position on browser forward/back navigation
+    if (savedPosition) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(savedPosition)
+        }, 500)
+      })
+    }
+
+    // scroll to top by default, delay needed so user doesn't see scroll before new page is loaded
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
-          left: savedPosition?.left || 0,
-          top: savedPosition?.top || 0,
+          left: 0,
+          top: 0,
         })
       }, 500)
     })
