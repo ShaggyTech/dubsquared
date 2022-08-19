@@ -15,10 +15,7 @@ const routeTitle = computed(() =>
 )
 const routeCanonical = computed(() => {
   if (route.meta.title?.includes('Error')) return undefined
-  else
-    return `https://dubsquared.com${route.path}${
-      route.path.length > 1 ? '/' : ''
-    }`
+  else return `https://dubsquared.com${route.path}`
 })
 </script>
 
