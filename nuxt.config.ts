@@ -3,6 +3,12 @@ import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
+  autoImports: {
+    dirs: [
+      // scan composables nested one level deep
+      'composables/*/index.{ts,js,mjs,mts}',
+    ],
+  },
   nitro: {
     rollupConfig: {
       output: {
