@@ -1,5 +1,5 @@
 import type { RouterConfig } from '@nuxt/schema'
-import { useAppStore } from '~/stores/app'
+import { useNavbarStore } from '~/stores/navbar'
 
 // https://router.vuejs.org/api/#routeroptions
 export default <RouterConfig>{
@@ -15,7 +15,7 @@ export default <RouterConfig>{
 
     // if link is to same page - close mobile nav then scroll to top
     if (to === from) {
-      const { toggleMobileNav } = useAppStore(getActivePinia())
+      const { toggleMobileNav } = useNavbarStore(getActivePinia())
       toggleMobileNav(false)
 
       return {

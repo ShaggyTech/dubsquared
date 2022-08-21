@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useAppStore } from '~/stores/app'
+import { useNavbarStore } from '~/stores/navbar'
 
-const appStore = useAppStore()
-const { showMobileNav, showAppDrawer } = storeToRefs(appStore)
-const { toggleMobileNav, toggleAppDrawer } = appStore
+const navbarStore = useNavbarStore()
+const { showMobileNav, showAppDrawer } = storeToRefs(navbarStore)
+const { toggleMobileNav, toggleAppDrawer } = navbarStore
 
 const navbar = ref<HTMLElement | null>(null)
 

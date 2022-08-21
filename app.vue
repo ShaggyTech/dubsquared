@@ -3,19 +3,19 @@ import '@formkit/themes/genesis'
 import { AppSetup } from './utils/app'
 
 // perform app setup, appName and currentTheme are pinia store refs
-const { appName, currentTheme } = AppSetup()
-
-const fontsHref = ref(
-  'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300;400;500;600;700&display=swap'
-)
+const { appCanonicalBaseURL, appFontsURL, appName, currentTheme } = AppSetup()
 
 const route = useRoute()
 const routeTitle = computed(() =>
   route.meta.title !== 'Home' ? `${route.meta.title} -` : ''
 )
 const routeCanonical = computed(() => {
-  if (route.meta.title?.includes('Error')) return undefined
-  else return `https://dubsquared.com${route.path.length > 1 ? route.path : ''}`
+  if (!appCanonicalBaseURL.value || route.meta.title?.includes('Error'))
+    return ''
+  else
+    return `${appCanonicalBaseURL.value}${
+      route.path.length > 1 ? route.path : ''
+    }`
 })
 </script>
 
@@ -31,8 +31,8 @@ const routeCanonical = computed(() => {
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <Link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
       <Link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
-      <Link rel="preload" as="style" :href="fontsHref" />
-      <Link rel="stylesheet" :href="fontsHref" defer="true" />
+      <Link rel="preload" as="style" :href="appFontsURL" />
+      <Link rel="stylesheet" :href="appFontsURL" defer="true" />
       <Link rel="icon" type="image/png" href="/favicon.png" />
       <Link v-if="routeCanonical" rel="canonical" :href="routeCanonical" />
     </Head>
