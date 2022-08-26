@@ -31,7 +31,10 @@ export default defineNuxtConfig({
     sendgridFromName: '',
     sendgridToEmail: '',
     sendgridToName: '',
-    companyEmail: '',
+    public: {
+      companyEmail: '',
+      companyPhone: '',
+    },
   },
   modules: [
     '@formkit/nuxt',

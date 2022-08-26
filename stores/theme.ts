@@ -19,16 +19,13 @@ export const useThemeStore = defineStore('theme', () => {
 
   // actions
   function getRealtimeTheme(): ITheme {
-    const now = new Date()
-    const hour = now.getHours()
-    const isNight = hour <= 7 || hour >= 19
-    return isNight ? 'dark' : 'light'
+    return isNight() ? 'dark' : 'light'
   }
 
   // defaults to dark if no window object present
   function getSystemTheme(): ITheme {
     try {
-      if (window && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         return 'dark'
       } else return 'light'
     } catch (error) {
@@ -36,12 +33,10 @@ export const useThemeStore = defineStore('theme', () => {
     }
   }
 
-  // watchers
-  /** @private */
-  function onThemeSettingChange(selected: IThemeOptions) {
-    cookieTheme.value = selected
+  function onThemeSettingChange(theme: IThemeOptions) {
+    cookieTheme.value = theme
 
-    switch (selected) {
+    switch (theme) {
       case 'realtime':
         currentTheme.value = getRealtimeTheme()
         break
@@ -49,12 +44,13 @@ export const useThemeStore = defineStore('theme', () => {
         currentTheme.value = getSystemTheme()
         break
       default:
-        currentTheme.value = selected
-        break
+        currentTheme.value = theme
     }
   }
-  watch(selectedTheme, (selected) => {
-    if (selected) onThemeSettingChange(selected)
+
+  // watchers
+  watch(selectedTheme, (theme) => {
+    if (theme) onThemeSettingChange(theme)
   })
 
   // lifecycle
@@ -65,7 +61,7 @@ export const useThemeStore = defineStore('theme', () => {
     onThemeSettingChange(selectedTheme.value)
   }
   /** @private */
-  function onThemeSystemChange() {
+  function onSystemThemeChange() {
     if (selectedTheme.value === 'system') {
       currentTheme.value = getSystemTheme()
     }
@@ -84,16 +80,16 @@ export const useThemeStore = defineStore('theme', () => {
     // event listener to watch for system theme changes
     window
       .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', onThemeSystemChange)
+      .addEventListener('change', onSystemThemeChange)
 
-    // check every minute for realtime theme changes
-    intervalCheckTimer.value = setInterval(onRealtimeCheck, 60 * 1000)
+    // check every 5 minutes for realtime theme changes
+    intervalCheckTimer.value = setInterval(onRealtimeCheck, 5 * 60 * 1000)
   })
   onBeforeUnmount(() => {
     // cleanup listeners and intervals
     window
       .matchMedia('(prefers-color-scheme: dark)')
-      .removeEventListener('change', onThemeSystemChange)
+      .removeEventListener('change', onSystemThemeChange)
 
     clearInterval(intervalCheckTimer.value)
   })
@@ -107,6 +103,7 @@ export const useThemeStore = defineStore('theme', () => {
     // actions
     getRealtimeTheme,
     getSystemTheme,
+    onThemeSettingChange,
   }
 })
 

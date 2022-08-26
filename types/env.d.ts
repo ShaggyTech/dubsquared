@@ -20,7 +20,8 @@ declare global {
     NUXT_SENDGRID_FROM_NAME: string
     NUXT_SENDGRID_TO_EMAIL: string
     NUXT_SENDGRID_TO_NAME: string
-    NUXT_COMPANY_EMAIL: string
+    NUXT_PUBLIC_COMPANY_EMAIL: string
+    NUXT_PUBLIC_COMPANY_PHONE: string
   }
   type GS = typeof globalThis & GlobalSecrets
 }

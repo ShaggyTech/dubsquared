@@ -18,6 +18,7 @@ export const useContactForm = ({
 }) => {
   const { decodeVin, getModelsForMakeYear } = useVehiclesApi()
 
+  // state
   const formData = ref<IContactFormBody>({
     nameFirst: '',
     nameLast: '',
@@ -32,17 +33,23 @@ export const useContactForm = ({
   })
 
   const submitted = ref(false)
-  const formSubmissionResult = ref()
+  const submissionAttempts = ref(0)
+  const submissionError = ref(false)
 
+  // actions
   const submitHandler = async (event: FormData) => {
-    formSubmissionResult.value = await $fetch('/api/submit', {
+    submissionError.value = false
+    // limit attempts to 5 if there are repeat errors on submission. After 5 attemps, cached response is returned
+    if (submissionAttempts.value < 5) submissionAttempts.value++
+
+    const { error } = await useFetch('/api/submit', {
       method: 'post',
       body: event,
-    }).catch((error) => {
-      throwError(error)
+      watch: [submissionAttempts],
     })
 
-    submitted.value = true
+    if (!error.value) submitted.value = true
+    else submissionError.value = true
   }
 
   watch(
@@ -132,9 +139,12 @@ export const useContactForm = ({
   })
 
   return {
+    // state
     formData,
-    formSubmissionResult,
+    submissionAttempts,
+    submissionError,
     submitted,
+    // actions
     submitHandler,
   }
 }

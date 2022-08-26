@@ -18,11 +18,13 @@ export function AppSetup() {
   const appStore = useAppStore(pinia)
   const themeStore = useThemeStore(pinia)
 
-  // minimum store state we need to expose for usage in app.vue
-  const { appName } = storeToRefs(appStore)
+  // minimum store state we need to expose for easy usage in app.vue
+  const { appCanonicalBaseURL, appFontsURL, appName } = storeToRefs(appStore)
   const { currentTheme } = storeToRefs(themeStore)
 
   return {
+    appCanonicalBaseURL,
+    appFontsURL,
     appName,
     currentTheme,
   }
