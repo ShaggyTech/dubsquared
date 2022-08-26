@@ -11,3 +11,7 @@ entry-point = ".output"
 [build]
 command = ""
 upload.format = "service-worker"
+
+[vars]
+NUXT_PUBLIC_COMPANY_EMAIL = "info@dubsquared.com"
+NUXT_PUBLIC_COMPANY_PHONE = "817-277-5593"

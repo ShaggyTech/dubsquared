@@ -3,7 +3,7 @@ import type { IContactFormBody } from '~/types'
 export default defineEventHandler(async (event) => {
   // env variables either set in .env file during dev or set in production environment
   const config = useRuntimeConfig()
-  const sendgridKey = config.sendgridApiKey.length
+  const sendgridApiKey = config.sendgridApiKey.length
     ? config.sendgridApiKey
     : (globalThis as GS).NUXT_SENDGRID_API_KEY
 
@@ -119,7 +119,7 @@ export default defineEventHandler(async (event) => {
     method: 'post',
     body: sendgridBody,
     headers: {
-      Authorization: `Bearer ${sendgridKey}`,
+      Authorization: `Bearer ${sendgridApiKey}`,
       'Content-Type': 'application/json',
     },
   })
