@@ -11,7 +11,7 @@ const decodedVehicle = ref<DecodedVehicle>({
 const { minVehicleYear, vehicleMakes, vehicleModels, vehicleYears } =
   useVehicles()
 
-const { submitted, submitHandler, formData } = useContactForm({
+const { submitted, submitHandler, formData, submissionError } = useContactForm({
   decodedVehicle,
   vehicleMakes,
   vehicleModels,
@@ -233,7 +233,17 @@ export default { name: 'ContactForm' }
       <!-- Form submission message -->
       <ContactFormSubmissionMessage v-if="submitted" />
       <!-- Form submission modal -->
-      <ContactFormSubmissionModal :show="submitted" />
+      <ContactFormSubmissionModal
+        :show="submitted"
+        :show-error="submissionError"
+        :class="`${
+          submitted
+            ? 'border-green-700'
+            : submissionError
+            ? 'border-red-800'
+            : ''
+        }`"
+      />
     </ClientOnly>
   </div>
 </template>

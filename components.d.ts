@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     'IconCarbon:vehicleServices': typeof import('~icons/carbon/vehicle-services')['default']
     'IconCib:instagram': typeof import('~icons/cib/instagram')['default']
+    'IconIconParkOutline:messageFailed': typeof import('~icons/icon-park-outline/message-failed')['default']
     'IconIconParkOutline:messageSuccess': typeof import('~icons/icon-park-outline/message-success')['default']
     'IconIon:clock': typeof import('~icons/ion/clock')['default']
     'IconIon:closeRound': typeof import('~icons/ion/close-round')['default']

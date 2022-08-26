@@ -26,7 +26,7 @@ const closeModal = () => {
 </script>
 
 <script lang="ts">
-export default { name: 'Modal' }
+export default { name: 'Modal', inheritAttrs: false }
 </script>
 
 <template>
@@ -60,7 +60,8 @@ export default { name: 'Modal' }
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-lg p-8 text-left rounded-2xl overflow-hidden bg-zinc-900 border-3 border-red-800 shadow-xl transform transition-all"
+              v-bind="$attrs"
+              class="w-full max-w-lg p-8 text-left rounded-2xl overflow-hidden bg-zinc-900 border-3 shadow-xl transform transition-all"
             >
               <slot />
               <div class="grid place-items-center mt-4">
