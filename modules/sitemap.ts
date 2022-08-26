@@ -1,6 +1,6 @@
-import { mkdirSync, writeFileSync } from 'fs'
-import { Readable } from 'stream'
-import { dirname } from 'path'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { Readable } from 'node:stream'
+import { dirname } from 'node:path'
 import { SitemapStream, streamToPromise } from 'sitemap'
 import { defineNuxtModule, createResolver } from '@nuxt/kit'
 
@@ -16,7 +16,7 @@ export default defineNuxtModule({
     dynamicRoutes: [],
   },
   setup(options, nuxt) {
-    async function generateSitemap(routes: any) {
+    const generateSitemap = async (routes: any) => {
       // const sitemapRoutes = routes.map((route) => route.path);
       const sitemapRoutes: string[] = [
         ...routes
@@ -32,7 +32,7 @@ export default defineNuxtModule({
       )
     }
 
-    function createSitemapFile(sitemap: any, filepath: any) {
+    const createSitemapFile = (sitemap: any, filepath: any) => {
       const dirPath = dirname(filepath)
       mkdirSync(dirPath, { recursive: true })
       writeFileSync(filepath, sitemap)
