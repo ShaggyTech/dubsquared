@@ -1,15 +1,15 @@
-name: cloudflare
+name: cloudflare-next
 
 on:
   push:
     branches:
-      - main
+      - next
 
 jobs:
   deploy:
     runs-on: ${{ matrix.os }}
 
-    name: Deploy Production
+    name: Deploy next branch to cloudflare
 
     strategy:
       matrix:
@@ -43,3 +43,4 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
+          command: publish --config wrangler.dev.toml

@@ -6,7 +6,6 @@
     "types": [
       "nuxt-windicss",
       "@vueuse/nuxt",
-      "@intlify/nuxt3",
       "@pinia/nuxt",
       "unplugin-icons/types/vue",
     ]
