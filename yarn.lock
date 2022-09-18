@@ -1180,13 +1180,13 @@
     url-loader "^4.1.0"
     vue-svg-loader "^0.16.0"
 
-"@pinia/nuxt@0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.4.1.tgz#f32b046cef6b6663f5ce0d4cce6863e7a965873b"
-  integrity sha512-lxf2r3jaJysGxKuuv5FcoFEd4jQbZu+hMLGEQhDlz06IBJ1U+Dlxv5FklHHS6pa5+4ffaVqhUinhlElI/pknXQ==
+"@pinia/nuxt@0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.4.2.tgz#83b230843cae3b165baf0cda37ba1299c5f403ba"
+  integrity sha512-yPrJVFOTVDsCcwzVvElLmSFB6IKWo+0WpVmVPCZyj/LD2uNYBK8I3lTPHdZ4q/VS2Sj8LkA7aq6S8PFpwguQ0A==
   dependencies:
-    "@nuxt/kit" "3.0.0-rc.6"
-    pinia ">=2.0.19"
+    "@nuxt/kit" "^3.0.0-rc.9"
+    pinia ">=2.0.22"
 
 "@polka/url@^1.0.0-next.20":
   version "1.0.0-next.21"
@@ -6768,10 +6768,10 @@ pify@^2.3.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
-pinia@>=2.0.19:
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.20.tgz#3b7f1a5a660282fab6a0c83bae62c48ee0b1bc1f"
-  integrity sha512-fdHHumXW/0U5HhxmY1emo3I4z85p8NJPdbtFQSlmJXFe3ktuF0pYNVgVtk2q+j2zCtTufY763xzaEMx0t6T59g==
+pinia@>=2.0.22:
+  version "2.0.22"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.0.22.tgz#435468e8e6d6aa6f319cb727b23bd51db0844c4a"
+  integrity sha512-u+b8/BC+tmvo3ACbYO2w5NfxHWFOjvvw9DQnyT0dW8aUMCPRQT5QnfZ5R5W2MzZBMTeZRMQI7V/QFbafmM9QHw==
   dependencies:
     "@vue/devtools-api" "^6.2.1"
     vue-demi "*"
