@@ -514,7 +514,7 @@
   dependencies:
     "@formkit/core" "1.0.0-beta.11-c95e605"
 
-"@formkit/nuxt@^1.0.0-beta.11-c95e605":
+"@formkit/nuxt@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
   resolved "https://registry.yarnpkg.com/@formkit/nuxt/-/nuxt-1.0.0-beta.11-c95e605.tgz#c9c1c0577a7eead2de5dab33dd210689e91b641e"
   integrity sha512-09XWddWAan8EJnA2AGtnN2Oy600zwV9MLrKPrBW3T0FdTiT3wOOenk6C3Q7yjO3zFGMiYD4YGjyjBhJk8AmDZg==
