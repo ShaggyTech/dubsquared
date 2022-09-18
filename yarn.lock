@@ -61,7 +61,7 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
-"@babel/core@^7.18.13":
+"@babel/core@^7.18.13", "@babel/core@^7.19.0":
   version "7.19.1"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.19.1.tgz#c8fa615c5e88e272564ace3d42fbc8b17bfeb22b"
   integrity sha512-1H8VgqXme4UXCRv7/Wa1bq7RVymKOzC7znjyFM8KiEzwFqcKUKYNoQef4GhdklgNvoBXyW4gYhuBNCM5o1zImw==
@@ -334,7 +334,7 @@
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.18.12.tgz#4c0abdf1b5213394e73a0ba5500dcc287194a20d"
   integrity sha512-wDh3K5IUJiSMAY0MLYBFoCaj2RCZwvDz5BHn2uHat9KOsGWEVDFgFQFIOO+81Js2phFKNppLC45iOCsZVfJniw==
 
-"@babel/standalone@^7.18.13":
+"@babel/standalone@^7.18.13", "@babel/standalone@^7.19.0":
   version "7.19.2"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.19.2.tgz#fd727f79ddddb88ff0d573ad2334e7a31f56eab6"
   integrity sha512-p+U+TYGevnPUemfHeQVFwABp9kWe5+h20MKxCzvyeAD1SIm7tlvo6lGRFz1WakAxmVZvLz7WDuWjwdC8FZKp+A==
@@ -859,7 +859,7 @@
   resolved "https://registry.yarnpkg.com/@nuxt/devalue/-/devalue-2.0.0.tgz#c7bd7e9a516514e612d5d2e511ffc399e0eac322"
   integrity sha512-YBI/6o2EBz02tdEJRBK8xkt3zvOFOWlLBf7WKYGBsSYSRtjjgrqPe2skp6VLLmKx5WbHHDNcW+6oACaurxGzeA==
 
-"@nuxt/kit@3.0.0-rc.6", "@nuxt/kit@^3.0.0-rc.6":
+"@nuxt/kit@3.0.0-rc.6":
   version "3.0.0-rc.6"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.0.0-rc.6.tgz#b59c10639cb591bdc5a63164fb352b344230a065"
   integrity sha512-+lxSd6dSWlAzMXfGOPcY4856xnMF1Ck1rycFUZ+K2QYiDXphq/fiW2eMaWLVvqgPyL2Box2WzVDZJ6C5ceptcw==
@@ -931,6 +931,30 @@
     unimport "^0.6.7"
     untyped "^0.4.7"
 
+"@nuxt/kit@^3.0.0-rc.9":
+  version "3.0.0-rc.10"
+  resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.0.0-rc.10.tgz#d61f47584ca4491a881cd7e7500cb71e9e2a3524"
+  integrity sha512-sJEuvM6JTOWULRTLN0R4vZZYxus0ylevrCUELnez3GHedeDPopFrjFd8G+pZWTid9wix4SS3izWBvOJx9mLGlQ==
+  dependencies:
+    "@nuxt/schema" "3.0.0-rc.10"
+    c12 "^0.2.12"
+    consola "^2.15.3"
+    defu "^6.1.0"
+    globby "^13.1.2"
+    hash-sum "^2.0.0"
+    ignore "^5.2.0"
+    jiti "^1.15.0"
+    knitwork "^0.1.2"
+    lodash.template "^4.5.0"
+    mlly "^0.5.14"
+    pathe "^0.3.7"
+    pkg-types "^0.3.5"
+    scule "^0.3.2"
+    semver "^7.3.7"
+    unctx "^2.0.2"
+    unimport "^0.6.7"
+    untyped "^0.5.0"
+
 "@nuxt/kit@npm:@nuxt/kit-edge@latest":
   version "3.0.0-rc.6-27661960.60656df"
   resolved "https://registry.yarnpkg.com/@nuxt/kit-edge/-/kit-edge-3.0.0-rc.6-27661960.60656df.tgz#ff5dbaf538c97cf5d09131a1905a1ba66df6b5d7"
@@ -955,6 +979,23 @@
     unctx "^2.0.1"
     unimport "^0.6.5"
     untyped "^0.4.5"
+
+"@nuxt/schema@3.0.0-rc.10":
+  version "3.0.0-rc.10"
+  resolved "https://registry.yarnpkg.com/@nuxt/schema/-/schema-3.0.0-rc.10.tgz#70b9f49484950e0a88325246e4d2eab772675804"
+  integrity sha512-mHb+5qp3H07QvASA/fGEnUWx4S3plBt6nqZmPewxDuBys2au/PCBJBQiwKioBLgQvFPqysirScpLYPFKy3qdJw==
+  dependencies:
+    c12 "^0.2.12"
+    create-require "^1.1.1"
+    defu "^6.1.0"
+    jiti "^1.15.0"
+    pathe "^0.3.7"
+    pkg-types "^0.3.5"
+    postcss-import-resolver "^2.0.0"
+    scule "^0.3.2"
+    std-env "^3.2.1"
+    ufo "^0.8.5"
+    unimport "^0.6.7"
 
 "@nuxt/schema@3.0.0-rc.8":
   version "3.0.0-rc.8"
@@ -1636,14 +1677,14 @@
     style-value-types "^5.1.0"
     vue-demi "*"
 
-"@vueuse/nuxt@9.1.0":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/nuxt/-/nuxt-9.1.0.tgz#c13c692d0bf6980de26424558f0f556d2072f348"
-  integrity sha512-ejWjv8IPo2sSCQ81lY5TtzszWvnqRUYsBTrK0XOJGMDIeUHc6/gQbwezyb9OY3yJvIvQ3sGBbLo1iW04Rk7ZhA==
+"@vueuse/nuxt@9.2.0":
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/nuxt/-/nuxt-9.2.0.tgz#3c1f1c1d3b534541cd8585769de06b8aa13b8a59"
+  integrity sha512-SztYIO0R4paBsuR4N1q+XHiqj0J2Go0dvQ7sHX8IPXbSjwORPOmK6Oo7i4SEWrWwz3Q+B1mrnlP19lR00K9Sqw==
   dependencies:
-    "@nuxt/kit" "^3.0.0-rc.6"
-    "@vueuse/core" "9.1.0"
-    "@vueuse/metadata" "9.1.0"
+    "@nuxt/kit" "^3.0.0-rc.9"
+    "@vueuse/core" "9.2.0"
+    "@vueuse/metadata" "9.2.0"
     local-pkg "^0.4.2"
     vue-demi "*"
 
@@ -2193,7 +2234,7 @@ builtins@^5.0.1:
   dependencies:
     semver "^7.0.0"
 
-c12@^0.2.10:
+c12@^0.2.10, c12@^0.2.12:
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/c12/-/c12-0.2.12.tgz#fa6cfebff3553e139f323dab8ac8ae8e5eebc237"
   integrity sha512-Oq+XDrx2luek30VrWU0QXrvPbILAp8fDVgprRvhP4WL4CZaSqE7CNHIhq1R824YSkMVUOfMjsZFRcVqs7I2Xxg==
@@ -8783,6 +8824,16 @@ untyped@^0.4.7:
     "@babel/core" "^7.18.13"
     "@babel/standalone" "^7.18.13"
     "@babel/types" "^7.18.13"
+    scule "^0.3.2"
+
+untyped@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/untyped/-/untyped-0.5.0.tgz#0c8be1296d128a3f35e0df229b542f288741a50f"
+  integrity sha512-2Sre5A1a7G61bjaAKZnSFaVgbJMwwbbYQpJFH69hAYcDfN7kIaktlSphS02XJilz4+/jR1tsJ5MHo1oMoCezxg==
+  dependencies:
+    "@babel/core" "^7.19.0"
+    "@babel/standalone" "^7.19.0"
+    "@babel/types" "^7.19.0"
     scule "^0.3.2"
 
 update-browserslist-db@^1.0.5:
