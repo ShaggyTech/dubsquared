@@ -1,22 +1,17 @@
-import { defineNuxtConfig } from 'nuxt'
 import UnpluginComponentsVite from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 export default defineNuxtConfig({
-  autoImports: {
+  // failing on Nuxt RC.10 cloudflare build with sourcemap set to true, revisit when fixed
+  sourcemap: {
+    server: false,
+    client: false,
+  },
+  imports: {
     dirs: [
       // scan composables nested one level deep
       'composables/*/index.{ts,js,mjs,mts}',
     ],
-  },
-  nitro: {
-    rollupConfig: {
-      output: {
-        generatedCode: {
-          symbols: true,
-        },
-      },
-    },
   },
   css: [
     'virtual:windi-base.css',
