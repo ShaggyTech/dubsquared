@@ -706,14 +706,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@kevinmarrec/nuxt-pwa@0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@kevinmarrec/nuxt-pwa/-/nuxt-pwa-0.4.2.tgz#c471bd305797e8619739dd4f6133dff4fd1cad73"
-  integrity sha512-GVLv4knKAFMX0YB0soYEsaTmJrFmm6/QpAPHXf1ZkAF5iHqyvWKW2ymMID0g5YUZjpxJxkAEPlBWSZ1DB7z24A==
+"@kevinmarrec/nuxt-pwa@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@kevinmarrec/nuxt-pwa/-/nuxt-pwa-0.5.0.tgz#6a52c63050ee9f3b42c23ef5f745abbf67f7acbb"
+  integrity sha512-MJ6XxtPMjfC68nQPisgiBX56HyqHODtAUl86RB8+capDndaRsFwLJ2tvdCtzYvc4cy+YU4zkzFS/Fsd9SUZbUA==
   dependencies:
     hasha "^5.2.2"
-    sharp "^0.30.7"
-    std-env "^3.1.1"
+    sharp "^0.31.1"
+    std-env "^3.2.1"
 
 "@koa/router@^9.0.1":
   version "9.4.0"
@@ -7245,10 +7245,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-sharp@^0.30.7:
-  version "0.30.7"
-  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.30.7.tgz#7862bda98804fdd1f0d5659c85e3324b90d94c7c"
-  integrity sha512-G+MY2YW33jgflKPTXXptVO28HvNOo9G3j0MybYAHeEmby+QuD2U98dT6ueht9cv/XDqZspSpIhoSW+BAKJ7Hig==
+sharp@^0.31.1:
+  version "0.31.1"
+  resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.31.1.tgz#b2f7076d381a120761aa93700cadefcf90a22458"
+  integrity sha512-GR8M1wBwOiFKLkm9JPun27OQnNRZdHfSf9VwcdZX6UrRmM1/XnOrLFTF0GAil+y/YK4E6qcM/ugxs80QirsHxg==
   dependencies:
     color "^4.2.3"
     detect-libc "^2.0.1"
@@ -7522,7 +7522,7 @@ statuses@2.0.1:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==
 
-std-env@^3.1.1, std-env@^3.2.1:
+std-env@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/std-env/-/std-env-3.2.1.tgz#00e260ec3901333537125f81282b9296b00d7304"
   integrity sha512-D/uYFWkI/31OrnKmXZqGAGK5GbQRPp/BWA1nuITcc6ICblhhuQUPHS5E2GSCVS7Hwhf4ciq8qsATwBUxv+lI6w==
