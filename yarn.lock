@@ -481,12 +481,12 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@formkit/core@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.0.0-beta.10.tgz#eb8315a80d9e74cb612b1faebf765a8f8f344bf9"
-  integrity sha512-L6dLPUFLjhaqKv6f/cm+YYk1bfDI7fY8nDbEh8XHqmFVIPMf4OeBAEUfORFAh5PmCcIlgtDKvPkRwopVkxEvxA==
+"@formkit/core@1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@formkit/core/-/core-1.0.0-beta.11.tgz#72a5164f7a0a181b4b237912e2fe9ef027904963"
+  integrity sha512-1yIQUicY1ZVGkeT0AEVp3ahx5FdJg+snyc8yaitsNmQeCSq1Ju5o1nCRcpcZ7j2ezMbGUiL7nTscGGejC15N2Q==
   dependencies:
-    "@formkit/utils" "1.0.0-beta.10"
+    "@formkit/utils" "1.0.0-beta.11"
 
 "@formkit/core@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -544,12 +544,12 @@
     "@formkit/utils" "1.0.0-beta.11-c95e605"
     "@formkit/validation" "1.0.0-beta.11-c95e605"
 
-"@formkit/themes@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/themes/-/themes-1.0.0-beta.10.tgz#ebe676c02db18fc16d7c16d3e0aeff7bdba4d071"
-  integrity sha512-oFZq11JvGZQ7e/aGEstH7jcV/yYOzfCvscgS3NQD/C3/WsM0MTZNirBvK8jrt68uB4aZnzmDCEeb93HSJ0Rsyg==
+"@formkit/themes@1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@formkit/themes/-/themes-1.0.0-beta.11.tgz#36441daa4ebfa1ab396ee6f9ae5a56cff42dc10d"
+  integrity sha512-OmefvFoLHZLnmbuT+Mqbqr681rumc62Q08Y1g82ZxG6aXWculwQYVQfZJeJFrqrJPpccsfoSflWeAuAMWiP/Yw==
   dependencies:
-    "@formkit/core" "1.0.0-beta.10"
+    "@formkit/core" "1.0.0-beta.11"
 
 "@formkit/themes@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
@@ -558,10 +558,10 @@
   dependencies:
     "@formkit/core" "1.0.0-beta.11-c95e605"
 
-"@formkit/utils@1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.0.0-beta.10.tgz#c02032e704a0659c92cbe8746cb2aa7e23402aa9"
-  integrity sha512-uMx2HKdyeFGNFuHckKuyW3ABYzrhgeoH2GO+gX94+hay4heWHpB65ZIdvEvCSBSxR83qfJ2k32USbW3AJlSQHg==
+"@formkit/utils@1.0.0-beta.11":
+  version "1.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/@formkit/utils/-/utils-1.0.0-beta.11.tgz#3a9a131bdb690a5156b2d5f5f22b58c5b35f534a"
+  integrity sha512-ajeB6A0WJXaErwIgdHGnVZotghvWOZ+JvFKK6fM/rYQza2O4YFiPAVKqJRQjMbW5Jxia4sT7PQhPUFvZQFbuKQ==
 
 "@formkit/utils@1.0.0-beta.11-c95e605":
   version "1.0.0-beta.11-c95e605"
