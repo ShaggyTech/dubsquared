@@ -30,7 +30,7 @@
     "@formkit/themes": "1.0.0-beta.11",
     "@headlessui/vue": "1.6.5",
     "@iconify/json": "2.1.115",
-    "@kevinmarrec/nuxt-pwa": "0.5.0",
+    "@kevinmarrec/nuxt-pwa": "0.17.0",
     "@nuxtjs/eslint-config-typescript": "11.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
     "@nuxtjs/svg": "0.4.0",
