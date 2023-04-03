@@ -12,7 +12,6 @@ interface Props {
   seen?: boolean
   variant?: Variant
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   src: undefined,
   placeholderSrc: undefined,

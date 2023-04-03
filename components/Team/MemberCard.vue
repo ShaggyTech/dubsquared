@@ -15,7 +15,6 @@ type Props = {
   observerKey?: string
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 defineProps<Props>()
 </script>
 

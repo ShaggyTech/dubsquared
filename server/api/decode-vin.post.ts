@@ -2,7 +2,7 @@ import type { DecodeVinValuesResults, DecodeVinValuesResponse } from '~/types'
 
 export default defineEventHandler(
   async (event): Promise<DecodeVinValuesResults | undefined> => {
-    const { vin }: { vin: string } = await useBody(event)
+    const { vin }: { vin: string } = await readBody(event)
 
     const response: DecodeVinValuesResponse =
       await $fetch<DecodeVinValuesResponse>(

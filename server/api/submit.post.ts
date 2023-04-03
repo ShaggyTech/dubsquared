@@ -2,29 +2,16 @@ import type { IContactFormBody } from '~/types'
 
 export default defineEventHandler(async (event) => {
   // env variables either set in .env file during dev or set in production environment
-  const config = useRuntimeConfig()
-  const sendgridApiKey = config.sendgridApiKey.length
-    ? config.sendgridApiKey
-    : (globalThis as GS).NUXT_SENDGRID_API_KEY
-
-  const sendgridFromEmail = config.sendgridFromEmail.length
-    ? config.sendgridFromEmail
-    : (globalThis as GS).NUXT_SENDGRID_FROM_EMAIL
-
-  const sendgridFromName = config.sendgridFromName.length
-    ? config.sendgridFromName
-    : (globalThis as GS).NUXT_SENDGRID_FROM_NAME
-
-  const sendgridToEmail = config.sendgridToEmail.length
-    ? config.sendgridToEmail
-    : (globalThis as GS).NUXT_SENDGRID_TO_EMAIL
-
-  const sendgridToName = config.sendgridToName.length
-    ? config.sendgridToName
-    : (globalThis as GS).NUXT_SENDGRID_TO_NAME
+  const {
+    sendgridApiKey,
+    sendgridFromEmail,
+    sendgridFromName,
+    sendgridToEmail,
+    sendgridToName,
+  } = useRuntimeConfig()
 
   // get event body (form values)
-  const body: IContactFormBody = await useBody(event)
+  const body: IContactFormBody = await readBody(event)
 
   // factory for email html
   const getEmailHtml = (body: IContactFormBody) => `

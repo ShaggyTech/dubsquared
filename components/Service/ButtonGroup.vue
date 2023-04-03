@@ -2,7 +2,6 @@
 interface Props {
   variant?: 'page' | 'hash'
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   variant: 'page',
 })
