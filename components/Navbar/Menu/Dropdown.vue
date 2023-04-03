@@ -13,7 +13,6 @@ interface Props {
   variant?: Variant
   to?: string
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   menuItems: () => [],
   icon: undefined,

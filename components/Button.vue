@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 // state:styles
-const defaultStyle: string = `
+const defaultStyle = `
   flex items-center justify-center
   border-2 shadow-none hover:shadow
   hover:border-red-800/70 hover:dark:border-red-800/50

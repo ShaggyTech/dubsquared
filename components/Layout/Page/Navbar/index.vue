@@ -49,7 +49,7 @@ export default { name: 'LayoutPageNavbar' }
       <NavbarMenuMobile
         header-text="Navigation"
         :menu="mobileMenuItems"
-        @onClose="toggleMobileNav(false)"
+        @on-close="toggleMobileNav(false)"
       />
     </template>
   </NavbarBuilder>

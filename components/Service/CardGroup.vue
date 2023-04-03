@@ -9,7 +9,6 @@ type Variants = { [key in Variant]: string }
 interface Props {
   variant?: Variant
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   variant: 'default',
 })

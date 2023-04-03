@@ -17,7 +17,6 @@ interface Props {
   backgroundImage?: { src: string; cloudinaryId: string; alt: string }
   variant?: Variant
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(defineProps<Props>(), {
   headingStyle: '',
   paragraphStyle: '',
@@ -104,9 +103,9 @@ const cardBackgroundImage = computed(() => ({
   initial: useCloudinaryPlaceholder({
     height: imgHeight.value,
   }),
-  visibile: useCloudinary({
-    path: props.backgroundImage.src,
-    id: props.backgroundImage.cloudinaryId,
+  visible: useCloudinary({
+    path: props.backgroundImage?.src as unknown as string,
+    id: props.backgroundImage?.cloudinaryId as unknown as string,
     height: imgHeight.value,
   }),
 }))
@@ -122,7 +121,7 @@ const cardMotionVariants = ref<MotionVariants>({
   visible: {
     opacity: 1,
     scale: 1,
-    backgroundImage: `url('${cardBackgroundImage.value.visibile}')`,
+    backgroundImage: `url('${cardBackgroundImage.value.visible}')`,
     transition: {
       duration: 500,
       delay: 100,
