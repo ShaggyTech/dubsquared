@@ -8,22 +8,36 @@
     "[typescript]": {
         "editor.tabSize": 2,
     },
-    "javascript.format.semicolons": "remove",
+    // "javascript.format.semicolons": "remove",
     "typescript.tsdk": "node_modules/typescript/lib",
-    "css.validate": false,
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
         "strings": true
     },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
     "windicss.sortOnSave": false,
-    "tailwindCSS.classAttributes": [
-        "class",
-        "className",
-        "ngClass",
-        ":class"
-    ],
-    "headwind.runOnSave": false,
     "windicss.enableEmmetCompletion": true,
     "windicss.colorDecoratorsType": "picker",
+    // prettier/eslint formatter
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "editor.formatOnPaste": false, // required 
+    "editor.formatOnType": false, // required
+    "editor.formatOnSave": true, // optional 
+    "editor.formatOnSaveMode": "file", // required to format on save
+    "css.validate": false,
+    "cSpell.words": [
+        "headlessui",
+        "iconify",
+        "kevinmarrec",
+        "lintfix",
+        "nuxi",
+        "nuxtjs",
+        "pinia",
+        "unplugin",
+        "vueuse",
+        "windicss"
+    ],
 }

@@ -1,18 +1,15 @@
 name = "dubsquared-next"
+main = ".output/server/index.mjs"
 account_id = "e447e4c0da31cb819d3fead9bccbce1d"
 workers_dev = true
-compatibility_date = "2022-04-07"
+compatibility_date = "2022-11-30"
 node_compat = true
-main = ".output/server/index.mjs"
 
 [site]
 bucket = ".output/public"
 
-[build]
-command = ""
-
 [vars]
-NUXT_PUBLIC_COMPANY_EMAIL = "info@dubsquared.com"
+NUXT_PUBLIC_COMPANY_EMAIL = "brandon@dubsquared.com"
 NUXT_PUBLIC_COMPANY_PHONE = "817-277-5593"
 NUXT_PUBLIC_SUPABASE_URL = "https://rrbfitgsjmxycukosbty.supabase.co"
 NUXT_PUBLIC_SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJyYmZpdGdzam14eWN1a29zYnR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjE0NjA3OTIsImV4cCI6MTk3NzAzNjc5Mn0.VrHDPlxSVD-x3wgX_NsYJO0DVxsUq4yxgO0ge34lkE4"

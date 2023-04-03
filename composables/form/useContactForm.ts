@@ -43,7 +43,7 @@ export const useContactForm = ({
     if (submissionAttempts.value < 5) submissionAttempts.value++
 
     const { error } = await useFetch('/api/submit', {
-      method: 'post',
+      method: 'POST',
       body: event,
       watch: [submissionAttempts],
     })
@@ -82,12 +82,13 @@ export const useContactForm = ({
     async (vin) => {
       if (vin) {
         // convert vin to uppercase and remove all spaces
-        await nextTick(
-          () =>
-            (formData.value.vehicleVin = vin
+        await nextTick(() => {
+          if (formData?.value?.vehicleVin) {
+            formData.value.vehicleVin = vin
               .toLocaleUpperCase()
-              .replace(/\s/g, ''))
-        )
+              .replace(/\s/g, '')
+          }
+        })
 
         // reset decodedVehicle values
         decodedVehicle.value = {

@@ -34,8 +34,8 @@ export default defineNuxtConfig({
   modules: [
     '@formkit/nuxt',
     '@kevinmarrec/nuxt-pwa',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/svg',
+    // '@nuxtjs/eslint-module',
+    // '@nuxtjs/svg',
     [
       '@pinia/nuxt',
       {
