@@ -13,9 +13,9 @@ definePageMeta({
 
 const heroObserverName = ref('page-about-hero-section-observer')
 const heroBackgroundImage: IImage = {
-  path: '/images/r32-bus-yard-1920x1280.webp',
-  cloudinaryId: 'xboxyw',
-  alt: 'Volkswagen R32 parked between two school buses',
+  path: '/images/dubsquared-employees-frontage.jpg',
+  cloudinaryId: 'gnzqcm',
+  alt: 'Group photo of Dubsquared employees in front of the shop',
 }
 </script>
 
@@ -83,8 +83,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-philip-w"
                 :image="{
-                  path: 'images/placeholders/person-placeholder-375x450.webp',
-                  cloudinaryId: 'dmwcsw',
+                  path: 'images/dubsquared-headshot-philip.jpg',
+                  cloudinaryId: 'hyhomg',
                   alt: 'Photo of team member Philip W.',
                 }"
               />
@@ -111,8 +111,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-tyler-s"
                 :image="{
-                  path: 'images/placeholders/person-placeholder-375x450.webp',
-                  cloudinaryId: 'dmwcsw',
+                  path: 'images/dubsquared-headshot-tyler.jpg',
+                  cloudinaryId: 'gxjspu',
                   alt: 'Photo of team member Tyler S.',
                 }"
               />
@@ -149,8 +149,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-brandon-e"
                 :image="{
-                  path: 'images/placeholders/person-placeholder-375x450.webp',
-                  cloudinaryId: 'dmwcsw',
+                  path: 'images/dubsquared-headshot-brandon.jpg',
+                  cloudinaryId: 'ry9ulo',
                   alt: 'Photo of team member Brandon E.',
                 }"
               />
@@ -172,8 +172,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-bryan-h"
                 :image="{
-                  path: 'images/placeholders/person-placeholder-375x450.webp',
-                  cloudinaryId: 'dmwcsw',
+                  path: 'images/dubsquared-headshot-bryan.jpg',
+                  cloudinaryId: 'qgry8x',
                   alt: 'Photo of team member Bryan H.',
                 }"
               />
