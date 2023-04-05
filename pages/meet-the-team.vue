@@ -61,7 +61,7 @@ export default { name: 'PagesMeetTheTeam' }
 
             <div class="flex flex-wrap place-content-around gap-x-6 w-full">
               <TeamMemberCard
-                name="Philip W."
+                name="Philip Wight"
                 title="Owner"
                 email="philip@dubsquared.com"
                 :biography="[
@@ -90,11 +90,11 @@ export default { name: 'PagesMeetTheTeam' }
                 :image="{
                   path: 'images/dubsquared-headshot-philip.webp',
                   cloudinaryId: 'kq1sdo',
-                  alt: 'Photo of team member Philip W.',
+                  alt: 'Photo of team member Philip Wight',
                 }"
               />
               <TeamMemberCard
-                name="Tyler S."
+                name="Tyler Stookesberry"
                 title="Technician"
                 email="tyler@dubsquared.com"
                 :biography="[
@@ -118,11 +118,11 @@ export default { name: 'PagesMeetTheTeam' }
                 :image="{
                   path: 'images/dubsquared-headshot-tyler.webp',
                   cloudinaryId: 'ecgr1u',
-                  alt: 'Photo of team member Tyler S.',
+                  alt: 'Photo of team member Tyler Stookesberry',
                 }"
               />
               <TeamMemberCard
-                name="Brandon E."
+                name="Brandon Eichler"
                 title="Technician"
                 email="brandon@dubsquared.com"
                 :biography="[
@@ -156,11 +156,11 @@ export default { name: 'PagesMeetTheTeam' }
                 :image="{
                   path: 'images/dubsquared-headshot-brandon.webp',
                   cloudinaryId: 'hkwtnz',
-                  alt: 'Photo of team member Brandon E.',
+                  alt: 'Photo of team member Brandon Eichler',
                 }"
               />
               <TeamMemberCard
-                name="Bryan H."
+                name="Bryan Heftler"
                 title="Customer Service Specialist"
                 email="bryan@dubsquared.com"
                 :biography="[
@@ -179,7 +179,7 @@ export default { name: 'PagesMeetTheTeam' }
                 :image="{
                   path: 'images/dubsquared-headshot-bryan.webp',
                   cloudinaryId: 'bizjxw',
-                  alt: 'Photo of team member Bryan H.',
+                  alt: 'Photo of team member Bryan Heftler',
                 }"
               />
             </div>
