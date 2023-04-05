@@ -11,14 +11,13 @@ const props = withDefaults(defineProps<Props>(), {
   error: undefined,
 })
 
-definePageMeta({
-  layout: 'page',
-  title: 'Error',
-  description: 'An Error Occurred',
-})
-
-const handleError = () => {
+const goHome = () => {
   clearError({ redirect: '/' })
+}
+
+const goBack = () => {
+  clearError()
+  useRouter().back()
 }
 </script>
 
@@ -30,16 +29,20 @@ const handleError = () => {
       <h1
         class="title bg-gradient text-gradient !mb-0 !text-5xl font-semibold md:!text-9xl"
       >
-        Oops! An error has occured.
+        Oops! An error has occurred.
       </h1>
-      <h2 v-if="error?.message" class="mb-12 text-3xl text-gray-200 md:text-xl">
+      <h2 v-if="error?.message" class="mb-12 text-3xl text-gray-500 md:text-xl">
         Error Message: {{ error?.message }}
       </h2>
-      <button type="button" class="flex space-x-2" @click="handleError">
+      <button type="button" class="flex space-x-2" @click="goHome">
+        <IconMdi:garage class="text-3xl text-red-500 dark:text-yellow-500" />
+        <span class="text-3xl">Go to Home page</span>
+      </button>
+      <button type="button" class="flex space-x-2" @click="goBack">
         <IconMdi:arrowLeft
           class="text-3xl text-yellow-500 dark:text-yellow-500"
         />
-        <span class="text-3xl">Back to Home page</span>
+        <span class="text-3xl">Back to Previous page</span>
       </button>
     </div>
   </div>
