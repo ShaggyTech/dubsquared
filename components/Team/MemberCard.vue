@@ -37,13 +37,13 @@ export default { name: 'TeamMemberCard' }
           path: 'images/placeholders/person-placeholder-375x450.webp',
           cloudinaryId: 'dmwcsw',
         }"
-        :height="image.height || 450"
-        :width="image.width || 375"
+        :height="image.height || 500"
+        :width="image.width || 350"
         :alt="image.alt"
         :lazy="true"
         :observer-key="observerKey"
         img-class="rounded-lg"
-        class="place-self-center min-h-450px min-w-375px"
+        class="place-self-center min-w-400px min-h-525px"
       />
 
       <!-- Details -->

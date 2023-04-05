@@ -78,13 +78,18 @@ export default { name: 'PagesMeetTheTeam' }
                   {
                     icon: IconMakiRacetrack,
                     iconClass: 'text-red-800',
+                    html: `Systems Engineer for <a href='https://www.pfaffmotorsports.com/' class='underline underline-yellow-300'>Pfaff Motorsports</a>`,
+                  },
+                  {
+                    icon: IconMakiRacetrack,
+                    iconClass: 'text-red-800',
                     html: `Founder of PWM <span class='text-xs font-extralight'> - Philip Wight Motorsports</span>`,
                   },
                 ]"
                 observer-key="team-member-philip-w"
                 :image="{
-                  path: 'images/dubsquared-headshot-philip.jpg',
-                  cloudinaryId: 'hyhomg',
+                  path: 'images/dubsquared-headshot-philip.webp',
+                  cloudinaryId: 'kq1sdo',
                   alt: 'Photo of team member Philip W.',
                 }"
               />
@@ -111,8 +116,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-tyler-s"
                 :image="{
-                  path: 'images/dubsquared-headshot-tyler.jpg',
-                  cloudinaryId: 'gxjspu',
+                  path: 'images/dubsquared-headshot-tyler.webp',
+                  cloudinaryId: 'ecgr1u',
                   alt: 'Photo of team member Tyler S.',
                 }"
               />
@@ -149,8 +154,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-brandon-e"
                 :image="{
-                  path: 'images/dubsquared-headshot-brandon.jpg',
-                  cloudinaryId: 'ry9ulo',
+                  path: 'images/dubsquared-headshot-brandon.webp',
+                  cloudinaryId: 'hkwtnz',
                   alt: 'Photo of team member Brandon E.',
                 }"
               />
@@ -172,8 +177,8 @@ export default { name: 'PagesMeetTheTeam' }
                 ]"
                 observer-key="team-member-bryan-h"
                 :image="{
-                  path: 'images/dubsquared-headshot-bryan.jpg',
-                  cloudinaryId: 'qgry8x',
+                  path: 'images/dubsquared-headshot-bryan.webp',
+                  cloudinaryId: 'bizjxw',
                   alt: 'Photo of team member Bryan H.',
                 }"
               />
