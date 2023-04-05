@@ -26,6 +26,7 @@ declare module '@vue/runtime-core' {
     'IconMdi:chevronDown': typeof import('~icons/mdi/chevron-down')['default']
     'IconMdi:emailFast': typeof import('~icons/mdi/email-fast')['default']
     'IconMdi:engineOffOutline': typeof import('~icons/mdi/engine-off-outline')['default']
+    'IconMdi:garage': typeof import('~icons/mdi/garage')['default']
     'IconMdi:information': typeof import('~icons/mdi/information')['default']
     'IconMdi:mapMarkerRadius': typeof import('~icons/mdi/map-marker-radius')['default']
     'IconMdi:menu': typeof import('~icons/mdi/menu')['default']
