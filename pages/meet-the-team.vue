@@ -27,7 +27,7 @@ export default { name: 'PagesMeetTheTeam' }
   <PageWrapper>
     <PageHeader>
       <PageHero
-        title="The Team"
+        title="Our Team"
         :image="heroBackgroundImage"
         :observer-key="heroObserverName"
       />
