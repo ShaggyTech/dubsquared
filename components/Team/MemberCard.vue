@@ -43,7 +43,7 @@ export default { name: 'TeamMemberCard' }
         :lazy="true"
         :observer-key="observerKey"
         img-class="rounded-lg"
-        class="place-self-center min-w-400px min-h-525px"
+        class="place-self-center min-w-350px min-h-500px"
       />
 
       <!-- Details -->
