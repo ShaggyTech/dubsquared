@@ -48,7 +48,7 @@ export default { name: 'PageHomeHero' }
     ref="container"
     :class="`
       hero__container ${seen ? 'seen' : ''}
-      overflow-hidden bg-no-repeat bg-cover bg-center-35 sm:bg-center
+      overflow-hidden bg-no-repeat bg-cover bg-center-35 sm:bg-center min-w-full
     `"
   >
     <!-- hero content wrapper -->
