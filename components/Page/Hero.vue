@@ -72,7 +72,7 @@ export default { name: 'PageHero' }
       variant="background"
     />
     <div
-      class="relative grid content-between place-items-center gap-14 bg-stone-900/70 h-full w-full pt-20"
+      class="relative grid content-between place-items-center gap-14 bg-stone-900/50 h-full w-full pt-20"
     >
       <LazySVGDubsquaredSquareLogo
         class="h-36 w-36 md:(h-40 w-40) rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm"
