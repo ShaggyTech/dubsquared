@@ -12,6 +12,26 @@ export default { name: 'PageHomeIntroduction' }
     >
       Welcome to Dubsquared
     </h1>
+    <!-- intro picture -->
+    <div class="grid justify-center w-full">
+      <CloudinaryImage
+        :image="{
+          path: 'images/dubsquared-employees-office.jpg',
+          cloudinaryId: 'p2kexw',
+        }"
+        :placeholder="{
+          path: 'images/placeholders/placeholder-1080x810.webp',
+          cloudinaryId: 'iwgwfp',
+        }"
+        height="500"
+        width="800"
+        alt="Dubsquared Employees inside the office"
+        :lazy="true"
+        observer-key="introduction-group-photo"
+        img-class="rounded-lg"
+        class="place-self-center"
+      />
+    </div>
     <!-- intro text container -->
     <div class="grid font-nunito-sans">
       <p>
