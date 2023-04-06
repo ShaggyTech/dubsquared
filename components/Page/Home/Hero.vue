@@ -49,24 +49,19 @@ export default { name: 'PageHomeHero' }
     :class="`
       hero__container ${seen ? 'seen' : ''}
       overflow-hidden bg-no-repeat bg-cover bg-center-35 sm:bg-center
-      backdrop-filter backdrop-brightness-80
     `"
   >
     <!-- hero content wrapper -->
     <div
       :class="`
         grid place-items-center content-center w-full min-h-screen gap-8 pt-10 pb-20 px-4
-        bg-stone-900/95 text-stone-200 text-4xl
+        bg-stone-900/80 text-stone-200 text-4xl
         md:(text-5xl) lg:(min-h-[min(100vh,1000px)] gap-20 pt-20 text-6xl)
       `"
     >
       <!-- hero logo -->
       <SVGDubsquaredSquareLogo
-        :class="`
-          animate-swivel-in logo__dubsquared
-          h-36 w-36 rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm
-          md:(h-40 w-40)
-        `"
+        class="logo__dubsquared h-36 w-36 rounded bg-zinc-800/50 backdrop-filter backdrop-blur-sm md:(h-40 w-40)"
       />
       <!-- hero text -->
       <div
@@ -76,38 +71,25 @@ export default { name: 'PageHomeHero' }
         <div class="grid grid-flow-col justify-between place-items-center px-8">
           <SVGLogoVolkswagen
             alt="Volkswagen logo"
-            class="logo__volkswagen h-1.5em w-auto animate-swivel-in sm:pl-8"
+            class="logo__volkswagen h-1.5em w-auto sm:pl-8"
           />
-          <SVGLogoAudi
-            alt="Audi logo"
-            class="logo__audi h-1em w-auto animate-swivel-in"
-          />
+          <SVGLogoAudi alt="Audi logo" class="logo__audi h-1em w-auto" />
         </div>
         <!-- hero headings -->
         <h1
-          :class="`
-            hero__heading font-kanit font-bold tracking-wide leading-14
-            animated animate-light-speed-in-right
-            md:leading-16 lg:leading-24 
-          `"
+          class="hero__heading font-kanit font-bold tracking-wide leading-14 md:leading-16 lg:leading-24"
         >
           Volkswagen <span class="text-yellow-400/80">&</span> Audi
           <br />
           <span
-            :class="`
-                text-stone-200 font-lora tracking-wider
-                underline underline-offset-4 underline-yellow-500
-              `"
+            class="text-stone-200 font-lora tracking-wider underline underline-offset-4 underline-yellow-500"
           >
             Specialists
           </span>
         </h1>
-        <hr class="hero__spacer animated animate-light-speed-in-right" />
+        <hr class="hero__spacer" />
         <h2
-          :class="`
-            hero__subheading font-teko text-stone-200 text-xl
-            animated animate-light-speed-in-left md:text-3xl 
-          `"
+          class="hero__subheading font-teko text-stone-200 text-xl md:text-3xl"
         >
           Serving Arlington, TX and the DFW Metroplex since 2009
         </h2>
@@ -119,10 +101,6 @@ export default { name: 'PageHomeHero' }
 <style lang="scss" scoped>
 .hero__container {
   background-image: url('/images/placeholders/placeholder-1080x720.webp');
-  filter: blur(50px);
-  transition-property: filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 400ms;
 
   @supports (-webkit-touch-callout: none) {
     background-attachment: scroll;
@@ -132,7 +110,6 @@ export default { name: 'PageHomeHero' }
   }
 
   &.seen {
-    filter: blur(0px);
     background-image: url('/images/audi-r8-hardpoint-front-1080x720.webp');
 
     @screen lg {
@@ -142,28 +119,22 @@ export default { name: 'PageHomeHero' }
 }
 
 .logo__dubsquared {
-  animation-delay: 400ms;
   animation-duration: 0.6s;
 }
 .logo__volkswagen {
-  animation-delay: 600ms;
   animation-duration: 0.6s;
 }
 .logo__audi {
-  animation-delay: 800ms;
   animation-duration: 0.6s;
 }
 
 .hero__heading {
-  animation-delay: 1000ms;
   animation-duration: 0.6s;
 }
 .hero__spacer {
-  animation-delay: 1200ms;
   animation-duration: 0.6s;
 }
 .hero__subheading {
-  animation-delay: 1400ms;
   animation-duration: 0.6s;
 }
 
