@@ -29,7 +29,7 @@
     "@formkit/nuxt": "0.16.4",
     "@formkit/themes": "0.16.4",
     "@headlessui/vue": "1.6.5",
-    "@iconify/json": "2.2.42",
+    "@iconify/json": "2.2.49",
     "@kevinmarrec/nuxt-pwa": "0.17.0",
     "@nuxtjs/eslint-config-typescript": "12.0.0",
     "@pinia/nuxt": "0.4.7",
