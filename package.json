@@ -47,7 +47,7 @@
     "postcss": "8.4.21",
     "postcss-loader": "7.1.0",
     "prettier": "2.8.7",
-    "sass": "1.60.0",
+    "sass": "1.62.0",
     "sass-loader": "13.2.2",
     "sitemap": "7.1.1",
     "tailwind-config-viewer": "1.7.2",
