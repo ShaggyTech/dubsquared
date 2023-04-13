@@ -24,8 +24,8 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.1",
-    "@commitlint/config-conventional": "17.4.4",
+    "@commitlint/cli": "17.6.0",
+    "@commitlint/config-conventional": "17.6.0",
     "@formkit/nuxt": "0.16.4",
     "@formkit/themes": "0.16.4",
     "@headlessui/vue": "1.6.5",
