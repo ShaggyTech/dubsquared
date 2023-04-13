@@ -45,7 +45,7 @@
     "nuxt": "3.3.3",
     "nuxt-windicss": "2.6.0",
     "postcss": "8.4.21",
-    "postcss-loader": "7.1.0",
+    "postcss-loader": "7.2.4",
     "prettier": "2.8.7",
     "sass": "1.60.0",
     "sass-loader": "13.2.2",
