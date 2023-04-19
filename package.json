@@ -58,7 +58,8 @@
     "vue3-marquee": "3.1.2"
   },
   "dependencies": {
-    "@nuxtjs/eslint-module": "4.0.2"
+    "@nuxtjs/eslint-module": "4.0.2",
+    "@vercel/analytics": "1.0.0"
   },
   "lint-staged": {
     "**/*.{js,ts,vue,html,css,scss}": [
