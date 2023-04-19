@@ -1602,6 +1602,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shaggytools/nhtsa-api-wrapper@npm:3.0.2":
+  version: 3.0.2
+  resolution: "@shaggytools/nhtsa-api-wrapper@npm:3.0.2"
+  checksum: 97c27621a1aa4772b169ea426c4b781f57aa4ae096d9cc2353ceede72c0ebd95f765a6f9c143e3c06f51656ea16d09b7ffd6f870e468a2ad8de450c2a2477c79
+  languageName: node
+  linkType: hard
+
 "@sinclair/typebox@npm:^0.25.16":
   version: 0.25.24
   resolution: "@sinclair/typebox@npm:0.25.24"
@@ -3950,6 +3957,7 @@ __metadata:
     "@nuxtjs/eslint-config-typescript": 12.0.0
     "@nuxtjs/eslint-module": 4.0.2
     "@pinia/nuxt": 0.4.8
+    "@shaggytools/nhtsa-api-wrapper": 3.0.2
     "@vueuse/core": 10.0.2
     "@vueuse/motion": v2.0.0-beta.27
     "@vueuse/nuxt": 10.0.2

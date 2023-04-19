@@ -1,4 +1,4 @@
-import { isValidVin as _isValidVin } from '~/utils/isValidVin'
+import { isValidVin as _isValidVin } from '@shaggytools/nhtsa-api-wrapper'
 
 export const useVehiclesApi = () => {
   const isValidVin = ({ value }: { value: string }) => _isValidVin(value)

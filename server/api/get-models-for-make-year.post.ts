@@ -1,13 +1,13 @@
-import type { GetModelsForMakeYearResponse } from '~/types/nhtsa'
+import { GetModelsForMakeYear } from '@shaggytools/nhtsa-api-wrapper'
 
 export default defineEventHandler(
   async (event): Promise<string[] | undefined> => {
     const { make, year }: { make: string; year: string } = await readBody(event)
 
-    const response: GetModelsForMakeYearResponse =
-      await $fetch<GetModelsForMakeYearResponse>(
-        `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`
-      ).catch((error) => error)
+    const response = await GetModelsForMakeYear({
+      make,
+      modelYear: year,
+    })
 
     // if any relevant data is returned, return the array of model ames sorted alphabetically
     if (response.Count)
