@@ -129,23 +129,23 @@ const props = withDefaults(defineProps<Props>(), {
     animation: counter-rotation var(--large-speed) infinite linear;
     transform-origin: 471.37px 183.694px;
   }
+}
 
-  @keyframes rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(359deg);
-    }
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(359deg);
+  }
+}
 
-  @keyframes counter-rotation {
-    from {
-      transform: rotate(359deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
+@keyframes counter-rotation {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 </style>
