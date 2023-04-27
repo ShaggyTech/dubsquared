@@ -1415,6 +1415,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxtjs/plausible@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@nuxtjs/plausible@npm:0.2.0"
+  dependencies:
+    "@nuxt/kit": ^3.0.0
+    defu: ^6.1.1
+    pathe: ^1.0.0
+    plausible-tracker: ^0.3.8
+  checksum: 68143cd45d018bd93d95c7a5a5f1103bee309b23d3c6336131fb26508c24d9524efc2548156c22e51a0f93efb4590e1f0d681a257696541d9bfc2a63babddaf3
+  languageName: node
+  linkType: hard
+
 "@pinia/nuxt@npm:0.4.9":
   version: 0.4.9
   resolution: "@pinia/nuxt@npm:0.4.9"
@@ -3790,7 +3802,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"defu@npm:^6.0.0, defu@npm:^6.1.2":
+"defu@npm:^6.0.0, defu@npm:^6.1.1, defu@npm:^6.1.2":
   version: 6.1.2
   resolution: "defu@npm:6.1.2"
   checksum: 2ec0ff8414d5a1ab2b8c7e9a79bbad6d97d23ea7ebf5dcf80c3c7ffd9715c30f84a3cc47b917379ea756b3db0dc4701ce6400e493a1ae1688dffcd0f884233b2
@@ -3963,6 +3975,7 @@ __metadata:
     "@kevinmarrec/nuxt-pwa": 0.17.0
     "@nuxtjs/eslint-config-typescript": 12.0.0
     "@nuxtjs/eslint-module": 4.0.2
+    "@nuxtjs/plausible": 0.2.0
     "@pinia/nuxt": 0.4.9
     "@shaggytools/nhtsa-api-wrapper": 3.0.2
     "@vercel/analytics": 1.0.0
@@ -8146,6 +8159,13 @@ __metadata:
     mlly: ^1.1.1
     pathe: ^1.1.0
   checksum: 2d0a70c1721c2ebbe075b912531a4f43136e6658fdcc59dc76c39966201ab5ddf265868d1211943183406d4b70d373c17e3b176487bc2020ea737d030b0fd080
+  languageName: node
+  linkType: hard
+
+"plausible-tracker@npm:^0.3.8":
+  version: 0.3.8
+  resolution: "plausible-tracker@npm:0.3.8"
+  checksum: 066dd51586922fabbd70e4cfdeff77356669bf57852cd3cbc00d813938ed6637669ee615a1d7b865090550de61fc58bffb6e7c3e6d99f361ec7312d316033194
   languageName: node
   linkType: hard
 
