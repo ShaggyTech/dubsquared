@@ -53,10 +53,14 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     'unplugin-icons/nuxt',
     '~/modules/sitemap',
+    '@nuxtjs/plausible',
   ],
   build: {
     transpile: ['@headlessui/vue'],
   },
+  // plausible: {
+  //   domain: 'dubsquared.com',
+  // },
   pwa: {
     meta: {
       // nativeUI: false,
