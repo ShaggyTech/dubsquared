@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     'unplugin-icons/nuxt',
     '~/modules/sitemap',
-    '@nuxtjs/plausible',
+    // '@nuxtjs/plausible',
   ],
   build: {
     transpile: ['@headlessui/vue'],

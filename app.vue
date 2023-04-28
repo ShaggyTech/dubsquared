@@ -35,6 +35,11 @@ const routeCanonical = computed(() => {
       <Link rel="stylesheet" :href="appFontsURL" defer="true" />
       <Link rel="icon" type="image/png" href="/favicon.png" />
       <Link v-if="routeCanonical" rel="canonical" :href="routeCanonical" />
+      <Script
+        src="/stats/js/script.js"
+        data-api="/stats/api/event"
+        data-domain="dubsquared.com"
+      ></Script>
     </Head>
     <Body
       class="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-nunito antialiased duration-300 transition-colors"
