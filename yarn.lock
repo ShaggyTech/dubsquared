@@ -947,7 +947,7 @@
     unimport "^3.0.6"
     untyped "^1.3.2"
 
-"@nuxt/kit@^3.0.0", "@nuxt/kit@^3.1.1", "@nuxt/kit@^3.2.3", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.1":
+"@nuxt/kit@^3.0.0", "@nuxt/kit@^3.1.1", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.1", "@nuxt/kit@^3.5.0":
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.5.2.tgz#ebcb1ee9cd66934f9845b04460201a81c9340ea2"
   integrity sha512-DwmJFJbzbg5T/Qcf5ruiHBfWuLIasTakIeifKS+pqS+VhZDoUW0O7jHm6jESQ5reAbde+L+IH6bXN/y07ivkRA==
@@ -1117,13 +1117,15 @@
     eslint-plugin-vue "^9.7.0"
     local-pkg "^0.4.2"
 
-"@nuxtjs/eslint-module@4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-module/-/eslint-module-4.0.2.tgz#5d4d83d39e8d34a0b3adfef175e0adddaed35c7b"
-  integrity sha512-Lss37KjO9EZwlrxHcvXWiLZnd/kvw40htqhwKJiA8/IwuVWAFJ6Tu5Hl8iz2V0BN4RU1DIaS1ULQOQycndu3dw==
+"@nuxtjs/eslint-module@4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/eslint-module/-/eslint-module-4.1.0.tgz#646b7ac6c7950e9aa778b5ba6b0a88f9dea2f1e6"
+  integrity sha512-lW9ozEjOrnU8Uot3GOAZ/0ThNAds0d6UAp9n46TNxcTvH/MOcAggGbMNs16c0HYT2HlyPQvXORCHQ5+9p87mmw==
   dependencies:
-    "@nuxt/kit" "^3.2.3"
-    eslint-webpack-plugin "^4.0.0"
+    "@nuxt/kit" "^3.5.0"
+    chokidar "^3.5.3"
+    eslint-webpack-plugin "^4.0.1"
+    pathe "^1.1.0"
     vite-plugin-eslint "^1.8.1"
 
 "@pinia/nuxt@0.4.9":
@@ -3402,7 +3404,7 @@ eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4.0, eslint-visitor-keys@^3.4
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.1.tgz#c22c48f48942d08ca824cc526211ae400478a994"
   integrity sha512-pZnmmLwYzf+kWaM/Qgrvpen51upAktaaiI01nsJD/Yr3lMOdNtq0cxkrrg16w64VtisN6okbs7Q8AfGqj4c9fA==
 
-eslint-webpack-plugin@^4.0.0:
+eslint-webpack-plugin@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/eslint-webpack-plugin/-/eslint-webpack-plugin-4.0.1.tgz#f0f0e9afff2801d8bd41eac88e5409821ecbaccb"
   integrity sha512-fUFcXpui/FftGx3NzvWgLZXlLbu+m74sUxGEgxgoxYcUtkIQbS6SdNNZkS99m5ycb23TfoNYrDpp1k/CK5j6Hw==
