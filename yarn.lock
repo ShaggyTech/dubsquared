@@ -1237,10 +1237,10 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@shaggytools/nhtsa-api-wrapper@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@shaggytools/nhtsa-api-wrapper/-/nhtsa-api-wrapper-3.0.2.tgz#7cfe58da48ed21253cc63f0c5e15da12ea60eaa6"
-  integrity sha512-/kbOYreyDnvQEED0mHE4y3ofCIkfUGEdtlCzZHkTc2VeKLZMSn+ZQuycuH5w0lG4Ooag03mGvj+jk7rM6FFTgw==
+"@shaggytools/nhtsa-api-wrapper@3.0.4":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@shaggytools/nhtsa-api-wrapper/-/nhtsa-api-wrapper-3.0.4.tgz#291d13334bffb6fed123d71c277601480ba2e5b8"
+  integrity sha512-fRDKMK+Wl27qk45Rfg5w4BhS62ubxcnBEHE+WFmIo5Dnl4f3Q89EvLDIwC8RUQpPYBaaW5L43I2U6BXpN4RbDw==
 
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"
