@@ -26,7 +26,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.6.1",
     "@commitlint/config-conventional": "17.6.1",
-    "@formkit/nuxt": "0.16.5",
+    "@formkit/nuxt": "0.19.3",
     "@formkit/themes": "0.16.5",
     "@headlessui/vue": "1.7.14",
     "@iconify/json": "2.2.73",
