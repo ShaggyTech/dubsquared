@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Vue3Marquee } from 'vue3-marquee'
-import 'vue3-marquee/dist/style.css'
 
 const logo = {
   height: 40,
