@@ -34,33 +34,25 @@ export default defineNuxtConfig({
   modules: [
     '@formkit/nuxt',
     '@kevinmarrec/nuxt-pwa',
-    // '@nuxtjs/eslint-module',
-    // '@nuxtjs/svg',
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: [
-          'acceptHMRUpdate',
-          'defineStore',
-          'getActivePinia',
-          'skipHydrate',
-          'storeToRefs',
-        ],
-      },
-    ],
+    '@pinia/nuxt',
     '@vueuse/nuxt',
     '@vueuse/motion/nuxt',
     'nuxt-windicss',
     'unplugin-icons/nuxt',
+    'nuxt-gtag',
     '~/modules/sitemap',
-    // '@nuxtjs/plausible',
   ],
+  app: {
+    head: {
+      script: [{ src: '/stats/js/script.js', defer: true, 'data-api': '/stats/api/event', 'data-domain': 'dubsquared.com' }],
+    },
+  },
   build: {
     transpile: ['@headlessui/vue'],
   },
-  // plausible: {
-  //   domain: 'dubsquared.com',
-  // },
+  gtag: {
+    id: 'G-WMN6B7B8LQ'
+  },
   pwa: {
     meta: {
       // nativeUI: false,
