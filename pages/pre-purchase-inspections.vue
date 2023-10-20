@@ -48,7 +48,7 @@ export default { name: 'PagesPrePurchaseInspections' }
             We offer pre-purchase inspections that provide you with a full and
             unbiased overview of the vehicle's condition + any needed repairs.
             Dubsquared offers this service for a flat fee of
-            <span class="font-bold text-green-500">$130</span>.
+            <span class="font-bold text-green-500">$135</span>.
           </p>
           <p>
             You'll receive a full report with pictures, notes on what was found,

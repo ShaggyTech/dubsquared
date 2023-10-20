@@ -68,10 +68,9 @@ export default { name: 'NavbarMenuDropdown' }
 </script>
 
 <template>
-  <Menu as="div" :class="selectedRootStyle">
+  <Menu v-slot="{ close }" as="div" :class="selectedRootStyle">
     <MenuButton
       :id="`${text}-dropdown-menu-btn`"
-      :aria-controls="`${text}-dropdown-menu`"
       :class="`${selectedMenuButtonStyle}`"
     >
       <slot name="icon"></slot>
@@ -102,6 +101,7 @@ export default { name: 'NavbarMenuDropdown' }
       <MenuItems
         :id="`${text}-dropdown-menu`"
         :class="`${selectedMenuItemsStyle}`"
+        @click.prevent="close"
       >
         <MenuItem v-if="to" v-slot="{ active }">
           <NuxtLink
