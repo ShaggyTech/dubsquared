@@ -1,3 +1,4 @@
+import { skipHydrate } from 'pinia'
 import type { ITheme, IThemeOptions } from '~/types'
 
 export type AvailableThemes = {

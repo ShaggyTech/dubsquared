@@ -15,7 +15,7 @@ export default <RouterConfig>{
 
     // if link is to same page - close mobile nav then scroll to top
     if (to === from) {
-      const { toggleMobileNav } = useNavbarStore(getActivePinia())
+      const { toggleMobileNav } = useNavbarStore(usePinia())
       toggleMobileNav(false)
 
       return {

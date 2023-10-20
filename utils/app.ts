@@ -12,7 +12,7 @@ import { useThemeStore } from '~/stores/theme'
  * ```
  */
 export function AppSetup() {
-  const pinia = getActivePinia()
+  const pinia = usePinia()
 
   // initialize stores
   const appStore = useAppStore(pinia)
