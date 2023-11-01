@@ -52,7 +52,7 @@
     "sass": "1.69.4",
     "sass-loader": "13.3.2",
     "sitemap": "7.1.1",
-    "tailwind-config-viewer": "1.7.2",
+    "tailwind-config-viewer": "1.7.3",
     "typescript": "5.2.2",
     "unplugin-icons": "0.17.1",
     "unplugin-vue-components": "0.25.2",
