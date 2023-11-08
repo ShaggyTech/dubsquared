@@ -49,7 +49,7 @@
     "postcss": "8.4.31",
     "postcss-loader": "7.3.3",
     "prettier": "3.0.3",
-    "sass": "1.69.4",
+    "sass": "1.69.5",
     "sass-loader": "13.3.2",
     "sitemap": "7.1.1",
     "tailwind-config-viewer": "1.7.3",
