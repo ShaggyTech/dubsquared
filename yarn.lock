@@ -439,15 +439,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@commitlint/cli@npm:18.0.0"
+"@commitlint/cli@npm:18.2.0":
+  version: 18.2.0
+  resolution: "@commitlint/cli@npm:18.2.0"
   dependencies:
-    "@commitlint/format": ^18.0.0
-    "@commitlint/lint": ^18.0.0
-    "@commitlint/load": ^18.0.0
-    "@commitlint/read": ^18.0.0
-    "@commitlint/types": ^18.0.0
+    "@commitlint/format": ^18.1.0
+    "@commitlint/lint": ^18.1.0
+    "@commitlint/load": ^18.2.0
+    "@commitlint/read": ^18.1.0
+    "@commitlint/types": ^18.1.0
     execa: ^5.0.0
     lodash.isfunction: ^3.0.9
     resolve-from: 5.0.0
@@ -455,16 +455,16 @@ __metadata:
     yargs: ^17.0.0
   bin:
     commitlint: cli.js
-  checksum: cd3590bcdaae9b68017878f6180c9715c7ca91c3ba35c9100d48e390bf23585f2ef7a46a3bf9b4125c80c2e417ec4727a266add8bc4d46a4ab84c7e730bb09e6
+  checksum: 0bb2ec1fa0474e22162bfee896f97db13ec1e1dae29885f9ce25cdffb583984f2013c3b7930c8404ffccb1570b60580a0549943e5e93f1e2ddb14f2c5fbd8f74
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:18.0.0":
-  version: 18.0.0
-  resolution: "@commitlint/config-conventional@npm:18.0.0"
+"@commitlint/config-conventional@npm:18.1.0":
+  version: 18.1.0
+  resolution: "@commitlint/config-conventional@npm:18.1.0"
   dependencies:
     conventional-changelog-conventionalcommits: ^7.0.2
-  checksum: 24bc2e37335cbc0eb8e56b0981ad05322d4c58737764d1029f25733444595317963dab5f4bffdddccc0a1d910ad7dc604b2bb9963cf458c652015ece35d5b255
+  checksum: 1cbb05b52f8e288c977e08453b8add7c3d2802b2c9ec3cbb65cca38ea5e6ebe56a276c0eb5bc81b0d1630ca839ce106b71428f31d6db796860bc63c317250bba
   languageName: node
   linkType: hard
 
@@ -499,7 +499,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/format@npm:^18.0.0":
+"@commitlint/format@npm:^18.1.0":
   version: 18.1.0
   resolution: "@commitlint/format@npm:18.1.0"
   dependencies:
@@ -519,7 +519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/lint@npm:^18.0.0":
+"@commitlint/lint@npm:^18.1.0":
   version: 18.1.0
   resolution: "@commitlint/lint@npm:18.1.0"
   dependencies:
@@ -531,7 +531,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:^18.0.0":
+"@commitlint/load@npm:^18.2.0":
   version: 18.2.0
   resolution: "@commitlint/load@npm:18.2.0"
   dependencies:
@@ -569,7 +569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/read@npm:^18.0.0":
+"@commitlint/read@npm:^18.1.0":
   version: 18.1.0
   resolution: "@commitlint/read@npm:18.1.0"
   dependencies:
@@ -625,7 +625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/types@npm:^18.0.0, @commitlint/types@npm:^18.1.0":
+"@commitlint/types@npm:^18.1.0":
   version: 18.1.0
   resolution: "@commitlint/types@npm:18.1.0"
   dependencies:
@@ -960,7 +960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^2.1.2":
+"@eslint/eslintrc@npm:^2.1.3":
   version: 2.1.3
   resolution: "@eslint/eslintrc@npm:2.1.3"
   dependencies:
@@ -977,10 +977,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.51.0":
-  version: 8.51.0
-  resolution: "@eslint/js@npm:8.51.0"
-  checksum: 0228bf1e1e0414843e56d9ff362a2a72d579c078f93174666f29315690e9e30a8633ad72c923297f7fd7182381b5a476805ff04dac8debe638953eb1ded3ac73
+"@eslint/js@npm:8.53.0":
+  version: 8.53.0
+  resolution: "@eslint/js@npm:8.53.0"
+  checksum: e0d5cfb0000aaee237c8e6d6d6e366faa60b1ef7f928ce17778373aa44d3b886368f6d5e1f97f913f0f16801aad016db8b8df78418c9d18825c15590328028af
   languageName: node
   linkType: hard
 
@@ -1133,7 +1133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.11.11":
+"@humanwhocodes/config-array@npm:^0.11.13":
   version: 0.11.13
   resolution: "@humanwhocodes/config-array@npm:0.11.13"
   dependencies:
@@ -1158,13 +1158,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/json@npm:2.2.131":
-  version: 2.2.131
-  resolution: "@iconify/json@npm:2.2.131"
+"@iconify/json@npm:2.2.139":
+  version: 2.2.139
+  resolution: "@iconify/json@npm:2.2.139"
   dependencies:
     "@iconify/types": "*"
     pathe: ^1.1.0
-  checksum: b775a8e7ee454858fc67bd388b13268868847d62f70ed1154f7030a40e8c5c3b58f434f3cd95dff4e99a9cf1cf1b35070645da988da67eb209f0249e52e71b54
+  checksum: 08596f53f479de6fbead4f2ad269b3b20cb34d9fbe8891bee5c76fa1b993440f446185859c9b8aafe5f6ddcd75eeaa660f6d7bc6f6f4b16321d0119d84fb9d30
   languageName: node
   linkType: hard
 
@@ -1296,16 +1296,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@koa/router@npm:^9.0.1":
-  version: 9.4.0
-  resolution: "@koa/router@npm:9.4.0"
+"@koa/router@npm:^12.0.1":
+  version: 12.0.1
+  resolution: "@koa/router@npm:12.0.1"
   dependencies:
-    debug: ^4.1.1
-    http-errors: ^1.7.3
+    debug: ^4.3.4
+    http-errors: ^2.0.0
     koa-compose: ^4.1.0
     methods: ^1.1.2
-    path-to-regexp: ^6.1.0
-  checksum: 80712e72e466f71ea118ab206ad54f4b341797728c04e556f00af939303d5da4459375440500bc360de77995794401459a23ec3a3f9c321386ef7c184643e39b
+    path-to-regexp: ^6.2.1
+  checksum: 4b8d3940cbf898bca86bfe62d5d4633c4e436a537410c801f6ac3f5e804bdd257559439ab94408a22f3bd0f6b25d88859bfb80fe3a6f3954b73f79a6fb04a339
   languageName: node
   linkType: hard
 
@@ -2466,6 +2466,13 @@ __metadata:
     "@typescript-eslint/types": 6.10.0
     eslint-visitor-keys: ^3.4.1
   checksum: 9640bfae41e6109ffba31e68b1720382de0538d021261e2fc9e514c83c703084393c0818ca77ed26b950273e45e593371120281e8d4bbd09cb8c2d46c9fe4f03
+  languageName: node
+  linkType: hard
+
+"@ungap/structured-clone@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@ungap/structured-clone@npm:1.2.0"
+  checksum: 4f656b7b4672f2ce6e272f2427d8b0824ed11546a601d8d5412b9d7704e83db38a8d9f402ecdf2b9063fc164af842ad0ec4a55819f621ed7e7ea4d1efcc74524
   languageName: node
   linkType: hard
 
@@ -4546,12 +4553,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dubsquared.com@workspace:."
   dependencies:
-    "@commitlint/cli": 18.0.0
-    "@commitlint/config-conventional": 18.0.0
+    "@commitlint/cli": 18.2.0
+    "@commitlint/config-conventional": 18.1.0
     "@formkit/nuxt": 1.2.2
     "@formkit/themes": 1.2.2
     "@headlessui/vue": 1.7.16
-    "@iconify/json": 2.2.131
+    "@iconify/json": 2.2.139
     "@kevinmarrec/nuxt-pwa": 0.17.0
     "@nuxtjs/eslint-config-typescript": 12.1.0
     "@nuxtjs/eslint-module": 4.1.0
@@ -4561,7 +4568,7 @@ __metadata:
     "@vueuse/core": 10.5.0
     "@vueuse/motion": 2.0.0
     "@vueuse/nuxt": 10.5.0
-    eslint: 8.51.0
+    eslint: 8.53.0
     eslint-config-prettier: 9.0.0
     eslint-plugin-nuxt: 4.0.0
     eslint-plugin-prettier: 5.0.1
@@ -4573,12 +4580,12 @@ __metadata:
     postcss: 8.4.31
     postcss-loader: 7.3.3
     prettier: 3.0.3
-    sass: 1.69.4
+    sass: 1.69.5
     sass-loader: 13.3.2
     sitemap: 7.1.1
-    tailwind-config-viewer: 1.7.2
+    tailwind-config-viewer: 1.7.3
     typescript: 5.2.2
-    unplugin-icons: 0.17.1
+    unplugin-icons: 0.17.3
     unplugin-vue-components: 0.25.2
     vue3-marquee: 4.1.0
   languageName: unknown
@@ -5290,17 +5297,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.51.0":
-  version: 8.51.0
-  resolution: "eslint@npm:8.51.0"
+"eslint@npm:8.53.0":
+  version: 8.53.0
+  resolution: "eslint@npm:8.53.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.6.1
-    "@eslint/eslintrc": ^2.1.2
-    "@eslint/js": 8.51.0
-    "@humanwhocodes/config-array": ^0.11.11
+    "@eslint/eslintrc": ^2.1.3
+    "@eslint/js": 8.53.0
+    "@humanwhocodes/config-array": ^0.11.13
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
+    "@ungap/structured-clone": ^1.2.0
     ajv: ^6.12.4
     chalk: ^4.0.0
     cross-spawn: ^7.0.2
@@ -5333,7 +5341,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: 214fa5d1fcb67af1b8992ce9584ccd85e1aa7a482f8b8ea5b96edc28fa838a18a3b69456db45fc1ed3ef95f1e9efa9714f737292dc681e572d471d02fda9649c
+  checksum: 2da808655c7aa4b33f8970ba30d96b453c3071cc4d6cd60d367163430677e32ff186b65270816b662d29139283138bff81f28dddeb2e73265495245a316ed02c
   languageName: node
   linkType: hard
 
@@ -6285,7 +6293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-errors@npm:2.0.0":
+"http-errors@npm:2.0.0, http-errors@npm:^2.0.0":
   version: 2.0.0
   resolution: "http-errors@npm:2.0.0"
   dependencies:
@@ -7165,7 +7173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa@npm:^2.12.0":
+"koa@npm:^2.14.2":
   version: 2.14.2
   resolution: "koa@npm:2.14.2"
   dependencies:
@@ -8912,7 +8920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-to-regexp@npm:^6.1.0":
+"path-to-regexp@npm:^6.2.1":
   version: 6.2.1
   resolution: "path-to-regexp@npm:6.2.1"
   checksum: f0227af8284ea13300f4293ba111e3635142f976d4197f14d5ad1f124aebd9118783dd2e5f1fe16f7273743cc3dbeddfb7493f237bb27c10fdae07020cc9b698
@@ -10008,16 +10016,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.69.4":
-  version: 1.69.4
-  resolution: "sass@npm:1.69.4"
+"sass@npm:1.69.5":
+  version: 1.69.5
+  resolution: "sass@npm:1.69.5"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: ed5558445b59dfa711e094f804e4a360544dd916c069ee211e1c687446146721d91d4304f33fe5df3966a10de96eba43369beb2e14f0881c285424e5e44cf360
+  checksum: c66f4f02882e7aa7aa49703824dadbb5a174dcd05e3cd96f17f73687889aab6027d078b518e2c04b594dfd89b2f574824bf935c7aee46c770aa6be9aafcc49f2
   languageName: node
   linkType: hard
 
@@ -10770,14 +10778,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-config-viewer@npm:1.7.2":
-  version: 1.7.2
-  resolution: "tailwind-config-viewer@npm:1.7.2"
+"tailwind-config-viewer@npm:1.7.3":
+  version: 1.7.3
+  resolution: "tailwind-config-viewer@npm:1.7.3"
   dependencies:
-    "@koa/router": ^9.0.1
+    "@koa/router": ^12.0.1
     commander: ^6.0.0
     fs-extra: ^9.0.1
-    koa: ^2.12.0
+    koa: ^2.14.2
     koa-static: ^5.0.0
     open: ^7.0.4
     portfinder: ^1.0.26
@@ -10787,7 +10795,7 @@ __metadata:
   bin:
     tailwind-config-viewer: cli/index.js
     tailwindcss-config-viewer: cli/index.js
-  checksum: c1d5cdee07d1d97ad0a5c958b67ab786908e2d1a2290bc52714f4e02fd7a3f3315352721f05f010956f65400bd37a3d318f9b0930c91b3f93436336c543e195e
+  checksum: a6a5c5ab341d9d57066f9024d67f564e55a83b60de983a55ada4e1746f6f3b3257fae8b1301d9c81e0bd9e3a6f9b200617c1fbcfe81c6716c2ece1af87a48d4f
   languageName: node
   linkType: hard
 
@@ -11322,9 +11330,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-icons@npm:0.17.1":
-  version: 0.17.1
-  resolution: "unplugin-icons@npm:0.17.1"
+"unplugin-icons@npm:0.17.3":
+  version: 0.17.3
+  resolution: "unplugin-icons@npm:0.17.3"
   dependencies:
     "@antfu/install-pkg": ^0.1.1
     "@antfu/utils": ^0.7.6
@@ -11350,7 +11358,7 @@ __metadata:
       optional: true
     vue-template-es2015-compiler:
       optional: true
-  checksum: 594f9aadc2ec7247474de2747faa0fad6c565210c1d848a4dcfce785c0403d1ebdf4ec907f8ab443d9ab40bf04dff99ac9a88f7e51262138a6ae0f891339c712
+  checksum: 0a62e03464c288d8bc711fa2d5062afe470f9390e78b3d9615bf7e9246833550d96f54809e118406a8d9e83b2571327c44ceff777108ebd959c185d899f78183
   languageName: node
   linkType: hard
 
