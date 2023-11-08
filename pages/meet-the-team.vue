@@ -159,29 +159,6 @@ export default { name: 'PagesMeetTheTeam' }
                   alt: 'Photo of team member Brandon Eichler',
                 }"
               />
-              <TeamMemberCard
-                name="Bryan Heftler"
-                title="Customer Service Specialist"
-                email="bryan@dubsquared.com"
-                :biography="[
-                  {
-                    icon: IconMdiTimelineClock,
-                    iconClass: 'text-blue-600',
-                    text: 'Lifelong Audi/VW Enthusiast',
-                  },
-                  {
-                    icon: IconMakiRacetrack,
-                    iconClass: 'text-red-800',
-                    text: 'Aftermarket Specialist',
-                  },
-                ]"
-                observer-key="team-member-bryan-h"
-                :image="{
-                  path: 'images/dubsquared-headshot-bryan.webp',
-                  cloudinaryId: 'bizjxw',
-                  alt: 'Photo of team member Bryan Heftler',
-                }"
-              />
             </div>
           </div>
         </div>
