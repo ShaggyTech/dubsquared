@@ -42,7 +42,7 @@
     "eslint-plugin-nuxt": "4.0.0",
     "eslint-plugin-prettier": "5.0.1",
     "husky": "8.0.3",
-    "lint-staged": "15.0.2",
+    "lint-staged": "15.2.2",
     "nuxt": "^3.8.1",
     "nuxt-gtag": "1.1.1",
     "nuxt-windicss": "2.6.1",
