@@ -27,7 +27,7 @@
     "@commitlint/cli": "18.2.0",
     "@commitlint/config-conventional": "18.1.0",
     "@formkit/nuxt": "1.2.2",
-    "@formkit/themes": "1.2.2",
+    "@formkit/themes": "1.6.1",
     "@headlessui/vue": "1.7.16",
     "@iconify/json": "2.2.139",
     "@kevinmarrec/nuxt-pwa": "0.17.0",
